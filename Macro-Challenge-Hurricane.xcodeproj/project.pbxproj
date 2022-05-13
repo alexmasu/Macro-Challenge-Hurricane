@@ -11,7 +11,6 @@
 		7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F621F0B282E46C2007FE06B /* ContentView.swift */; };
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
-		7F621F19282E52F8007FE06B /* .gitignore.md in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F18282E52F8007FE06B /* .gitignore.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +19,6 @@
 		7F621F0B282E46C2007FE06B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7F621F18282E52F8007FE06B /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +71,6 @@
 		7F621F17282E5291007FE06B /* Git */ = {
 			isa = PBXGroup;
 			children = (
-				7F621F18282E52F8007FE06B /* .gitignore.md */,
 			);
 			path = Git;
 			sourceTree = "<group>";
@@ -137,7 +134,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */,
-				7F621F19282E52F8007FE06B /* .gitignore.md in Resources */,
 				7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
