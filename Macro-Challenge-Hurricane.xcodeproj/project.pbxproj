@@ -13,6 +13,8 @@
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
+		963D5A9F2834EBC7008ECEC7 /* LottieTest in Resources */ = {isa = PBXBuildFile; fileRef = 963D5A9D2834EBC7008ECEC7 /* LottieTest */; };
+		963D5AA12834EC61008ECEC7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AA02834EC61008ECEC7 /* LottieView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F621F1A282E54CB007FE06B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		963D5A9D2834EBC7008ECEC7 /* LottieTest */ = {isa = PBXFileReference; lastKnownFileType = folder; path = LottieTest; sourceTree = "<group>"; };
+		963D5AA02834EC61008ECEC7 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 		7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */ = {
 			isa = PBXGroup;
 			children = (
+				963D5A9D2834EBC7008ECEC7 /* LottieTest */,
 				7F621F17282E5291007FE06B /* Git */,
 				7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */,
+				963D5AA02834EC61008ECEC7 /* LottieView.swift */,
 				7F621F0B282E46C2007FE06B /* ContentView.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
@@ -144,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				963D5A9F2834EBC7008ECEC7 /* LottieTest in Resources */,
 				7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */,
 				7F621F1B282E54CB007FE06B /* .gitignore in Resources */,
 				7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */,
@@ -159,6 +166,7 @@
 			files = (
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,
+				963D5AA12834EC61008ECEC7 /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,16 +1,35 @@
 //
 //  ContentView.swift
-//  Macro-Challenge-Hurricane
+//  Test_JSON
 //
-//  Created by Alessandro Masullo on 13/05/22.
+//  Created by Antonio Emanuele Cutarella on 16/05/22.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var ButtonPressUpdate = true
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            Button(){if ButtonPressUpdate == true {ButtonPressUpdate = false}
+                else {ButtonPressUpdate = true}}
+            label :
+            {
+                LottieView(name: "blender", loopMode: .loop)
+                    .frame(width: 250, height: 250)
+            }
+            
+            Button{
+            } label: {
+                Image(systemName: "pencil")
+                    .dynamicTypeSize(.accessibility5)
+                    .foregroundColor(.black)
+            }
+            .opacity(ButtonPressUpdate ? 0 : 1)
+            .disabled(ButtonPressUpdate)
+        }
     }
 }
 
@@ -19,3 +38,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
