@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F43A6642834ED1C00F8952C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43A6632834ED1B00F8952C /* WebViewController.swift */; };
 		7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */; };
 		7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F621F0B282E46C2007FE06B /* ContentView.swift */; };
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F43A6632834ED1B00F8952C /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro-Challenge-Hurricane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_Challenge_HurricaneApp.swift; sourceTree = "<group>"; };
 		7F621F0B282E46C2007FE06B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				7F621F17282E5291007FE06B /* Git */,
 				7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */,
 				7F621F0B282E46C2007FE06B /* ContentView.swift */,
+				7F43A6632834ED1B00F8952C /* WebViewController.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
 			);
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
+				7F43A6642834ED1C00F8952C /* WebViewController.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
