@@ -70,8 +70,8 @@ struct WebView : UIViewRepresentable {
                         result.append(groups)
                     }
                 }
-                let token = result.first
-                print(token as Any)
+                let token: String = (result.first?.first)!
+                DataManager.standard.setToken(token: token)
                 webView.removeFromSuperview()
             }
         }
