@@ -27,6 +27,11 @@ class TimeManager {
     func saveDate (){
         savedDate = date
     }
+    func reduceStatsAfterOffline(mochi : Mochi) {
+        if mochi.sleeping == false{
+        mochi.hunger = max(0, mochi.hunger - 1 * (timeElapsedsince(date1: savedDate!))/420)
+        }
+    }
       
 }
 
