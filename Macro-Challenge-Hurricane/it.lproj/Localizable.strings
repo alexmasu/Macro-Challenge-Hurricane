@@ -1,0 +1,122 @@
+/* 
+  Localizable.strings
+  Macro-Challenge-Hurricane
+
+  Created by Antonio Emanuele Cutarella on 18/05/22.
+  
+*/
+
+"QuizTheory" = "Teoria";
+
+"QuizTime" = "Quiz Time!";
+
+"QuizNextQuestion" = "Successiva";
+
+"QuizTimeDescription" = "Seleziona la risposta corretta a ciascuna delle seguenti domande.";
+
+"QuizTimeLetsGo" = "Iniziamo!";
+
+"QuizScoreDescriptionA" = "Sei un maestro delle HIG !";
+
+"QuizScoreDescriptionB" = "Lavoro eccellente!";
+
+"QuizScoreDescriptionC" = "Bel lavoro!";
+
+"QuizScoreDescriptionD" = "Continua a lavorare sodo!";
+
+"QuizScoreDescriptionF" = "Andrà meglio la prossima volta!";
+
+"QuizScore" = "Punteggio finale:";
+
+"QuizGrade" = "Voto finale:";
+
+"QuizTimeElapsed" = "Tempo totale: ";
+
+"QuizSeconds" = " secondi";
+
+"QuizRestart" = "Ripeti quiz";
+
+"Question" = "Domanda ";
+
+"Question1" = "Quando e come è preferibile usare i controlli di pagina ?";
+
+"Question2" = "Quando è preferibile usare le barre di avanzamento ?";
+
+"Question3" = "Come configurare i bottoni di sistema ?";
+
+"Question4" = "Come utilizzare un action sheet ?";
+
+"Question5" = "Come rendere un testo sempre leggibile ?";
+
+"Question6" = "Cosa si intende per integrità estetica ?";
+
+"Question7" = "Quante schede è meglio , generalmente, inserire in una Tab Bar?";
+
+"Question8" = "In un menu contestuale come si rafforza il significato di un comando?";
+
+"Question9" = "Perché le metafore, in UI/UX sono molto importanti?";
+
+"Question10" = "Perché limitare il numero di controlli segmentati?";
+
+"Answer1_1" = "Quando lo scrolling è troppo lungo ,dando la possibilità all’utente di poter scegliere";
+
+"Answer1_2" = "Quando lo scrolling è lungo ,come unica possibilità";
+
+"Answer1_3" = "Si può sempre usare ed è sempre la scelta migliore";
+
+"Answer1_4" = "SIIIIUUUM";
+
+"Answer2_1" = "Per attività quantificabili, se si ha una durata definita";
+
+"Answer2_2" = "Per far sembrare l’app più occupata";
+
+"Answer2_3" = "Mai, è meglio usare un indicatore di attività";
+
+"Answer3_1" = "I bottoni di sistema hanno uno stile di default non modificabile";
+
+"Answer3_2" = "È obbligatorio inserire immagini o sottotitoli ";
+
+"Answer3_3" = "È possibile aggiungere simboli, sottotitoli e riempire i bottoni per migliorare la UX";
+
+"Answer4_1" = "Per dare scelte relative all’azione ,fornendo un tasto annulla in alto a sinistra ";
+
+"Answer4_2" = "Dare molte alternative per renderlo più preciso ed efficace";
+
+"Answer4_3" = "Per fornire elementi non legati all’azione eseguita";
+
+"Answer5_1" = "Usare una scrittura grande in modo che sia sempre ben leggibile";
+
+"Answer5_2" = "Usare un tipo dinamico e testare con le condizione di accessibilità abilitate";
+
+"Answer5_3" = "Usare il grassetto";
+
+"Answer6_1" = "Eliminare la gerarchia";
+
+"Answer6_2" = "Indica la necessità di dover usare sempre lo stesso colore e lo stesso font";
+
+"Answer6_3" = "Indica il modo in cui la funzione dell’app e la sua struttura sono collegate";
+
+"Answer7_1" = "Poche schede in modo da avere categorie ampie ";
+
+"Answer7_2" = "Molte schede in modo da essere specifici ";
+
+"Answer7_3" = "Un numero che consenta specifica e non appesantisca l’interfaccia ";
+
+"Answer8_1" = "Usando un colore diverso";
+
+"Answer8_2" = "Usando un glifo ";
+
+"Answer8_3" = "Usando il grassetto o un font diverso";
+
+"Answer9_1" = "Facilitano l’interazione ";
+
+"Answer9_2" = "Migliorano l’interfaccia";
+
+"Answer9_3" = "Facilitano la comprensione del testo";
+
+"Answer10_1" = "Aumentano il carico cognitivo";
+
+"Answer10_2" = "Per migliorare l’usabilità ";
+
+"Answer10_3" = "Non bisogna mai usarli ";
+
