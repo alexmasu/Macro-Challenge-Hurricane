@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48EE65A52837AC1E00B0D986 /* RhytmGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
 		7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro-Challenge-Hurricane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -63,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48EE65A42837ABE500B0D986 /* RhytmGame */ = {
+			isa = PBXGroup;
+			children = (
+				48EE65A52837AC1E00B0D986 /* RhytmGame.swift */,
+			);
+			name = RhytmGame;
+			path = Quiz/RhytmGame;
+			sourceTree = "<group>";
+		};
 		7F621EFD282E46C2007FE06B = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +95,7 @@
 			children = (
 				963D5ADD2834F859008ECEC7 /* Quiz */,
 				963D5AC02834F2D6008ECEC7 /* LottieTest */,
+				48EE65A42837ABE500B0D986 /* RhytmGame */,
 				7F621F17282E5291007FE06B /* Git */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				965F47FC28377EAD004DA7E3 /* MainView.swift */,
@@ -228,6 +240,7 @@
 				963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */,
 				963D5ACC2834F5F7008ECEC7 /* ContentView.swift in Sources */,
 				963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */,
+				48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */,
 				963D5ADA2834F62D008ECEC7 /* Quiz.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
