@@ -13,6 +13,7 @@
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
 		95FB55ED2837882C0095676E /* Mochi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB55EC2837882C0095676E /* Mochi.swift */; };
+		95FB55EF2837AB3F0095676E /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB55EE2837AB3F0095676E /* TimeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F621F1A282E54CB007FE06B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		95FB55EC2837882C0095676E /* Mochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mochi.swift; sourceTree = "<group>"; };
+		95FB55EE2837AB3F0095676E /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				95FB55EC2837882C0095676E /* Mochi.swift */,
+				95FB55EE2837AB3F0095676E /* TimeManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			files = (
 				95FB55ED2837882C0095676E /* Mochi.swift in Sources */,
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
+				95FB55EF2837AB3F0095676E /* TimeManager.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

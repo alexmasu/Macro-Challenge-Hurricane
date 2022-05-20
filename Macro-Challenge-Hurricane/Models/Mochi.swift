@@ -6,6 +6,8 @@
 //
 
 import Foundation
+
+
 class Mochi{
     var maxHunger : Int
     var maxThirst : Int
@@ -44,4 +46,5 @@ class Mochi{
         bits = Bits
         
     }
+    
 }
