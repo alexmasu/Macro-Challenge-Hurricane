@@ -15,7 +15,7 @@ struct ButtonPlacement: View {
             {
                 Rectangle()
                     .frame(width: 69, height: 69)
-                    .position(x: UIScreen.main.bounds.width*0.12, y: UIScreen.main.bounds.height*0.05)
+                    .position(x: UIScreen.main.bounds.width*0.12, y: UIScreen.main.bounds.height*0.1)
                     .foregroundColor(.blue)
             }
             Button(){}
@@ -23,7 +23,7 @@ struct ButtonPlacement: View {
             {
                 Rectangle()
                     .frame(width: 69, height: 69)
-                    .position(x: UIScreen.main.bounds.width*0.12, y: UIScreen.main.bounds.height*0.85)
+                    .position(x: UIScreen.main.bounds.width*0.12, y: UIScreen.main.bounds.height*0.93)
                     .foregroundColor(.green)
             }
             
@@ -33,7 +33,7 @@ struct ButtonPlacement: View {
             {
                 Rectangle()
                     .frame(width: 69, height: 69)
-                    .position(x: UIScreen.main.bounds.width*0.88, y: UIScreen.main.bounds.height*0.85)
+                    .position(x: UIScreen.main.bounds.width*0.88, y: UIScreen.main.bounds.height*0.93)
                     .foregroundColor(.black)
             }
             
@@ -42,10 +42,10 @@ struct ButtonPlacement: View {
             {
                 Rectangle()
                     .frame(width: 69, height: 69)
-                    .position(x: UIScreen.main.bounds.width*0.88, y: UIScreen.main.bounds.height*0.05)
+                    .position(x: UIScreen.main.bounds.width*0.88, y: UIScreen.main.bounds.height*0.1)
                     .foregroundColor(.gray)
             }
-        }
+        }.ignoresSafeArea()
     }
 }
 
