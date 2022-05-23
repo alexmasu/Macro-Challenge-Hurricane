@@ -2,7 +2,7 @@
 //  TamagotchiMainScene.swift
 //  Macro-Challenge-Hurricane
 //
-//  Created by Giovanni Teresi on 23/05/22.
+//  Created by Antonio Emanuele Cutarella on 23/05/22.
 //
 
 import Foundation
@@ -18,7 +18,6 @@ class TamagotchiMainScene :  SKScene {
     let audiobutton = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let twitchbutton = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let languagebutton = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-//    let cerchio = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.30)
     var settingsOn = false
     
     func colorChange(cosino : SKShapeNode) {
@@ -47,7 +46,7 @@ class TamagotchiMainScene :  SKScene {
         
         twitchbutton.fillColor = UIColor.green
         twitchbutton.strokeColor = UIColor.red
-        twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.16, y: frame.maxY - UIScreen.main.bounds.width * 0.365)
+        twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.154, y: frame.maxY - UIScreen.main.bounds.width * 0.360)
         twitchbutton.name = "twitch"
         
         languagebutton.fillColor = UIColor.green
@@ -55,13 +54,10 @@ class TamagotchiMainScene :  SKScene {
         languagebutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.07, y: frame.maxY - UIScreen.main.bounds.width * 0.465)
         languagebutton.name = "language"
         
-//        cerchio.fillColor = UIColor.white
         setting.fillColor = UIColor.blue
         setting.strokeColor = UIColor.white
         setting.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
         setting.name = "setting"
-//        cerchio.position = setting.position
-//        addChild(cerchio)
         addChild(setting)
         
         
@@ -106,7 +102,7 @@ class TamagotchiMainScene :  SKScene {
                     settingsOn = true
                     
                 }
-                 else if node.name == "setting" && settingsOn == true {
+                else if node.name == "setting" && settingsOn == true {
                     removeChildren(in: [audiobutton, twitchbutton, languagebutton])
                     settingsOn = false
                 }
