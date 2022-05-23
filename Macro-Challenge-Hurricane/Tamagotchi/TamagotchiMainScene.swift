@@ -10,14 +10,26 @@ import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
     
-    let square = SKShapeNode(circleOfRadius: 50)
+    let square = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.2)
+    let setting = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     
+    
+    func colorChange(cosino : SKShapeNode) {
+        cosino.fillColor = UIColor.blue
+        cosino.strokeColor = UIColor.blue
+    }
     
     override func didMove(to view: SKView) {
         square.fillColor = UIColor.red
         square.strokeColor = UIColor.red
-        square.name = "square"
+        square.position = CGPoint(x: frame.midX, y: frame.midY)
+        square.name = "ometto"
         addChild(square)
+        
+        setting.fillColor = UIColor.blue
+        setting.strokeColor = UIColor.white
+        setting.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.15)
+        addChild(setting)
     }
     
     
@@ -31,7 +43,9 @@ class TamagotchiMainScene :  SKScene {
             let touchedNodes = self.nodes(at: location)
             
             for node in touchedNodes {
-                
+                if node.name == "ometto" {
+                    colorChange(cosino: (node as! SKShapeNode ))
+                }
             }
         }
     }
