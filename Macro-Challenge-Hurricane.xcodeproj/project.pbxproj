@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
-		48EE65AB2837B21F00B0D986 /* giffiina.gif in Resources */ = {isa = PBXBuildFile; fileRef = 48EE65AA2837B21F00B0D986 /* giffiina.gif */; };
-		48EE65AF2837B90200B0D986 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65AE2837B90200B0D986 /* GifImage.swift */; };
+		48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */; };
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
@@ -27,14 +26,12 @@
 		963D5ADA2834F62D008ECEC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD52834F62D008ECEC7 /* Quiz.swift */; };
 		963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD42834F62C008ECEC7 /* QuizWelcomeView.swift */; };
 		963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD32834F62C008ECEC7 /* Question.swift */; };
-		965F47FD28377EAD004DA7E3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F47FC28377EAD004DA7E3 /* MainView.swift */; };
 		965F47FF283788B8004DA7E3 /* ButtonPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F47FE283788B8004DA7E3 /* ButtonPlacement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		48EE65A52837AC1E00B0D986 /* RhytmGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
-		48EE65AA2837B21F00B0D986 /* giffiina.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giffiina.gif; sourceTree = "<group>"; };
-		48EE65AE2837B90200B0D986 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
+		48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
 		7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro-Challenge-Hurricane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -53,7 +50,6 @@
 		963D5AD32834F62C008ECEC7 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		963D5AD42834F62C008ECEC7 /* QuizWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWelcomeView.swift; sourceTree = "<group>"; };
 		963D5AD52834F62D008ECEC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
-		965F47FC28377EAD004DA7E3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		965F47FE283788B8004DA7E3 /* ButtonPlacement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPlacement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,9 +77,16 @@
 		48EE65A92837B1DB00B0D986 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				48EE65AA2837B21F00B0D986 /* giffiina.gif */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		48EE65B0283B835600B0D986 /* Tamagotchi */ = {
+			isa = PBXGroup;
+			children = (
+				48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */,
+			);
+			path = Tamagotchi;
 			sourceTree = "<group>";
 		};
 		7F621EFD282E46C2007FE06B = {
@@ -109,14 +112,13 @@
 				963D5ADD2834F859008ECEC7 /* Quiz */,
 				963D5AC02834F2D6008ECEC7 /* LottieTest */,
 				48EE65A42837ABE500B0D986 /* RhytmGame */,
+				48EE65B0283B835600B0D986 /* Tamagotchi */,
 				7F621F17282E5291007FE06B /* Git */,
-				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
-				965F47FC28377EAD004DA7E3 /* MainView.swift */,
 				963D5ACB2834F5F7008ECEC7 /* ContentView.swift */,
 				965F47FE283788B8004DA7E3 /* ButtonPlacement.swift */,
-				48EE65AE2837B90200B0D986 /* GifImage.swift */,
 				963D5AC82834F5E8008ECEC7 /* LottieView.swift */,
 				963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */,
+				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
 				963D5ABA2834EE31008ECEC7 /* Localizable.strings */,
 			);
@@ -231,7 +233,6 @@
 				7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */,
 				7F621F1B282E54CB007FE06B /* .gitignore in Resources */,
 				963D5AC22834F301008ECEC7 /* blender.json in Resources */,
-				48EE65AB2837B21F00B0D986 /* giffiina.gif in Resources */,
 				7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,8 +245,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				965F47FF283788B8004DA7E3 /* ButtonPlacement.swift in Sources */,
+				48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */,
 				963D5AD72834F62D008ECEC7 /* QuizGame.swift in Sources */,
-				965F47FD28377EAD004DA7E3 /* MainView.swift in Sources */,
 				963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */,
 				963D5AD62834F62D008ECEC7 /* ResultsViewModel.swift in Sources */,
 				963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */,
@@ -257,7 +258,6 @@
 				963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */,
 				48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */,
 				963D5ADA2834F62D008ECEC7 /* Quiz.swift in Sources */,
-				48EE65AF2837B90200B0D986 /* GifImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,7 +15,7 @@ struct MainView: View {
         HStack{
 //        Text("ciao")
 //                .position(x: UIScreen.main.bounds.width*0.5, y: UIScreen.main.bounds.height*0.5)
-            GifImage("giffina")
+
             
         }
     }
