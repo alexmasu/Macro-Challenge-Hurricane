@@ -32,6 +32,6 @@ class TimeManager {
         mochi.hunger = max(0, mochi.hunger - 1 * (timeElapsedsince(date1: savedDate!))/420)
         }
     }
-      
+
 }
 
