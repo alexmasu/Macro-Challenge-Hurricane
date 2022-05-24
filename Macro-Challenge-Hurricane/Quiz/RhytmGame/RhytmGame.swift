@@ -16,6 +16,8 @@ class RhytmGame: SKScene {
     let downsx = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.1)
     let downdx = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.1)
     
+    private var note = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 2)
+    
     override func didMove(to view: SKView) {
         
         upsx.name = "upsx"
@@ -47,6 +49,12 @@ class RhytmGame: SKScene {
         downdx.lineWidth = CGFloat(UIScreen.main.bounds.width * 0.01)
         addChild(downdx)
         
+        note.name = "note"
+        note.position = upsx.position
+        note.fillColor = UIColor.clear
+        note.strokeColor = UIColor.orange
+        note.lineWidth = CGFloat(UIScreen.main.bounds.width * 0.01)
+        
     }
     
     
@@ -55,6 +63,17 @@ class RhytmGame: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let touchedNodes = self.nodes(at: location)
+            
+            for node in touchedNodes {
+                if node.name == "upsx" {
+                    
+                }
+            }
+        }
         
     }
     
