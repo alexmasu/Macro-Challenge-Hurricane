@@ -26,6 +26,7 @@ class Mochi{
     var money: Int
     var bits : Int
     var sleeping : Bool
+    var streaming : Bool
     
     init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Followers : Int, Money : Int, Bits :Int){
         
@@ -46,7 +47,7 @@ class Mochi{
         money = Money
         bits = Bits
         sleeping = false
-        
+        streaming = false
     }
     
 }
