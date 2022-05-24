@@ -10,6 +10,7 @@
 		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
 		48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */; };
 		48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B3283B947800B0D986 /* TamagotchiView.swift */; };
+		48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B5283CCEF000B0D986 /* RhytmGameView.swift */; };
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
@@ -34,6 +35,7 @@
 		48EE65A52837AC1E00B0D986 /* RhytmGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
 		48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
 		48EE65B3283B947800B0D986 /* TamagotchiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
+		48EE65B5283CCEF000B0D986 /* RhytmGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGameView.swift; sourceTree = "<group>"; };
 		7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro-Challenge-Hurricane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				48EE65A52837AC1E00B0D986 /* RhytmGame.swift */,
+				48EE65B5283CCEF000B0D986 /* RhytmGameView.swift */,
 			);
 			name = RhytmGame;
 			path = Quiz/RhytmGame;
@@ -254,6 +257,7 @@
 				963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */,
 				963D5AD62834F62D008ECEC7 /* ResultsViewModel.swift in Sources */,
 				963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */,
+				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
 				963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */,
 				963D5AD92834F62D008ECEC7 /* GameViewModel.swift in Sources */,
 				963D5AD82834F62D008ECEC7 /* ResultsView.swift in Sources */,
