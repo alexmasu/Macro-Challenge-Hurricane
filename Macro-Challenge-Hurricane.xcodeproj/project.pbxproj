@@ -27,7 +27,6 @@
 		963D5ADA2834F62D008ECEC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD52834F62D008ECEC7 /* Quiz.swift */; };
 		963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD42834F62C008ECEC7 /* QuizWelcomeView.swift */; };
 		963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD32834F62C008ECEC7 /* Question.swift */; };
-		965F47FF283788B8004DA7E3 /* ButtonPlacement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965F47FE283788B8004DA7E3 /* ButtonPlacement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +51,6 @@
 		963D5AD32834F62C008ECEC7 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		963D5AD42834F62C008ECEC7 /* QuizWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWelcomeView.swift; sourceTree = "<group>"; };
 		963D5AD52834F62D008ECEC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
-		965F47FE283788B8004DA7E3 /* ButtonPlacement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonPlacement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +116,6 @@
 				48EE65B0283B835600B0D986 /* Tamagotchi */,
 				7F621F17282E5291007FE06B /* Git */,
 				963D5ACB2834F5F7008ECEC7 /* ContentView.swift */,
-				965F47FE283788B8004DA7E3 /* ButtonPlacement.swift */,
 				963D5AC82834F5E8008ECEC7 /* LottieView.swift */,
 				963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
@@ -247,7 +244,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				965F47FF283788B8004DA7E3 /* ButtonPlacement.swift in Sources */,
 				48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */,
 				48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */,
 				963D5AD72834F62D008ECEC7 /* QuizGame.swift in Sources */,
@@ -404,6 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
+				DEVELOPMENT_TEAM = 595Y8DW3P5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -432,6 +429,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
+				DEVELOPMENT_TEAM = 595Y8DW3P5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
