@@ -12,10 +12,10 @@
 		48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B3283B947800B0D986 /* TamagotchiView.swift */; };
 		48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B5283CCEF000B0D986 /* RhytmGameView.swift */; };
 		48EE65B8283CEF9300B0D986 /* RGPhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B7283CEF9300B0D986 /* RGPhysicsCategory.swift */; };
-		48EE65BA283E451700B0D986 /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B9283E451700B0D986 /* CGFloat_Ext.swift */; };
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
+		96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
 		963D5AB82834EE31008ECEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 963D5ABA2834EE31008ECEC7 /* Localizable.strings */; };
 		963D5AC22834F301008ECEC7 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 963D5AC12834F301008ECEC7 /* blender.json */; };
@@ -38,11 +38,11 @@
 		48EE65B3283B947800B0D986 /* TamagotchiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
 		48EE65B5283CCEF000B0D986 /* RhytmGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGameView.swift; sourceTree = "<group>"; };
 		48EE65B7283CEF9300B0D986 /* RGPhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGPhysicsCategory.swift; sourceTree = "<group>"; };
-		48EE65B9283E451700B0D986 /* CGFloat_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGFloat_Ext.swift; path = ../../../../CGFloat_Ext.swift; sourceTree = "<group>"; };
 		7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro-Challenge-Hurricane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F621F1A282E54CB007FE06B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat_Ext.swift; sourceTree = "<group>"; };
 		963D5AB92834EE31008ECEC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		963D5ABB2834EE35008ECEC7 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		963D5AC12834F301008ECEC7 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
@@ -76,7 +76,6 @@
 			children = (
 				48EE65A52837AC1E00B0D986 /* RhytmGame.swift */,
 				48EE65B5283CCEF000B0D986 /* RhytmGameView.swift */,
-				48EE65B9283E451700B0D986 /* CGFloat_Ext.swift */,
 				48EE65B7283CEF9300B0D986 /* RGPhysicsCategory.swift */,
 			);
 			name = RhytmGame;
@@ -102,6 +101,7 @@
 		7F621EFD282E46C2007FE06B = {
 			isa = PBXGroup;
 			children = (
+				96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */,
 				7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */,
 				7F621F07282E46C2007FE06B /* Products */,
 			);
@@ -253,10 +253,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48EE65BA283E451700B0D986 /* CGFloat_Ext.swift in Sources */,
-				965F47FF283788B8004DA7E3 /* ButtonPlacement.swift in Sources */,
 				48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */,
 				48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */,
+				96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */,
 				963D5AD72834F62D008ECEC7 /* QuizGame.swift in Sources */,
 				963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */,
 				963D5AD62834F62D008ECEC7 /* ResultsViewModel.swift in Sources */,
