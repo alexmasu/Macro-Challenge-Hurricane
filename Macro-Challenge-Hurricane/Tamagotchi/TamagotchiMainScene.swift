@@ -10,14 +10,19 @@ import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
     
-    let square = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.2)
+    let background = SKSpriteNode(imageNamed: "Background.png")
+    let square = SKSpriteNode(imageNamed: "Ometto.png")
+    let audiobutton = SKSpriteNode(imageNamed: "Sound.png")
+    let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
+    let languagebutton = SKSpriteNode(imageNamed: "Translation.png")
+    let settingsCircle = SKSpriteNode(imageNamed: "SettingsCircle.png")
+    let settingsCircleOval1 = SKSpriteNode(imageNamed: "Ovale.png")
+    let settingsCircleOval2 = SKSpriteNode(imageNamed: "Ovale.png")
+    let settingsCircleOval3 = SKSpriteNode(imageNamed: "Ovale.png")
     let setting = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let inventory = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let shop = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let customization = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-    let audiobutton = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-    let twitchbutton = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-    let languagebutton = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let hunger = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
     let thirst = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
     let cleaning = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
@@ -51,13 +56,13 @@ class TamagotchiMainScene :  SKScene {
                     omettoOn = false
                 }
                 if node.name == "setting" && settingsOn == false {
-                    
+                    spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
                     
                 }
                 else if node.name == "setting" && settingsOn == true {
-                    removeChildren(in: [audiobutton, twitchbutton, languagebutton])
+                    removeChildren(in: [audiobutton, twitchbutton, languagebutton,settingsCircle])
                     settingsOn = false
                 }
             }
@@ -91,10 +96,20 @@ extension TamagotchiMainScene {
         
     }
     
+    func spawnSettingsCircle(){
+        settingsCircle.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.13, y: frame.maxY - UIScreen.main.bounds.width * 0.3)
+        settingsCircle.setScale(1)
+        settingsCircle.name = "circle"
+        addChild(settingsCircle)
+    }
+    
     func spawnButtons(){
         addChild(audiobutton)
+        audiobutton.addChild(settingsCircleOval1)
         addChild(twitchbutton)
+        twitchbutton.addChild(settingsCircleOval2)
         addChild(languagebutton)
+        languagebutton.addChild(settingsCircleOval3)
     }
     
     func spawnCornerButtons() {
@@ -116,6 +131,12 @@ extension TamagotchiMainScene {
         inventory.name = "inventory"
         addChild(inventory)
         
+        let minigames = SKSpriteNode(imageNamed: "minigames.png")
+        minigames.setScale(0.5)
+        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
+        minigames.name = "minigames"
+        addChild(minigames)
+        
         let shop = SKSpriteNode(imageNamed: "shop.png")
         shop.setScale(0.5)
         shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
@@ -126,51 +147,51 @@ extension TamagotchiMainScene {
     func spawnOmettoStats() {
         hunger.fillColor = UIColor.green
         hunger.strokeColor = UIColor.red
-        hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.32, y: square.position.y )
+        hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y )
         hunger.name = "hunger"
         
         thirst.fillColor = UIColor.green
         thirst.strokeColor = UIColor.red
-        thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.27, y: square.position.y + UIScreen.main.bounds.height * 0.09)
+        thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         thirst.name = "thirst"
         
         cleaning.fillColor = UIColor.green
         cleaning.strokeColor = UIColor.red
-        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.1, y: square.position.y + UIScreen.main.bounds.height * 0.14)
+        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         cleaning.name = "cleanliness"
         
         energy.fillColor = UIColor.green
         energy.strokeColor = UIColor.red
-        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.1, y: square.position.y + UIScreen.main.bounds.height * 0.14)
+        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         energy.name = "energy"
         
         happiness.fillColor = UIColor.green
         happiness.strokeColor = UIColor.red
-        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.27, y: square.position.y + UIScreen.main.bounds.height * 0.09)
+        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         happiness.name = "happiness"
         
         health.fillColor = UIColor.green
         health.strokeColor = UIColor.red
-        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.32, y: square.position.y)
+        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y)
         health.name = "health"
         
     }
     
     func spawnSettingButtons() {
-        audiobutton.fillColor = UIColor.green
-        audiobutton.strokeColor = UIColor.red
-        audiobutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.20, y: frame.maxY - UIScreen.main.bounds.width * 0.185)
+        
+        audiobutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
         audiobutton.name = "audio"
+        settingsCircleOval1.position = CGPoint(x: 0, y: 0)
         
-        twitchbutton.fillColor = UIColor.green
-        twitchbutton.strokeColor = UIColor.red
-        twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.154, y: frame.maxY - UIScreen.main.bounds.width * 0.360)
+        
+        
+        twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
         twitchbutton.name = "twitch"
+        settingsCircleOval2.position = CGPoint(x: 0, y: 0)
         
-        languagebutton.fillColor = UIColor.green
-        languagebutton.strokeColor = UIColor.red
-        languagebutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.07, y: frame.maxY - UIScreen.main.bounds.width * 0.465)
+        languagebutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
         languagebutton.name = "language"
+        settingsCircleOval3.position = CGPoint(x: 0, y: 0)
         
     }
     
@@ -179,15 +200,21 @@ extension TamagotchiMainScene {
 // MARK: - Game Scene Setup
 extension TamagotchiMainScene {
     
+    func spawnBackground() {
+        background.position = CGPoint(x: frame.midX,y: frame.midY)
+        background.name = "background"
+        addChild(background)
+    }
+    
     func spawnOmetto() {
-        square.fillColor = UIColor.red
-        square.strokeColor = UIColor.red
-        square.position = CGPoint(x: frame.midX, y: frame.midY)
+        square.setScale(0.95)
+        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.22)
         square.name = "ometto"
         addChild(square)
     }
     
     func setupScene() {
+        spawnBackground()
         spawnOmetto()
         spawnOmettoStats()
         spawnCornerButtons()
