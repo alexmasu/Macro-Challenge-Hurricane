@@ -148,33 +148,21 @@ extension TamagotchiMainScene {
     }
     
     func spawnOmettoStats() {
-//        hunger.fillColor = UIColor.green
-//        hunger.strokeColor = UIColor.red
         hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y )
         hunger.name = "hunger"
         
-//        thirst.fillColor = UIColor.green
-//        thirst.strokeColor = UIColor.red
         thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         thirst.name = "thirst"
         
-//        cleaning.fillColor = UIColor.green
-//        cleaning.strokeColor = UIColor.red
         cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         cleaning.name = "cleanliness"
-        
-//        energy.fillColor = UIColor.green
-//        energy.strokeColor = UIColor.red
+
         energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         energy.name = "energy"
-        
-//        happiness.fillColor = UIColor.green
-//        happiness.strokeColor = UIColor.red
+
         happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         happiness.name = "happiness"
         
-//        health.fillColor = UIColor.green
-//        health.strokeColor = UIColor.red
         health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y)
         health.name = "health"
         
@@ -185,8 +173,6 @@ extension TamagotchiMainScene {
         audiobutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
         audiobutton.name = "audio"
         settingsCircleOval1.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
-        
-        
         
         twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
         twitchbutton.name = "twitch"
