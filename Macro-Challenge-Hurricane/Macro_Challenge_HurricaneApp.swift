@@ -11,7 +11,7 @@ import SwiftUI
 struct Macro_Challenge_HurricaneApp: App {
     var body: some Scene {
         WindowGroup {
-            RhytmGameView()
+            TamagotchiView()
         }
     }
 }
