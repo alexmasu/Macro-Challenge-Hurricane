@@ -208,7 +208,7 @@ extension TamagotchiMainScene {
     
     func spawnOmetto() {
         square.setScale(0.95)
-        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.22)
+        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
         square.name = "ometto"
         addChild(square)
     }
