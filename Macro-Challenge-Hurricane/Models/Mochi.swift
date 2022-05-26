@@ -27,6 +27,21 @@ class Mochi{
     var bits : Int
     var sleeping : Bool
     var streaming : Bool
+    var ill : Bool
+    var pHunger = 0
+    var pThirst = 0
+    var pCleanlyness = 0
+    var pHappyness = 0
+    var pIll = 0
+    var pEnergy = 0
+    var pEnergyGain = 0
+    var nPoop = 0
+    var pPoop = 0
+    var pWake = 0
+    var pHealthHunger = 0
+    var pHealthThirst = 0
+    var pHealthIll = 0
+    
     
     init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Followers : Int, Money : Int, Bits :Int){
         
@@ -48,6 +63,7 @@ class Mochi{
         bits = Bits
         sleeping = false
         streaming = false
+        ill = false
     }
     
 }
