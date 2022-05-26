@@ -62,7 +62,7 @@ class TamagotchiMainScene :  SKScene {
                     
                 }
                 else if node.name == "setting" && settingsOn == true {
-                    removeChildren(in: [audiobutton, twitchbutton, languagebutton,settingsCircle])
+                    removeChildren(in: [audiobutton, twitchbutton, languagebutton,settingsCircle, settingsCircleOval1, settingsCircleOval2, settingsCircleOval3])
                     settingsOn = false
                 }
             }
@@ -104,12 +104,15 @@ extension TamagotchiMainScene {
     }
     
     func spawnButtons(){
+        
+        addChild(settingsCircleOval1)
         addChild(audiobutton)
-        audiobutton.addChild(settingsCircleOval1)
+        
+        addChild(settingsCircleOval2)
         addChild(twitchbutton)
-        twitchbutton.addChild(settingsCircleOval2)
+        
+        addChild(settingsCircleOval3)
         addChild(languagebutton)
-        languagebutton.addChild(settingsCircleOval3)
     }
     
     func spawnCornerButtons() {
@@ -181,17 +184,17 @@ extension TamagotchiMainScene {
         
         audiobutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
         audiobutton.name = "audio"
-        settingsCircleOval1.position = CGPoint(x: 0, y: 0)
+        settingsCircleOval1.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
         
         
         
         twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
         twitchbutton.name = "twitch"
-        settingsCircleOval2.position = CGPoint(x: 0, y: 0)
+        settingsCircleOval2.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
         
         languagebutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
         languagebutton.name = "language"
-        settingsCircleOval3.position = CGPoint(x: 0, y: 0)
+        settingsCircleOval3.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
         
     }
     

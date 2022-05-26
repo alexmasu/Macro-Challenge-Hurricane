@@ -75,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				48EE65A52837AC1E00B0D986 /* RhytmGame.swift */,
+				96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */,
 				48EE65B5283CCEF000B0D986 /* RhytmGameView.swift */,
 				48EE65B7283CEF9300B0D986 /* RGPhysicsCategory.swift */,
 				96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */,
