@@ -247,8 +247,8 @@ extension TamagotchiMainScene {
     }
     
     func setupScene() {
+       
         spawnBackground()
-        
         spawnOmetto()
         spawnOmettoStats()
         spawnSettingButtons()
