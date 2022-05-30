@@ -62,11 +62,15 @@ class TamagotchiMainScene :  SKScene {
                     spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
+                    onoff_sett()
                     
                 }
                 else if node.name == "setting" && settingsOn == true {
-                    removeChildren(in: [audiobutton, twitchbutton, languagebutton,settingsCircle, settingsCircleOval1, settingsCircleOval2, settingsCircleOval3])
+
+                    settfadeOut()
                     settingsOn = false
+                    onoff_sett()
+
                 }
             }
         }
@@ -100,22 +104,23 @@ extension TamagotchiMainScene {
     }
     
     func spawnSettingsCircle(){
-        settingsCircle.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.13, y: frame.maxY - UIScreen.main.bounds.width * 0.3)
-        settingsCircle.setScale(1)
-        settingsCircle.name = "circle"
-        addChild(settingsCircle)
+        
+        fadeInAnim(elem: settingsCircle, time: 0.5)
     }
     
     func spawnButtons(){
         
-        addChild(settingsCircleOval1)
-        addChild(audiobutton)
         
-        addChild(settingsCircleOval2)
-        addChild(twitchbutton)
+        fadeInAnim(elem: settingsCircleOval1, time: 0.5)
+        fadeInAnim(elem: audiobutton, time: 0.5)
         
-        addChild(settingsCircleOval3)
-        addChild(languagebutton)
+        
+        fadeInAnim(elem: settingsCircleOval2, time: 0.5)
+        fadeInAnim(elem: twitchbutton, time: 0.5)
+        
+        
+        fadeInAnim(elem: settingsCircleOval3, time: 0.5)
+        fadeInAnim(elem: languagebutton, time: 0.5)
     }
     
     func spawnCornerButtons() {
@@ -173,18 +178,43 @@ extension TamagotchiMainScene {
     
     func spawnSettingButtons() {
         
-        audiobutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
+        settingsCircle.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.13, y: frame.maxY - UIScreen.main.bounds.width * 0.3)
+        settingsCircle.setScale(1)
+        settingsCircle.name = "circle"
+        settingContainer.isUserInteractionEnabled = false
+        settingContainer.alpha = 0.0
+        settingsCircle.alpha = 0.0
+        settingContainer = SKShapeNode(rectOf: CGSize(width: frame.width, height: frame.height))
+        settingContainer.lineWidth = 0
+        addChild(settingContainer)
+        settingContainer.addChild(settingsCircle)
+        
+//        audiobutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
         audiobutton.name = "audio"
+        audiobutton.alpha = 0.0
         settingsCircleOval1.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
+        settingsCircleOval1.alpha = 0.0
+        settingContainer.addChild(settingsCircleOval1)
+        settingsCircleOval1.addChild((audiobutton))
+
         
-        twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
+//        twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
         twitchbutton.name = "twitch"
+        twitchbutton.alpha = 0.0
         settingsCircleOval2.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
+        settingsCircleOval2.alpha = 0.0
+        settingContainer.addChild(settingsCircleOval2)
+        settingsCircleOval2.addChild(twitchbutton)
+
         
-        languagebutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
+//        languagebutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
         languagebutton.name = "language"
+        languagebutton.alpha = 0.0
         settingsCircleOval3.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
-        
+        settingsCircleOval3.alpha = 0.0
+        settingContainer.addChild(settingsCircleOval3)
+        settingsCircleOval3.addChild(languagebutton)
+
     }
     
 }
@@ -206,11 +236,57 @@ extension TamagotchiMainScene {
     }
     
     func setupScene() {
+       
         spawnBackground()
         spawnOmetto()
         spawnOmettoStats()
-        spawnCornerButtons()
         spawnSettingButtons()
+        spawnCornerButtons()
+        
+    }
+    
+}
+
+// MARK: Elements Animations
+
+extension TamagotchiMainScene {
+    
+    private func fadeInAnim(elem : SKSpriteNode, time : CGFloat) {
+        let comparsa = SKAction.fadeIn(withDuration: time)
+        elem.run(comparsa)
+    }
+    
+    private func fadeOutAnim(elem: SKSpriteNode, time: CGFloat) {
+        let scomparsa = SKAction.fadeOut(withDuration: time)
+        elem.run(scomparsa)
+    }
+    
+}
+
+// MARK: Generic Functions
+
+extension TamagotchiMainScene {
+    
+    private func settfadeOut() {
+        
+        fadeOutAnim(elem: self.audiobutton, time: 1.5)
+        fadeOutAnim(elem: self.settingsCircleOval1, time: 1.5)
+        fadeOutAnim(elem: self.twitchbutton, time: 1.5)
+        fadeOutAnim(elem: self.settingsCircleOval2, time: 1.5)
+        fadeOutAnim(elem: self.languagebutton, time: 1.5)
+        fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
+        fadeOutAnim(elem: self.settingsCircle, time: 1.5)
+
+    }
+    
+    private func onoff_sett() {
+        self.audiobutton.isUserInteractionEnabled = self.settingsOn
+        self.settingsCircleOval1.isUserInteractionEnabled = self.settingsOn
+        self.twitchbutton.isUserInteractionEnabled = self.settingsOn
+        self.settingsCircleOval2.isUserInteractionEnabled = self.settingsOn
+        self.languagebutton.isUserInteractionEnabled = self.settingsOn
+        self.settingsCircleOval3.isUserInteractionEnabled = self.settingsOn
+        self.settingsCircle.isUserInteractionEnabled = self.settingsOn
     }
     
 }
