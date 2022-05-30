@@ -29,6 +29,9 @@ class TamagotchiMainScene :  SKScene {
     let energy = SKSpriteNode(imageNamed: "StaminaGroup.png")
     let happiness = SKSpriteNode(imageNamed: "HappinessGroup.png")
     let health = SKSpriteNode(imageNamed: "HealthGroup.png")
+    
+    var settingContainer = SKShapeNode()
+    
     var settingsOn = false
     var omettoOn = false
     
