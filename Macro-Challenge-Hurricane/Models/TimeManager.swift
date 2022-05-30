@@ -14,19 +14,50 @@ extension Date{
 }
 
 class TimeManager {
-    private init(){
-        savedDate = date
+    
+    var lastSave: Date?
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(lastSave, forKey: "lastSave")
+        coder.encode(savedDates, forKey: "savedDates")
+
     }
-    static let timeManager = TimeManager()
-     var savedDate : Date?
+    
+    internal required convenience init?(coder decoder: NSCoder) {
+        let lastSave = decoder.decodeObject(of: NSDate.self, forKey: "lastSave") as Date?
+        let savedDates = decoder.decodeObject(of: NSArray.self, forKey: "SavedDates") as! [Date]
+
+        self.init()
+        self.lastSave = lastSave
+        self.savedDates = savedDates
+    }
+    
+    
+    private init(){
+        if lastSave == nil {
+            lastSave = Date.now
+        }
+        savedDates = []
+        
+    }
+    static let state = TimeManager()
+     var savedDates : [Date?]
     
     var date : Date {Date.now}
     func timeElapsedsince(date1: Date) -> Int{
-        return Int(savedDate!-date)
+        return Int((lastSave ?? date) - date)
     }
     func saveDate (){
-        savedDate = date
+        lastSave = date
     }
+    func dateAppend (){
+        savedDates.append(date)
+    }
+    
+    func freeSavedDates(){
+        savedDates.removeAll()
+    }
+    
     func AfterOffline(mochi : Mochi) {
         
         var poopInterval : Int
@@ -42,8 +73,8 @@ class TimeManager {
             poopInterval = 10800
         }
         
-        mochi.nPoop = mochi.nPoop + 1 * (timeElapsedsince(date1: savedDate!))/poopInterval
-        mochi.pPoop = mochi.pPoop + (100 * (timeElapsedsince(date1: savedDate!)%poopInterval)) / poopInterval
+        mochi.nPoop = mochi.nPoop + 1 * (timeElapsedsince(date1: lastSave!))/poopInterval
+        mochi.pPoop = mochi.pPoop + (100 * (timeElapsedsince(date1: lastSave!)%poopInterval)) / poopInterval
         if (mochi.pPoop > 99) {
             mochi.pPoop = mochi.pPoop - 100
             mochi.nPoop = mochi.nPoop + 1
@@ -61,8 +92,8 @@ class TimeManager {
             cleanIntervall = 120
         }
         
-        mochi.cleanlyness = max(0, mochi.cleanlyness - 1 * (timeElapsedsince(date1: savedDate!))/cleanIntervall)
-        mochi.pCleanlyness = mochi.pCleanlyness + (100 * (timeElapsedsince(date1: savedDate!)%cleanIntervall) ) / cleanIntervall
+        mochi.cleanlyness = max(0, mochi.cleanlyness - 1 * (timeElapsedsince(date1: lastSave!))/cleanIntervall)
+        mochi.pCleanlyness = mochi.pCleanlyness + (100 * (timeElapsedsince(date1: lastSave!)%cleanIntervall) ) / cleanIntervall
         if (mochi.pCleanlyness > 99) {
             mochi.pCleanlyness = mochi.pCleanlyness - 100
             mochi.cleanlyness = max(0, mochi.cleanlyness - 1)
@@ -83,9 +114,9 @@ class TimeManager {
         }
         var illChecks : Int
         
-        illChecks = (timeElapsedsince(date1: savedDate!))/1800
+        illChecks = (timeElapsedsince(date1: lastSave!))/1800
         
-        mochi.pIll = mochi.pIll + 100 * (timeElapsedsince(date1: savedDate!)%1800) / 1800
+        mochi.pIll = mochi.pIll + 100 * (timeElapsedsince(date1: lastSave!)%1800) / 1800
         if (mochi.pIll > 99) {
             mochi.pIll = mochi.pHunger - 100
             illChecks = illChecks + 1
@@ -101,28 +132,30 @@ class TimeManager {
         }
         
         if mochi.sleeping == false{
-            mochi.hunger = max(0, mochi.hunger - 1 * (timeElapsedsince(date1: savedDate!))/420)
-            mochi.pHunger = mochi.pHunger + (100 * (timeElapsedsince(date1: savedDate!)%420)) / 420
+//            inserire euphoria check
+            mochi.hunger = max(0, mochi.hunger - 1 * (timeElapsedsince(date1: lastSave!))/420)
+            mochi.pHunger = mochi.pHunger + (100 * (timeElapsedsince(date1: lastSave!)%420)) / 420
             if (mochi.pHunger > 99) {
                 mochi.pHunger = mochi.pHunger - 100
                 mochi.hunger = max(0, mochi.hunger - 1)
             }
-            mochi.thirst = max(0, mochi.thirst - 1 * (timeElapsedsince(date1: savedDate!))/350)
-            mochi.pThirst = mochi.pThirst + (100 * (timeElapsedsince(date1: savedDate!)%350)) / 350
+            mochi.thirst = max(0, mochi.thirst - 1 * (timeElapsedsince(date1: lastSave!))/350)
+            mochi.pThirst = mochi.pThirst + (100 * (timeElapsedsince(date1: lastSave!)%350)) / 350
             if (mochi.pThirst > 99) {
                 mochi.pThirst = mochi.pThirst - 100
                 mochi.pThirst = max(0, mochi.thirst - 1)
             }
             if (mochi.streaming == true){
-                mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: savedDate!))/432)
-                mochi.pEnergy = mochi.pEnergy + (100 * (timeElapsedsince(date1: savedDate!)%432)) / 432
+//                inserire chiamata a funzione per i guadagni
+                mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: lastSave!))/432)
+                mochi.pEnergy = mochi.pEnergy + (100 * (timeElapsedsince(date1: lastSave!)%432)) / 432
                 if (mochi.pEnergy > 99) {
                     mochi.pEnergy = mochi.pEnergy - 100
                     mochi.energy = max(0, mochi.energy - 1)
                 }
                 else{
-                    mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: savedDate!))/864)
-                    mochi.pEnergy = mochi.pEnergy + (100 * (timeElapsedsince(date1: savedDate!)%864)) / 864
+                    mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: lastSave!))/864)
+                    mochi.pEnergy = mochi.pEnergy + (100 * (timeElapsedsince(date1: lastSave!)%864)) / 864
                     if (mochi.pEnergy > 99) {
                         mochi.pEnergy = mochi.pEnergy - 100
                         mochi.energy = max(0, mochi.energy - 1)
@@ -131,27 +164,27 @@ class TimeManager {
             }
         }
         else {
-            mochi.hunger = max(0, mochi.hunger - 1 * (timeElapsedsince(date1: savedDate!))/840 )
-            mochi.pHunger = mochi.pHunger + (100 * (timeElapsedsince(date1: savedDate!)%840)) / 840
+            mochi.hunger = max(0, mochi.hunger - 1 * (timeElapsedsince(date1: lastSave!))/840 )
+            mochi.pHunger = mochi.pHunger + (100 * (timeElapsedsince(date1: lastSave!)%840)) / 840
             if (mochi.pHunger > 99) {
                 mochi.pHunger = mochi.pHunger - 100
                 mochi.hunger = max(0, mochi.hunger - 1)
             }
-            mochi.thirst = max(0, mochi.thirst - 1 * (timeElapsedsince(date1: savedDate!))/700)
-            mochi.pThirst = mochi.pThirst + (100 * (timeElapsedsince(date1: savedDate!)%700)) / 700
+            mochi.thirst = max(0, mochi.thirst - 1 * (timeElapsedsince(date1: lastSave!))/700)
+            mochi.pThirst = mochi.pThirst + (100 * (timeElapsedsince(date1: lastSave!)%700)) / 700
             if (mochi.pThirst > 99) {
                 mochi.pThirst = mochi.pThirst - 100
                 mochi.pThirst = max(0, mochi.thirst - 1)
             }
             let tempEnergy = mochi.energy
-            mochi.energy = max (0, mochi.energy + 1 * (timeElapsedsince(date1: savedDate!))/180)
-            mochi.pEnergyGain = mochi.pEnergyGain + 100 * (timeElapsedsince(date1: savedDate!)%180) / 180
+            mochi.energy = max (0, mochi.energy + 1 * (timeElapsedsince(date1: lastSave!))/180)
+            mochi.pEnergyGain = mochi.pEnergyGain + 100 * (timeElapsedsince(date1: lastSave!)%180) / 180
             if (mochi.pEnergyGain > 99) {
                 mochi.pEnergyGain = mochi.pEnergyGain - 100
                 mochi.energy = max(0, mochi.energy + 1)
             }
-            if timeElapsedsince(date1: savedDate!)/180 > mochi.maxEnergy - tempEnergy {
-                let extraTime = timeElapsedsince(date1: savedDate!) - (mochi.maxEnergy - tempEnergy) * 180
+            if timeElapsedsince(date1: lastSave!)/180 > mochi.maxEnergy - tempEnergy {
+                let extraTime = timeElapsedsince(date1: lastSave!) - (mochi.maxEnergy - tempEnergy) * 180
                 let actPWake = mochi.pWake
                 mochi.pWake = mochi.pWake + (100 * extraTime % 10800) / 10800
                 if mochi.pWake > 100 {
@@ -174,43 +207,43 @@ class TimeManager {
         }
         
         if mochi.hunger == 0 {
-            mochi.health = max (0, mochi.health - 1 * (timeElapsedsince(date1: savedDate!))/1200)
-            mochi.pHealthHunger = mochi.pHealthHunger + (100 * (timeElapsedsince(date1: savedDate!)%1200)) / 1200
+            mochi.health = max (0, mochi.health - 1 * (timeElapsedsince(date1: lastSave!))/1200)
+            mochi.pHealthHunger = mochi.pHealthHunger + (100 * (timeElapsedsince(date1: lastSave!)%1200)) / 1200
             if (mochi.pHealthHunger > 99) {
                 mochi.pHealthHunger = mochi.pHealthHunger - 100
                 mochi.health = max(0, mochi.health - 1)
             }
         }
         if mochi.thirst == 0 {
-            mochi.health = max (0, mochi.health - 1 * (timeElapsedsince(date1: savedDate!))/1200)
-            mochi.pHealthThirst = mochi.pHealthThirst + (100 * (timeElapsedsince(date1: savedDate!)%1200)) / 1200
+            mochi.health = max (0, mochi.health - 1 * (timeElapsedsince(date1: lastSave!))/1200)
+            mochi.pHealthThirst = mochi.pHealthThirst + (100 * (timeElapsedsince(date1: lastSave!)%1200)) / 1200
             if (mochi.pHealthThirst > 99) {
                 mochi.pHealthThirst = mochi.pHealthThirst - 100
                 mochi.health = max(0, mochi.health - 1)
             }
         }
         if mochi.ill == true {
-            mochi.health = max (0, mochi.health - 1 * (timeElapsedsince(date1: savedDate!))/900)
-            mochi.pHealthIll = mochi.pHealthIll + (100 * (timeElapsedsince(date1: savedDate!)%900)) / 900
+            mochi.health = max (0, mochi.health - 1 * (timeElapsedsince(date1: lastSave!))/900)
+            mochi.pHealthIll = mochi.pHealthIll + (100 * (timeElapsedsince(date1: lastSave!)%900)) / 900
             if (mochi.pHealthIll > 99) {
                 mochi.pHealthIll = mochi.pHealthIll - 100
                 mochi.health = max(0, mochi.health - 1)
             }
         }
-        mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: savedDate!))/1728)
+        mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: lastSave!))/1728)
         if (mochi.hunger < 30){
-            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: savedDate!))/1728)
+            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: lastSave!))/1728)
         }
         if (mochi.thirst < 30){
-            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: savedDate!))/1728)
+            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: lastSave!))/1728)
         }
         if (mochi.cleanlyness < 30){
-            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: savedDate!))/1728)
+            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: lastSave!))/1728)
         }
         if (mochi.ill == true){
-            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: savedDate!))/1728)
+            mochi.happiness = max (0, mochi.happiness - 1 * (timeElapsedsince(date1: lastSave!))/1728)
         }
-        mochi.pHappyness = mochi.pHappyness + (100 * (timeElapsedsince(date1: savedDate!)%1728)) / 1728
+        mochi.pHappyness = mochi.pHappyness + (100 * (timeElapsedsince(date1: lastSave!)%1728)) / 1728
         if (mochi.pHappyness > 99) {
             mochi.pHappyness = mochi.pHappyness - 100
             mochi.happiness = max(0, mochi.happiness - 1)

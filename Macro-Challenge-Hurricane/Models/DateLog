@@ -1,0 +1,11 @@
+//
+//  Dates.swift
+//  Macro-Challenge-Hurricane
+//
+//  Created by Marco Scaglione on 30/05/22.
+//
+
+import Foundation
+
+class DateLog
+

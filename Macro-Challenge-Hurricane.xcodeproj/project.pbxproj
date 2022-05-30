@@ -12,6 +12,7 @@
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
+		9580C6092844DA1600042C2F /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580C6082844DA1600042C2F /* Currencies.swift */; };
 		95FB55ED2837882C0095676E /* Mochi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB55EC2837882C0095676E /* Mochi.swift */; };
 		95FB55EF2837AB3F0095676E /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB55EE2837AB3F0095676E /* TimeManager.swift */; };
 /* End PBXBuildFile section */
@@ -23,8 +24,10 @@
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F621F1A282E54CB007FE06B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		9580C6082844DA1600042C2F /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		95FB55EC2837882C0095676E /* Mochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mochi.swift; sourceTree = "<group>"; };
 		95FB55EE2837AB3F0095676E /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		95FB55F02840E64A0095676E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +60,7 @@
 		7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */ = {
 			isa = PBXGroup;
 			children = (
+				95FB55F02840E64A0095676E /* Info.plist */,
 				7F621F17282E5291007FE06B /* Git */,
 				7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */,
 				7F621F0B282E46C2007FE06B /* ContentView.swift */,
@@ -88,6 +92,7 @@
 			children = (
 				95FB55EC2837882C0095676E /* Mochi.swift */,
 				95FB55EE2837AB3F0095676E /* TimeManager.swift */,
+				9580C6082844DA1600042C2F /* Currencies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
 				95FB55EF2837AB3F0095676E /* TimeManager.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,
+				9580C6092844DA1600042C2F /* Currencies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +303,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -325,6 +332,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
