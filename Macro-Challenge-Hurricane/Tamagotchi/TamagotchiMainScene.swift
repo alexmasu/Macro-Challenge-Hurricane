@@ -23,14 +23,12 @@ class TamagotchiMainScene :  SKScene {
     let inventory = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let shop = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let customization = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-    let hunger = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
-    let thirst = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
-    let cleaning = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
-    let energy = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
-    let happiness = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
-    let health = SKShapeNode(circleOfRadius: UIScreen.main.bounds.width * 0.08)
-   
-    var settingContainer = SKShapeNode()
+    let hunger = SKSpriteNode(imageNamed: "HungerButton.png")
+    let thirst = SKSpriteNode(imageNamed: "ThirstGroup.png")
+    let cleaning = SKSpriteNode(imageNamed: "CleanlinessGroup.png")
+    let energy = SKSpriteNode(imageNamed: "StaminaGroup.png")
+    let happiness = SKSpriteNode(imageNamed: "HappinessGroup.png")
+    let health = SKSpriteNode(imageNamed: "HealthGroup.png")
     var settingsOn = false
     var omettoOn = false
     
@@ -155,33 +153,21 @@ extension TamagotchiMainScene {
     }
     
     func spawnOmettoStats() {
-        hunger.fillColor = UIColor.green
-        hunger.strokeColor = UIColor.red
         hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y )
         hunger.name = "hunger"
         
-        thirst.fillColor = UIColor.green
-        thirst.strokeColor = UIColor.red
         thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         thirst.name = "thirst"
         
-        cleaning.fillColor = UIColor.green
-        cleaning.strokeColor = UIColor.red
         cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         cleaning.name = "cleanliness"
-        
-        energy.fillColor = UIColor.green
-        energy.strokeColor = UIColor.red
+
         energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         energy.name = "energy"
-        
-        happiness.fillColor = UIColor.green
-        happiness.strokeColor = UIColor.red
+
         happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         happiness.name = "happiness"
         
-        health.fillColor = UIColor.green
-        health.strokeColor = UIColor.red
         health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y)
         health.name = "health"
         
