@@ -51,26 +51,41 @@ class TamagotchiMainScene :  SKScene {
             let touchedNodes = self.nodes(at: location)
             
             for node in touchedNodes {
+                
                 if node.name == "ometto" && omettoOn == false {
                     spawnOmettoButtons()
                     omettoOn = true
-                } else if node.name == "ometto" && omettoOn == true {
+                }
+                
+                else if node.name == "ometto" && omettoOn == true {
                     removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
                     omettoOn = false
                 }
+                
                 if node.name == "setting" && settingsOn == false {
+                    
                     spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
                     onoff_sett()
                     
                 }
+                
                 else if node.name == "setting" && settingsOn == true {
 
                     settfadeOut()
                     settingsOn = false
                     onoff_sett()
 
+                }
+                
+                else if node.name == "twitch" && settingsOn == true {
+                    
+                    let rhytmGame = RhytmGame()
+                    rhytmGame.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 1.5)
+                    self.view?.presentScene(rhytmGame, transition: transition)
+                    
                 }
             }
         }
