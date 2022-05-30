@@ -11,7 +11,7 @@ import BackgroundTasks
 @main
 struct Macro_Challenge_HurricaneApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var mochi = Mochi(MaxHunger: 1, MaxThirst: 1, MaxCleanlyness: 1, MaxHealth: 1, MaxEnergy: 1, MaxHappyness: 1, Hunger: 1, Thirst: 1, Cleanlyness: 1, Health: 1, Energy: 1, Happiness: 1, AgeType: 0, Followers: 1, Money: 1, Bits: 1)
+//    var mochi = Mochi(MaxHunger: 1, MaxThirst: 1, MaxCleanlyness: 1, MaxHealth: 1, MaxEnergy: 1, MaxHappyness: 1, Hunger: 1, Thirst: 1, Cleanlyness: 1, Health: 1, Energy: 1, Happiness: 1, AgeType: 0, Followers: 1, Alive: false)
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -24,10 +24,16 @@ class AppDelegate : UIResponder, UIApplicationDelegate{
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // codice per il bg
-        var mochi = UserDefaults.standard.string(forKey: "mochi")
+        var mochi = (UserDefaults.standard.object(forKey: "mochi")) as! Mochi
+        var currencies = UserDefaults.standard.object(forKey: "currencies") as! Currencies
+        var timeManager = UserDefaults.standard.object(forKey: "timeManager") as! TimeManager
         
-
+        timeManager.AfterOffline(mochi: mochi, currencies: currencies)
+        
         UserDefaults.standard.set(mochi, forKey: "mochi")
+        UserDefaults.standard.set(currencies, forKey: "currencies")
+        UserDefaults.standard.set(timeManager, forKey: "timeManager")
+        
         registerBackgroundTasks()
         return true
     }

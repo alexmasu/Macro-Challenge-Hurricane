@@ -29,16 +29,20 @@ class TimeManager {
 
         self.init()
         self.lastSave = lastSave
-        self.savedDates = savedDates
+        
+        if lastSave != nil {
+            self.lastSave = lastSave
+        }
+        if savedDates != []{
+            self.savedDates = savedDates
+        }
     }
     
     
     private init(){
-        if lastSave == nil {
-            lastSave = Date.now
-        }
-        savedDates = []
-        
+        self.lastSave = Date.now
+        self.savedDates = []
+
     }
     static let state = TimeManager()
      var savedDates : [Date?]
@@ -58,7 +62,7 @@ class TimeManager {
         savedDates.removeAll()
     }
     
-    func AfterOffline(mochi : Mochi) {
+    func AfterOffline(mochi : Mochi,currencies : Currencies) {
         
         var poopInterval : Int
         
@@ -260,6 +264,7 @@ class TimeManager {
                 mochi.happiness = max(0, mochi.happiness - 1)
             }
         }
+        lastSave = date
 //        salvare la felicità in un array per calcolare l'esito dello streaming
 //        verrà usata come punto di media; nell'array ci saranno inizio live, punti in cui l'app è stata aperta e come è finita la live.
     }
