@@ -8,6 +8,15 @@
         "revision" : "4a6058cbbdfe4f74aeae92c8bd51ad3b0de2a1ee",
         "version" : "3.3.0"
       }
+    },
+    {
+      "identity" : "realhttp",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/immobiliare/RealHTTP",
+      "state" : {
+        "revision" : "12c5e2d21f34ee5fa1036a354e8e5bc2db5bf561",
+        "version" : "1.5.2"
+      }
     }
   ],
   "version" : 2
