@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class ShopScene : SKScene {
+class InventoryScene : SKScene {
     
     
     override func didMove(to view: SKView) {
