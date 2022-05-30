@@ -19,9 +19,21 @@ struct Macro_Challenge_HurricaneApp: App {
     }
 }
 
+
 class AppDelegate : UIResponder, UIApplicationDelegate{
     var window: UIWindow?
-    
+    func applicationDidEnterBackground(_ application: UIApplication, mochi :Mochi, currencies : Currencies, timeManager: TimeManager) {
+        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        timeManager.saveDate()
+        if mochi.streaming == true{
+            timeManager.dateAppend()
+        }
+        UserDefaults.standard.set(mochi, forKey: "mochi")
+        UserDefaults.standard.set(currencies, forKey: "currencies")
+        UserDefaults.standard.set(timeManager, forKey: "timeManager")
+        
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // codice per il bg
         var mochi = (UserDefaults.standard.object(forKey: "mochi")) as! Mochi
