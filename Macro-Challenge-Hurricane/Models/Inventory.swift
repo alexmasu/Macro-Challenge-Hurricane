@@ -22,27 +22,31 @@ class Inventory : NSObject, NSCoding{
     init (I : [Int]){
         i = I
     }
-//    func buy(currencies: Currencies) -> Bool{
-//        if (currencies.money < price){
-//            return false
-//        }
-//        else {
-//            currencies.money = currencies.money - price
-//            i[id] = i[id] + 1
-//        }
-//    }
-//    func consume(mochi : Mochi) -> Bool{
-//        if i[id] < 1 {
-//            return false
-//        }
-//        switch id{
-//        case 0:
-//            mochi.hunger = mochi.hunger + 10
-//            
-//        default: print("koi doesn't exist")
-//            return false
-//        }
-//        i[id] = i[id] - 1
-//        return true
-//    }
+    func buy(currencies: Currencies, consumable : Consumable) -> Int{
+        if consumable.requirement < currencies.money{
+            return -1
+        }
+        if (currencies.money < consumable.price){
+            return -2
+        }
+        else {
+            currencies.money = currencies.money - consumable.price
+            i[consumable.id] = i[consumable.id] + 1
+            return 0
+        }
+    }
+    func consume(mochi : Mochi,consumable: Consumable) -> Bool{
+        if i[consumable.id] < 1 {
+            return false
+        }
+        switch consumable.id{
+        case 0:
+            mochi.hunger = mochi.hunger + 10
+
+        default: print("koi doesn't exist")
+            return false
+        }
+        i[consumable.id] = i[consumable.id] - 1
+        return true
+    }
 }

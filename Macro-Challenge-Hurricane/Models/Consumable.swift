@@ -14,15 +14,15 @@ class Consumable: NSObject{
     var name: String
     var price: Int
     var requirement: Int
+    var info: String
     
         
-    init(Id: Int, Name: String, Price: Int, Requirement: Int){
+    init(Id: Int, Name: String, Price: Int, Requirement: Int, Info: String){
         id = Id
         name = Name
         price = Price
         requirement = Requirement
-        
-        
+        info = Info
     }
     
     
