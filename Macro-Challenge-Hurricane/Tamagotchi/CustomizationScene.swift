@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class ShopScene : SKScene {
+class CustomizationScene : SKScene {
     
     
     override func didMove(to view: SKView) {
@@ -43,4 +43,3 @@ class ShopScene : SKScene {
     }
     
 }
-

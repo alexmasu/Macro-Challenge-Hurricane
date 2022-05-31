@@ -36,7 +36,6 @@ class TamagotchiMainScene :  SKScene {
     var settingsOn = false
     var omettoOn = false
     
-    
     override func didMove(to view: SKView) {
         setupScene()
     }
@@ -73,7 +72,7 @@ class TamagotchiMainScene :  SKScene {
                 }
                 
                 else if node.name == "setting" && settingsOn == true {
-
+                    
                     settfadeOut()
                     settingsOn = false
 //                    onoff_sett()
@@ -82,11 +81,33 @@ class TamagotchiMainScene :  SKScene {
                 
                 else if node.name == "twitch" && settingsOn == true {
                     
-                    let rhytmGame = RhytmGame()
-                    rhytmGame.size = (view?.frame.size)!
+                    let shopScene = ShopScene()
+                    shopScene.size = (view?.frame.size)!
                     let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(rhytmGame, transition: transition)
+                    self.view?.presentScene(shopScene, transition: transition)
                     
+                }
+                if node.name == "shop" {
+                    let shopScene = ShopScene()
+                    shopScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 1.5)
+                    self.view?.presentScene(shopScene, transition: transition)
+                } else if node.name == "inventory" {
+                    let inventoryScene = InventoryScene()
+                    inventoryScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 1.5)
+                    self.view?.presentScene(inventoryScene, transition: transition)
+                } else if node.name == "customization"{
+                    
+                    let customizationScene = CustomizationScene()
+                    customizationScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 1.5)
+                    self.view?.presentScene(customizationScene, transition: transition)
+                } else if node.name == "minigames"{
+                    let minigamesScene = MinigamesScene()
+                    minigamesScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 1.5)
+                    self.view?.presentScene(minigamesScene, transition: transition)
                 }
             }
         }
@@ -180,10 +201,10 @@ extension TamagotchiMainScene {
         
         cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         cleaning.name = "cleanliness"
-
+        
         energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         energy.name = "energy"
-
+        
         happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         happiness.name = "happiness"
         
@@ -205,32 +226,27 @@ extension TamagotchiMainScene {
         addChild(settingContainer)
         settingContainer.addChild(settingsCircle)
         
-//        audiobutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
         audiobutton.name = "audio"
         audiobutton.alpha = 0.0
         settingsCircleOval1.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
         settingsCircleOval1.alpha = 0.0
         settingContainer.addChild(settingsCircleOval1)
         settingsCircleOval1.addChild((audiobutton))
-
         
-//        twitchbutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
         twitchbutton.name = "twitch"
         twitchbutton.alpha = 0.0
         settingsCircleOval2.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
         settingsCircleOval2.alpha = 0.0
         settingContainer.addChild(settingsCircleOval2)
         settingsCircleOval2.addChild(twitchbutton)
-
         
-//        languagebutton.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
         languagebutton.name = "language"
         languagebutton.alpha = 0.0
         settingsCircleOval3.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
         settingsCircleOval3.alpha = 0.0
         settingContainer.addChild(settingsCircleOval3)
         settingsCircleOval3.addChild(languagebutton)
-
+        
     }
     
 }
@@ -255,7 +271,7 @@ extension TamagotchiMainScene {
     }
     
     func setupScene() {
-       
+        
         spawnBackground()
         spawnOmetto()
         spawnOmettoStats()
@@ -295,7 +311,7 @@ extension TamagotchiMainScene {
         fadeOutAnim(elem: self.languagebutton, time: 1.5)
         fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
         fadeOutAnim(elem: self.settingsCircle, time: 1.5)
-
+        
     }
     
 //    private func onoff_sett() {
