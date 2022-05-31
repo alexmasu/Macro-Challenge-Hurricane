@@ -104,10 +104,10 @@ class TamagotchiMainScene :  SKScene {
                     let transition = SKTransition.fade(withDuration: 1.5)
                     self.view?.presentScene(shopScene, transition: transition)
                 } else if node.name == "inventory" {
-                    let inventoryScene = InventoryScene()
-                    inventoryScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(inventoryScene, transition: transition)
+//                    let inventoryScene = InventoryScene()
+//                    inventoryScene.size = (view?.frame.size)!
+//                    let transition = SKTransition.fade(withDuration: 1.5)
+//                    self.view?.presentScene(inventoryScene, transition: transition)
                 } else if node.name == "customization"{
                     
                     let customizationScene = CustomizationScene()
