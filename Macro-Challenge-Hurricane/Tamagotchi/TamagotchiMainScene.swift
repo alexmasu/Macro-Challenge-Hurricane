@@ -10,6 +10,7 @@ import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
     
+    var mute = false
     let background = SKSpriteNode(imageNamed: "Background.png")
     let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
@@ -81,12 +82,22 @@ class TamagotchiMainScene :  SKScene {
                 
                 else if node.name == "twitch" && settingsOn == true {
                     
-                    let shopScene = ShopScene()
-                    shopScene.size = (view?.frame.size)!
+                    let rhytmGame = RhytmGame()
+                    rhytmGame.size = (view?.frame.size)!
                     let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(shopScene, transition: transition)
+                    self.view?.presentScene(rhytmGame, transition: transition)
                     
+                    
+                } else if node.name == "audio" && settingsOn == true {
+                    if mute == false {
+                        audiobutton.texture = SKTexture(imageNamed: "Twix.png")
+                        mute = true
+                    } else {
+                        audiobutton.texture = SKTexture(imageNamed: "Sound.png")
+                        mute = false
+                    }
                 }
+                
                 if node.name == "shop" {
                     let shopScene = ShopScene()
                     shopScene.size = (view?.frame.size)!
