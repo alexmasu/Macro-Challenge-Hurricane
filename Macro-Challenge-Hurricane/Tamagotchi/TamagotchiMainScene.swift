@@ -11,6 +11,7 @@ import SpriteKit
 class TamagotchiMainScene :  SKScene {
     
     let background = SKSpriteNode(imageNamed: "Background.png")
+    let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
     let audiobutton = SKSpriteNode(imageNamed: "Sound.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
@@ -67,7 +68,7 @@ class TamagotchiMainScene :  SKScene {
                     spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
-                    onoff_sett()
+//                    onoff_sett()
                     
                 }
                 
@@ -75,7 +76,7 @@ class TamagotchiMainScene :  SKScene {
 
                     settfadeOut()
                     settingsOn = false
-                    onoff_sett()
+//                    onoff_sett()
 
                 }
                 
@@ -241,6 +242,9 @@ extension TamagotchiMainScene {
         background.position = CGPoint(x: frame.midX,y: frame.midY)
         background.name = "background"
         addChild(background)
+        bathroom.position = CGPoint(x: frame.midX * 3, y: frame.midY)
+        bathroom.name = "bathroom"
+        addChild(bathroom)
     }
     
     func spawnOmetto() {
@@ -294,14 +298,14 @@ extension TamagotchiMainScene {
 
     }
     
-    private func onoff_sett() {
-        self.audiobutton.isUserInteractionEnabled = self.settingsOn
-        self.settingsCircleOval1.isUserInteractionEnabled = self.settingsOn
-        self.twitchbutton.isUserInteractionEnabled = self.settingsOn
-        self.settingsCircleOval2.isUserInteractionEnabled = self.settingsOn
-        self.languagebutton.isUserInteractionEnabled = self.settingsOn
-        self.settingsCircleOval3.isUserInteractionEnabled = self.settingsOn
-        self.settingsCircle.isUserInteractionEnabled = self.settingsOn
-    }
-    
+//    private func onoff_sett() {
+//        self.audiobutton.isUserInteractionEnabled = self.settingsOn
+//        self.settingsCircleOval1.isUserInteractionEnabled = self.settingsOn
+//        self.twitchbutton.isUserInteractionEnabled = self.settingsOn
+//        self.settingsCircleOval2.isUserInteractionEnabled = self.settingsOn
+//        self.languagebutton.isUserInteractionEnabled = self.settingsOn
+//        self.settingsCircleOval3.isUserInteractionEnabled = self.settingsOn
+//        self.settingsCircle.isUserInteractionEnabled = self.settingsOn
+//    }
+//
 }
