@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct Macro_Challenge_HurricaneApp: App {
+    
+    
+    
     var body: some Scene {
         WindowGroup {
             TamagotchiView()
