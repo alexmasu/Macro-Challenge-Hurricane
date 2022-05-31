@@ -41,7 +41,7 @@ class Inventory : NSObject, NSCoding{
         }
         switch consumable.id{
         case 0:
-            mochi.hunger = mochi.hunger + 10
+            mochi.hunger = mochi.hunger + 50
 
         default: print("koi doesn't exist")
             return false
