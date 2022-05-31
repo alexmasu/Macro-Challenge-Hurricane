@@ -68,7 +68,6 @@ class TamagotchiMainScene :  SKScene {
                     spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
-//                    onoff_sett()
                     
                 }
                 
@@ -76,8 +75,7 @@ class TamagotchiMainScene :  SKScene {
                     
                     settfadeOut()
                     settingsOn = false
-//                    onoff_sett()
-
+                    
                 }
                 
                 else if node.name == "twitch" && settingsOn == true {
@@ -103,7 +101,8 @@ class TamagotchiMainScene :  SKScene {
                     shopScene.size = (view?.frame.size)!
                     let transition = SKTransition.fade(withDuration: 1.5)
                     self.view?.presentScene(shopScene, transition: transition)
-                } else if node.name == "inventory" {
+                }
+                else if node.name == "inventory" {
                     let inventoryScene = InventoryScene()
                     inventoryScene.size = (view?.frame.size)!
                     let transition = SKTransition.fade(withDuration: 1.5)
@@ -324,15 +323,4 @@ extension TamagotchiMainScene {
         fadeOutAnim(elem: self.settingsCircle, time: 1.5)
         
     }
-    
-//    private func onoff_sett() {
-//        self.audiobutton.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircleOval1.isUserInteractionEnabled = self.settingsOn
-//        self.twitchbutton.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircleOval2.isUserInteractionEnabled = self.settingsOn
-//        self.languagebutton.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircleOval3.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircle.isUserInteractionEnabled = self.settingsOn
-//    }
-//
 }
