@@ -10,6 +10,7 @@
 		7F43A6642834ED1C00F8952C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43A6632834ED1B00F8952C /* WebViewController.swift */; };
 		7F43A6672836317C00F8952C /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43A6662836317C00F8952C /* DataManager.swift */; };
 		7F43A669283631D700F8952C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F43A668283631D700F8952C /* Storage.swift */; };
+		7F5E8F4128475A0E00B555C1 /* MochiJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E8F4028475A0E00B555C1 /* MochiJson.swift */; };
 		7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */; };
 		7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F621F0B282E46C2007FE06B /* ContentView.swift */; };
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		7F43A6662836317C00F8952C /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7F43A668283631D700F8952C /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		7F43A66A2836340D00F8952C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7F5E8F4028475A0E00B555C1 /* MochiJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiJson.swift; sourceTree = "<group>"; };
 		7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro-Challenge-Hurricane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_Challenge_HurricaneApp.swift; sourceTree = "<group>"; };
 		7F621F0B282E46C2007FE06B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				7F658BEF2844BE90004A6768 /* Token.swift */,
 				7F658BF12844BEA6004A6768 /* User.swift */,
 				7F658BF32844BEB6004A6768 /* Channel.swift */,
+				7F5E8F4028475A0E00B555C1 /* MochiJson.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
 				7F658BF42844BEB6004A6768 /* Channel.swift in Sources */,
 				7F658BED2844BE48004A6768 /* SearchChannels.swift in Sources */,
+				7F5E8F4128475A0E00B555C1 /* MochiJson.swift in Sources */,
 				7F43A6672836317C00F8952C /* DataManager.swift in Sources */,
 				7F43A6642834ED1C00F8952C /* WebViewController.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,

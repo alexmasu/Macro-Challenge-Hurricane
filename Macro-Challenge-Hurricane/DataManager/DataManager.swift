@@ -90,4 +90,47 @@ class DataManager: NSObject {
     func getProfile_image_url() -> String {
         return self.profile_image_url
     }
+    
+    // MARK: - Saved mochi
+    @Storage(key: "mochi", defaultValue: "NULL")
+    var mochi: String
+    
+    // MARK: - Setter mochi
+    func setMochi(mochi: Mochi) {
+        
+        do {
+            let encoder = JSONEncoder()
+            let encoded = try? encoder.encode(mochi)
+            
+            print(encoded!.jsonString() as Any)
+            
+            self.mochi = encoded!.jsonString()!
+            
+        } catch {
+            print("Error Encoding Mochi")
+            print(error)
+            self.mochi = "NULL"
+        }
+        
+    }
+    
+    // MARK: - Getter mochi
+    func getMochi() -> Mochi {
+        
+        do {
+            
+            let decoder = JSONDecoder()
+            
+            let jsonData: Data = self.mochi.data(using: .utf8)!
+            
+            let mochiDecoded = try? decoder.decode(Mochi.self, from: jsonData)
+            
+            return mochiDecoded!
+            
+        } catch {
+            print("Error Decoding Mochi")
+            print(error)
+        }
+    }
+    
 }
