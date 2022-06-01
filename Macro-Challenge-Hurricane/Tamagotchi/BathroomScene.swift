@@ -1,5 +1,5 @@
 //
-//  TamagotchiMainScene.swift
+//  BathroomScene.swift
 //  Macro-Challenge-Hurricane
 //
 //  Created by Antonio Emanuele Cutarella on 23/05/22.
@@ -8,17 +8,13 @@
 import Foundation
 import SpriteKit
 
-class TamagotchiMainScene :  SKScene {
-    
+class BathroomScene :  SKScene {
 
-    let background = SKSpriteNode(imageNamed: "Background.png")
-    var clickback = SKShapeNode()
-    let pc = SKSpriteNode(imageNamed: "pc2.png")
+    let sponge = SKSpriteNode(imageNamed: "sponge.png")
+    let bath = SKSpriteNode(imageNamed: "bath.png")
     let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
+    let pc = SKSpriteNode(imageNamed: "pc2.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
-    let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
-    let monitor = SKSpriteNode(imageNamed: "Monitor.png")
-    let light = SKSpriteNode(imageNamed: "lampada.png")
     let audiobutton = SKSpriteNode(imageNamed: "Sound.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
     let languagebutton = SKSpriteNode(imageNamed: "Translation.png")
@@ -39,8 +35,6 @@ class TamagotchiMainScene :  SKScene {
     
     var settingContainer = SKShapeNode()
     
-    var startstream = false
-    var lightswitch = false
     var mute = false
     var settingsOn = false
     var omettoOn = false
@@ -72,18 +66,12 @@ class TamagotchiMainScene :  SKScene {
                 }
                 
                 if node.name == "setting" && settingsOn == false {
-                    
                     spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
-                    
-                }
-                
-                else if node.name == "setting" && settingsOn == true {
-                    
+                } else if node.name == "setting" && settingsOn == true {
                     settfadeOut()
                     settingsOn = false
-                    
                 }
                 
                 else if node.name == "twitch" && settingsOn == true {
@@ -104,47 +92,6 @@ class TamagotchiMainScene :  SKScene {
                         mute = false
                     }
                 }
-                
-                if node.name == "monitor" && omettoOn == false && lightswitch == false {
-                        if startstream == false {
-                            removeChildren(in: [square])
-                            clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
-                            clickback = SKShapeNode(rectOf: CGSize(width: square.frame.width, height: square.frame.height))
-//                            clickback.strokeColor = UIColor.clear
-                            addChild(squarestreaming)
-                            addChild(clickback)
-                            startstream = true
-                        } else if node.name == "clickback" && startstream == true {
-                            removeChildren(in: [squarestreaming, clickback])
-                            addChild(square)
-                            startstream = false
-                        }
-                    }
-                
-                if node.name == "light" && startstream == false {
-                    if lightswitch == false && omettoOn == false {
-                        background.color = SKColor.black
-                        background.colorBlendFactor = 0.55
-                        light.color = SKColor.black
-                        light.colorBlendFactor = 0.55
-                        square.color = SKColor.black
-                        square.colorBlendFactor = 0.70
-                        monitor.color = SKColor.black
-                        monitor.colorBlendFactor = 0.55
-                        lightswitch = true
-                    } else if lightswitch == true && omettoOn == false {
-                        background.color = SKColor.black
-                        background.colorBlendFactor = 0.00
-                        light.color = SKColor.black
-                        light.colorBlendFactor = 0.00
-                        square.color = SKColor.black
-                        square.colorBlendFactor = 0.00
-                        monitor.color = SKColor.black
-                        monitor.colorBlendFactor = 0.00
-                        lightswitch = false
-                    }
-                }
-
                 
                 if node.name == "shop" {
                     let shopScene = ShopScene()
@@ -189,7 +136,7 @@ class TamagotchiMainScene :  SKScene {
 }
 
 // MARK: - Spawn Buttons for Game Scene
-extension TamagotchiMainScene {
+extension BathroomScene {
     
     func spawnOmettoButtons(){
         addChild(hunger)
@@ -311,37 +258,23 @@ extension TamagotchiMainScene {
         
     }
     
-    func spawnOmettoStreamer() {
-        squarestreaming.setScale(0.95)
-        squarestreaming.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.1, y: frame.midY + UIScreen.main.bounds.width * 0.11)
-        squarestreaming.name = "omettostreamer"
-    }
-    
 }
 
 // MARK: - Game Scene Setup
-extension TamagotchiMainScene {
+extension BathroomScene {
     
-    func spawnBackground() {
-        background.position = CGPoint(x: frame.midX,y: frame.midY)
-        background.name = "background"
-        background.setScale(0.47)
-        addChild(background)
-        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
-        light.name = "light"
-        light.setScale(0.8)
-        addChild(light)
-        monitor.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.04, y: frame.midY + UIScreen.main.bounds.height * 0.065)
-        monitor.name = "monitor"
-        monitor.setScale(0.4)
-        addChild(monitor)
-        pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.4, y: frame.midY + UIScreen.main.bounds.width * 0.1)
-        pc.name = "pc"
-        pc.setScale(0.9)
-        addChild(pc)
-        bathroom.position = CGPoint(x: frame.midX * 3, y: frame.midY)
+    func spawnBathroom() {
+        bathroom.position = CGPoint(x: frame.midX,y: frame.midY)
         bathroom.name = "bathroom"
         addChild(bathroom)
+        sponge.position = CGPoint(x: frame.midX,y: frame.midY)
+        sponge.name = "sponge"
+        sponge.setScale(0.4)
+        addChild(sponge)
+        bath.position = CGPoint(x: frame.midX,y: frame.midY)
+        bath.name = "bath"
+//        bath.setScale(0.7)
+        addChild(bath)
     }
     
     func spawnOmetto() {
@@ -353,12 +286,8 @@ extension TamagotchiMainScene {
     
     func setupScene() {
         
-        spawnBackground()
+        spawnBathroom()
         spawnOmetto()
-        spawnOmettoStats()
-        spawnSettingButtons()
-        spawnCornerButtons()
-        spawnOmettoStreamer()
         
     }
     
@@ -366,7 +295,7 @@ extension TamagotchiMainScene {
 
 // MARK: Elements Animations
 
-extension TamagotchiMainScene {
+extension BathroomScene {
     
     private func fadeInAnim(elem : SKSpriteNode, time : CGFloat) {
         let comparsa = SKAction.fadeIn(withDuration: time)
@@ -382,7 +311,7 @@ extension TamagotchiMainScene {
 
 // MARK: Generic Functions
 
-extension TamagotchiMainScene {
+extension BathroomScene {
     
     private func settfadeOut() {
         

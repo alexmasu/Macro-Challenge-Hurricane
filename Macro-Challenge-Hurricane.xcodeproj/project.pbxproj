@@ -31,6 +31,8 @@
 		963D5ADA2834F62D008ECEC7 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD52834F62D008ECEC7 /* Quiz.swift */; };
 		963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD42834F62C008ECEC7 /* QuizWelcomeView.swift */; };
 		963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD32834F62C008ECEC7 /* Question.swift */; };
+		9678EF8E284745A600AE1C4E /* BathroomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678EF8D284745A600AE1C4E /* BathroomScene.swift */; };
+		9678EF90284747BC00AE1C4E /* BathroomSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678EF8F284747BC00AE1C4E /* BathroomSceneView.swift */; };
 		968566E12844DDA8000D06BA /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968566E02844DDA8000D06BA /* InventoryScene.swift */; };
 		968566E32844DEAE000D06BA /* CustomizationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968566E22844DEAE000D06BA /* CustomizationScene.swift */; };
 		968566E52844DF2A000D06BA /* MinigamesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968566E42844DF2A000D06BA /* MinigamesScene.swift */; };
@@ -63,6 +65,8 @@
 		963D5AD32834F62C008ECEC7 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		963D5AD42834F62C008ECEC7 /* QuizWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizWelcomeView.swift; sourceTree = "<group>"; };
 		963D5AD52834F62D008ECEC7 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		9678EF8D284745A600AE1C4E /* BathroomScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathroomScene.swift; sourceTree = "<group>"; };
+		9678EF8F284747BC00AE1C4E /* BathroomSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BathroomSceneView.swift; sourceTree = "<group>"; };
 		968566E02844DDA8000D06BA /* InventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
 		968566E22844DEAE000D06BA /* CustomizationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationScene.swift; sourceTree = "<group>"; };
 		968566E42844DF2A000D06BA /* MinigamesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigamesScene.swift; sourceTree = "<group>"; };
@@ -103,10 +107,12 @@
 			isa = PBXGroup;
 			children = (
 				48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */,
+				9678EF8D284745A600AE1C4E /* BathroomScene.swift */,
 				968566E22844DEAE000D06BA /* CustomizationScene.swift */,
 				968566E42844DF2A000D06BA /* MinigamesScene.swift */,
 				968566E02844DDA8000D06BA /* InventoryScene.swift */,
 				48EE65B3283B947800B0D986 /* TamagotchiView.swift */,
+				9678EF8F284747BC00AE1C4E /* BathroomSceneView.swift */,
 				48EE65BB2844DAB400B0D986 /* ShopScene.swift */,
 			);
 			path = Tamagotchi;
@@ -273,7 +279,9 @@
 				96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */,
 				963D5AD72834F62D008ECEC7 /* QuizGame.swift in Sources */,
 				963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */,
+				9678EF8E284745A600AE1C4E /* BathroomScene.swift in Sources */,
 				963D5AD62834F62D008ECEC7 /* ResultsViewModel.swift in Sources */,
+				9678EF90284747BC00AE1C4E /* BathroomSceneView.swift in Sources */,
 				963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */,
 				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
 				968566E12844DDA8000D06BA /* InventoryScene.swift in Sources */,

@@ -14,7 +14,12 @@ struct Macro_Challenge_HurricaneApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TamagotchiView().statusBar(hidden: true)
+            TamagotchiView()
+            .statusBar(hidden: true)
+            .ignoresSafeArea()
+//            BathroomSceneView()
+//                .statusBar(hidden: true)
+//                .ignoresSafeArea()
         }
     }
 }
