@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
-
+    
     let background = SKSpriteNode(imageNamed: "Background.png")
     var clickback = SKShapeNode()
     let pc = SKSpriteNode(imageNamed: "pc2.png")
@@ -105,20 +105,20 @@ class TamagotchiMainScene :  SKScene {
                 }
                 
                 if node.name == "monitor" && omettoOn == false && lightswitch == false {
-                        if startstream == false {
-                            removeChildren(in: [square])
-                            clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
-                            clickback = SKShapeNode(rectOf: CGSize(width: square.frame.width, height: square.frame.height))
-//                            clickback.strokeColor = UIColor.clear
-                            addChild(squarestreaming)
-                            addChild(clickback)
-                            startstream = true
-                        } else if node.name == "clickback" && startstream == true {
-                            removeChildren(in: [squarestreaming, clickback])
-                            addChild(square)
-                            startstream = false
-                        }
+                    if startstream == false {
+                        removeChildren(in: [square])
+                        clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
+                        clickback = SKShapeNode(rectOf: CGSize(width: square.frame.width, height: square.frame.height))
+                        //                            clickback.strokeColor = UIColor.clear
+                        addChild(squarestreaming)
+                        addChild(clickback)
+                        startstream = true
+                    } else if node.name == "clickback" && startstream == true {
+                        removeChildren(in: [squarestreaming, clickback])
+                        addChild(square)
+                        startstream = false
                     }
+                }
                 
                 if node.name == "light" && startstream == false {
                     if lightswitch == false && omettoOn == false {
@@ -143,7 +143,7 @@ class TamagotchiMainScene :  SKScene {
                         lightswitch = false
                     }
                 }
-
+                
                 
                 if node.name == "shop" {
                     let shopScene = ShopScene()
@@ -151,12 +151,12 @@ class TamagotchiMainScene :  SKScene {
                     let transition = SKTransition.fade(withDuration: 1.5)
                     self.view?.presentScene(shopScene, transition: transition)
                 }
-//                else if node.name == "inventory" {
-//                    let inventoryScene = InventoryScene()
-//                    inventoryScene.size = (view?.frame.size)!
-//                    let transition = SKTransition.fade(withDuration: 1.5)
-//                    self.view?.presentScene(inventoryScene, transition: transition)
-//                }
+                //                else if node.name == "inventory" {
+                //                    let inventoryScene = InventoryScene()
+                //                    inventoryScene.size = (view?.frame.size)!
+                //                    let transition = SKTransition.fade(withDuration: 1.5)
+                //                    self.view?.presentScene(inventoryScene, transition: transition)
+                //                }
                 else if node.name == "customization"{
                     
                     let customizationScene = CustomizationScene()

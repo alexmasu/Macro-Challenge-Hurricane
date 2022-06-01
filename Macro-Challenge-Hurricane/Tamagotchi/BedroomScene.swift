@@ -9,9 +9,12 @@ import Foundation
 import SpriteKit
 
 class BedroomScene :  SKScene {
-
-
+    
+    
     let bedroom = SKSpriteNode(imageNamed: "Bedroom.png")
+    let bedroomNight = SKSpriteNode(imageNamed: "BedroomNight.png")
+    let light = SKSpriteNode(imageNamed: "light.png")
+    let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let audiobutton = SKSpriteNode(imageNamed: "Sound.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
@@ -88,12 +91,12 @@ class BedroomScene :  SKScene {
                     let transition = SKTransition.fade(withDuration: 1.5)
                     self.view?.presentScene(shopScene, transition: transition)
                 }
-//                else if node.name == "inventory" {
-//                    let inventoryScene = InventoryScene()
-//                    inventoryScene.size = (view?.frame.size)!
-//                    let transition = SKTransition.fade(withDuration: 1.5)
-//                    self.view?.presentScene(inventoryScene, transition: transition)
-//                }
+                //                else if node.name == "inventory" {
+                //                    let inventoryScene = InventoryScene()
+                //                    inventoryScene.size = (view?.frame.size)!
+                //                    let transition = SKTransition.fade(withDuration: 1.5)
+                //                    self.view?.presentScene(inventoryScene, transition: transition)
+                //                }
                 else if node.name == "customization"{
                     
                     let customizationScene = CustomizationScene()
@@ -233,14 +236,19 @@ extension BedroomScene {
 extension BedroomScene {
     
     func spawnBedroom() {
+        bedroom.setScale(0.47)
         bedroom.position = CGPoint(x: frame.midX,y: frame.midY)
         bedroom.name = "bedroom"
         addChild(bedroom)
+        light.setScale(0.5)
+        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
+        light.name = "light"
+        addChild(light)
     }
     
     func spawnOmettoStreamer() {
         squarestreaming.setScale(0.95)
-        squarestreaming.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.1, y: frame.midY - UIScreen.main.bounds.width * 0.42)
+        squarestreaming.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.1, y: frame.midY - UIScreen.main.bounds.width * 0.46)
         squarestreaming.name = "omettostreamer"
         addChild(squarestreaming)
     }
