@@ -28,3 +28,4 @@ class Consumable: NSObject{
 }
 
 let hamburger = Consumable(Id: 0, Name: "Hamburger", Price: 6, Requirement: 0, Info: "it looks tasty, now i wanna paint my face and wear red shoes")
+let consumableV = [hamburger]
