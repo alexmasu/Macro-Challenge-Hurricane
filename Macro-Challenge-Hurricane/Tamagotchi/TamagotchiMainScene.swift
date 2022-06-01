@@ -9,7 +9,6 @@ import Foundation
 import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
-    
 
     let background = SKSpriteNode(imageNamed: "Background.png")
     var clickback = SKShapeNode()

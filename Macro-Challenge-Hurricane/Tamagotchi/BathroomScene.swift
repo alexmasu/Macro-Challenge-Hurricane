@@ -267,19 +267,19 @@ extension BathroomScene {
         bathroom.position = CGPoint(x: frame.midX,y: frame.midY)
         bathroom.name = "bathroom"
         addChild(bathroom)
-        sponge.position = CGPoint(x: frame.midX,y: frame.midY)
+        sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.18,y: frame.midY + UIScreen.main.bounds.height * 0.095)
         sponge.name = "sponge"
-        sponge.setScale(0.4)
+        sponge.setScale(0.8)
         addChild(sponge)
-        bath.position = CGPoint(x: frame.midX,y: frame.midY)
+        bath.position = CGPoint(x: frame.midX ,y: frame.midY - UIScreen.main.bounds.height * 0.23)
         bath.name = "bath"
-//        bath.setScale(0.7)
+        bath.zPosition = 1.0
         addChild(bath)
     }
     
     func spawnOmetto() {
         square.setScale(0.95)
-        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
+        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY - UIScreen.main.bounds.height * 0.1)
         square.name = "ometto"
         addChild(square)
     }
