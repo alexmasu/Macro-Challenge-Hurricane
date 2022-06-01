@@ -4,7 +4,8 @@
 ////
 ////  Created by Antonio Emanuele Cutarella on 30/05/22.
 ////
-//
+////
+
 //import Foundation
 //import SpriteKit
 //
@@ -15,6 +16,7 @@
 //    }
 //
 //    func barsPosition() {
+//
 //    var health = CGFloat(ometto.omettoMaxStats)
 //    var stamina = CGFloat(ometto.omettoMaxStats)
 //    var cleanliness = CGFloat(ometto.omettoMaxStats)

@@ -10,10 +10,14 @@ import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
     
-    var mute = false
+
     let background = SKSpriteNode(imageNamed: "Background.png")
+    let pc = SKSpriteNode(imageNamed: "pc2.png")
     let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
+    let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
+    let monitor = SKSpriteNode(imageNamed: "Monitor.png")
+    let light = SKSpriteNode(imageNamed: "lampada.png")
     let audiobutton = SKSpriteNode(imageNamed: "Sound.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
     let languagebutton = SKSpriteNode(imageNamed: "Translation.png")
@@ -34,6 +38,10 @@ class TamagotchiMainScene :  SKScene {
     
     var settingContainer = SKShapeNode()
     
+    var sleeptime = false
+    var startstream = false
+    var lightswitch = false
+    var mute = false
     var settingsOn = false
     var omettoOn = false
     
@@ -68,7 +76,6 @@ class TamagotchiMainScene :  SKScene {
                     spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
-//                    onoff_sett()
                     
                 }
                 
@@ -76,8 +83,7 @@ class TamagotchiMainScene :  SKScene {
                     
                     settfadeOut()
                     settingsOn = false
-//                    onoff_sett()
-
+                    
                 }
                 
                 else if node.name == "twitch" && settingsOn == true {
@@ -87,10 +93,11 @@ class TamagotchiMainScene :  SKScene {
                     let transition = SKTransition.fade(withDuration: 1.5)
                     self.view?.presentScene(rhytmGame, transition: transition)
                     
-                    
-                } else if node.name == "audio" && settingsOn == true {
+                }
+                
+                else if node.name == "audio" && settingsOn == true {
                     if mute == false {
-                        audiobutton.texture = SKTexture(imageNamed: "Twix.png")
+                        audiobutton.texture = SKTexture(imageNamed: "soundoff.png")
                         mute = true
                     } else {
                         audiobutton.texture = SKTexture(imageNamed: "Sound.png")
@@ -98,17 +105,56 @@ class TamagotchiMainScene :  SKScene {
                     }
                 }
                 
+                if node.name == "monitor" && omettoOn == false && lightswitch == false {
+                        if startstream == false {
+                            removeChildren(in: [square])
+                            addChild(squarestreaming)
+                            startstream = true
+                        } else if node.name == "monitor" && startstream == true {
+                            removeChildren(in: [squarestreaming])
+                            addChild(square)
+                            startstream = false
+                        }
+                    }
+                
+                if node.name == "light" && startstream == false {
+                    if lightswitch == false && omettoOn == false {
+                        background.color = SKColor.black
+                        background.colorBlendFactor = 0.55
+                        light.color = SKColor.black
+                        light.colorBlendFactor = 0.55
+                        square.color = SKColor.black
+                        square.colorBlendFactor = 0.70
+                        monitor.color = SKColor.black
+                        monitor.colorBlendFactor = 0.55
+                        lightswitch = true
+                    } else if lightswitch == true && omettoOn == false {
+                        background.color = SKColor.black
+                        background.colorBlendFactor = 0.00
+                        light.color = SKColor.black
+                        light.colorBlendFactor = 0.00
+                        square.color = SKColor.black
+                        square.colorBlendFactor = 0.00
+                        monitor.color = SKColor.black
+                        monitor.colorBlendFactor = 0.00
+                        lightswitch = false
+                    }
+                }
+
+                
                 if node.name == "shop" {
                     let shopScene = ShopScene()
                     shopScene.size = (view?.frame.size)!
                     let transition = SKTransition.fade(withDuration: 1.5)
                     self.view?.presentScene(shopScene, transition: transition)
-                } else if node.name == "inventory" {
+                }
+//                else if node.name == "inventory" {
 //                    let inventoryScene = InventoryScene()
 //                    inventoryScene.size = (view?.frame.size)!
 //                    let transition = SKTransition.fade(withDuration: 1.5)
 //                    self.view?.presentScene(inventoryScene, transition: transition)
-                } else if node.name == "customization"{
+//                }
+                else if node.name == "customization"{
                     
                     let customizationScene = CustomizationScene()
                     customizationScene.size = (view?.frame.size)!
@@ -201,6 +247,7 @@ extension TamagotchiMainScene {
         shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
         shop.name = "shop"
         addChild(shop)
+        
     }
     
     func spawnOmettoStats() {
@@ -260,6 +307,12 @@ extension TamagotchiMainScene {
         
     }
     
+    func spawnOmettoStreamer() {
+        squarestreaming.setScale(0.95)
+        squarestreaming.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.1, y: frame.midY + UIScreen.main.bounds.width * 0.11)
+        squarestreaming.name = "omettostreamer"
+    }
+    
 }
 
 // MARK: - Game Scene Setup
@@ -268,7 +321,20 @@ extension TamagotchiMainScene {
     func spawnBackground() {
         background.position = CGPoint(x: frame.midX,y: frame.midY)
         background.name = "background"
+        background.setScale(0.47)
         addChild(background)
+        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
+        light.name = "light"
+        light.setScale(0.8)
+        addChild(light)
+        monitor.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.04, y: frame.midY + UIScreen.main.bounds.height * 0.065)
+        monitor.name = "monitor"
+        monitor.setScale(0.4)
+        addChild(monitor)
+        pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.4, y: frame.midY + UIScreen.main.bounds.width * 0.1)
+        pc.name = "pc"
+        pc.setScale(0.9)
+        addChild(pc)
         bathroom.position = CGPoint(x: frame.midX * 3, y: frame.midY)
         bathroom.name = "bathroom"
         addChild(bathroom)
@@ -288,6 +354,7 @@ extension TamagotchiMainScene {
         spawnOmettoStats()
         spawnSettingButtons()
         spawnCornerButtons()
+        spawnOmettoStreamer()
         
     }
     
@@ -324,15 +391,4 @@ extension TamagotchiMainScene {
         fadeOutAnim(elem: self.settingsCircle, time: 1.5)
         
     }
-    
-//    private func onoff_sett() {
-//        self.audiobutton.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircleOval1.isUserInteractionEnabled = self.settingsOn
-//        self.twitchbutton.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircleOval2.isUserInteractionEnabled = self.settingsOn
-//        self.languagebutton.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircleOval3.isUserInteractionEnabled = self.settingsOn
-//        self.settingsCircle.isUserInteractionEnabled = self.settingsOn
-//    }
-//
 }

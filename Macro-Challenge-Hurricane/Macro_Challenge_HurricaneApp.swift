@@ -14,7 +14,7 @@ struct Macro_Challenge_HurricaneApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TamagotchiView()
+            TamagotchiView().statusBar(hidden: true)
         }
     }
 }
