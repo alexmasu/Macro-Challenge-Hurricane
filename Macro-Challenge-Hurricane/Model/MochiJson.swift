@@ -17,7 +17,7 @@
 
 import Foundation
 
-struct Mochi: Codable {
+struct MochiJson: Codable {
     var maxHunger : Int = 0
     var maxThirst : Int = 0
     var maxCleanlyness : Int = 0

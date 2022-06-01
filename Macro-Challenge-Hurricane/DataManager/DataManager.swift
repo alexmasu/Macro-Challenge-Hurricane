@@ -96,7 +96,7 @@ class DataManager: NSObject {
     var mochi: String
     
     // MARK: - Setter mochi
-    func setMochi(mochi: Mochi) {
+    func setMochi(mochi: MochiJson) {
         
         do {
             let encoder = JSONEncoder()
@@ -115,7 +115,7 @@ class DataManager: NSObject {
     }
     
     // MARK: - Getter mochi
-    func getMochi() -> Mochi {
+    func getMochi() -> MochiJson {
         
         do {
             
@@ -123,7 +123,7 @@ class DataManager: NSObject {
             
             let jsonData: Data = self.mochi.data(using: .utf8)!
             
-            let mochiDecoded = try? decoder.decode(Mochi.self, from: jsonData)
+            let mochiDecoded = try? decoder.decode(MochiJson.self, from: jsonData)
             
             return mochiDecoded!
             
