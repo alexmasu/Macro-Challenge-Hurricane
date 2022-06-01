@@ -23,7 +23,6 @@ class Mochi: NSObject, NSCoding{
         coder.encode(energy, forKey: "energy")
         coder.encode(happiness, forKey: "happiness")
         coder.encode(ageType, forKey: "ageType")
-        coder.encode(followers, forKey: "followers")
         coder.encode(sleeping, forKey: "sleeping")
         coder.encode(streaming, forKey: "streaming")
         coder.encode(ill, forKey: "ill")
@@ -62,7 +61,6 @@ class Mochi: NSObject, NSCoding{
         let energy = decoder.decodeObject(of: NSNumber.self, forKey: "energy") as! Int? ?? 0
         let happiness = decoder.decodeObject(of: NSNumber.self, forKey: "happiness") as! Int? ?? 0
         let ageType = decoder.decodeObject(of: NSNumber.self, forKey: "ageType") as! Int? ?? 0
-        let followers = decoder.decodeObject(of: NSNumber.self, forKey: "followers") as! Int? ?? 0
         let sleeping = decoder.decodeObject(of: NSNumber.self, forKey: "sleeping") as! Bool? ?? false
         let streaming = decoder.decodeObject(of: NSNumber.self, forKey: "streaming") as! Bool? ?? false
         let ill = decoder.decodeObject(of: NSNumber.self, forKey: "ill") as! Bool? ?? false
@@ -83,7 +81,7 @@ class Mochi: NSObject, NSCoding{
         let birth = decoder.decodeObject(of: NSDate.self, forKey: "birth") as Date?
         let alive = decoder.decodeObject(of: NSNumber.self, forKey: "alive") as! Bool? ?? false
 
-        self.init(MaxHunger : maxHunger, MaxThirst : maxThirst, MaxCleanlyness : maxCleanlyness, MaxHealth : maxHealth, MaxEnergy : maxEnergy, MaxHappyness : maxHappiness, Hunger : hunger, Thirst : thirst, Cleanlyness :cleanlyness, Health : health, Energy : energy, Happiness : happiness, AgeType : ageType, Followers : followers, Alive : alive)
+        self.init(MaxHunger : maxHunger, MaxThirst : maxThirst, MaxCleanlyness : maxCleanlyness, MaxHealth : maxHealth, MaxEnergy : maxEnergy, MaxHappyness : maxHappiness, Hunger : hunger, Thirst : thirst, Cleanlyness :cleanlyness, Health : health, Energy : energy, Happiness : happiness, AgeType : ageType, Alive : alive)
         self.sleeping = sleeping
         self.streaming = streaming
         self.ill = ill
@@ -119,7 +117,6 @@ class Mochi: NSObject, NSCoding{
     var energy: Int
     var happiness: Int
     var ageType: Int
-    var followers: Int
     var sleeping : Bool
     var streaming : Bool
     var ill : Bool
@@ -141,7 +138,7 @@ class Mochi: NSObject, NSCoding{
     var alive : Bool
     
     
-    init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Followers : Int, Alive :Bool){
+    init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Alive :Bool){
         
         maxHunger = MaxHunger
         maxThirst = MaxThirst
@@ -156,7 +153,6 @@ class Mochi: NSObject, NSCoding{
         energy = Energy
         happiness = Happiness
         ageType = AgeType
-        followers = Followers
         sleeping = false
         streaming = false
         ill = false

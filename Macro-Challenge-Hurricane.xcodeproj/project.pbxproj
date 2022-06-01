@@ -14,7 +14,8 @@
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
 		95203C6D2845FFD300F73C9E /* Consumable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95203C6C2845FFD300F73C9E /* Consumable.swift */; };
 		95203C6F28460B3600F73C9E /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95203C6E28460B3600F73C9E /* Inventory.swift */; };
-		95203C7328464AAB00F73C9E /* PC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95203C7228464AAB00F73C9E /* PC.swift */; };
+		95203C7328464AAB00F73C9E /* customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95203C7228464AAB00F73C9E /* customizable.swift */; };
+		95203C752847569200F73C9E /* CustomInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95203C742847569200F73C9E /* CustomInventory.swift */; };
 		9580C6092844DA1600042C2F /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580C6082844DA1600042C2F /* Currencies.swift */; };
 		95FB55ED2837882C0095676E /* Mochi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB55EC2837882C0095676E /* Mochi.swift */; };
 		95FB55EF2837AB3F0095676E /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB55EE2837AB3F0095676E /* TimeManager.swift */; };
@@ -29,7 +30,8 @@
 		7F621F1A282E54CB007FE06B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		95203C6C2845FFD300F73C9E /* Consumable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consumable.swift; sourceTree = "<group>"; };
 		95203C6E28460B3600F73C9E /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		95203C7228464AAB00F73C9E /* PC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC.swift; sourceTree = "<group>"; };
+		95203C7228464AAB00F73C9E /* customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customizable.swift; sourceTree = "<group>"; };
+		95203C742847569200F73C9E /* CustomInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInventory.swift; sourceTree = "<group>"; };
 		9580C6082844DA1600042C2F /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		95FB55EC2837882C0095676E /* Mochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mochi.swift; sourceTree = "<group>"; };
 		95FB55EE2837AB3F0095676E /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
@@ -101,7 +103,8 @@
 				9580C6082844DA1600042C2F /* Currencies.swift */,
 				95203C6C2845FFD300F73C9E /* Consumable.swift */,
 				95203C6E28460B3600F73C9E /* Inventory.swift */,
-				95203C7228464AAB00F73C9E /* PC.swift */,
+				95203C7228464AAB00F73C9E /* customizable.swift */,
+				95203C742847569200F73C9E /* CustomInventory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,12 +182,13 @@
 			files = (
 				95FB55ED2837882C0095676E /* Mochi.swift in Sources */,
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
-				95203C7328464AAB00F73C9E /* PC.swift in Sources */,
+				95203C7328464AAB00F73C9E /* customizable.swift in Sources */,
 				95203C6F28460B3600F73C9E /* Inventory.swift in Sources */,
 				95FB55EF2837AB3F0095676E /* TimeManager.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,
 				95203C6D2845FFD300F73C9E /* Consumable.swift in Sources */,
 				9580C6092844DA1600042C2F /* Currencies.swift in Sources */,
+				95203C752847569200F73C9E /* CustomInventory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

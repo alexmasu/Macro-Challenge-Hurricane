@@ -23,7 +23,7 @@ class Inventory : NSObject, NSCoding{
         i = I
     }
     func buy(currencies: Currencies, consumable : Consumable) -> Int{
-        if consumable.requirement < currencies.money{
+        if consumable.requirement < currencies.followers{
             return -1
         }
         if (currencies.money < consumable.price){
