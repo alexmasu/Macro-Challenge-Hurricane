@@ -35,7 +35,6 @@
 		9580C6082844DA1600042C2F /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
 		95FB55EC2837882C0095676E /* Mochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mochi.swift; sourceTree = "<group>"; };
 		95FB55EE2837AB3F0095676E /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
-		95FB55F02840E64A0095676E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +67,6 @@
 		7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */ = {
 			isa = PBXGroup;
 			children = (
-				95FB55F02840E64A0095676E /* Info.plist */,
 				7F621F17282E5291007FE06B /* Git */,
 				7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */,
 				7F621F0B282E46C2007FE06B /* ContentView.swift */,
