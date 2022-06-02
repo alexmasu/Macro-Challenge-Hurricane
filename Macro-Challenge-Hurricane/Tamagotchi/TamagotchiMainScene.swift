@@ -39,7 +39,7 @@ class TamagotchiMainScene :  SKScene {
     var settingContainer = SKShapeNode()
     
     var startstream = false
-    var lightswitch = false
+//    var lightswitch = false
     var mute = false
     var settingsOn = false
     var omettoOn = false
@@ -104,7 +104,7 @@ class TamagotchiMainScene :  SKScene {
                     }
                 }
                 
-                if node.name == "monitor" && omettoOn == false && lightswitch == false {
+                if node.name == "monitor" && omettoOn == false {
                     if startstream == false {
                         removeChildren(in: [square])
                         clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
@@ -120,29 +120,29 @@ class TamagotchiMainScene :  SKScene {
                     }
                 }
                 
-                if node.name == "light" && startstream == false {
-                    if lightswitch == false && omettoOn == false {
-                        background.color = SKColor.black
-                        background.colorBlendFactor = 0.55
-                        light.color = SKColor.black
-                        light.colorBlendFactor = 0.55
-                        square.color = SKColor.black
-                        square.colorBlendFactor = 0.70
-                        monitor.color = SKColor.black
-                        monitor.colorBlendFactor = 0.55
-                        lightswitch = true
-                    } else if lightswitch == true && omettoOn == false {
-                        background.color = SKColor.black
-                        background.colorBlendFactor = 0.00
-                        light.color = SKColor.black
-                        light.colorBlendFactor = 0.00
-                        square.color = SKColor.black
-                        square.colorBlendFactor = 0.00
-                        monitor.color = SKColor.black
-                        monitor.colorBlendFactor = 0.00
-                        lightswitch = false
-                    }
-                }
+//                if node.name == "light" && startstream == false {
+//                    if lightswitch == false && omettoOn == false {
+//                        background.color = SKColor.black
+//                        background.colorBlendFactor = 0.55
+//                        light.color = SKColor.black
+//                        light.colorBlendFactor = 0.55
+//                        square.color = SKColor.black
+//                        square.colorBlendFactor = 0.70
+//                        monitor.color = SKColor.black
+//                        monitor.colorBlendFactor = 0.55
+//                        lightswitch = true
+//                    } else if lightswitch == true && omettoOn == false {
+//                        background.color = SKColor.black
+//                        background.colorBlendFactor = 0.00
+//                        light.color = SKColor.black
+//                        light.colorBlendFactor = 0.00
+//                        square.color = SKColor.black
+//                        square.colorBlendFactor = 0.00
+//                        monitor.color = SKColor.black
+//                        monitor.colorBlendFactor = 0.00
+//                        lightswitch = false
+//                    }
+//                }
                 
                 
                 if node.name == "shop" {

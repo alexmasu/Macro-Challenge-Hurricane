@@ -59,14 +59,27 @@ class BedroomScene :  SKScene {
             for node in touchedNodes {
                 
                 if node.name == "omettostreamerday" && omettoOn == false {
-                    spawnOmettoButtons()
-                    omettoOn = true
+                        spawnOmettoStats()
+                        spawnStatsButtons()
+                        omettoOn = true
+                } else if node.name == "omettostreamerday" && omettoOn == true {
+                        omettofadeOut()
+                        omettoOn = false
+                    }
+                
+                if node.name == "setting" && settingsOn == false {
+                    
+                    spawnSettingsCircle()
+                    spawnButtons()
+                    settingsOn = true
+                    
+                } else if node.name == "setting" && settingsOn == true {
+                    
+                    settfadeOut()
+                    settingsOn = false
+                    
                 }
                 
-                else if node.name == "omettostreamerday" && omettoOn == true {
-                    removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
-                    omettoOn = false
-                }
                 
                 if node.name == "light" || node.name == "nightlight" {
                     if isNight == false {
@@ -82,21 +95,6 @@ class BedroomScene :  SKScene {
                         addChild(squarestreamingday)
                         isNight = false
                     }
-                }
-                
-                if node.name == "setting" && settingsOn == false {
-                    
-                    spawnSettingsCircle()
-                    spawnButtons()
-                    settingsOn = true
-                    
-                }
-                
-                else if node.name == "setting" && settingsOn == true {
-                    
-                    settfadeOut()
-                    settingsOn = false
-                    
                 }
                 
                 if node.name == "twitch" && settingsOn == true {
@@ -163,16 +161,6 @@ class BedroomScene :  SKScene {
 // MARK: - Spawn Buttons for Game Scene
 extension BedroomScene {
     
-    func spawnOmettoButtons(){
-        addChild(hunger)
-        addChild(thirst)
-        addChild(cleaning)
-        addChild(energy)
-        addChild(happiness)
-        addChild(health)
-        
-    }
-    
     func spawnSettingsCircle(){
         
         fadeInAnim(elem: settingsCircle, time: 0.5)
@@ -191,6 +179,21 @@ extension BedroomScene {
         
         fadeInAnim(elem: settingsCircleOval3, time: 0.5)
         fadeInAnim(elem: languagebutton, time: 0.5)
+    }
+    
+    func spawnStatsButtons(){
+        
+        fadeInAnim(elem: hunger, time: 0.5)
+        
+        fadeInAnim(elem: thirst, time: 0.5)
+        
+        fadeInAnim(elem: cleaning, time: 0.5)
+        
+        fadeInAnim(elem: energy, time: 0.5)
+        
+        fadeInAnim(elem: happiness, time: 0.5)
+        
+        fadeInAnim(elem: health, time: 0.5)
     }
     
     func spawnCornerButtons() {
@@ -228,22 +231,34 @@ extension BedroomScene {
     
     func spawnOmettoStats() {
         hunger.position = CGPoint(x: squarestreamingday.position.x - UIScreen.main.bounds.width * 0.34, y: squarestreamingday.position.y )
+//        hunger.alpha = 0.0
         hunger.name = "hunger"
+        addChild(hunger)
         
         thirst.position = CGPoint(x: squarestreamingday.position.x - UIScreen.main.bounds.width * 0.29, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.09)
+//        thirst.alpha = 0.0
         thirst.name = "thirst"
+        addChild(thirst)
         
         cleaning.position = CGPoint(x: squarestreamingday.position.x - UIScreen.main.bounds.width * 0.12, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.14)
+//        cleaning.alpha = 0.0
         cleaning.name = "cleanliness"
+        addChild(cleaning)
         
         energy.position = CGPoint(x: squarestreamingday.position.x + UIScreen.main.bounds.width * 0.12, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.14)
+//        energy.alpha = 0.0
         energy.name = "energy"
+        addChild(energy)
         
         happiness.position = CGPoint(x: squarestreamingday.position.x + UIScreen.main.bounds.width * 0.29, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.09)
+//        happiness.alpha = 0.0
         happiness.name = "happiness"
+        addChild(happiness)
         
         health.position = CGPoint(x: squarestreamingday.position.x + UIScreen.main.bounds.width * 0.34, y: squarestreamingday.position.y)
+//        health.alpha = 0.0
         health.name = "health"
+        addChild(health)
         
     }
     
@@ -285,7 +300,7 @@ extension BedroomScene {
     
     func spawnOmettoNight() {
         squarestreamingnight.setScale(0.95)
-        squarestreamingnight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.1, y: frame.midY - UIScreen.main.bounds.width * 0.46)
+        squarestreamingnight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.01, y: frame.midY - UIScreen.main.bounds.width * 0.46)
         squarestreamingnight.name = "omettostreamernight"
         squarestreamingnight.color = SKColor.black
         squarestreamingnight.colorBlendFactor = 0.70
@@ -319,7 +334,7 @@ extension BedroomScene {
     
     func spawnOmettoDay() {
         squarestreamingday.setScale(0.95)
-        squarestreamingday.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.1, y: frame.midY - UIScreen.main.bounds.width * 0.46)
+        squarestreamingday.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.01, y: frame.midY - UIScreen.main.bounds.width * 0.46)
         squarestreamingday.name = "omettostreamerday"
         addChild(squarestreamingday)
     }
@@ -328,7 +343,7 @@ extension BedroomScene {
         
         spawnBedroom()
         spawnOmettoDay()
-        spawnOmettoStats()
+//        spawnOmettoStats()
         spawnSettingButtons()
         spawnCornerButtons()
         spawnOmettoNight()
@@ -366,6 +381,17 @@ extension BedroomScene {
         fadeOutAnim(elem: self.languagebutton, time: 1.5)
         fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
         fadeOutAnim(elem: self.settingsCircle, time: 1.5)
+        
+    }
+    
+    private func omettofadeOut() {
+        
+        fadeOutAnim(elem: self.hunger, time: 0.5)
+        fadeOutAnim(elem: self.thirst, time: 0.5)
+        fadeOutAnim(elem: self.cleaning, time: 0.5)
+        fadeOutAnim(elem: self.energy, time: 0.5)
+        fadeOutAnim(elem: self.happiness, time: 0.5)
+        fadeOutAnim(elem: self.health, time: 0.5)
         
     }
 }

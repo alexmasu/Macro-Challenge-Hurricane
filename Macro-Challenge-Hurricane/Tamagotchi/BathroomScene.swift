@@ -56,7 +56,7 @@ class BathroomScene :  SKScene {
             for node in touchedNodes {
                 
                 if node.name == "ometto" && omettoOn == false {
-                    spawnOmettoButtons()
+                    spawnOmettoStats()
                     omettoOn = true
                 }
                 
@@ -137,16 +137,6 @@ class BathroomScene :  SKScene {
 
 // MARK: - Spawn Buttons for Game Scene
 extension BathroomScene {
-    
-    func spawnOmettoButtons(){
-        addChild(hunger)
-        addChild(thirst)
-        addChild(cleaning)
-        addChild(energy)
-        addChild(happiness)
-        addChild(health)
-        
-    }
     
     func spawnSettingsCircle(){
         
