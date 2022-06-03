@@ -1,5 +1,5 @@
 //
-//  BathroomScene.swift
+//  Bedroom.swift
 //  Macro-Challenge-Hurricane
 //
 //  Created by Antonio Emanuele Cutarella on 23/05/22.
@@ -8,13 +8,15 @@
 import Foundation
 import SpriteKit
 
-class BathroomScene :  SKScene {
+class BedroomScene :  SKScene {
     
-    let sponge = SKSpriteNode(imageNamed: "sponge.png")
-    let bath = SKSpriteNode(imageNamed: "bath.png")
-    let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
-    let pc = SKSpriteNode(imageNamed: "pc2.png")
-    let square = SKSpriteNode(imageNamed: "Ometto.png")
+    
+    let bedroom = SKSpriteNode(imageNamed: "Bedroom.png")
+    let bedroomNight = SKSpriteNode(imageNamed: "BedroomNight.png")
+    let light = SKSpriteNode(imageNamed: "light.png")
+    let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
+    let squarestreamingday = SKSpriteNode(imageNamed: "OmettoStreaming.png")
+    let squarestreamingnight = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let audiobutton = SKSpriteNode(imageNamed: "Sound.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
     let languagebutton = SKSpriteNode(imageNamed: "Translation.png")
@@ -35,6 +37,7 @@ class BathroomScene :  SKScene {
     
     var settingContainer = SKShapeNode()
     
+    var isNight = false
     var mute = false
     var settingsOn = false
     var omettoOn = false
@@ -55,26 +58,46 @@ class BathroomScene :  SKScene {
             
             for node in touchedNodes {
                 
-                if node.name == "ometto" && omettoOn == false {
-                    spawnOmettoStats()
-                    omettoOn = true
-                }
-                
-                else if node.name == "ometto" && omettoOn == true {
-                    removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
-                    omettoOn = false
-                }
+                if node.name == "omettostreamerday" && omettoOn == false {
+                        spawnOmettoStats()
+                        spawnStatsButtons()
+                        omettoOn = true
+                } else if node.name == "omettostreamerday" && omettoOn == true {
+                        omettofadeOut()
+                        omettoOn = false
+                    }
                 
                 if node.name == "setting" && settingsOn == false {
+                    
                     spawnSettingsCircle()
                     spawnButtons()
                     settingsOn = true
+                    
                 } else if node.name == "setting" && settingsOn == true {
+                    
                     settfadeOut()
                     settingsOn = false
+                    
                 }
                 
-                else if node.name == "twitch" && settingsOn == true {
+                
+                if node.name == "light" || node.name == "nightlight" {
+                    if isNight == false {
+                        removeChildren(in: [bedroom,light,squarestreamingday])
+                        addChild(bedroomNight)
+                        addChild(nightlight)
+                        addChild(squarestreamingnight)
+                        isNight = true
+                    } else if isNight == true {
+                        removeChildren(in: [bedroomNight,nightlight,squarestreamingnight])
+                        addChild(bedroom)
+                        addChild(light)
+                        addChild(squarestreamingday)
+                        isNight = false
+                    }
+                }
+                
+                if node.name == "twitch" && settingsOn == true {
                     
                     let rhytmGame = RhytmGame()
                     rhytmGame.size = (view?.frame.size)!
@@ -136,7 +159,7 @@ class BathroomScene :  SKScene {
 }
 
 // MARK: - Spawn Buttons for Game Scene
-extension BathroomScene {
+extension BedroomScene {
     
     func spawnSettingsCircle(){
         
@@ -156,6 +179,21 @@ extension BathroomScene {
         
         fadeInAnim(elem: settingsCircleOval3, time: 0.5)
         fadeInAnim(elem: languagebutton, time: 0.5)
+    }
+    
+    func spawnStatsButtons(){
+        
+        fadeInAnim(elem: hunger, time: 0.5)
+        
+        fadeInAnim(elem: thirst, time: 0.5)
+        
+        fadeInAnim(elem: cleaning, time: 0.5)
+        
+        fadeInAnim(elem: energy, time: 0.5)
+        
+        fadeInAnim(elem: happiness, time: 0.5)
+        
+        fadeInAnim(elem: health, time: 0.5)
     }
     
     func spawnCornerButtons() {
@@ -192,23 +230,35 @@ extension BathroomScene {
     }
     
     func spawnOmettoStats() {
-        hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y )
+        hunger.position = CGPoint(x: squarestreamingday.position.x - UIScreen.main.bounds.width * 0.34, y: squarestreamingday.position.y )
+//        hunger.alpha = 0.0
         hunger.name = "hunger"
+        addChild(hunger)
         
-        thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
+        thirst.position = CGPoint(x: squarestreamingday.position.x - UIScreen.main.bounds.width * 0.29, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.09)
+//        thirst.alpha = 0.0
         thirst.name = "thirst"
+        addChild(thirst)
         
-        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
+        cleaning.position = CGPoint(x: squarestreamingday.position.x - UIScreen.main.bounds.width * 0.12, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.14)
+//        cleaning.alpha = 0.0
         cleaning.name = "cleanliness"
+        addChild(cleaning)
         
-        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
+        energy.position = CGPoint(x: squarestreamingday.position.x + UIScreen.main.bounds.width * 0.12, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.14)
+//        energy.alpha = 0.0
         energy.name = "energy"
+        addChild(energy)
         
-        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
+        happiness.position = CGPoint(x: squarestreamingday.position.x + UIScreen.main.bounds.width * 0.29, y: squarestreamingday.position.y + UIScreen.main.bounds.height * 0.09)
+//        happiness.alpha = 0.0
         happiness.name = "happiness"
+        addChild(happiness)
         
-        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y)
+        health.position = CGPoint(x: squarestreamingday.position.x + UIScreen.main.bounds.width * 0.34, y: squarestreamingday.position.y)
+//        health.alpha = 0.0
         health.name = "health"
+        addChild(health)
         
     }
     
@@ -248,36 +298,55 @@ extension BathroomScene {
         
     }
     
+    func spawnOmettoNight() {
+        squarestreamingnight.setScale(0.95)
+        squarestreamingnight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.01, y: frame.midY - UIScreen.main.bounds.width * 0.46)
+        squarestreamingnight.name = "omettostreamernight"
+        squarestreamingnight.color = SKColor.black
+        squarestreamingnight.colorBlendFactor = 0.70
+    }
+
+    
 }
 
 // MARK: - Game Scene Setup
-extension BathroomScene {
+extension BedroomScene {
     
-    func spawnBathroom() {
-        bathroom.position = CGPoint(x: frame.midX,y: frame.midY)
-        bathroom.name = "bathroom"
-        addChild(bathroom)
-        sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.18,y: frame.midY + UIScreen.main.bounds.height * 0.095)
-        sponge.name = "sponge"
-        sponge.setScale(0.8)
-        addChild(sponge)
-        bath.position = CGPoint(x: frame.midX ,y: frame.midY - UIScreen.main.bounds.height * 0.23)
-        bath.name = "bath"
-        bath.zPosition = 1.0
-        addChild(bath)
+    func spawnBedroom() {
+        bedroom.setScale(0.47)
+        bedroom.position = CGPoint(x: frame.midX,y: frame.midY)
+        bedroom.name = "bedroom"
+        addChild(bedroom)
+        
+        bedroomNight.setScale(0.47)
+        bedroomNight.position = CGPoint(x: frame.midX,y: frame.midY)
+        bedroomNight.name = "bedroomnight"
+        
+        light.setScale(0.5)
+        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
+        light.name = "light"
+        addChild(light)
+        
+        nightlight.setScale(0.5)
+        nightlight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
+        nightlight.name = "nightlight"
     }
     
-    func spawnOmetto() {
-        square.setScale(0.95)
-        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY - UIScreen.main.bounds.height * 0.1)
-        square.name = "ometto"
-        addChild(square)
+    func spawnOmettoDay() {
+        squarestreamingday.setScale(0.95)
+        squarestreamingday.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.01, y: frame.midY - UIScreen.main.bounds.width * 0.46)
+        squarestreamingday.name = "omettostreamerday"
+        addChild(squarestreamingday)
     }
     
     func setupScene() {
         
-        spawnBathroom()
-        spawnOmetto()
+        spawnBedroom()
+        spawnOmettoDay()
+//        spawnOmettoStats()
+        spawnSettingButtons()
+        spawnCornerButtons()
+        spawnOmettoNight()
         
     }
     
@@ -285,7 +354,7 @@ extension BathroomScene {
 
 // MARK: Elements Animations
 
-extension BathroomScene {
+extension BedroomScene {
     
     private func fadeInAnim(elem : SKSpriteNode, time : CGFloat) {
         let comparsa = SKAction.fadeIn(withDuration: time)
@@ -301,7 +370,7 @@ extension BathroomScene {
 
 // MARK: Generic Functions
 
-extension BathroomScene {
+extension BedroomScene {
     
     private func settfadeOut() {
         
@@ -312,6 +381,17 @@ extension BathroomScene {
         fadeOutAnim(elem: self.languagebutton, time: 1.5)
         fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
         fadeOutAnim(elem: self.settingsCircle, time: 1.5)
+        
+    }
+    
+    private func omettofadeOut() {
+        
+        fadeOutAnim(elem: self.hunger, time: 0.5)
+        fadeOutAnim(elem: self.thirst, time: 0.5)
+        fadeOutAnim(elem: self.cleaning, time: 0.5)
+        fadeOutAnim(elem: self.energy, time: 0.5)
+        fadeOutAnim(elem: self.happiness, time: 0.5)
+        fadeOutAnim(elem: self.health, time: 0.5)
         
     }
 }
