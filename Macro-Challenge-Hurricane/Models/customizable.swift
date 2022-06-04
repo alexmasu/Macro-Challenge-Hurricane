@@ -30,6 +30,7 @@ class customizable {
         descr = Descr
         priceBite = PriceBite
         price = Price
+        requirement = Requirement
     }
     
 }

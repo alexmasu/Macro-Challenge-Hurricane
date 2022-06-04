@@ -35,10 +35,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate{
         
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        print("in application didfinish launching")
         // codice per il bg
-        var mochi = (UserDefaults.standard.object(forKey: "mochi")) as! Mochi
-        var currencies = UserDefaults.standard.object(forKey: "currencies") as! Currencies
-        var timeManager = UserDefaults.standard.object(forKey: "timeManager") as! TimeManager
+        var mochi = (UserDefaults.standard.object(forKey: "mochi")) as? Mochi  ?? Mochi(MaxHunger: 50, MaxThirst: 50, MaxCleanlyness: 100, MaxHealth: 100, MaxEnergy: 50, MaxHappyness: 100, Hunger: 50, Thirst: 50, Cleanlyness: 100, Health: 100, Energy: 50, Happiness: 100, AgeType: 0, Alive: true)
+        var currencies = UserDefaults.standard.object(forKey: "currencies") as? Currencies ?? Currencies(Money: 0, Bite: 0, Followers: 0)
+        var timeManager = UserDefaults.standard.object(forKey: "timeManager") as? TimeManager ?? TimeManager()
         
         timeManager.AfterOffline(mochi: mochi, currencies: currencies)
         
@@ -51,6 +52,8 @@ class AppDelegate : UIResponder, UIApplicationDelegate{
     }
     
     func registerBackgroundTasks(){
+        print("in register background task launching")
+
         
         let backgroundAppRefreshTaskSchedulerIdentifier = "BackGroundAppRefreshIdentifier"
         let backgroundProcessingTaskSchedulerIdentifier = "BackGroundProcessingIdentifier"
@@ -73,8 +76,10 @@ class AppDelegate : UIResponder, UIApplicationDelegate{
     }
     
     func submitBackgroundTasks(){
+        print("in submitbackground tasks")
+
         let backgroundAppRefreshTaskSchedulerIdentifier = "BackGroundAppRefresherIdentifier"
-        let timeDelay = 1800
+        let timeDelay = 15
 
             do {
               let backgroundAppRefreshTaskRequest = BGAppRefreshTaskRequest(identifier: backgroundAppRefreshTaskSchedulerIdentifier)

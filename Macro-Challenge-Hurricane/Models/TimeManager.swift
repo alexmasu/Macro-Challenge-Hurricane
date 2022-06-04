@@ -39,7 +39,7 @@ class TimeManager {
     }
     
     
-    private init(){
+     init(){
         self.lastSave = Date.now
         self.savedDates = []
 
