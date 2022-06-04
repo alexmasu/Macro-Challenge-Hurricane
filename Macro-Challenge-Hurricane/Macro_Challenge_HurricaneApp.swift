@@ -25,27 +25,29 @@ class AppDelegate : UIResponder, UIApplicationDelegate{
     func applicationDidEnterBackground(_ application: UIApplication, mochi :Mochi, currencies : Currencies, timeManager: TimeManager) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        timeManager.saveDate()
-        if mochi.streaming == true{
-            timeManager.dateAppend()
-        }
-        UserDefaults.standard.set(mochi, forKey: "mochi")
-        UserDefaults.standard.set(currencies, forKey: "currencies")
-        UserDefaults.standard.set(timeManager, forKey: "timeManager")
-        
+//        timeManager.saveDate()
+//        if mochi.streaming == true{
+//            timeManager.dateAppend()
+//        }
+//        UserDefaults.standard.set(mochi, forKey: "mochi")
+//        UserDefaults.standard.set(currencies, forKey: "currencies")
+//        UserDefaults.standard.set(timeManager, forKey: "timeManager")
+//
+        print("application did enter background")
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // codice per il bg
-        var mochi = (UserDefaults.standard.object(forKey: "mochi")) as! Mochi
-        var currencies = UserDefaults.standard.object(forKey: "currencies") as! Currencies
-        var timeManager = UserDefaults.standard.object(forKey: "timeManager") as! TimeManager
-        
-        timeManager.AfterOffline(mochi: mochi, currencies: currencies)
-        
-        UserDefaults.standard.set(mochi, forKey: "mochi")
-        UserDefaults.standard.set(currencies, forKey: "currencies")
-        UserDefaults.standard.set(timeManager, forKey: "timeManager")
-        
+//        var mochi = (UserDefaults.standard.object(forKey: "mochi")) as! Mochi
+//        var currencies = UserDefaults.standard.object(forKey: "currencies") as! Currencies
+//        var timeManager = UserDefaults.standard.object(forKey: "timeManager") as! TimeManager
+//
+//        timeManager.AfterOffline(mochi: mochi, currencies: currencies)
+//
+//        UserDefaults.standard.set(mochi, forKey: "mochi")
+//        UserDefaults.standard.set(currencies, forKey: "currencies")
+//        UserDefaults.standard.set(timeManager, forKey: "timeManager")
+//
+        print("application did finishlaunching with options")
         registerBackgroundTasks()
         return true
     }
@@ -54,6 +56,7 @@ class AppDelegate : UIResponder, UIApplicationDelegate{
         
         let backgroundAppRefreshTaskSchedulerIdentifier = "BackGroundAppRefreshIdentifier"
         let backgroundProcessingTaskSchedulerIdentifier = "BackGroundProcessingIdentifier"
+        print("register background tasks")
         
         BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundAppRefreshTaskSchedulerIdentifier, using: nil) {
             (task) in
@@ -74,7 +77,9 @@ class AppDelegate : UIResponder, UIApplicationDelegate{
     
     func submitBackgroundTasks(){
         let backgroundAppRefreshTaskSchedulerIdentifier = "BackGroundAppRefresherIdentifier"
-        let timeDelay = 1800
+        let timeDelay = 15
+        
+        print ("submit background tasks")
 
             do {
               let backgroundAppRefreshTaskRequest = BGAppRefreshTaskRequest(identifier: backgroundAppRefreshTaskSchedulerIdentifier)
