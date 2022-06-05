@@ -17,6 +17,25 @@ class TimeManager {
     
     var lastSave: Date?
     
+    
+    func save(){
+        let savingTimeManager = TimeManagerJson(lastSave: self.lastSave ?? Date.now)
+        let dataManager = DataManager()
+        dataManager.setTimeManager(timeManager: savingTimeManager)
+            print("timeManager saved")
+    }
+    init(){
+        let dataManager = DataManager()
+        let readingTimeManager = dataManager.getTimeManager()
+        if readingTimeManager != nil{
+            lastSave = readingTimeManager.lastSave
+        }
+        else {
+            lastSave = Date.now
+        }
+        
+        
+    }
     func encode(with coder: NSCoder) {
         coder.encode(lastSave, forKey: "lastSave")
         coder.encode(savedDates, forKey: "savedDates")

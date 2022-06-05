@@ -16,7 +16,29 @@ class Currencies: NSObject, NSCoding{
         coder.encode(bite,forKey: "bite")
         coder.encode(followers, forKey: "followers")
     }
-    
+    func save(){
+        let savingCurrencies = CurrenciesJson(money: self.money, bite: self.bite, followers: self.followers)
+        let dataManager = DataManager()
+        dataManager.setCurrencies(currencies: savingCurrencies)
+            print("currencies saved")
+    }
+    override init(){
+        let dataManager = DataManager()
+        let readingCurrencies = dataManager.getCurrencies()
+        if readingCurrencies != nil{
+            money = readingCurrencies.money
+            bite = readingCurrencies.bite
+            followers = readingCurrencies.bite
+        }
+        else {
+            money = 0
+            bite = 0
+            followers = 0
+        }
+        
+        
+    }
+
     required convenience init?(coder decoder: NSCoder) {
         let money = decoder.decodeObject(of: NSNumber.self, forKey: "money") as! Int? ?? 0
         let bite = decoder.decodeObject(of: NSNumber.self, forKey: "bite") as! Int? ?? 0

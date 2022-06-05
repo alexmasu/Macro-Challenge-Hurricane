@@ -31,7 +31,6 @@ struct MochiJson: Codable {
     var energy : Int = 0
     var happiness : Int = 0
     var ageType : Int = 0
-    var followers : Int = 0
     var sleeping : Bool = false
     var streaming : Bool = false
     var ill : Bool = false

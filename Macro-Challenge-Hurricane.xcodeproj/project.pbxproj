@@ -28,6 +28,10 @@
 		7F658BF02844BE90004A6768 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F658BEF2844BE90004A6768 /* Token.swift */; };
 		7F658BF22844BEA6004A6768 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F658BF12844BEA6004A6768 /* User.swift */; };
 		7F658BF42844BEB6004A6768 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F658BF32844BEB6004A6768 /* Channel.swift */; };
+		95A75433284CC58F003E4804 /* CurrenciesJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A75432284CC58F003E4804 /* CurrenciesJson.swift */; };
+		95A75435284CD7E2003E4804 /* TimeManagerJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A75434284CD7E2003E4804 /* TimeManagerJson.swift */; };
+		95A75437284CDFB4003E4804 /* InventoryJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A75436284CDFB4003E4804 /* InventoryJson.swift */; };
+		95A75439284CE068003E4804 /* CustomInventoryJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A75438284CE068003E4804 /* CustomInventoryJson.swift */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +59,10 @@
 		7F658BF12844BEA6004A6768 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F658BF32844BEB6004A6768 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		95203C76284BB52000F73C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		95A75432284CC58F003E4804 /* CurrenciesJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesJson.swift; sourceTree = "<group>"; };
+		95A75434284CD7E2003E4804 /* TimeManagerJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManagerJson.swift; sourceTree = "<group>"; };
+		95A75436284CDFB4003E4804 /* InventoryJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryJson.swift; sourceTree = "<group>"; };
+		95A75438284CE068003E4804 /* CustomInventoryJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInventoryJson.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +117,6 @@
 				7F43A6632834ED1B00F8952C /* WebViewController.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
-				7F5E8F4828477EF500B555C1 /* TimeManager.swift */,
-				7F5E8F4A28477F4D00B555C1 /* Currencies.swift */,
-				7F5E8F4C28477F6500B555C1 /* item.swift */,
-				7F5E8F4E28477F8200B555C1 /* Inventory.swift */,
-				7F5E8F5028477FB400B555C1 /* Customizable.swift */,
-				7F5E8F5228477FF700B555C1 /* CustomInventory.swift */,
 			);
 			path = "Macro-Challenge-Hurricane";
 			sourceTree = "<group>";
@@ -151,6 +153,16 @@
 				7F658BF32844BEB6004A6768 /* Channel.swift */,
 				7F5E8F4028475A0E00B555C1 /* MochiJson.swift */,
 				7F5E8F4628477E2900B555C1 /* Mochi.swift */,
+				7F5E8F4A28477F4D00B555C1 /* Currencies.swift */,
+				95A75432284CC58F003E4804 /* CurrenciesJson.swift */,
+				7F5E8F4828477EF500B555C1 /* TimeManager.swift */,
+				95A75434284CD7E2003E4804 /* TimeManagerJson.swift */,
+				7F5E8F4E28477F8200B555C1 /* Inventory.swift */,
+				95A75436284CDFB4003E4804 /* InventoryJson.swift */,
+				7F5E8F5228477FF700B555C1 /* CustomInventory.swift */,
+				95A75438284CE068003E4804 /* CustomInventoryJson.swift */,
+				7F5E8F4C28477F6500B555C1 /* item.swift */,
+				7F5E8F5028477FB400B555C1 /* Customizable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +248,8 @@
 			files = (
 				7F658BF02844BE90004A6768 /* Token.swift in Sources */,
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
+				95A75437284CDFB4003E4804 /* InventoryJson.swift in Sources */,
+				95A75433284CC58F003E4804 /* CurrenciesJson.swift in Sources */,
 				7F5E8F4D28477F6500B555C1 /* item.swift in Sources */,
 				7F5E8F4928477EF500B555C1 /* TimeManager.swift in Sources */,
 				7F658BF42844BEB6004A6768 /* Channel.swift in Sources */,
@@ -244,9 +258,11 @@
 				7F5E8F5128477FB400B555C1 /* Customizable.swift in Sources */,
 				7F43A6672836317C00F8952C /* DataManager.swift in Sources */,
 				7F5E8F452847734000B555C1 /* TwitchService.swift in Sources */,
+				95A75435284CD7E2003E4804 /* TimeManagerJson.swift in Sources */,
 				7F43A6642834ED1C00F8952C /* WebViewController.swift in Sources */,
 				7F5E8F4B28477F4D00B555C1 /* Currencies.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,
+				95A75439284CE068003E4804 /* CustomInventoryJson.swift in Sources */,
 				7F43A669283631D700F8952C /* Storage.swift in Sources */,
 				7F5E8F4F28477F8200B555C1 /* Inventory.swift in Sources */,
 				7F658BF22844BEA6004A6768 /* User.swift in Sources */,

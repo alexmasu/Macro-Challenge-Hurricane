@@ -11,7 +11,24 @@ class Inventory : NSObject, NSCoding{
     func encode(with coder: NSCoder) {
         coder.encode(i, forKey: "inventory")
     }
-    
+    func save(){
+        let savingInventory = InventoryJson(i: self.i)
+        let dataManager = DataManager()
+        dataManager.setInventory(inventory: savingInventory)
+            print("inventory saved")
+    }
+    override init(){
+        let dataManager = DataManager()
+        let readingInventory = dataManager.getInventory()
+        if readingInventory != nil{
+            i = readingInventory.i
+        }
+        else {
+            i = []
+        }
+        
+        
+    }
     required convenience init?(coder decoder: NSCoder) {
         let i = decoder.decodeObject(of: NSArray.self, forKey: "i") as! [Int]
         self.init(I: i)
