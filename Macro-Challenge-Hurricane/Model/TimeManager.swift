@@ -281,4 +281,7 @@ class TimeManager {
         //        salvare la felicità in un array per calcolare l'esito dello streaming
         //        verrà usata come punto di media; nell'array ci saranno inizio live, punti in cui l'app è stata aperta e come è finita la live.
     }
+//    func stopStreaming(mochi: Mochi,currencies: Currencies){
+        
+    }
 }
