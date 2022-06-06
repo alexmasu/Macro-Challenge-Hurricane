@@ -21,20 +21,25 @@
 		7F5E8F5328477FF700B555C1 /* CustomInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E8F5228477FF700B555C1 /* CustomInventory.swift */; };
 		7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */; };
 		7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F621F0B282E46C2007FE06B /* ContentView.swift */; };
-		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
-		7F63073D284E311A0008C6DD /* BathroomSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630733284E311A0008C6DD /* BathroomSceneView.swift */; };
-		7F63073E284E311A0008C6DD /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630734284E311A0008C6DD /* InventoryScene.swift */; };
-		7F63073F284E311A0008C6DD /* CustomizationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630735284E311A0008C6DD /* CustomizationScene.swift */; };
-		7F630740284E311A0008C6DD /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630736284E311A0008C6DD /* TamagotchiMainScene.swift */; };
-		7F630741284E311A0008C6DD /* BedroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630737284E311A0008C6DD /* BedroomView.swift */; };
-		7F630742284E311A0008C6DD /* BedroomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630738284E311A0008C6DD /* BedroomScene.swift */; };
-		7F630743284E311A0008C6DD /* MinigamesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630739284E311A0008C6DD /* MinigamesScene.swift */; };
-		7F630744284E311A0008C6DD /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63073A284E311A0008C6DD /* ShopScene.swift */; };
-		7F630745284E311A0008C6DD /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63073B284E311A0008C6DD /* TamagotchiView.swift */; };
-		7F630746284E311A0008C6DD /* BathroomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63073C284E311A0008C6DD /* BathroomScene.swift */; };
-		7F630749284E31450008C6DD /* RhytmGame.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7F630748284E31450008C6DD /* RhytmGame.sks */; };
+		7F63074B284E32510008C6DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F63074A284E32510008C6DD /* Assets.xcassets */; };
+		7F630751284E33840008C6DD /* RGPhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63074D284E33840008C6DD /* RGPhysicsCategory.swift */; };
+		7F630752284E33840008C6DD /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63074E284E33840008C6DD /* RhytmGame.swift */; };
+		7F630753284E33840008C6DD /* RhytmGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63074F284E33840008C6DD /* RhytmGameView.swift */; };
+		7F630754284E33840008C6DD /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630750284E33840008C6DD /* CGFloat_Ext.swift */; };
+		7F630763284E35070008C6DD /* BathroomSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630757284E35070008C6DD /* BathroomSceneView.swift */; };
+		7F630764284E35070008C6DD /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630758284E35070008C6DD /* InventoryScene.swift */; };
+		7F630765284E35070008C6DD /* CustomizationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630759284E35070008C6DD /* CustomizationScene.swift */; };
+		7F630766284E35070008C6DD /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63075A284E35070008C6DD /* TamagotchiMainScene.swift */; };
+		7F630767284E35070008C6DD /* BedroomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63075B284E35070008C6DD /* BedroomView.swift */; };
+		7F630768284E35070008C6DD /* BedroomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63075C284E35070008C6DD /* BedroomScene.swift */; };
+		7F630769284E35070008C6DD /* MinigamesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63075D284E35070008C6DD /* MinigamesScene.swift */; };
+		7F63076A284E35070008C6DD /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63075E284E35070008C6DD /* ShopScene.swift */; };
+		7F63076B284E35070008C6DD /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F63075F284E35070008C6DD /* TamagotchiView.swift */; };
+		7F63076C284E35070008C6DD /* BathroomScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630760284E35070008C6DD /* BathroomScene.swift */; };
+		7F63076D284E35070008C6DD /* CornerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630761284E35070008C6DD /* CornerScene.swift */; };
+		7F63076E284E35070008C6DD /* CornerSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F630762284E35070008C6DD /* CornerSceneView.swift */; };
 		7F658BE92844BE04004A6768 /* RealHTTP in Frameworks */ = {isa = PBXBuildFile; productRef = 7F658BE82844BE04004A6768 /* RealHTTP */; };
 		7F658BF02844BE90004A6768 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F658BEF2844BE90004A6768 /* Token.swift */; };
 		7F658BF22844BEA6004A6768 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F658BF12844BEA6004A6768 /* User.swift */; };
@@ -63,20 +68,26 @@
 		7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Macro-Challenge-Hurricane.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_Challenge_HurricaneApp.swift; sourceTree = "<group>"; };
 		7F621F0B282E46C2007FE06B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F621F1A282E54CB007FE06B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		7F630733284E311A0008C6DD /* BathroomSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BathroomSceneView.swift; sourceTree = "<group>"; };
-		7F630734284E311A0008C6DD /* InventoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
-		7F630735284E311A0008C6DD /* CustomizationScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizationScene.swift; sourceTree = "<group>"; };
-		7F630736284E311A0008C6DD /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
-		7F630737284E311A0008C6DD /* BedroomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedroomView.swift; sourceTree = "<group>"; };
-		7F630738284E311A0008C6DD /* BedroomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedroomScene.swift; sourceTree = "<group>"; };
-		7F630739284E311A0008C6DD /* MinigamesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinigamesScene.swift; sourceTree = "<group>"; };
-		7F63073A284E311A0008C6DD /* ShopScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
-		7F63073B284E311A0008C6DD /* TamagotchiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
-		7F63073C284E311A0008C6DD /* BathroomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BathroomScene.swift; sourceTree = "<group>"; };
-		7F630748284E31450008C6DD /* RhytmGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RhytmGame.sks; sourceTree = "<group>"; };
+		7F63074A284E32510008C6DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/Macro-Challenge-Hurricane-RhytmGame/Macro-Challenge-Hurricane/Assets.xcassets"; sourceTree = "<group>"; };
+		7F63074D284E33840008C6DD /* RGPhysicsCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGPhysicsCategory.swift; sourceTree = "<group>"; };
+		7F63074E284E33840008C6DD /* RhytmGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
+		7F63074F284E33840008C6DD /* RhytmGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhytmGameView.swift; sourceTree = "<group>"; };
+		7F630750284E33840008C6DD /* CGFloat_Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloat_Ext.swift; sourceTree = "<group>"; };
+		7F630755284E33900008C6DD /* RhytmGame.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RhytmGame.sks; sourceTree = "<group>"; };
+		7F630757284E35070008C6DD /* BathroomSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BathroomSceneView.swift; sourceTree = "<group>"; };
+		7F630758284E35070008C6DD /* InventoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
+		7F630759284E35070008C6DD /* CustomizationScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizationScene.swift; sourceTree = "<group>"; };
+		7F63075A284E35070008C6DD /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
+		7F63075B284E35070008C6DD /* BedroomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedroomView.swift; sourceTree = "<group>"; };
+		7F63075C284E35070008C6DD /* BedroomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BedroomScene.swift; sourceTree = "<group>"; };
+		7F63075D284E35070008C6DD /* MinigamesScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinigamesScene.swift; sourceTree = "<group>"; };
+		7F63075E284E35070008C6DD /* ShopScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
+		7F63075F284E35070008C6DD /* TamagotchiView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
+		7F630760284E35070008C6DD /* BathroomScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BathroomScene.swift; sourceTree = "<group>"; };
+		7F630761284E35070008C6DD /* CornerScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerScene.swift; sourceTree = "<group>"; };
+		7F630762284E35070008C6DD /* CornerSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerSceneView.swift; sourceTree = "<group>"; };
 		7F658BEF2844BE90004A6768 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		7F658BF12844BEA6004A6768 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F658BF32844BEB6004A6768 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -129,9 +140,9 @@
 		7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */ = {
 			isa = PBXGroup;
 			children = (
-				7F630747284E31450008C6DD /* RhytmGame */,
+				7F630756284E35070008C6DD /* Tamagotchi */,
+				7F63074C284E33840008C6DD /* RhytmGame */,
 				95203C76284BB52000F73C9E /* Info.plist */,
-				7F630732284E311A0008C6DD /* Tamagotchi */,
 				7F658BEE2844BE6F004A6768 /* Model */,
 				7F658BE42844BD9F004A6768 /* NetworkService */,
 				7F43A6652836315D00F8952C /* DataManager */,
@@ -139,7 +150,7 @@
 				7F621F09282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift */,
 				7F621F0B282E46C2007FE06B /* ContentView.swift */,
 				7F43A6632834ED1B00F8952C /* WebViewController.swift */,
-				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
+				7F63074A284E32510008C6DD /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
 			);
 			path = "Macro-Challenge-Hurricane";
@@ -161,29 +172,36 @@
 			path = Git;
 			sourceTree = "<group>";
 		};
-		7F630732284E311A0008C6DD /* Tamagotchi */ = {
+		7F63074C284E33840008C6DD /* RhytmGame */ = {
 			isa = PBXGroup;
 			children = (
-				7F630733284E311A0008C6DD /* BathroomSceneView.swift */,
-				7F630734284E311A0008C6DD /* InventoryScene.swift */,
-				7F630735284E311A0008C6DD /* CustomizationScene.swift */,
-				7F630736284E311A0008C6DD /* TamagotchiMainScene.swift */,
-				7F630737284E311A0008C6DD /* BedroomView.swift */,
-				7F630738284E311A0008C6DD /* BedroomScene.swift */,
-				7F630739284E311A0008C6DD /* MinigamesScene.swift */,
-				7F63073A284E311A0008C6DD /* ShopScene.swift */,
-				7F63073B284E311A0008C6DD /* TamagotchiView.swift */,
-				7F63073C284E311A0008C6DD /* BathroomScene.swift */,
+				7F630755284E33900008C6DD /* RhytmGame.sks */,
+				7F63074D284E33840008C6DD /* RGPhysicsCategory.swift */,
+				7F63074E284E33840008C6DD /* RhytmGame.swift */,
+				7F63074F284E33840008C6DD /* RhytmGameView.swift */,
+				7F630750284E33840008C6DD /* CGFloat_Ext.swift */,
 			);
-			path = Tamagotchi;
+			name = RhytmGame;
+			path = ../../../../Downloads/RhytmGame;
 			sourceTree = "<group>";
 		};
-		7F630747284E31450008C6DD /* RhytmGame */ = {
+		7F630756284E35070008C6DD /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
-				7F630748284E31450008C6DD /* RhytmGame.sks */,
+				7F630757284E35070008C6DD /* BathroomSceneView.swift */,
+				7F630758284E35070008C6DD /* InventoryScene.swift */,
+				7F630759284E35070008C6DD /* CustomizationScene.swift */,
+				7F63075A284E35070008C6DD /* TamagotchiMainScene.swift */,
+				7F63075B284E35070008C6DD /* BedroomView.swift */,
+				7F63075C284E35070008C6DD /* BedroomScene.swift */,
+				7F63075D284E35070008C6DD /* MinigamesScene.swift */,
+				7F63075E284E35070008C6DD /* ShopScene.swift */,
+				7F63075F284E35070008C6DD /* TamagotchiView.swift */,
+				7F630760284E35070008C6DD /* BathroomScene.swift */,
+				7F630761284E35070008C6DD /* CornerScene.swift */,
+				7F630762284E35070008C6DD /* CornerSceneView.swift */,
 			);
-			path = RhytmGame;
+			path = Tamagotchi;
 			sourceTree = "<group>";
 		};
 		7F658BE42844BD9F004A6768 /* NetworkService */ = {
@@ -284,8 +302,7 @@
 			files = (
 				7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */,
 				7F621F1B282E54CB007FE06B /* .gitignore in Resources */,
-				7F630749284E31450008C6DD /* RhytmGame.sks in Resources */,
-				7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */,
+				7F63074B284E32510008C6DD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,36 +314,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F658BF02844BE90004A6768 /* Token.swift in Sources */,
-				7F630745284E311A0008C6DD /* TamagotchiView.swift in Sources */,
-				7F63073D284E311A0008C6DD /* BathroomSceneView.swift in Sources */,
+				7F630763284E35070008C6DD /* BathroomSceneView.swift in Sources */,
+				7F630753284E33840008C6DD /* RhytmGameView.swift in Sources */,
+				7F63076C284E35070008C6DD /* BathroomScene.swift in Sources */,
 				7F621F0C282E46C2007FE06B /* ContentView.swift in Sources */,
-				7F630741284E311A0008C6DD /* BedroomView.swift in Sources */,
 				95A75437284CDFB4003E4804 /* InventoryJson.swift in Sources */,
 				95A75433284CC58F003E4804 /* CurrenciesJson.swift in Sources */,
 				7F5E8F4D28477F6500B555C1 /* item.swift in Sources */,
 				7F5E8F4928477EF500B555C1 /* TimeManager.swift in Sources */,
-				7F630742284E311A0008C6DD /* BedroomScene.swift in Sources */,
+				7F630752284E33840008C6DD /* RhytmGame.swift in Sources */,
+				7F63076B284E35070008C6DD /* TamagotchiView.swift in Sources */,
 				7F658BF42844BEB6004A6768 /* Channel.swift in Sources */,
-				7F630746284E311A0008C6DD /* BathroomScene.swift in Sources */,
+				7F630754284E33840008C6DD /* CGFloat_Ext.swift in Sources */,
+				7F630751284E33840008C6DD /* RGPhysicsCategory.swift in Sources */,
+				7F63076A284E35070008C6DD /* ShopScene.swift in Sources */,
+				7F63076D284E35070008C6DD /* CornerScene.swift in Sources */,
 				7F5E8F4128475A0E00B555C1 /* MochiJson.swift in Sources */,
-				7F630744284E311A0008C6DD /* ShopScene.swift in Sources */,
-				7F630743284E311A0008C6DD /* MinigamesScene.swift in Sources */,
+				7F630766284E35070008C6DD /* TamagotchiMainScene.swift in Sources */,
 				7F5E8F5328477FF700B555C1 /* CustomInventory.swift in Sources */,
+				7F630765284E35070008C6DD /* CustomizationScene.swift in Sources */,
 				7F5E8F5128477FB400B555C1 /* Customizable.swift in Sources */,
 				7F43A6672836317C00F8952C /* DataManager.swift in Sources */,
 				7F5E8F452847734000B555C1 /* TwitchService.swift in Sources */,
+				7F630767284E35070008C6DD /* BedroomView.swift in Sources */,
 				95A75435284CD7E2003E4804 /* TimeManagerJson.swift in Sources */,
 				7F43A6642834ED1C00F8952C /* WebViewController.swift in Sources */,
 				7F5E8F4B28477F4D00B555C1 /* Currencies.swift in Sources */,
+				7F630769284E35070008C6DD /* MinigamesScene.swift in Sources */,
 				7F621F0A282E46C2007FE06B /* Macro_Challenge_HurricaneApp.swift in Sources */,
 				95A75439284CE068003E4804 /* CustomInventoryJson.swift in Sources */,
-				7F63073F284E311A0008C6DD /* CustomizationScene.swift in Sources */,
 				7F43A669283631D700F8952C /* Storage.swift in Sources */,
 				7F5E8F4F28477F8200B555C1 /* Inventory.swift in Sources */,
-				7F630740284E311A0008C6DD /* TamagotchiMainScene.swift in Sources */,
+				7F630768284E35070008C6DD /* BedroomScene.swift in Sources */,
+				7F630764284E35070008C6DD /* InventoryScene.swift in Sources */,
 				7F658BF22844BEA6004A6768 /* User.swift in Sources */,
-				7F63073E284E311A0008C6DD /* InventoryScene.swift in Sources */,
 				7F5E8F4728477E2900B555C1 /* Mochi.swift in Sources */,
+				7F63076E284E35070008C6DD /* CornerSceneView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +482,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = StreaMochi;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -489,6 +513,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = StreaMochi;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import SpriteKit
 
 struct ContentView: View {
+    @EnvironmentObject var appDelegate: FSAppDelegate
+    @EnvironmentObject var sceneDelegate: FSSceneDelegate
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+       CornerSceneView()
     }
 }
 

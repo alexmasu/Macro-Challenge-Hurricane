@@ -6,90 +6,122 @@
 //
 
 import SwiftUI
+import UIKit
 import BackgroundTasks
 
 @main
 struct Macro_Challenge_HurricaneApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-//    var mochi = Mochi(MaxHunger: 1, MaxThirst: 1, MaxCleanlyness: 1, MaxHealth: 1, MaxEnergy: 1, MaxHappyness: 1, Hunger: 1, Thirst: 1, Cleanlyness: 1, Health: 1, Energy: 1, Happiness: 1, AgeType: 0, Followers: 1, Alive: false)
+    @UIApplicationDelegateAdaptor var delegate: FSAppDelegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().statusBar(hidden: true)
+                .ignoresSafeArea()
         }
     }
 }
 
 
-class AppDelegate : UIResponder, UIApplicationDelegate{
-    var window: UIWindow?
-    func applicationDidEnterBackground(_ application: UIApplication, mochi :Mochi, currencies : Currencies, timeManager: TimeManager) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//        timeManager.saveDate()
-//        if mochi.streaming == true{
-//            timeManager.dateAppend()
-//        }
-//        UserDefaults.standard.set(mochi, forKey: "mochi")
-//        UserDefaults.standard.set(currencies, forKey: "currencies")
-//        UserDefaults.standard.set(timeManager, forKey: "timeManager")
-//
-        print("application did enter background")
-    }
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        // codice per il bg
-//        var mochi = (UserDefaults.standard.object(forKey: "mochi")) as! Mochi
-//        var currencies = UserDefaults.standard.object(forKey: "currencies") as! Currencies
-//        var timeManager = UserDefaults.standard.object(forKey: "timeManager") as! TimeManager
-//
-//        timeManager.AfterOffline(mochi: mochi, currencies: currencies)
-//
-//        UserDefaults.standard.set(mochi, forKey: "mochi")
-//        UserDefaults.standard.set(currencies, forKey: "currencies")
-//        UserDefaults.standard.set(timeManager, forKey: "timeManager")
-//
-        print("application did finishlaunching with options")
-        registerBackgroundTasks()
+class FSAppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
+    
+    @Published var date: Date = .now
+    
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    ) -> Bool {
+        
+        Timer
+            .publish(every: 1, on: .main, in: .default)
+            .autoconnect()
+            .assign(to: &$date)
+        
+        
+        // MARK: Registering Launch Handlers for Tasks
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "StreaMochi.refresh", using: nil) { task in
+            //            self.handleAppRefresh(task: task as! BGAppRefreshTask)
+            let appRefresh = FSSceneDelegate()
+            appRefresh.handleAppRefresh(task: task as! BGAppRefreshTask)
+            
+        }
+        
         return true
     }
     
-    func registerBackgroundTasks(){
-        
-        let backgroundAppRefreshTaskSchedulerIdentifier = "BackGroundAppRefreshIdentifier"
-        let backgroundProcessingTaskSchedulerIdentifier = "BackGroundProcessingIdentifier"
-        print("register background tasks")
-        
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundAppRefreshTaskSchedulerIdentifier, using: nil) {
-            (task) in
-            print(" BackgroundAppRefreshTaskScheduler is executed now")
-            print ("background time remaining \(UIApplication.shared.backgroundTimeRemaining)")
-            task.expirationHandler = {
-                task.setTaskCompleted(success: false)
-            }
-            
-//          do some data fetching and call settaskcompleted ( success: ) asap
-            let isFetchingSuccess = true
-            task.setTaskCompleted(success: isFetchingSuccess)
-            
-        }
-        
-        
+    func application(
+        _ application: UIApplication,
+        configurationForConnecting connectingSceneSession: UISceneSession,
+        options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
+        let sceneConfig = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+        sceneConfig.delegateClass = FSSceneDelegate.self
+        return sceneConfig
     }
     
-    func submitBackgroundTasks(){
-        let backgroundAppRefreshTaskSchedulerIdentifier = "BackGroundAppRefresherIdentifier"
-        let timeDelay = 15
-        
-        print ("submit background tasks")
-
-            do {
-              let backgroundAppRefreshTaskRequest = BGAppRefreshTaskRequest(identifier: backgroundAppRefreshTaskSchedulerIdentifier)
-                backgroundAppRefreshTaskRequest.earliestBeginDate = Date(timeIntervalSinceNow: TimeInterval(timeDelay))
-              try BGTaskScheduler.shared.submit(backgroundAppRefreshTaskRequest)
-              print("Submitted task request")
-            }
-        catch {
-              print("Failed to submit BGTask")
-            }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
     }
+    
 }
 
+
+class FSSceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
+    
+    
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {}
+    
+    
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        scheduleAppRefresh()
+    }
+    
+    func sceneWillEnterForeground(_ scene: UIScene) {
+        // ...
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        // ...
+    }
+    
+    func sceneWillResignActive(_ scene: UIScene) {
+        // ...
+    }
+    
+    
+    func scheduleAppRefresh() {
+        let request = BGAppRefreshTaskRequest(identifier: "StreaMochi.refresh")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 10 * 60) // Fetch no earlier than 10 minutes from now
+        //        request.earliestBeginDate = Date(timeIntervalSinceNow: 0)
+        do {
+            try BGTaskScheduler.shared.submit(request)
+            print("Submitted task request")
+        } catch {
+            print("Could not schedule app refresh: \(error)")
+        }
+    }
+    
+    
+    func handleAppRefresh(task: BGAppRefreshTask) {
+        print("Refresh called")
+        scheduleAppRefresh()
+        let operationQueue = OperationQueue()
+        let refreshOperation = BlockOperation {
+            //             let refreshManager = BackgroundRefresh()
+            //             refreshManager.updateInfoForServer()
+            print("Refresh executed 1")
+            print("Refresh executed 2")
+        }
+        
+        task.expirationHandler = {
+            refreshOperation.cancel()
+        }
+        
+        refreshOperation.completionBlock = {
+            task.setTaskCompleted(success: !refreshOperation.isCancelled)
+        }
+        operationQueue.addOperation(refreshOperation)
+    }
+}
