@@ -4,7 +4,7 @@
 <dict>
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
-		<string>com.appleacademy.StreaMochi.refresh</string>
+		<string>refresh</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

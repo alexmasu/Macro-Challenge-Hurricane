@@ -1,25 +1,27 @@
 //
-//  Macro_Challenge_HurricaneApp.swift
-//  Macro-Challenge-Hurricane
+//  DemoBgTaskApp.swift
+//  DemoBgTask
 //
-//  Created by Alessandro Masullo on 13/05/22.
+//  Created by Alessandro Masullo on 04/06/22.
 //
+
+// e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.appleacademy.DemoBgTask.refresh"]
 
 import SwiftUI
 import UIKit
 import BackgroundTasks
 
 @main
-struct Macro_Challenge_HurricaneApp: App {
+struct DemoBgTaskApp: App {
+    
     @UIApplicationDelegateAdaptor var delegate: FSAppDelegate
+    
     var body: some Scene {
         WindowGroup {
-            ContentView().statusBar(hidden: true)
-                .ignoresSafeArea()
+            ContentView().ignoresSafeArea().statusBar(hidden: true)
         }
     }
 }
-
 
 class FSAppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     
@@ -37,7 +39,7 @@ class FSAppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         
         
         // MARK: Registering Launch Handlers for Tasks
-        BGTaskScheduler.shared.register(forTaskWithIdentifier: "StreaMochi.refresh", using: nil) { task in
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "refresh", using: nil) { task in
             //            self.handleAppRefresh(task: task as! BGAppRefreshTask)
             let appRefresh = FSSceneDelegate()
             appRefresh.handleAppRefresh(task: task as! BGAppRefreshTask)
@@ -92,8 +94,8 @@ class FSSceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
     
     
     func scheduleAppRefresh() {
-        let request = BGAppRefreshTaskRequest(identifier: "StreaMochi.refresh")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 10 * 60) // Fetch no earlier than 10 minutes from now
+        let request = BGAppRefreshTaskRequest(identifier: "refresh")
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // Fetch no earlier than 1 minutes from now
         //        request.earliestBeginDate = Date(timeIntervalSinceNow: 0)
         do {
             try BGTaskScheduler.shared.submit(request)
