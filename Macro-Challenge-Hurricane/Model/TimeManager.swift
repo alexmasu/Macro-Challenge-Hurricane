@@ -283,5 +283,4 @@ class TimeManager {
     }
 //    func stopStreaming(mochi: Mochi,currencies: Currencies){
         
-    }
 }
