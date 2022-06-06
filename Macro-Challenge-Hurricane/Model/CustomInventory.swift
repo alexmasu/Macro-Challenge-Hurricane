@@ -18,15 +18,13 @@ class CustomInventory : NSObject, NSCoding{
     var i: [Int]
     func save(){
         let savingCustomInventory = CustomInventoryJson(i: self.i)
-        let dataManager = DataManager()
-        dataManager.setCustomInventory(CustomInventory: savingCustomInventory)
+        DataManager.standard.setCustomInventory(customInventory: savingCustomInventory)
             print("Customization inventory saved")
     }
     override init(){
-        let dataManager = DataManager()
-        let readingCustomInventory = dataManager.getCustomInventory()
+        let readingCustomInventory = DataManager.standard.getCustomInventory()
         if readingCustomInventory != nil{
-            i = readingCustomInventory.i
+            i = readingCustomInventory!.i
         }
         else {
             i = []

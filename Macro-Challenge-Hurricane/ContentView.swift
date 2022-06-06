@@ -19,3 +19,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+// on disappear, queue ,concurrency lab

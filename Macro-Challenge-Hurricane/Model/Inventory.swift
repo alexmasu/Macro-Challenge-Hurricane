@@ -13,15 +13,13 @@ class Inventory : NSObject, NSCoding{
     }
     func save(){
         let savingInventory = InventoryJson(i: self.i)
-        let dataManager = DataManager()
-        dataManager.setInventory(inventory: savingInventory)
+        DataManager.standard.setInventory(inventory: savingInventory)
             print("inventory saved")
     }
     override init(){
-        let dataManager = DataManager()
-        let readingInventory = dataManager.getInventory()
+        let readingInventory = DataManager.standard.getInventory()
         if readingInventory != nil{
-            i = readingInventory.i
+            i = readingInventory!.i
         }
         else {
             i = []

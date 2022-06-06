@@ -19,19 +19,19 @@ class TimeManager {
     
     
     func save(){
-        let savingTimeManager = TimeManagerJson(lastSave: self.lastSave ?? Date.now)
-        let dataManager = DataManager()
-        dataManager.setTimeManager(timeManager: savingTimeManager)
+        let savingTimeManager = TimeManagerJson(lastSave: self.lastSave ?? Date.now, savedDates: self.savedDates)
+        DataManager.standard.setTimeManager(timeManager: savingTimeManager)
             print("timeManager saved")
     }
     init(){
-        let dataManager = DataManager()
-        let readingTimeManager = dataManager.getTimeManager()
+        let readingTimeManager = DataManager.standard.getTimeManager()
         if readingTimeManager != nil{
-            lastSave = readingTimeManager.lastSave
+            lastSave = readingTimeManager!.lastSave
+            savedDates = readingTimeManager!.savedDates
         }
         else {
             lastSave = Date.now
+            savedDates = []
         }
         
         
@@ -57,12 +57,6 @@ class TimeManager {
         }
     }
     
-    
-    private init(){
-        self.lastSave = Date.now
-        self.savedDates = []
-        
-    }
     static let state = TimeManager()
     var savedDates : [Date?]
     

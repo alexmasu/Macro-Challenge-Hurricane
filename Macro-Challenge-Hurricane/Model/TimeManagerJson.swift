@@ -8,4 +8,5 @@
 import Foundation
 struct TimeManagerJson: Codable{
     var lastSave : Date
+    var savedDates : [Date?]
 }

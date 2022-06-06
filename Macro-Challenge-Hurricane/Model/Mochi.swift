@@ -13,46 +13,45 @@ class Mochi: NSObject, NSCoding{
     func save(){
         let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive)
         
-        let dataManager = DataManager()
-        dataManager.setMochi(mochi: savingMochi)
+        DataManager.standard.setMochi(mochi: savingMochi)
             print("mochi saved")
     }
     override init(){
-        let dataManager = DataManager()
-        let readingMochi = dataManager.getMochi()
+        
+        let readingMochi = DataManager.standard.getMochi()
         if readingMochi != nil{
-            maxHunger = readingMochi.maxHunger
-            maxThirst = readingMochi.maxThirst
-            maxCleanlyness = readingMochi.maxCleanlyness
-            maxHealth = readingMochi.maxHealth
-            maxEnergy = readingMochi.maxEnergy
-            maxHappiness = readingMochi.maxHappiness
-            health = readingMochi.health
-            energy = readingMochi.energy
-            happiness = readingMochi.happiness
-            ageType = readingMochi.ageType
-            hunger = readingMochi.hunger
-            thirst = readingMochi.thirst
-            cleanlyness = readingMochi.cleanlyness
-            sleeping = readingMochi.sleeping
-            streaming = readingMochi.streaming
-            ill = readingMochi.ill
-            pHunger = readingMochi.pHunger
-            pThirst = readingMochi.pThirst
-            pCleanlyness = readingMochi.pCleanlyness
-            pHappyness = readingMochi.pHappyness
-            pIll = readingMochi.pIll
-            pEnergy = readingMochi.pEnergy
-            pEnergyGain = readingMochi.pEnergyGain
-            nPoop = readingMochi.nPoop
-            pPoop = readingMochi.pPoop
-            pWake = readingMochi.pWake
-            pHealthHunger = readingMochi.pHealthHunger
-            pHealthThirst = readingMochi.pHealthThirst
-            pHealthIll = readingMochi.pHealthIll
-            euphoria = readingMochi.euphoria
-            birth = readingMochi.birth
-            alive = readingMochi.alive
+            maxHunger = readingMochi!.maxHunger
+            maxThirst = readingMochi!.maxThirst
+            maxCleanlyness = readingMochi!.maxCleanlyness
+            maxHealth = readingMochi!.maxHealth
+            maxEnergy = readingMochi!.maxEnergy
+            maxHappiness = readingMochi!.maxHappiness
+            health = readingMochi!.health
+            energy = readingMochi!.energy
+            happiness = readingMochi!.happiness
+            ageType = readingMochi!.ageType
+            hunger = readingMochi!.hunger
+            thirst = readingMochi!.thirst
+            cleanlyness = readingMochi!.cleanlyness
+            sleeping = readingMochi!.sleeping
+            streaming = readingMochi!.streaming
+            ill = readingMochi!.ill
+            pHunger = readingMochi!.pHunger
+            pThirst = readingMochi!.pThirst
+            pCleanlyness = readingMochi!.pCleanlyness
+            pHappyness = readingMochi!.pHappyness
+            pIll = readingMochi!.pIll
+            pEnergy = readingMochi!.pEnergy
+            pEnergyGain = readingMochi!.pEnergyGain
+            nPoop = readingMochi!.nPoop
+            pPoop = readingMochi!.pPoop
+            pWake = readingMochi!.pWake
+            pHealthHunger = readingMochi!.pHealthHunger
+            pHealthThirst = readingMochi!.pHealthThirst
+            pHealthIll = readingMochi!.pHealthIll
+            euphoria = readingMochi!.euphoria
+            birth = readingMochi!.birth
+            alive = readingMochi!.alive
         }
         else {
             maxHunger = 50
