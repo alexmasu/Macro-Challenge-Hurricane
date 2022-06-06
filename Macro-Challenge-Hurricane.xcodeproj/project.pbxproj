@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480FA208284E01A800C62847 /* CornerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480FA207284E01A800C62847 /* CornerScene.swift */; };
+		480FA20A284E066C00C62847 /* CornerSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480FA209284E066C00C62847 /* CornerSceneView.swift */; };
 		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
 		48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */; };
 		48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B3283B947800B0D986 /* TamagotchiView.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480FA207284E01A800C62847 /* CornerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerScene.swift; sourceTree = "<group>"; };
+		480FA209284E066C00C62847 /* CornerSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerSceneView.swift; sourceTree = "<group>"; };
 		48EE65A52837AC1E00B0D986 /* RhytmGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
 		48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
 		48EE65B3283B947800B0D986 /* TamagotchiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
@@ -112,8 +116,10 @@
 			children = (
 				48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */,
 				9678EF8D284745A600AE1C4E /* BathroomScene.swift */,
+				480FA209284E066C00C62847 /* CornerSceneView.swift */,
 				968566E22844DEAE000D06BA /* CustomizationScene.swift */,
 				968566E42844DF2A000D06BA /* MinigamesScene.swift */,
+				480FA207284E01A800C62847 /* CornerScene.swift */,
 				968566E02844DDA8000D06BA /* InventoryScene.swift */,
 				48EE65B3283B947800B0D986 /* TamagotchiView.swift */,
 				9678EF8F284747BC00AE1C4E /* BathroomSceneView.swift */,
@@ -286,6 +292,7 @@
 				96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */,
 				963D5AD72834F62D008ECEC7 /* QuizGame.swift in Sources */,
 				963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */,
+				480FA208284E01A800C62847 /* CornerScene.swift in Sources */,
 				9678EF8E284745A600AE1C4E /* BathroomScene.swift in Sources */,
 				9678EF9228476C7E00AE1C4E /* BedroomView.swift in Sources */,
 				963D5AD62834F62D008ECEC7 /* ResultsViewModel.swift in Sources */,
@@ -294,6 +301,7 @@
 				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
 				968566E12844DDA8000D06BA /* InventoryScene.swift in Sources */,
 				963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */,
+				480FA20A284E066C00C62847 /* CornerSceneView.swift in Sources */,
 				963D5AD92834F62D008ECEC7 /* GameViewModel.swift in Sources */,
 				963D5AD82834F62D008ECEC7 /* ResultsView.swift in Sources */,
 				963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */,

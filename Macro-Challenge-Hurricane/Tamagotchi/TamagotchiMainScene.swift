@@ -58,41 +58,7 @@ class TamagotchiMainScene :  SKScene {
         addSwipeGestureRecognizers()
     }
     
-    func addSwipeGestureRecognizers () {
-        let gestureDirections : [UISwipeGestureRecognizer.Direction] = [.up, .right, .down, .left]
-        for gestureDirection in gestureDirections {
-            let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
-            gestureRecognizer.direction = gestureDirection
-            self.view?.addGestureRecognizer(gestureRecognizer)
-        }
-    }
-    
-    @objc func handleSwipe (gesture: UIGestureRecognizer) {
-        
-        if let gesture = gesture as? UISwipeGestureRecognizer {
-            
-            switch gesture.direction {
-            
-            case .up :
-                print("UP")
-            case .left :
-                let bathroomChange = SKTransition.push(with: SKTransitionDirection.left, duration: 0.6)
-                bathroom.size = frame.size
-                self.view?.presentScene(bathroom, transition:  bathroomChange)
-                print("LEFT")
-            case .down :
-                print("DOWN")
-            case .right :
-                let bedroomChange = SKTransition.push(with: SKTransitionDirection.right, duration: 0.6)
-                bedroom.size = frame.size
-                self.view?.presentScene(bedroom, transition: bedroomChange)
-                print("RIGHT")
-            default :
-                print("NOPE")
-            }
-        }
-        
-    }
+
     
     override func update(_ currentTime: TimeInterval) {
         
@@ -861,6 +827,47 @@ extension TamagotchiMainScene {
         fadeOutAnim(elem: self.languagebutton, time: 1.5)
         fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
         fadeOutAnim(elem: self.settingsCircle, time: 1.5)
+        
+    }
+}
+
+// MARK: Swipe Handler
+
+extension TamagotchiMainScene {
+   
+    func addSwipeGestureRecognizers () {
+        let gestureDirections : [UISwipeGestureRecognizer.Direction] = [.up, .right, .down, .left]
+        for gestureDirection in gestureDirections {
+            let gestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
+            gestureRecognizer.direction = gestureDirection
+            self.view?.addGestureRecognizer(gestureRecognizer)
+        }
+    }
+    
+    @objc func handleSwipe (gesture: UIGestureRecognizer) {
+        
+        if let gesture = gesture as? UISwipeGestureRecognizer {
+            
+            switch gesture.direction {
+            
+            case .up :
+                print("UP")
+            case .left :
+                let bathroomChange = SKTransition.push(with: SKTransitionDirection.left, duration: 0.6)
+                bathroom.size = frame.size
+                self.view?.presentScene(bathroom, transition:  bathroomChange)
+                print("LEFT")
+            case .down :
+                print("DOWN")
+            case .right :
+                let bedroomChange = SKTransition.push(with: SKTransitionDirection.right, duration: 0.6)
+                bedroom.size = frame.size
+                self.view?.presentScene(bedroom, transition: bedroomChange)
+                print("RIGHT")
+            default :
+                print("NOPE")
+            }
+        }
         
     }
 }
