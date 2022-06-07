@@ -13,7 +13,7 @@ struct ContentView: View {
     @EnvironmentObject var sceneDelegate: FSSceneDelegate
     
     var body: some View {
-       CornerSceneView()
+        TamagotchiView()
     }
 }
 

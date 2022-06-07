@@ -9,8 +9,9 @@ import SwiftUI
 import SpriteKit
 
 
-
 struct TamagotchiView: View {
+    
+    @State public var showWebView = false
     
     var scene : SKScene {
         let scene = TamagotchiMainScene()
@@ -20,11 +21,43 @@ struct TamagotchiView: View {
     }
     
     var body: some View {
-        SpriteView(scene: scene)
-            .frame(width: UIScreen.main
-                .bounds.width, height: UIScreen.main.bounds.height)
-            .ignoresSafeArea()
+        NavigationView {
+        ZStack{
+//            if showWebView == true {
+            
+            NavigationLink(destination: WebView()) {
+                Image("Twix.png")
+            }
+            
+//                showWebView = false
+//            } else if showWebView == false {
+//                print ("porco dio")
+//                showWebView = true
+//            }
+        }
+        }
+        
+//        if showWebView == true {
+//            WebView()
+//            showWebView = false
+//        } else if showWebView == false {
+//            print ("p")
+//            showWebView = true
+//        }
+        
+//        SpriteView(scene: scene)
+//            .frame(width: UIScreen.main
+//                .bounds.width, height: UIScreen.main.bounds.height)
+//            .ignoresSafeArea()
+        
     }
+    
+//
+//    SpriteView(scene: scene)
+//        .frame(width: UIScreen.main
+//            .bounds.width, height: UIScreen.main.bounds.height)
+//        .ignoresSafeArea()
+
 }
 
 struct TamagotchiView_Previews: PreviewProvider {

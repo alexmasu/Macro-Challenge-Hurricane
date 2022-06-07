@@ -10,6 +10,7 @@ import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
     
+    var showWebView = false
     
     let background = SKSpriteNode(imageNamed: "Background.png")
     let bathroom = BathroomScene()
@@ -486,10 +487,7 @@ class TamagotchiMainScene :  SKScene {
                 }
                 if (node.name == "twitch") && (settingsOn == true) {
                     
-                    let rhytmGame = RhytmGame()
-                    rhytmGame.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(rhytmGame, transition: transition)
+                   
                     
                 }
                 if (node.name == "audio") && (settingsOn == true) {
