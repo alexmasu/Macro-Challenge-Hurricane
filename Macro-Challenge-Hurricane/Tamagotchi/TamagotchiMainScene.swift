@@ -110,7 +110,7 @@ class TamagotchiMainScene :  SKScene {
                 
                 
                 
-                if node.name == "monitor" && omettoOn == false && lightswitch == false {
+                if node.name == "monitor" && omettoOn == false {
                     
                     self.curr = node
                     self.checkSwipe = false
@@ -199,7 +199,9 @@ class TamagotchiMainScene :  SKScene {
             if (node.name == "ometto") {
                 
                 if omettoOn == false {
-                    spawnOmettoButtons()
+                    spawnOmettoStats()
+                    spawnStatsButtons()
+//                    spawnOmettoButtons()
                     omettoOn = true
                 }
                 
@@ -229,7 +231,7 @@ class TamagotchiMainScene :  SKScene {
                 }
             }
             
-            if (node.name == "monitor") && (omettoOn == false) && (lightswitch == false) {
+            if (node.name == "monitor") && (omettoOn == false) {
                 
                 if startstream == false {
                     removeChildren(in: [square])
@@ -411,21 +413,21 @@ extension TamagotchiMainScene {
     
     func spawnRoomElements() {
         
-//        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
-//        light.name = "light"
-//        light.setScale(0.8)
-//        background.addChild(light)
+        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
+        light.name = "light"
+        light.setScale(0.8)
+        background.addChild(light)
         
-//        monitor.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.04, y: frame.midY + UIScreen.main.bounds.height * 0.065)
+        monitor.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.42, y: frame.midY - UIScreen.main.bounds.height * 0.375)
         monitor.name = "monitor"
-//        monitor.setScale(0.4)
+        monitor.setScale(0.8)
         background.addChild(monitor)
         
         
         
-        pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.4, y: frame.midY + UIScreen.main.bounds.width * 0.1)
+        pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 1.3, y: frame.midY - UIScreen.main.bounds.height * 0.42)
         pc.name = "pc"
-        pc.setScale(0.9)
+        pc.setScale(1.8)
         background.addChild(pc)
         
         sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.18,y: frame.midY + UIScreen.main.bounds.height * 0.095)
