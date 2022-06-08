@@ -12,21 +12,20 @@ class TamagotchiMainScene :  SKScene {
     
     
     let background = SKSpriteNode(imageNamed: "Background.png")
-    let bathroom = BathroomScene()
-    let bedroom = BedroomScene()
+    let sponge = SKSpriteNode(imageNamed: "sponge.png")
+    let bath = SKSpriteNode(imageNamed: "bath.png")
+    let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
+    let bedroom = SKSpriteNode(imageNamed: "Bedroom.png")
+    let bedroomNight = SKSpriteNode(imageNamed: "BedroomNight.png")
+    let light = SKSpriteNode(imageNamed: "light.png")
+    let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let pc = SKSpriteNode(imageNamed: "pc2.png")
-//    let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
     let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
+    let squarestreamingday = SKSpriteNode(imageNamed: "OmettoStreaming.png")
+    let squarestreamingnight = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
-    let light = SKSpriteNode(imageNamed: "lampada.png")
-    let audiobutton = SKSpriteNode(imageNamed: "Sound.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
-    let languagebutton = SKSpriteNode(imageNamed: "Translation.png")
-    let settingsCircle = SKSpriteNode(imageNamed: "SettingsCircle.png")
-    let settingsCircleOval1 = SKSpriteNode(imageNamed: "Ovale.png")
-    let settingsCircleOval2 = SKSpriteNode(imageNamed: "Ovale.png")
-    let settingsCircleOval3 = SKSpriteNode(imageNamed: "Ovale.png")
     let setting = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let inventory = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let shop = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
@@ -42,6 +41,7 @@ class TamagotchiMainScene :  SKScene {
     var nodes = [SKNode()]
     //    var clickback = SKShapeNode()
     var label = SKSpriteNode(color: .clear, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.4))
+    var isNight = false
     var startstream = false
     var checkSwipe = false
     var lightswitch = false
@@ -53,12 +53,19 @@ class TamagotchiMainScene :  SKScene {
     private var swipeStart : CGPoint?
     private var swipeEnd : CGPoint?
     
+    var wasInitialized: Bool = false
+    
+    
+    
+    
     override func didMove(to view: SKView) {
-        setupScene()
+        if self.wasInitialized == false {
+            setupScene()
+        }
         addSwipeGestureRecognizers()
     }
     
-
+    
     
     override func update(_ currentTime: TimeInterval) {
         
@@ -70,18 +77,11 @@ class TamagotchiMainScene :  SKScene {
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes {
                 
-//                if (curr == nil) {
-//
-//                if ((node.name == "label") && (omettoOn == false) && (checkSwipe == false)){
-//                        print("\(node.name) in swipe")
-//
-//                        self.swipeStart = location
-//                        self.curr = node
-//                        nodes.append(node)
-//
-//                        self.checkSwipe = true
-//                    }
-//                }
+                if node.name == "omettostreamerday" {
+                    
+                    self.curr = node
+                    nodes.append(node)
+                }
                 
                 if (node.name == "ometto") {
                     
@@ -90,36 +90,20 @@ class TamagotchiMainScene :  SKScene {
                     self.checkSwipe = false
                     self.swipeStart = location
                     nodes.append(node)
-
+                    
                 }
                 
-                if (node.name == "setting") {
+                if (node.name == "twitch") {
                     
                     
                     self.curr = node
                     self.checkSwipe = false
                     self.swipeStart = location
                     nodes.append(node)
-
+                    
                 }
                 
-                if (node.name == "twitch") && (settingsOn == true) {
-                    
-                    self.curr = node
-                    self.checkSwipe = false
-                    self.swipeStart = location
-                    nodes.append(node)
-
-                }
                 
-                if (node.name == "audio") && (settingsOn == true) {
-                    
-                    self.curr = node
-                    self.checkSwipe = false
-                    self.swipeStart = location
-                    nodes.append(node)
-
-                }
                 
                 if node.name == "monitor" && omettoOn == false && lightswitch == false {
                     
@@ -127,42 +111,16 @@ class TamagotchiMainScene :  SKScene {
                     self.checkSwipe = false
                     self.swipeStart = location
                     nodes.append(node)
-
+                    
                 }
                 
                 
-                if node.name == "light" && startstream == false {
+                if (node.name == "light") || (node.name == "nightlight") {
                     
                     self.curr = node
-                    self.checkSwipe = false
-                    self.swipeStart = location
                     nodes.append(node)
-
                 }
                 
-//                if node.name == "light" && startstream == false {
-//                    if lightswitch == false && omettoOn == false {
-//                        background.color = SKColor.black
-//                        background.colorBlendFactor = 0.55
-//                        light.color = SKColor.black
-//                        light.colorBlendFactor = 0.55
-//                        square.color = SKColor.black
-//                        square.colorBlendFactor = 0.70
-//                        monitor.color = SKColor.black
-//                        monitor.colorBlendFactor = 0.55
-//                        lightswitch = true
-//                    } else if lightswitch == true && omettoOn == false {
-//                        background.color = SKColor.black
-//                        background.colorBlendFactor = 0.00
-//                        light.color = SKColor.black
-//                        light.colorBlendFactor = 0.00
-//                        square.color = SKColor.black
-//                        square.colorBlendFactor = 0.00
-//                        monitor.color = SKColor.black
-//                        monitor.colorBlendFactor = 0.00
-//                        lightswitch = false
-//                    }
-//                }
                 
                 
                 if node.name == "shop" {
@@ -171,7 +129,7 @@ class TamagotchiMainScene :  SKScene {
                     self.checkSwipe = false
                     self.swipeStart = location
                     nodes.append(node)
-
+                    
                 }
                 //                else if node.name == "inventory" {
                 //                    let inventoryScene = InventoryScene()
@@ -186,7 +144,7 @@ class TamagotchiMainScene :  SKScene {
                     self.checkSwipe = false
                     self.swipeStart = location
                     nodes.append(node)
-
+                    
                 }
                 else if (node.name == "minigames") {
                     
@@ -194,12 +152,12 @@ class TamagotchiMainScene :  SKScene {
                     self.checkSwipe = false
                     self.swipeStart = location
                     nodes.append(node)
-
+                    
                 }
                 
                 
             }
-
+            
         }
         for el in nodes {
             print("\(el.name)-> ")
@@ -209,381 +167,113 @@ class TamagotchiMainScene :  SKScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-//        for el in nodes {
-//                   if el.name == "label" {
-//                       self.curr = el
-//                   }
-//                   else {
-//
-//                   }
-//               }
-//
-//               print("\(checkSwipe)")
+        
         
         if let touch = touches.first, let node = self.curr {
             let location = touch.location(in: self)
             
-//            self.swipeEnd = location
-//
-//            let distX = (Double(swipeEnd!.x) - Double(swipeStart!.x))
-//            let distY = (Double(swipeEnd!.y) - Double(swipeStart!.y))
-//            let dist = sqrt((distX * distX) + (distY * distY))
-
-//            if dist > (self.frame.width / 4) {
-//
-//
-//                for el in nodes {
-//                    if el.name == "label" {
-//                        self.curr = el
-//                    }
-//
-//                }
-//
-//
-////                if  (curr?.name == "label") && (checkSwipe == true) {
-////                    print("nodo lasciato nome: \(curr?.name)")
-//////                    self.swipeEnd = location
-//////
-//////                    let distX = (Double(swipeEnd!.x) - Double(swipeStart!.x))
-//////                    let distY = (Double(swipeEnd!.y) - Double(swipeStart!.y))
-//////                    let dist = sqrt((distX * distX) + (distY * distY))
-////                    let angle = acos(distY / dist)
-////                    var dir : [String] = []
-////                    var dirX : String
-////                    var dirY : String
-////                    if dist > (self.frame.width / 4) {
-////                        if (Double(self.swipeStart!.x) < Double(self.swipeEnd!.x)) {
-////                            dirX = "right"
-////                            dir.append(dirX)
-////                        }
-////                        else {
-////                            dirX = "left"
-////                            dir.append(dirX)
-////                        }
-////                        if (Double(swipeStart!.y) < Double(swipeEnd!.y)) {
-////                            dirY = "up"
-////                            dir.append(dirY)
-////                        }
-////                        else {
-////                            dirY = "down"
-////                            dir.append(dirY)
-////                        }
-////
-////                        switch dir {
-////                        case ["left","up"]:
-////                            if (abs(angle) <= 0.3) {
-////                                //                            UP
-////                                print("UP")
-////                            }
-////
-////                            else if (abs(angle) >= 1.2) && (abs(angle) <= 1.5) {
-////                                //                            LEFT
-////                                print("LEFT")
-////
-////                                let bathroomChange = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
-////                                self.view?.presentScene(bathroom, transition:  bathroomChange)
-////                            }
-////
-////                        case ["left", "down"]:
-////                            if (abs(angle) >= 2.7) {
-////                                //                            DOWN
-////                                print("DOWN")
-////
-////
-////
-////                            }
-////
-////                            else if (abs(angle) >= 1.5) && (abs(angle) <= 1.8) {
-////                                //                            LEFT
-////                                print("LEFT")
-////
-////                                let bathroomChange = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
-////                                self.view?.presentScene(bathroom, transition:  bathroomChange)
-////
-////                            }
-////
-////                        case ["right", "up"]:
-////                            if (abs(angle) <= 0.3) {
-////                                //                            UP
-////                                print("UP")
-////
-////
-////
-////                            }
-////
-////                            else if (abs(angle) >= 1.2) && (abs(angle) <= 1.5) {
-////                                //                            RIGHT
-////                                print("RIGHT")
-////
-////
-////
-////                            }
-////
-////                        case ["right", "down"]:
-////                            if (abs(angle) >= 2.7) {
-////                                //                            DOWN
-////                                print("DOWN")
-////
-////
-////
-////                            }
-////
-////                            else if (abs(angle) >= 1.5) && (abs(angle) <= 1.8) {
-////                                //                            RIGHT
-////                                print("RIGHT")
-////
-////
-////
-////                            }
-////
-////                        default:
-////                            print("")
-////                        }
-////                    }
-////                    self.checkSwipe = false
-////                    //                    self.currNode = nil
-////                }
-//            }
-             
-//            if  (curr?.name == "label") && (checkSwipe == true) {
-//                print("nodo lasciato nome: \(curr?.name)")
-//                self.swipeEnd = location
-//
-//                let distX = (Double(swipeEnd!.x) - Double(swipeStart!.x))
-//                let distY = (Double(swipeEnd!.y) - Double(swipeStart!.y))
-//                let dist = sqrt((distX * distX) + (distY * distY))
-//                let angle = acos(distY / dist)
-//                var dir : [String] = []
-//                var dirX : String
-//                var dirY : String
-//                if dist > (self.frame.width / 4) {
-//                    if (Double(self.swipeStart!.x) < Double(self.swipeEnd!.x)) {
-//                        dirX = "right"
-//                        dir.append(dirX)
-//                    }
-//                    else {
-//                        dirX = "left"
-//                        dir.append(dirX)
-//                    }
-//                    if (Double(swipeStart!.y) < Double(swipeEnd!.y)) {
-//                        dirY = "up"
-//                        dir.append(dirY)
-//                    }
-//                    else {
-//                        dirY = "down"
-//                        dir.append(dirY)
-//                    }
-//
-//                    switch dir {
-//                    case ["left","up"]:
-//                        if (abs(angle) <= 0.3) {
-//                            //                            UP
-//                            print("UP")
-//                        }
-//
-//                        else if (abs(angle) >= 1.2) && (abs(angle) <= 1.5) {
-//                            //                            LEFT
-//                            print("LEFT")
-//
-//                            let bathroomChange = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
-//                            self.view?.presentScene(bathroom, transition:  bathroomChange)
-//                        }
-//
-//                    case ["left", "down"]:
-//                        if (abs(angle) >= 2.7) {
-//                            //                            DOWN
-//                            print("DOWN")
-//
-//
-//
-//                        }
-//
-//                        else if (abs(angle) >= 1.5) && (abs(angle) <= 1.8) {
-//                            //                            LEFT
-//                            print("LEFT")
-//
-//                            let bathroomChange = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
-//                            self.view?.presentScene(bathroom, transition:  bathroomChange)
-//
-//                        }
-//
-//                    case ["right", "up"]:
-//                        if (abs(angle) <= 0.3) {
-//                            //                            UP
-//                            print("UP")
-//
-//
-//
-//                        }
-//
-//                        else if (abs(angle) >= 1.2) && (abs(angle) <= 1.5) {
-//                            //                            RIGHT
-//                            print("RIGHT")
-//
-//
-//
-//                        }
-//
-//                    case ["right", "down"]:
-//                        if (abs(angle) >= 2.7) {
-//                            //                            DOWN
-//                            print("DOWN")
-//
-//
-//
-//                        }
-//
-//                        else if (abs(angle) >= 1.5) && (abs(angle) <= 1.8) {
-//                            //                            RIGHT
-//                            print("RIGHT")
-//
-//
-//
-//                        }
-//
-//                    default:
-//                        print("")
-//                    }
-//                }
-//                self.checkSwipe = false
-//                //                    self.currNode = nil
-//            }
             
-//            else {
-                print("\(node.name)...")
             
+            //            else {
+            print("\(node.name)...")
+            
+            if (node.name == "omettostreamerday") {
+                if omettoOn == false {
+                    spawnOmettoStats()
+                    spawnStatsButtons()
+                    omettoOn = true
+                    
+                } else if omettoOn == true {
+                    omettofadeOut()
+                    omettoOn = false
+                }
                 
-                if (node.name == "ometto") {
-                    
-                    if omettoOn == false {
-                        spawnOmettoButtons()
-                        omettoOn = true
-                    }
-                    
-                    else if omettoOn == true {
-                        removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
-                        omettoOn = false
-                    }
-                    
+            }
+            
+            
+            if (node.name == "ometto") {
+                
+                if omettoOn == false {
+                    spawnOmettoButtons()
+                    omettoOn = true
                 }
-                if (node.name == "setting") {
-                    
-                    if settingsOn == false {
-                        
-                        spawnSettingsCircle()
-                        spawnButtons()
-                        settingsOn = true
-                        
-                    }
-                    
-                    else if settingsOn == true {
-                        
-                        settfadeOut()
-                        settingsOn = false
-                        
-                    }
-                    
+                
+                else if omettoOn == true {
+                    removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
+                    omettoOn = false
                 }
-                if (node.name == "twitch") && (settingsOn == true) {
-                    
-                    let rhytmGame = RhytmGame()
-                    rhytmGame.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(rhytmGame, transition: transition)
-                    
+                
+            }
+            if (node.name == "twitch") {
+                
+            }
+            
+            if node.name == "light" || node.name == "nightlight" {
+                if isNight == false {
+                    removeChildren(in: [bedroom,light,squarestreamingday])
+                    addChild(bedroomNight)
+                    addChild(nightlight)
+                    addChild(squarestreamingnight)
+                    isNight = true
+                } else if isNight == true {
+                    removeChildren(in: [bedroomNight,nightlight,squarestreamingnight])
+                    addChild(bedroom)
+                    addChild(light)
+                    addChild(squarestreamingday)
+                    isNight = false
                 }
-                if (node.name == "audio") && (settingsOn == true) {
+            }
+            
+            if (node.name == "monitor") && (omettoOn == false) && (lightswitch == false) {
+                
+                if startstream == false {
+                    removeChildren(in: [square])
+                    //                        clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
+                    //                        clickback = SKShapeNode(rectOf: CGSize(width: square.frame.width, height: square.frame.height))
+                    //                        clickback.strokeColor = UIColor.clear
+                    addChild(squarestreaming)
                     
-                    if mute == false {
-                        audiobutton.texture = SKTexture(imageNamed: "soundoff.png")
-                        mute = true
-                    } else {
-                        audiobutton.texture = SKTexture(imageNamed: "Sound.png")
-                        mute = false
-                    }
-                    
+                    startstream = true
                 }
-                if (node.name == "monitor") && (omettoOn == false) && (lightswitch == false) {
-                    
-                    if startstream == false {
-                        removeChildren(in: [square])
-//                        clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
-//                        clickback = SKShapeNode(rectOf: CGSize(width: square.frame.width, height: square.frame.height))
-                        //                            clickback.strokeColor = UIColor.clear
-                        addChild(squarestreaming)
-                        //                            addChild(clickback)
-                        startstream = true
-                    }
-                    else if startstream == true {
-                        removeChildren(in: [squarestreaming])
-                        addChild(square)
-                        startstream = false
-                    }
-                    
+                else if startstream == true {
+                    removeChildren(in: [squarestreaming])
+                    addChild(square)
+                    startstream = false
                 }
-                if (node.name == "light") && (startstream == false) {
-                    
-                    if lightswitch == false && omettoOn == false {
-                        background.color = SKColor.black
-                        background.colorBlendFactor = 0.55
-                        
-                        light.color = SKColor.black
-                        light.colorBlendFactor = 0.55
-                       
-                        square.color = SKColor.black
-                        square.colorBlendFactor = 0.70
-                        
-                        monitor.color = SKColor.black
-                        monitor.colorBlendFactor = 0.55
-                        
-                        lightswitch = true
-                    }
-                    else if lightswitch == true && omettoOn == false {
-                       
-                        background.color = SKColor.black
-                        background.colorBlendFactor = 0.00
-                       
-                        light.color = SKColor.black
-                        light.colorBlendFactor = 0.00
-                        
-                        square.color = SKColor.black
-                        square.colorBlendFactor = 0.00
-                        
-                        monitor.color = SKColor.black
-                        monitor.colorBlendFactor = 0.00
-                        
-                        lightswitch = false
-                    }
-                    
-                }
-                if (node.name == "shop") {
-                    
-                    let shopScene = ShopScene()
-                    shopScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(shopScene, transition: transition)
-                    
-                }
-                if (node.name == "customization") {
-                    
-                    let customizationScene = CustomizationScene()
-                    customizationScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(customizationScene, transition: transition)
-                    
-                }
-                if (node.name == "minigames") {
-                    
-                    let minigamesScene = MinigamesScene()
-                    minigamesScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(minigamesScene, transition: transition)
-                }
-//            }
+                
+            }
+            
+            
+            
+            if (node.name == "shop") {
+                
+                let shopScene = ShopScene()
+                shopScene.size = (view?.frame.size)!
+                let transition = SKTransition.fade(withDuration: 1.5)
+                self.view?.presentScene(shopScene, transition: transition)
+                
+            }
+            if (node.name == "customization") {
+                
+                let customizationScene = CustomizationScene()
+                customizationScene.size = (view?.frame.size)!
+                let transition = SKTransition.fade(withDuration: 1.5)
+                self.view?.presentScene(customizationScene, transition: transition)
+                
+            }
+            if (node.name == "minigames") {
+                
+                let minigamesScene = MinigamesScene()
+                minigamesScene.size = (view?.frame.size)!
+                let transition = SKTransition.fade(withDuration: 1.5)
+                self.view?.presentScene(minigamesScene, transition: transition)
+            }
+            //            }
         }
-//        self.checkSwipe = false
+        
         self.curr = nil
     }
+    
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -608,115 +298,70 @@ extension TamagotchiMainScene {
         
     }
     
-    func spawnSettingsCircle(){
-        
-        fadeInAnim(elem: settingsCircle, time: 0.5)
-    }
     
-    func spawnButtons(){
-        
-        
-        fadeInAnim(elem: settingsCircleOval1, time: 0.5)
-        fadeInAnim(elem: audiobutton, time: 0.5)
-        
-        
-        fadeInAnim(elem: settingsCircleOval2, time: 0.5)
-        fadeInAnim(elem: twitchbutton, time: 0.5)
-        
-        
-        fadeInAnim(elem: settingsCircleOval3, time: 0.5)
-        fadeInAnim(elem: languagebutton, time: 0.5)
-    }
     
-    func spawnCornerButtons() {
-        let customization = SKSpriteNode(imageNamed: "customization.png")
-        customization.setScale(0.5)
-        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
-        customization.name = "customization"
-        addChild(customization)
-        
-        let setting = SKSpriteNode(imageNamed: "setting.png")
-        setting.setScale(0.5)
-        setting.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
-        setting.name = "setting"
-        addChild(setting)
-        
-        let inventory = SKSpriteNode(imageNamed: "inventory.png")
-        inventory.setScale(0.5)
-        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
-        inventory.name = "inventory"
-        addChild(inventory)
-        
-        let minigames = SKSpriteNode(imageNamed: "minigames.png")
-        minigames.setScale(0.5)
-        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
-        minigames.name = "minigames"
-        addChild(minigames)
-        
-        let shop = SKSpriteNode(imageNamed: "shop.png")
-        shop.setScale(0.5)
-        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
-        shop.name = "shop"
-        addChild(shop)
-        
-    }
+    //    func spawnCornerButtons() {
+    //        let customization = SKSpriteNode(imageNamed: "customization.png")
+    //        customization.setScale(0.5)
+    //        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
+    //        customization.name = "customization"
+    //        addChild(customization)
+    //
+    //        let setting = SKSpriteNode(imageNamed: "setting.png")
+    //        setting.setScale(0.5)
+    //        setting.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
+    //        setting.name = "setting"
+    //        addChild(setting)
+    //
+    //        let inventory = SKSpriteNode(imageNamed: "inventory.png")
+    //        inventory.setScale(0.5)
+    //        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+    //        inventory.name = "inventory"
+    //        addChild(inventory)
+    //
+    //        let minigames = SKSpriteNode(imageNamed: "minigames.png")
+    //        minigames.setScale(0.5)
+    //        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
+    //        minigames.name = "minigames"
+    //        addChild(minigames)
+    //
+    //        let shop = SKSpriteNode(imageNamed: "shop.png")
+    //        shop.setScale(0.5)
+    //        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+    //        shop.name = "shop"
+    //        addChild(shop)
+    //
+    //    }
     
     func spawnOmettoStats() {
+        
         hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y )
         hunger.name = "hunger"
+        hunger.alpha = 0.0
         
         thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         thirst.name = "thirst"
+        thirst.alpha = 0.0
         
         cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         cleaning.name = "cleanliness"
+        cleaning.alpha = 0.0
         
         energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
         energy.name = "energy"
+        energy.alpha = 0.0
         
         happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
         happiness.name = "happiness"
+        happiness.alpha = 0.0
         
         health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y)
         health.name = "health"
+        health.alpha = 0.0
         
     }
     
-    func spawnSettingButtons() {
-        
-        settingsCircle.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.13, y: frame.maxY - UIScreen.main.bounds.width * 0.3)
-        settingsCircle.setScale(1)
-        settingsCircle.name = "circle"
-        settingContainer.isUserInteractionEnabled = false
-        settingContainer.alpha = 0.0
-        settingsCircle.alpha = 0.0
-        settingContainer = SKShapeNode(rectOf: CGSize(width: frame.width, height: frame.height))
-        settingContainer.lineWidth = 0
-        addChild(settingContainer)
-        settingContainer.addChild(settingsCircle)
-        
-        audiobutton.name = "audio"
-        audiobutton.alpha = 0.0
-        settingsCircleOval1.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.19, y: frame.maxY - UIScreen.main.bounds.width * 0.17)
-        settingsCircleOval1.alpha = 0.0
-        settingContainer.addChild(settingsCircleOval1)
-        settingsCircleOval1.addChild((audiobutton))
-        
-        twitchbutton.name = "twitch"
-        twitchbutton.alpha = 0.0
-        settingsCircleOval2.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.145, y: frame.maxY - UIScreen.main.bounds.width * 0.355)
-        settingsCircleOval2.alpha = 0.0
-        settingContainer.addChild(settingsCircleOval2)
-        settingsCircleOval2.addChild(twitchbutton)
-        
-        languagebutton.name = "language"
-        languagebutton.alpha = 0.0
-        settingsCircleOval3.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.height * 0.06, y: frame.maxY - UIScreen.main.bounds.width * 0.44)
-        settingsCircleOval3.alpha = 0.0
-        settingContainer.addChild(settingsCircleOval3)
-        settingsCircleOval3.addChild(languagebutton)
-        
-    }
+    
     
     func spawnOmettoStreamer() {
         squarestreaming.setScale(0.95)
@@ -737,33 +382,65 @@ extension TamagotchiMainScene {
         background.setScale(0.47)
         addChild(background)
         
-        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
-        light.name = "light"
-        light.setScale(0.8)
-        addChild(light)
+        bathroom.position = CGPoint(x: frame.midX * 3,y: frame.midY)
+        bathroom.name = "bathroom"
+        addChild(bathroom)
         
-        monitor.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.04, y: frame.midY + UIScreen.main.bounds.height * 0.065)
-        monitor.name = "monitor"
-        monitor.setScale(0.4)
-        addChild(monitor)
+        bedroom.setScale(0.47)
+        bedroom.position = CGPoint(x: (-frame.midX * 3),y: frame.midY)
+        bedroom.name = "bedroom"
+        addChild(bedroom)
         
-        //        clickback.name = "clickback"
-        //        clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
-        //        clickback = SKShapeNode(rectOf: CGSize(width: frame.height * 0.2, height: frame.width * 0.2))
-        
-        pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.4, y: frame.midY + UIScreen.main.bounds.width * 0.1)
-        pc.name = "pc"
-        pc.setScale(0.9)
-        addChild(pc)
+        bedroomNight.setScale(0.47)
+        bedroomNight.position = CGPoint(x: (-frame.midX * 3),y: frame.midY)
+        bedroomNight.name = "bedroomnight"
         
         label.position = CGPoint(x: frame.midX, y: frame.midY)
         label.name = "label"
         label.isUserInteractionEnabled = false
         addChild(label)
         
-        //        bathroom.position = CGPoint(x: frame.midX * 3, y: frame.midY)
-        //        bathroom.name = "bathroom"
-        //        addChild(bathroom)
+        
+        
+    }
+    
+    func spawnRoomElements() {
+        
+//        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
+//        light.name = "light"
+//        light.setScale(0.8)
+//        background.addChild(light)
+        
+//        monitor.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.04, y: frame.midY + UIScreen.main.bounds.height * 0.065)
+        monitor.name = "monitor"
+//        monitor.setScale(0.4)
+        background.addChild(monitor)
+        
+        
+        
+        pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.4, y: frame.midY + UIScreen.main.bounds.width * 0.1)
+        pc.name = "pc"
+        pc.setScale(0.9)
+        background.addChild(pc)
+        
+        sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.18,y: frame.midY + UIScreen.main.bounds.height * 0.095)
+        sponge.name = "sponge"
+        sponge.setScale(0.8)
+        bathroom.addChild(sponge)
+        
+        bath.position = CGPoint(x: frame.midX ,y: frame.midY - UIScreen.main.bounds.height * 0.23)
+        bath.name = "bath"
+        bath.zPosition = 1.0
+        bathroom.addChild(bath)
+        
+        light.setScale(0.5)
+        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
+        light.name = "light"
+        bedroom.addChild(light)
+        
+        nightlight.setScale(0.5)
+        nightlight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
+        nightlight.name = "nightlight"
         
     }
     
@@ -777,13 +454,12 @@ extension TamagotchiMainScene {
     func setupScene() {
         
         spawnBackground()
-        setBathroom()
-        setBathroom()
+        spawnRoomElements()
         spawnOmetto()
         spawnOmettoStats()
-        spawnSettingButtons()
-        spawnCornerButtons()
         spawnOmettoStreamer()
+        
+        self.wasInitialized = true
         
     }
     
@@ -805,11 +481,37 @@ extension TamagotchiMainScene {
     
     private func setBathroom () {
         
-//        bathroom.size = (view?.scene?.frame)
+        //        bathroom.size = (view?.scene?.frame)
     }
     
     private func setBedroom () {
-//        bedroom.size = (view?.scene?.frame)
+        //        bedroom.size = (view?.scene?.frame)
+    }
+    
+    private func omettofadeOut() {
+        
+        fadeOutAnim(elem: self.hunger, time: 0.5)
+        fadeOutAnim(elem: self.thirst, time: 0.5)
+        fadeOutAnim(elem: self.cleaning, time: 0.5)
+        fadeOutAnim(elem: self.energy, time: 0.5)
+        fadeOutAnim(elem: self.happiness, time: 0.5)
+        fadeOutAnim(elem: self.health, time: 0.5)
+        
+    }
+    
+    func spawnStatsButtons(){
+        
+        fadeInAnim(elem: hunger, time: 0.5)
+        
+        fadeInAnim(elem: thirst, time: 0.5)
+        
+        fadeInAnim(elem: cleaning, time: 0.5)
+        
+        fadeInAnim(elem: energy, time: 0.5)
+        
+        fadeInAnim(elem: happiness, time: 0.5)
+        
+        fadeInAnim(elem: health, time: 0.5)
     }
     
 }
@@ -818,23 +520,23 @@ extension TamagotchiMainScene {
 
 extension TamagotchiMainScene {
     
-    private func settfadeOut() {
-        
-        fadeOutAnim(elem: self.audiobutton, time: 1.5)
-        fadeOutAnim(elem: self.settingsCircleOval1, time: 1.5)
-        fadeOutAnim(elem: self.twitchbutton, time: 1.5)
-        fadeOutAnim(elem: self.settingsCircleOval2, time: 1.5)
-        fadeOutAnim(elem: self.languagebutton, time: 1.5)
-        fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
-        fadeOutAnim(elem: self.settingsCircle, time: 1.5)
-        
-    }
+    //    private func settfadeOut() {
+    //
+    //        fadeOutAnim(elem: self.audiobutton, time: 1.5)
+    //        fadeOutAnim(elem: self.settingsCircleOval1, time: 1.5)
+    //        fadeOutAnim(elem: self.twitchbutton, time: 1.5)
+    //        fadeOutAnim(elem: self.settingsCircleOval2, time: 1.5)
+    //        fadeOutAnim(elem: self.languagebutton, time: 1.5)
+    //        fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
+    //        fadeOutAnim(elem: self.settingsCircle, time: 1.5)
+    //
+    //    }
 }
 
 // MARK: Swipe Handler
 
 extension TamagotchiMainScene {
-   
+    
     func addSwipeGestureRecognizers () {
         let gestureDirections : [UISwipeGestureRecognizer.Direction] = [.up, .right, .down, .left]
         for gestureDirection in gestureDirections {
@@ -849,20 +551,20 @@ extension TamagotchiMainScene {
         if let gesture = gesture as? UISwipeGestureRecognizer {
             
             switch gesture.direction {
-            
+                
             case .up :
                 print("UP")
             case .left :
                 let bathroomChange = SKTransition.push(with: SKTransitionDirection.left, duration: 0.6)
                 bathroom.size = frame.size
-                self.view?.presentScene(bathroom, transition:  bathroomChange)
+//                self.view?.presentScene(bathroom, transition:  bathroomChange)
                 print("LEFT")
             case .down :
                 print("DOWN")
             case .right :
                 let bedroomChange = SKTransition.push(with: SKTransitionDirection.right, duration: 0.6)
                 bedroom.size = frame.size
-                self.view?.presentScene(bedroom, transition: bedroomChange)
+//                self.view?.presentScene(bedroom, transition: bedroomChange)
                 print("RIGHT")
             default :
                 print("NOPE")

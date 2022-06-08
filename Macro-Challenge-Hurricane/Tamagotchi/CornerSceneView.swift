@@ -9,6 +9,7 @@ import SwiftUI
 import SpriteKit
 
 struct CornerSceneView: View {
+    
     var scene : SKScene {
         let scene = CornerScene()
         scene.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -17,7 +18,7 @@ struct CornerSceneView: View {
     }
     
     var body: some View {
-        SpriteView	(scene: scene)
+        SpriteView(scene: scene)
             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
             .ignoresSafeArea()
     }

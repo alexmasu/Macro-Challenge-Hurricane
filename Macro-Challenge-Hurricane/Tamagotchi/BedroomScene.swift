@@ -58,15 +58,17 @@ class BedroomScene :  SKScene {
             
             for node in touchedNodes {
                 
+//                da copiare
                 if node.name == "omettostreamerday" && omettoOn == false {
                         spawnOmettoStats()
                         spawnStatsButtons()
                         omettoOn = true
+                    
                 } else if node.name == "omettostreamerday" && omettoOn == true {
                         omettofadeOut()
                         omettoOn = false
                     }
-                
+//
                 if node.name == "setting" && settingsOn == false {
                     
                     spawnSettingsCircle()
@@ -80,7 +82,7 @@ class BedroomScene :  SKScene {
                     
                 }
                 
-                
+//             da copiare
                 if node.name == "light" || node.name == "nightlight" {
                     if isNight == false {
                         removeChildren(in: [bedroom,light,squarestreamingday])
@@ -96,7 +98,7 @@ class BedroomScene :  SKScene {
                         isNight = false
                     }
                 }
-                
+//
                 if node.name == "twitch" && settingsOn == true {
                     
                     let rhytmGame = RhytmGame()

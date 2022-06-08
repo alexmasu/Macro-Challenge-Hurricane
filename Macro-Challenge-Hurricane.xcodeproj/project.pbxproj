@@ -115,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */,
+				9678EF9328476CAC00AE1C4E /* BedroomScene.swift */,
 				9678EF8D284745A600AE1C4E /* BathroomScene.swift */,
 				480FA209284E066C00C62847 /* CornerSceneView.swift */,
 				968566E22844DEAE000D06BA /* CustomizationScene.swift */,
@@ -124,7 +125,6 @@
 				48EE65B3283B947800B0D986 /* TamagotchiView.swift */,
 				9678EF8F284747BC00AE1C4E /* BathroomSceneView.swift */,
 				9678EF9128476C7E00AE1C4E /* BedroomView.swift */,
-				9678EF9328476CAC00AE1C4E /* BedroomScene.swift */,
 				48EE65BB2844DAB400B0D986 /* ShopScene.swift */,
 			);
 			path = Tamagotchi;

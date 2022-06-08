@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct Macro_Challenge_HurricaneApp: App {
     
-    
+    var activeroom = -1
     
     var body: some Scene {
         WindowGroup {
@@ -20,7 +20,7 @@ struct Macro_Challenge_HurricaneApp: App {
 //                        BathroomSceneView()
 //                            .statusBar(hidden: true)
 //                            .ignoresSafeArea()
-            ContentView()
+            CornerSceneView()
                 .statusBar(hidden: true)
                 .ignoresSafeArea()
         }

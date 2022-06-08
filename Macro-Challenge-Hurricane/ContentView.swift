@@ -10,10 +10,16 @@ import SpriteKit
 
 struct ContentView: View {
     
-    var corner = SKView()
+   
     
         var body: some View {
-            CornerSceneView()
+//            CornerSceneView()
+//            ZStack {
+//                TamagotchiView()
+//                CornerSceneView()
+//
+//            }
+            Text("Ciao")
         }
     }
 
