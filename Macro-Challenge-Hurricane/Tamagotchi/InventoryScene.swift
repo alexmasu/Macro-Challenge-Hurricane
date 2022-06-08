@@ -1,15 +1,56 @@
-////
-////  CustomizationScene.swift
-////  Macro-Challenge-Hurricane
-////
-////  Created by Antonio Emanuele Cutarella on 30/05/22.
-////
-////
-
-//import Foundation
-//import SpriteKit
 //
-//class InventoryScene : SKScene {
+//  CustomizationScene.swift
+//  Macro-Challenge-Hurricane
+//
+//  Created by Antonio Emanuele Cutarella on 30/05/22.
+//
+//
+
+import Foundation
+import SpriteKit
+
+class InventoryScene : SKScene {
+    
+    
+    let background = SKSpriteNode(imageNamed: "Background.png")
+    let contentNode = SKNode()
+    let effectNode = SKEffectNode()
+    let blurNode = SKShapeNode()
+    
+    let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 75])
+
+    override init() {
+        super.init(size: CGSize(width: 0.0, height: 0.0))
+//        background.setScale(0.5)
+        addChild(background)
+        addChild(effectNode)
+        effectNode.addChild(blurNode)
+        addChild(contentNode)
+        
+        
+        blurNode.zPosition = 1100
+        self.filter = blurFilter
+        let fillTexture = self.view?.texture(from: contentNode, crop: blurNode.frame)
+        blurNode.fillColor = .white
+        blurNode.fillTexture = fillTexture
+
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+//    func blurScreen() {
+//                let effectsNode = SKEffectNode()
+//                filter!.setValue(blur, forKey: kCIInputRadiusKey)
+//                effectsNode.filter = filter
+//                effectsNode.position = self.view!.center
+//                effectsNode.blendMode = .alpha
+//                // Add the effects node to the scene
+//                self.addChild(background)
+//                self.addChild(effectsNode)
+//
+//            }
+    
 //
 //    func omettoMaxStats(){
 //
@@ -64,4 +105,5 @@
 //
 //    }
 //
-//}
+    
+}
