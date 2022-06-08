@@ -17,6 +17,7 @@ class TamagotchiMainScene :  SKScene {
     let bathroom = SKSpriteNode(imageNamed: "Bagno.png")
     let bedroom = SKSpriteNode(imageNamed: "Bedroom.png")
     let bedroomNight = SKSpriteNode(imageNamed: "BedroomNight.png")
+    let lamp = SKSpriteNode(imageNamed: "lampada.png")
     let light = SKSpriteNode(imageNamed: "light.png")
     let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let pc = SKSpriteNode(imageNamed: "pc2.png")
@@ -66,6 +67,7 @@ class TamagotchiMainScene :  SKScene {
         label.position = CGPoint(x: frame.midX, y: frame.midY)
         label.isUserInteractionEnabled = false
         addChild(label)
+        setupScene()
         
         addSwipeGestureRecognizers()
     }
@@ -384,22 +386,22 @@ extension TamagotchiMainScene {
     
     func spawnBackground() {
         
-        background.position = CGPoint(x: frame.midX,y: frame.midY)
+        background.position = CGPoint(x: frame.minX,y: frame.minY)
         background.name = "background"
         background.setScale(0.47)
         label.addChild(background)
         
-        bathroom.position = CGPoint(x: frame.midX * 3,y: frame.midY)
+        bathroom.position = CGPoint(x: frame.midX * 2.23 ,y: frame.minY)
         bathroom.name = "bathroom"
         label.addChild(bathroom)
         
         bedroom.setScale(0.47)
-        bedroom.position = CGPoint(x: (-frame.midX * 3),y: frame.midY)
+        bedroom.position = CGPoint(x: (-frame.midX * 2.4),y: frame.minY)
         bedroom.name = "bedroom"
         label.addChild(bedroom)
         
         bedroomNight.setScale(0.47)
-        bedroomNight.position = CGPoint(x: (-frame.midX * 3),y: frame.midY)
+        bedroomNight.position = CGPoint(x: (-frame.midX * 3),y: frame.minY)
         bedroomNight.name = "bedroomnight"
         
 //        label.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -413,22 +415,21 @@ extension TamagotchiMainScene {
     
     func spawnRoomElements() {
         
-        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
-        light.name = "light"
-        light.setScale(0.8)
-        background.addChild(light)
+        lamp.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
+        lamp.name = "light"
+        lamp.setScale(0.8)
+        background.addChild(lamp)
         
         monitor.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.42, y: frame.midY - UIScreen.main.bounds.height * 0.375)
         monitor.name = "monitor"
         monitor.setScale(0.8)
         background.addChild(monitor)
         
-        
-        
         pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 1.3, y: frame.midY - UIScreen.main.bounds.height * 0.42)
         pc.name = "pc"
         pc.setScale(1.8)
         background.addChild(pc)
+        
         
         sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.18,y: frame.midY + UIScreen.main.bounds.height * 0.095)
         sponge.name = "sponge"
@@ -439,6 +440,7 @@ extension TamagotchiMainScene {
         bath.name = "bath"
         bath.zPosition = 1.0
         bathroom.addChild(bath)
+        
         
         light.setScale(0.5)
         light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
@@ -506,7 +508,7 @@ extension TamagotchiMainScene {
         
     }
     
-    func spawnStatsButtons(){
+    func spawnStatsButtons() {
         
         fadeInAnim(elem: hunger, time: 0.5)
         
@@ -562,17 +564,19 @@ extension TamagotchiMainScene {
             case .up :
                 print("UP")
             case .left :
-                let bathroomChange = SKTransition.push(with: SKTransitionDirection.left, duration: 0.6)
-                bathroom.size = frame.size
-//                self.view?.presentScene(bathroom, transition:  bathroomChange)
+
+                let goleft = SKAction.move(by: CGVector(dx: (-frame.width * 1.12), dy: 0), duration: 1.6)
+                
+                label.run(goleft)
+                
                 print("LEFT")
             case .down :
                 print("DOWN")
             case .right :
-//                let bedroomChange = SKTransition.push(with: SKTransitionDirection.right, duration: 0.6)
-//                bedroom.size = frame.size
-                let goright = SKAction.move(by: CGVector(dx: (frame.width), dy: 0), duration: 0.6)
-                background.run(goright)
+
+                let goright = SKAction.move(by: CGVector(dx: (frame.width * 1.1), dy: 0), duration: 1.6)
+            
+                label.run(goright)
                 
                 print("RIGHT")
             default :

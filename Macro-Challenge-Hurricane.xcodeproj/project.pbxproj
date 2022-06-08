@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		480FA208284E01A800C62847 /* CornerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480FA207284E01A800C62847 /* CornerScene.swift */; };
 		480FA20A284E066C00C62847 /* CornerSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480FA209284E066C00C62847 /* CornerSceneView.swift */; };
+		4810EA402850B2D300351F47 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810EA3F2850B2D300351F47 /* ContentView.swift */; };
 		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
 		48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */; };
 		48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B3283B947800B0D986 /* TamagotchiView.swift */; };
@@ -24,7 +25,6 @@
 		963D5AC22834F301008ECEC7 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 963D5AC12834F301008ECEC7 /* blender.json */; };
 		963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AC82834F5E8008ECEC7 /* LottieView.swift */; };
 		963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */; };
-		963D5ACC2834F5F7008ECEC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5ACB2834F5F7008ECEC7 /* ContentView.swift */; };
 		963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5ACD2834F626008ECEC7 /* BottomText.swift */; };
 		963D5AD62834F62D008ECEC7 /* ResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5ACF2834F62C008ECEC7 /* ResultsViewModel.swift */; };
 		963D5AD72834F62D008ECEC7 /* QuizGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AD22834F62C008ECEC7 /* QuizGame.swift */; };
@@ -45,6 +45,7 @@
 /* Begin PBXFileReference section */
 		480FA207284E01A800C62847 /* CornerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerScene.swift; sourceTree = "<group>"; };
 		480FA209284E066C00C62847 /* CornerSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerSceneView.swift; sourceTree = "<group>"; };
+		4810EA3F2850B2D300351F47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		48EE65A52837AC1E00B0D986 /* RhytmGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
 		48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
 		48EE65B3283B947800B0D986 /* TamagotchiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		963D5AC12834F301008ECEC7 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
 		963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_Challenge_HurricaneApp.swift; sourceTree = "<group>"; };
 		963D5AC82834F5E8008ECEC7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		963D5ACB2834F5F7008ECEC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		963D5ACD2834F626008ECEC7 /* BottomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomText.swift; sourceTree = "<group>"; };
 		963D5ACF2834F62C008ECEC7 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		963D5AD02834F62C008ECEC7 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
@@ -149,6 +149,7 @@
 		7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */ = {
 			isa = PBXGroup;
 			children = (
+				7F621F1A282E54CB007FE06B /* .gitignore */,
 				961E4D672846563800FC8B65 /* Info.plist */,
 				48EE65A92837B1DB00B0D986 /* Resources */,
 				963D5ADD2834F859008ECEC7 /* Quiz */,
@@ -156,8 +157,8 @@
 				48EE65A42837ABE500B0D986 /* RhytmGame */,
 				48EE65B0283B835600B0D986 /* Tamagotchi */,
 				7F621F17282E5291007FE06B /* Git */,
-				963D5ACB2834F5F7008ECEC7 /* ContentView.swift */,
 				963D5AC82834F5E8008ECEC7 /* LottieView.swift */,
+				4810EA3F2850B2D300351F47 /* ContentView.swift */,
 				963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
@@ -177,7 +178,6 @@
 		7F621F17282E5291007FE06B /* Git */ = {
 			isa = PBXGroup;
 			children = (
-				7F621F1A282E54CB007FE06B /* .gitignore */,
 			);
 			path = Git;
 			sourceTree = "<group>";
@@ -299,6 +299,7 @@
 				9678EF90284747BC00AE1C4E /* BathroomSceneView.swift in Sources */,
 				963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */,
 				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
+				4810EA402850B2D300351F47 /* ContentView.swift in Sources */,
 				968566E12844DDA8000D06BA /* InventoryScene.swift in Sources */,
 				963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */,
 				480FA20A284E066C00C62847 /* CornerSceneView.swift in Sources */,
@@ -306,7 +307,6 @@
 				963D5AD82834F62D008ECEC7 /* ResultsView.swift in Sources */,
 				963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */,
 				48EE65BC2844DAB400B0D986 /* ShopScene.swift in Sources */,
-				963D5ACC2834F5F7008ECEC7 /* ContentView.swift in Sources */,
 				963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */,
 				48EE65B8283CEF9300B0D986 /* RGPhysicsCategory.swift in Sources */,
 				968566E52844DF2A000D06BA /* MinigamesScene.swift in Sources */,
