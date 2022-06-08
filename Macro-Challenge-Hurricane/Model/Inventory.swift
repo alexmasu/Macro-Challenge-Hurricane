@@ -62,8 +62,30 @@ class Inventory : NSObject, NSCoding{
             }
             switch consumable.id{
             case 0:
-                mochi.hunger = mochi.hunger + 50
-                
+                mochi.hunger = min(mochi.hunger + 45,mochi.maxHunger)
+            case 1:
+                mochi.hunger = min(mochi.hunger + 70,mochi.maxHunger)
+            case 2:
+                mochi.hunger = min(mochi.hunger + 20,mochi.maxHunger)
+            case 3:
+                mochi.thirst = min(mochi.hunger + 30,mochi.maxHunger)
+            case 4:
+                mochi.thirst = min(mochi.thirst + 55, mochi.maxThirst)
+            case 5:
+                mochi.thirst = min(mochi.thirst + 80, mochi.maxThirst)
+            case 6:
+                mochi.hunger = min(mochi.hunger + 40,mochi.maxHunger)
+                mochi.happiness = min ( mochi.happiness + 10, mochi.maxHappiness)
+                mochi.thirst = max(mochi.thirst - 10, 0)
+            case 7:
+                mochi.hunger = min(mochi.hunger + 50,mochi.maxHunger)
+                mochi.happiness = min (mochi.happiness + 20, mochi.maxHappiness)
+            case 8:
+                mochi.ill = false
+                mochi.health = min(mochi.health + 35, mochi.maxHealth)
+                mochi.happiness = max(mochi.happiness - 40, 0)
+
+
             default: print("koi doesn't exist")
                 return false
             }
