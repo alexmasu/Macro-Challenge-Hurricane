@@ -18,6 +18,7 @@ class TamagotchiMainScene :  SKScene {
     let bedroom = SKSpriteNode(imageNamed: "Bedroom.png")
     let bedroomNight = SKSpriteNode(imageNamed: "BedroomNight.png")
     let light = SKSpriteNode(imageNamed: "light.png")
+    let lamp = SKSpriteNode(imageNamed: "lampada.png")
     let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let pc = SKSpriteNode(imageNamed: "pc2.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
@@ -136,12 +137,13 @@ class TamagotchiMainScene :  SKScene {
                     nodes.append(node)
                     
                 }
-                //                else if node.name == "inventory" {
-                //                    let inventoryScene = InventoryScene()
-                //                    inventoryScene.size = (view?.frame.size)!
-                //                    let transition = SKTransition.fade(withDuration: 1.5)
-                //                    self.view?.presentScene(inventoryScene, transition: transition)
-                //                }
+                
+                else if node.name == "inventory" {
+                    let inventoryScene = InventoryScene()
+                    inventoryScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 1.5)
+                    self.view?.presentScene(inventoryScene, transition: transition)
+                }
                 
                 else if (node.name == "customization") {
                     
@@ -413,10 +415,10 @@ extension TamagotchiMainScene {
     
     func spawnRoomElements() {
         
-        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
-        light.name = "light"
-        light.setScale(0.8)
-        background.addChild(light)
+        lamp.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
+        lamp.name = "lamp"
+        lamp.setScale(0.8)
+        background.addChild(lamp)
         
         monitor.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.42, y: frame.midY - UIScreen.main.bounds.height * 0.375)
         monitor.name = "monitor"

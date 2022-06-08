@@ -1,15 +1,18 @@
-////
-////  CustomizationScene.swift
-////  Macro-Challenge-Hurricane
-////
-////  Created by Antonio Emanuele Cutarella on 30/05/22.
-////
-////
-
-//import Foundation
-//import SpriteKit
 //
-//class InventoryScene : SKScene {
+//  CustomizationScene.swift
+//  Macro-Challenge-Hurricane
+//
+//  Created by Antonio Emanuele Cutarella on 30/05/22.
+//
+//
+
+import Foundation
+import SpriteKit
+
+class InventoryScene : SKScene {
+    
+    let blur = CIFilter(name:"CIGaussianBlur",parameters: ["inputRadius": 10.0])
+    let background = SKSpriteNode(imageNamed: "background.png")
 //
 //    func omettoMaxStats(){
 //
@@ -64,4 +67,21 @@
 //
 //    }
 //
-//}
+
+    func blurScreen() {
+                let effectsNode = SKEffectNode()
+                filter!.setValue(blur, forKey: kCIInputRadiusKey)
+                effectsNode.filter = filter
+                effectsNode.position = self.view!.center
+                effectsNode.blendMode = .alpha
+                // Add the effects node to the scene
+                self.addChild(background)
+                self.addChild(effectsNode)
+                
+            }
+    
+    
+    
+}
+
+
