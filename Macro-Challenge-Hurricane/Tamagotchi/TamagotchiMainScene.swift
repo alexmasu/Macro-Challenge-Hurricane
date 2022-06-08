@@ -40,7 +40,7 @@ class TamagotchiMainScene :  SKScene {
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     //    var clickback = SKShapeNode()
-    var label = SKSpriteNode(color: .clear, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.4))
+    var label = SKSpriteNode(color: .clear, size: CGSize(width: UIScreen.main.bounds.width * 3, height: UIScreen.main.bounds.height))
     var isNight = false
     var startstream = false
     var checkSwipe = false
@@ -59,9 +59,14 @@ class TamagotchiMainScene :  SKScene {
     
     
     override func didMove(to view: SKView) {
-        if self.wasInitialized == false {
-            setupScene()
-        }
+//        if self.wasInitialized == false {
+//            setupScene()
+//        }
+        
+        label.position = CGPoint(x: frame.midX, y: frame.midY)
+        label.isUserInteractionEnabled = false
+        addChild(label)
+        
         addSwipeGestureRecognizers()
     }
     
@@ -380,25 +385,25 @@ extension TamagotchiMainScene {
         background.position = CGPoint(x: frame.midX,y: frame.midY)
         background.name = "background"
         background.setScale(0.47)
-        addChild(background)
+        label.addChild(background)
         
         bathroom.position = CGPoint(x: frame.midX * 3,y: frame.midY)
         bathroom.name = "bathroom"
-        addChild(bathroom)
+        label.addChild(bathroom)
         
         bedroom.setScale(0.47)
         bedroom.position = CGPoint(x: (-frame.midX * 3),y: frame.midY)
         bedroom.name = "bedroom"
-        addChild(bedroom)
+        label.addChild(bedroom)
         
         bedroomNight.setScale(0.47)
         bedroomNight.position = CGPoint(x: (-frame.midX * 3),y: frame.midY)
         bedroomNight.name = "bedroomnight"
         
-        label.position = CGPoint(x: frame.midX, y: frame.midY)
-        label.name = "label"
-        label.isUserInteractionEnabled = false
-        addChild(label)
+//        label.position = CGPoint(x: frame.midX, y: frame.midY)
+//        label.name = "label"
+//        label.isUserInteractionEnabled = false
+//        addChild(label)
         
         
         
@@ -564,7 +569,8 @@ extension TamagotchiMainScene {
             case .right :
 //                let bedroomChange = SKTransition.push(with: SKTransitionDirection.right, duration: 0.6)
 //                bedroom.size = frame.size
-                let goright = SKAction.move(by: CGVector(dx: (-frame.width), dy: 0), duration: 0.6)
+                let goright = SKAction.move(by: CGVector(dx: (frame.width), dy: 0), duration: 0.6)
+                background.run(goright)
                 
                 print("RIGHT")
             default :
