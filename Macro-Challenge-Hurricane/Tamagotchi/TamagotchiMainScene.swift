@@ -416,7 +416,7 @@ extension TamagotchiMainScene {
     func spawnRoomElements() {
         
         lamp.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
-        lamp.name = "light"
+        lamp.name = "lamp"
         lamp.setScale(0.8)
         background.addChild(lamp)
         

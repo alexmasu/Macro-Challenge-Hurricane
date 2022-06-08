@@ -11,7 +11,6 @@ import SpriteKit
 
 
 struct ContentView: View {
-    var corner = SKView()
    
     var body: some View {
         
