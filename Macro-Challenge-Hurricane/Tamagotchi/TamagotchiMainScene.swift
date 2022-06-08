@@ -562,9 +562,10 @@ extension TamagotchiMainScene {
             case .down :
                 print("DOWN")
             case .right :
-                let bedroomChange = SKTransition.push(with: SKTransitionDirection.right, duration: 0.6)
-                bedroom.size = frame.size
-//                self.view?.presentScene(bedroom, transition: bedroomChange)
+//                let bedroomChange = SKTransition.push(with: SKTransitionDirection.right, duration: 0.6)
+//                bedroom.size = frame.size
+                let goright = SKAction.move(by: CGVector(dx: (-frame.width), dy: 0), duration: 0.6)
+                
                 print("RIGHT")
             default :
                 print("NOPE")
