@@ -38,6 +38,7 @@
 		7FDAF9F628509CE8004276E0 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F528509CE8004276E0 /* Token.swift */; };
 		7FDAF9F828509D00004276E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F728509D00004276E0 /* User.swift */; };
 		7FDAF9FA28509D38004276E0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F928509D38004276E0 /* WebViewController.swift */; };
+		7FDAF9FC2850B3F8004276E0 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9FB2850B3F8004276E0 /* String+localized.swift */; };
 		96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
 		963D5AB82834EE31008ECEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 963D5ABA2834EE31008ECEC7 /* Localizable.strings */; };
@@ -94,6 +95,7 @@
 		7FDAF9F528509CE8004276E0 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		7FDAF9F728509D00004276E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7FDAF9F928509D38004276E0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		7FDAF9FB2850B3F8004276E0 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		961E4D672846563800FC8B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat_Ext.swift; sourceTree = "<group>"; };
 		963D5AB92834EE31008ECEC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				7F621F0F282E46C3007FE06B /* Preview Content */,
 				963D5ABA2834EE31008ECEC7 /* Localizable.strings */,
 				7FDAF9F928509D38004276E0 /* WebViewController.swift */,
+				7FDAF9FB2850B3F8004276E0 /* String+localized.swift */,
 			);
 			path = "Macro-Challenge-Hurricane";
 			sourceTree = "<group>";
@@ -390,6 +393,7 @@
 				963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */,
 				963D5AD92834F62D008ECEC7 /* GameViewModel.swift in Sources */,
 				963D5AD82834F62D008ECEC7 /* ResultsView.swift in Sources */,
+				7FDAF9FC2850B3F8004276E0 /* String+localized.swift in Sources */,
 				7FDAF9EE285096A9004276E0 /* StreamingInventoryJson.swift in Sources */,
 				7FDAF9E4285095BA004276E0 /* TimeManager.swift in Sources */,
 				963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */,
