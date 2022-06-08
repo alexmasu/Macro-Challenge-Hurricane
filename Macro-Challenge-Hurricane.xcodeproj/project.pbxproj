@@ -187,9 +187,9 @@
 		7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */ = {
 			isa = PBXGroup;
 			children = (
+				961E4D672846563800FC8B65 /* Info.plist */,
 				7FDAF9D628509368004276E0 /* Model */,
 				7FDAF9CC285091DC004276E0 /* DataManager */,
-				961E4D672846563800FC8B65 /* Info.plist */,
 				48EE65A92837B1DB00B0D986 /* Resources */,
 				963D5ADD2834F859008ECEC7 /* Quiz */,
 				963D5AC02834F2D6008ECEC7 /* LottieTest */,
@@ -550,10 +550,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PLX9GGVS7R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = StreaMochi;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -581,10 +582,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = PLX9GGVS7R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = StreaMochi;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -124,10 +124,10 @@ class FSSceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
         scheduleAppRefresh()
         let operationQueue = OperationQueue()
         let refreshOperation = BlockOperation {
-            //             let refreshManager = BackgroundRefresh()
-            //             refreshManager.updateInfoForServer()
-            print("Refresh executed 1")
-            print("Refresh executed 2")
+            
+//            DataManager.standard.setMochi(mochi: MochiJson())
+//            print(DataManager.standard.getMochi())
+            
         }
         
         task.expirationHandler = {
