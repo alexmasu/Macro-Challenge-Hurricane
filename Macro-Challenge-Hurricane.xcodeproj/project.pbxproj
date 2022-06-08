@@ -16,6 +16,28 @@
 		7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F0D282E46C3007FE06B /* Assets.xcassets */; };
 		7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F10282E46C3007FE06B /* Preview Assets.xcassets */; };
 		7F621F1B282E54CB007FE06B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7F621F1A282E54CB007FE06B /* .gitignore */; };
+		7FDAF9CE2850920F004276E0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9CD2850920F004276E0 /* DataManager.swift */; };
+		7FDAF9D02850923D004276E0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9CF2850923D004276E0 /* Storage.swift */; };
+		7FDAF9D228509286004276E0 /* TwitchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9D128509286004276E0 /* TwitchService.swift */; };
+		7FDAF9D5285092CD004276E0 /* RealHTTP in Frameworks */ = {isa = PBXBuildFile; productRef = 7FDAF9D4285092CD004276E0 /* RealHTTP */; };
+		7FDAF9D82850937C004276E0 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9D72850937C004276E0 /* Channel.swift */; };
+		7FDAF9DA285093A5004276E0 /* Currencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9D9285093A4004276E0 /* Currencies.swift */; };
+		7FDAF9DC285093C7004276E0 /* CurrenciesJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9DB285093C7004276E0 /* CurrenciesJson.swift */; };
+		7FDAF9DE285093E2004276E0 /* CustomInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9DD285093E2004276E0 /* CustomInventory.swift */; };
+		7FDAF9E0285094F8004276E0 /* MochiJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9DF285094F8004276E0 /* MochiJson.swift */; };
+		7FDAF9E22850951A004276E0 /* Mochi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9E12850951A004276E0 /* Mochi.swift */; };
+		7FDAF9E4285095BA004276E0 /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9E3285095BA004276E0 /* TimeManager.swift */; };
+		7FDAF9E6285095F4004276E0 /* TimeManagerJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9E5285095F4004276E0 /* TimeManagerJson.swift */; };
+		7FDAF9E82850960E004276E0 /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9E72850960E004276E0 /* Inventory.swift */; };
+		7FDAF9EA28509632004276E0 /* InventoryJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9E928509632004276E0 /* InventoryJson.swift */; };
+		7FDAF9EC2850968F004276E0 /* StreamingInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9EB2850968F004276E0 /* StreamingInventory.swift */; };
+		7FDAF9EE285096A9004276E0 /* StreamingInventoryJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9ED285096A9004276E0 /* StreamingInventoryJson.swift */; };
+		7FDAF9F0285096DD004276E0 /* CustomInventoryJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9EF285096DD004276E0 /* CustomInventoryJson.swift */; };
+		7FDAF9F2285096F7004276E0 /* item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F1285096F7004276E0 /* item.swift */; };
+		7FDAF9F428509727004276E0 /* Customizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F328509727004276E0 /* Customizable.swift */; };
+		7FDAF9F628509CE8004276E0 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F528509CE8004276E0 /* Token.swift */; };
+		7FDAF9F828509D00004276E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F728509D00004276E0 /* User.swift */; };
+		7FDAF9FA28509D38004276E0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F928509D38004276E0 /* WebViewController.swift */; };
 		96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
 		963D5AB82834EE31008ECEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 963D5ABA2834EE31008ECEC7 /* Localizable.strings */; };
@@ -51,6 +73,27 @@
 		7F621F0D282E46C3007FE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F621F10282E46C3007FE06B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7F621F1A282E54CB007FE06B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7FDAF9CD2850920F004276E0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		7FDAF9CF2850923D004276E0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		7FDAF9D128509286004276E0 /* TwitchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchService.swift; sourceTree = "<group>"; };
+		7FDAF9D72850937C004276E0 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		7FDAF9D9285093A4004276E0 /* Currencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currencies.swift; sourceTree = "<group>"; };
+		7FDAF9DB285093C7004276E0 /* CurrenciesJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesJson.swift; sourceTree = "<group>"; };
+		7FDAF9DD285093E2004276E0 /* CustomInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInventory.swift; sourceTree = "<group>"; };
+		7FDAF9DF285094F8004276E0 /* MochiJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MochiJson.swift; sourceTree = "<group>"; };
+		7FDAF9E12850951A004276E0 /* Mochi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mochi.swift; sourceTree = "<group>"; };
+		7FDAF9E3285095BA004276E0 /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		7FDAF9E5285095F4004276E0 /* TimeManagerJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManagerJson.swift; sourceTree = "<group>"; };
+		7FDAF9E72850960E004276E0 /* Inventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
+		7FDAF9E928509632004276E0 /* InventoryJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryJson.swift; sourceTree = "<group>"; };
+		7FDAF9EB2850968F004276E0 /* StreamingInventory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingInventory.swift; sourceTree = "<group>"; };
+		7FDAF9ED285096A9004276E0 /* StreamingInventoryJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingInventoryJson.swift; sourceTree = "<group>"; };
+		7FDAF9EF285096DD004276E0 /* CustomInventoryJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInventoryJson.swift; sourceTree = "<group>"; };
+		7FDAF9F1285096F7004276E0 /* item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = item.swift; sourceTree = "<group>"; };
+		7FDAF9F328509727004276E0 /* Customizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customizable.swift; sourceTree = "<group>"; };
+		7FDAF9F528509CE8004276E0 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		7FDAF9F728509D00004276E0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7FDAF9F928509D38004276E0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		961E4D672846563800FC8B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat_Ext.swift; sourceTree = "<group>"; };
 		963D5AB92834EE31008ECEC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -81,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FDAF9D5285092CD004276E0 /* RealHTTP in Frameworks */,
 				963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,6 +187,8 @@
 		7F621F08282E46C2007FE06B /* Macro-Challenge-Hurricane */ = {
 			isa = PBXGroup;
 			children = (
+				7FDAF9D628509368004276E0 /* Model */,
+				7FDAF9CC285091DC004276E0 /* DataManager */,
 				961E4D672846563800FC8B65 /* Info.plist */,
 				48EE65A92837B1DB00B0D986 /* Resources */,
 				963D5ADD2834F859008ECEC7 /* Quiz */,
@@ -153,9 +199,11 @@
 				963D5ACB2834F5F7008ECEC7 /* ContentView.swift */,
 				963D5AC82834F5E8008ECEC7 /* LottieView.swift */,
 				963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */,
+				7FDAF9D128509286004276E0 /* TwitchService.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
 				963D5ABA2834EE31008ECEC7 /* Localizable.strings */,
+				7FDAF9F928509D38004276E0 /* WebViewController.swift */,
 			);
 			path = "Macro-Challenge-Hurricane";
 			sourceTree = "<group>";
@@ -174,6 +222,39 @@
 				7F621F1A282E54CB007FE06B /* .gitignore */,
 			);
 			path = Git;
+			sourceTree = "<group>";
+		};
+		7FDAF9CC285091DC004276E0 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				7FDAF9CD2850920F004276E0 /* DataManager.swift */,
+				7FDAF9CF2850923D004276E0 /* Storage.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		7FDAF9D628509368004276E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7FDAF9D72850937C004276E0 /* Channel.swift */,
+				7FDAF9D9285093A4004276E0 /* Currencies.swift */,
+				7FDAF9DB285093C7004276E0 /* CurrenciesJson.swift */,
+				7FDAF9DD285093E2004276E0 /* CustomInventory.swift */,
+				7FDAF9DF285094F8004276E0 /* MochiJson.swift */,
+				7FDAF9E12850951A004276E0 /* Mochi.swift */,
+				7FDAF9E3285095BA004276E0 /* TimeManager.swift */,
+				7FDAF9E5285095F4004276E0 /* TimeManagerJson.swift */,
+				7FDAF9E72850960E004276E0 /* Inventory.swift */,
+				7FDAF9E928509632004276E0 /* InventoryJson.swift */,
+				7FDAF9EB2850968F004276E0 /* StreamingInventory.swift */,
+				7FDAF9ED285096A9004276E0 /* StreamingInventoryJson.swift */,
+				7FDAF9EF285096DD004276E0 /* CustomInventoryJson.swift */,
+				7FDAF9F1285096F7004276E0 /* item.swift */,
+				7FDAF9F328509727004276E0 /* Customizable.swift */,
+				7FDAF9F528509CE8004276E0 /* Token.swift */,
+				7FDAF9F728509D00004276E0 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		963D5AC02834F2D6008ECEC7 /* LottieTest */ = {
@@ -217,6 +298,7 @@
 			name = "Macro-Challenge-Hurricane";
 			packageProductDependencies = (
 				963D5A9A2834EA59008ECEC7 /* Lottie */,
+				7FDAF9D4285092CD004276E0 /* RealHTTP */,
 			);
 			productName = "Macro-Challenge-Hurricane";
 			productReference = 7F621F06282E46C2007FE06B /* Macro-Challenge-Hurricane.app */;
@@ -249,6 +331,7 @@
 			mainGroup = 7F621EFD282E46C2007FE06B;
 			packageReferences = (
 				963D5A992834EA59008ECEC7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				7FDAF9D3285092CD004276E0 /* XCRemoteSwiftPackageReference "RealHTTP" */,
 			);
 			productRefGroup = 7F621F07282E46C2007FE06B /* Products */;
 			projectDirPath = "";
@@ -282,27 +365,48 @@
 				48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */,
 				9678EF9428476CAC00AE1C4E /* BedroomScene.swift in Sources */,
 				48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */,
+				7FDAF9EC2850968F004276E0 /* StreamingInventory.swift in Sources */,
+				7FDAF9DC285093C7004276E0 /* CurrenciesJson.swift in Sources */,
 				968566E32844DEAE000D06BA /* CustomizationScene.swift in Sources */,
 				96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */,
+				7FDAF9F628509CE8004276E0 /* Token.swift in Sources */,
 				963D5AD72834F62D008ECEC7 /* QuizGame.swift in Sources */,
 				963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */,
+				7FDAF9E82850960E004276E0 /* Inventory.swift in Sources */,
 				9678EF8E284745A600AE1C4E /* BathroomScene.swift in Sources */,
 				9678EF9228476C7E00AE1C4E /* BedroomView.swift in Sources */,
 				963D5AD62834F62D008ECEC7 /* ResultsViewModel.swift in Sources */,
 				9678EF90284747BC00AE1C4E /* BathroomSceneView.swift in Sources */,
+				7FDAF9CE2850920F004276E0 /* DataManager.swift in Sources */,
 				963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */,
+				7FDAF9F2285096F7004276E0 /* item.swift in Sources */,
 				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
+				7FDAF9D228509286004276E0 /* TwitchService.swift in Sources */,
+				7FDAF9D02850923D004276E0 /* Storage.swift in Sources */,
+				7FDAF9D82850937C004276E0 /* Channel.swift in Sources */,
 				968566E12844DDA8000D06BA /* InventoryScene.swift in Sources */,
+				7FDAF9F828509D00004276E0 /* User.swift in Sources */,
+				7FDAF9E0285094F8004276E0 /* MochiJson.swift in Sources */,
 				963D5ADB2834F62D008ECEC7 /* QuizWelcomeView.swift in Sources */,
 				963D5AD92834F62D008ECEC7 /* GameViewModel.swift in Sources */,
 				963D5AD82834F62D008ECEC7 /* ResultsView.swift in Sources */,
+				7FDAF9EE285096A9004276E0 /* StreamingInventoryJson.swift in Sources */,
+				7FDAF9E4285095BA004276E0 /* TimeManager.swift in Sources */,
 				963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */,
+				7FDAF9E22850951A004276E0 /* Mochi.swift in Sources */,
 				48EE65BC2844DAB400B0D986 /* ShopScene.swift in Sources */,
 				963D5ACC2834F5F7008ECEC7 /* ContentView.swift in Sources */,
+				7FDAF9E6285095F4004276E0 /* TimeManagerJson.swift in Sources */,
+				7FDAF9F428509727004276E0 /* Customizable.swift in Sources */,
+				7FDAF9DE285093E2004276E0 /* CustomInventory.swift in Sources */,
+				7FDAF9FA28509D38004276E0 /* WebViewController.swift in Sources */,
+				7FDAF9F0285096DD004276E0 /* CustomInventoryJson.swift in Sources */,
+				7FDAF9DA285093A5004276E0 /* Currencies.swift in Sources */,
 				963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */,
 				48EE65B8283CEF9300B0D986 /* RGPhysicsCategory.swift in Sources */,
 				968566E52844DF2A000D06BA /* MinigamesScene.swift in Sources */,
 				48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */,
+				7FDAF9EA28509632004276E0 /* InventoryJson.swift in Sources */,
 				963D5ADA2834F62D008ECEC7 /* Quiz.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +628,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7FDAF9D3285092CD004276E0 /* XCRemoteSwiftPackageReference "RealHTTP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/immobiliare/RealHTTP";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		963D5A992834EA59008ECEC7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -535,6 +647,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7FDAF9D4285092CD004276E0 /* RealHTTP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7FDAF9D3285092CD004276E0 /* XCRemoteSwiftPackageReference "RealHTTP" */;
+			productName = RealHTTP;
+		};
 		963D5A9A2834EA59008ECEC7 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 963D5A992834EA59008ECEC7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
