@@ -108,7 +108,7 @@ class FSSceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
     
     func scheduleAppRefresh() {
         let request = BGAppRefreshTaskRequest(identifier: "refresh")
-        request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // Fetch no earlier than 1 minutes from now
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 10 * 60) // Fetch no earlier than 1 minutes from now
         //        request.earliestBeginDate = Date(timeIntervalSinceNow: 0)
         do {
             try BGTaskScheduler.shared.submit(request)

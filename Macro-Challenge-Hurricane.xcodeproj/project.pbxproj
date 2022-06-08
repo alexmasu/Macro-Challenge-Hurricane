@@ -550,7 +550,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
-				DEVELOPMENT_TEAM = 595Y8DW3P5;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
@@ -581,7 +581,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
-				DEVELOPMENT_TEAM = 595Y8DW3P5;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";

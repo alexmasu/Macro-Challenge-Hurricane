@@ -9,6 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var appDelegate: FSAppDelegate
+    @EnvironmentObject var sceneDelegate: FSSceneDelegate
+    
     @State var ButtonPressUpdate = true
     
     var body: some View {
