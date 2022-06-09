@@ -6,7 +6,7 @@
 
 import Foundation
 struct TimeManagerJson: Codable{
-    var lastSave : Date
-    var savedDate : Date
-    var arrayHappyness : [Int]
+    var lastSave : Date = Date.distantPast
+    var savedDate : Date = Date.distantPast
+    var arrayHappyness : [Int] = []
 }

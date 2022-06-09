@@ -127,7 +127,7 @@ class DataManager: NSObject {
     }
     
     // MARK: - Saved Currencies
-    @Storage(key: "currencies", defaultValue: "NULL")
+    @Storage(key: "currencies", defaultValue: "{\n  \"money\" : 0,\n  \"followers\" : 0,\n  \"bite\" : 0\n}")
     var currencies: String
     
     // MARK: - Setter Currencies
@@ -168,7 +168,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved timeManager
-    @Storage(key: "timeManager", defaultValue: "NULL")
+    @Storage(key: "timeManager", defaultValue: "{\n  \"savedDate\" : -63114076800,\n  \"arrayHappyness\" : [\n\n  ],\n  \"lastSave\" : -63114076800\n}")
     var timeManager: String
     
     // MARK: - Setter timeManager
@@ -210,7 +210,7 @@ class DataManager: NSObject {
     }
     
     // MARK: - Saved inventory
-    @Storage(key: "inventory", defaultValue: "NULL")
+    @Storage(key: "inventory", defaultValue: "{\n  \"i\" : [\n\n  ]\n}")
     var inventory: String
     
     // MARK: - Setter inventory
@@ -251,7 +251,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved inventory
-    @Storage(key: "customInventory", defaultValue: "NULL")
+    @Storage(key: "customInventory", defaultValue: "{\n  \"i\" : [\n\n  ]\n}")
     var customInventory: String
     
     // MARK: - Setter inventory
@@ -292,7 +292,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved streaming
-    @Storage(key: "streamingInventory", defaultValue: "NULL")
+    @Storage(key: "streamingInventory", defaultValue: "{\n  \"i\" : [\n\n  ]\n}")
     var streamingInventory: String
     
     // MARK: - Setter streaming

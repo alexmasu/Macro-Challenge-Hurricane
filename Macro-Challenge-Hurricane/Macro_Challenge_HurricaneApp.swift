@@ -15,10 +15,15 @@ import BackgroundTasks
 struct Macro_Challenge_HurricaneApp: App {
     
     init() {
-//        DataManager.standard.setMochi(mochi: MochiJson())
-        print(DataManager.standard.getMochi())
-//                let mochi = Mochi()
-//                mochi.save()
+        //        DataManager.standard.setMochi(mochi: MochiJson())
+        //        print(DataManager.standard.getMochi())
+        //                let mochi = Mochi()
+        //                mochi.save()
+        
+//        DataManager.standard.setTimeManager(timeManager: TimeManagerJson())
+        print(DataManager.standard.getTimeManager())
+        
+        
         
     }
     
