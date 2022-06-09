@@ -20,10 +20,10 @@ struct Macro_Challenge_HurricaneApp: App {
 //                        BathroomSceneView()
 //                            .statusBar(hidden: true)
 //                            .ignoresSafeArea()
-//            TamagotchiView()
+            TamagotchiView()
 //                .statusBar(hidden: true)
 //                .ignoresSafeArea()
-            InventorySceneView()
+//            InventorySceneView()
                 .statusBar(hidden: true)
                 .ignoresSafeArea()
         }

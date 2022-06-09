@@ -20,7 +20,7 @@ class InventoryScene : SKScene {
         
         let filter = CIFilter(name: "CIGaussianBlur")
         // Set the blur amount. Adjust this to achieve the desired effect
-        let blurAmount = 10.0
+        let blurAmount = 70.0
         filter?.setValue(blurAmount, forKey: kCIInputRadiusKey)
         let texture = SKTexture(imageNamed: "Background.png")
         let sprite = SKSpriteNode(texture: texture)
