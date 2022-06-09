@@ -15,19 +15,47 @@ import BackgroundTasks
 struct Macro_Challenge_HurricaneApp: App {
     
     init() {
-        DataManager.standard.setInventory(inventory: InventoryJson())
+
+        let today = Date()
+        print(today)
+        let modifiedDate = Calendar.current.date(byAdding: .hour, value: -2, to: today)!
+        print(modifiedDate)
+        
+        let temp = MochiJson(maxHunger: 100, maxThirst: 100, maxCleanlyness: 100, maxHealth: 100, maxEnergy: 100, maxHappiness: 100, hunger: 100, thirst: 100, cleanlyness: 100, health: 100, energy: 100, happiness: 100, ageType: 2, sleeping: false, streaming: false, ill: false, pHunger: 0, pThirst: 0, pCleanlyness: 0, pHappyness: 0, pIll: 0, pEnergy: 0, pEnergyGain: 0, nPoop: 0, pPoop: 0, pWake: 0, pHealthHunger: 0, pHealthThirst: 0, pHealthIll: 0, euphoria: false, birth: Date.distantPast, alive: true)
+        
+        DataManager.standard.setMochi(mochi: temp)
+        
+        
+        let tempTime = TimeManagerJson(lastSave: modifiedDate, savedDate: Date.now, arrayHappyness: [])
+        
+        DataManager.standard.setTimeManager(timeManager: tempTime)
+        
+        let timemanager = TimeManager()
+        let mochi = Mochi()
+        let inventory = Inventory()
+        let currencies = Currencies()
+        let customInventory = CustomInventory()
+        let streamInventory = StreamingInventory()
+        
+        timemanager.AfterOffline(mochi: mochi, currencies: currencies)
+        print(mochi.thirst)
+        print(mochi.pThirst)
+        
+        mochi.save()
+        
+        timemanager.save()
     }
     
     @UIApplicationDelegateAdaptor var delegate: FSAppDelegate
     
     var body: some Scene {
         WindowGroup {
-//                        TamagotchiView()
-//                        .statusBar(hidden: true)
-//                        .ignoresSafeArea()
-//                        BathroomSceneView()
-//                            .statusBar(hidden: true)
-//                            .ignoresSafeArea()
+            //                        TamagotchiView()
+            //                        .statusBar(hidden: true)
+            //                        .ignoresSafeArea()
+            //                        BathroomSceneView()
+            //                            .statusBar(hidden: true)
+            //                            .ignoresSafeArea()
             BedroomView()
                 .statusBar(hidden: true)
                 .ignoresSafeArea()
@@ -129,8 +157,8 @@ class FSSceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
         let operationQueue = OperationQueue()
         let refreshOperation = BlockOperation {
             
-//            DataManager.standard.setMochi(mochi: MochiJson())
-//            print(DataManager.standard.getMochi())
+            //            DataManager.standard.setMochi(mochi: MochiJson())
+            //            print(DataManager.standard.getMochi())
             
         }
         

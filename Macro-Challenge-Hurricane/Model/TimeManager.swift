@@ -63,7 +63,7 @@ class TimeManager {
     
     var date : Date {Date.now}
     func timeElapsedsince(date1: Date) -> Int{
-        return Int((lastSave ?? date) - date)
+        return Int(date - (lastSave ?? date))
     }
     func saveDate (){
         lastSave = date
