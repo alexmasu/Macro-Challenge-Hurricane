@@ -6,6 +6,8 @@
   
 */
 
+"hamburgerDescription" = "it looks tasty, I feel like i'm the clowns' king";
+
 "QuizTheory" = "Theory";
 
 "QuizTime" = "Quiz Time!";
@@ -21,6 +23,8 @@
 "QuizScoreDescriptionB" = "Excellent job!";
 
 "QuizScoreDescriptionC" = "Nice Job!";
+
+"acqua" = "descrizioneacqua";
 
 "QuizScoreDescriptionD" = "Keep working hard!";
 

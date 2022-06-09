@@ -24,10 +24,10 @@ class Consumable: NSObject{
         requirement = Requirement
         info = Info
     }
-    
+
 }
 
-let hamburger = Consumable(Id: 0, Name: "hamburger", Price: 8, Requirement: 0, Info: "it looks tasty, I feel like i'm the clowns' king")
+let hamburger = Consumable(Id: 0, Name: "hamburger", Price: 8, Requirement: 0, Info: NSLocalizedString("hamburgerDescription", comment: ""))
 let pizza = Consumable(Id: 1, Name: "pizza", Price: 12, Requirement: 50, Info: "Simple, traditional without pineapple. Erne ta po magnà a pizza...")
 let patatine = Consumable(Id: 2, Name: "patatine", Price: 4, Requirement: 0, Info: "Prendo una patatina e me la mangio. Nessuno potrà notare cosa sta nel pacchetto...")
 let acqua = Consumable(Id: 3, Name: "acqua", Price: 5, Requirement: 0, Info: "fortunatamente questa non viene da una vasca da bagno")

@@ -165,13 +165,13 @@ class TimeManager {
                     mochi.pEnergy = mochi.pEnergy - 100
                     mochi.energy = max(0, mochi.energy - 1)
                 }
-                else{
-                    mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: lastSave!))/864)
-                    mochi.pEnergy = mochi.pEnergy + (100 * (timeElapsedsince(date1: lastSave!)%864)) / 864
-                    if (mochi.pEnergy > 99) {
-                        mochi.pEnergy = mochi.pEnergy - 100
-                        mochi.energy = max(0, mochi.energy - 1)
-                    }
+            }
+            else{
+                mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: lastSave!))/864)
+                mochi.pEnergy = mochi.pEnergy + (100 * (timeElapsedsince(date1: lastSave!)%864)) / 864
+                if (mochi.pEnergy > 99) {
+                    mochi.pEnergy = mochi.pEnergy - 100
+                    mochi.energy = max(0, mochi.energy - 1)
                 }
             }
         }
