@@ -37,4 +37,4 @@ let gelato = Consumable(Id: 6, Name: "Gelato", Price: 12, Requirement: 100, Info
 let cornetto = Consumable (Id: 7, Name: "cornetto", Price: 18, Requirement: 100, Info: "pijatelo, pijatelo!")
 let siringa = Consumable(Id: 8, Name: "siringa", Price: 9, Requirement: 0, Info: "Cura le malattie. non fa male, non fa male...")
 
-let consumableV = [hamburger]
+let consumableV = [hamburger,pizza,patatine,acqua,soda,sevenMochi,gelato,cornetto,siringa]
