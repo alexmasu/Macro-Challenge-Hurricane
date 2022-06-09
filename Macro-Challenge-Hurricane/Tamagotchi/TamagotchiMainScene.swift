@@ -544,7 +544,7 @@ extension TamagotchiMainScene {
                     activeRoom =  1
                 }
                 
-                else if activeRoom == 1  && startstream == false {
+                else if activeRoom == 1  && settingsOn == false {
                     
                     let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
                     label.run(goright)
@@ -566,7 +566,7 @@ extension TamagotchiMainScene {
                     
                 }
                 
-                else if activeRoom == 1 && startstream == false {
+                else if activeRoom == 1 && settingsOn == false {
                     
                     let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
                     label.run(goleft)
