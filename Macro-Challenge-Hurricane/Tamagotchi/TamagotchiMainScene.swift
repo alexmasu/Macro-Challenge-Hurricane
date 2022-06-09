@@ -40,7 +40,6 @@ class TamagotchiMainScene :  SKScene {
     
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
-    //    var clickback = SKShapeNode()
     var label = SKSpriteNode()
     var isNight = false
     var startstream = false
@@ -63,9 +62,6 @@ class TamagotchiMainScene :  SKScene {
     
     
     override func didMove(to view: SKView) {
-//        if self.wasInitialized == false {
-//            setupScene()
-//        }
         
         label = SKSpriteNode(color: .clear, size: CGSize(width: (bedroom.size.width+background.size.width+bathroom.size.width), height: UIScreen.main.bounds.height))
         label.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -142,12 +138,12 @@ class TamagotchiMainScene :  SKScene {
                     nodes.append(node)
                     
                 }
-                                else if node.name == "inventory" {
-                                    let inventoryScene = InventoryScene()
-                                    inventoryScene.size = (view?.frame.size)!
-                                    let transition = SKTransition.fade(withDuration: 1.5)
-                                    self.view?.presentScene(inventoryScene, transition: transition)
-                                }
+                else if node.name == "inventory" {
+                    let inventoryScene = InventoryScene()
+                    inventoryScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 1.5)
+                    self.view?.presentScene(inventoryScene, transition: transition)
+                }
                 
                 else if (node.name == "customization") {
                     
@@ -188,7 +184,6 @@ class TamagotchiMainScene :  SKScene {
             
             if (node.name == "omettostreamerday") {
                 if omettoOn == false {
-//                    spawnOmettoStats()
                     spawnStatsButtons()
                     omettoOn = true
                     
@@ -203,14 +198,11 @@ class TamagotchiMainScene :  SKScene {
             if (node.name == "ometto") {
                 
                 if omettoOn == false {
-//                    spawnOmettoStats()
                     spawnStatsButtons()
-//                    spawnOmettoButtons()
                     omettoOn = true
                 }
                 
                 else if omettoOn == true {
-//                    removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
                     omettofadeOut()
                     omettoOn = false
                 }
@@ -232,9 +224,6 @@ class TamagotchiMainScene :  SKScene {
                 
                 if startstream == false {
                     removeChildren(in: [square])
-                    //                        clickback.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
-                    //                        clickback = SKShapeNode(rectOf: CGSize(width: square.frame.width, height: square.frame.height))
-                    //                        clickback.strokeColor = UIColor.clear
                     addChild(squarestreaming)
                     
                     startstream = true
@@ -317,38 +306,38 @@ extension TamagotchiMainScene {
     }
     
     
-        func spawnCornerButtons() {
-            let customization = SKSpriteNode(imageNamed: "customization.png")
-            customization.setScale(0.5)
-            customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
-            customization.name = "customization"
-            addChild(customization)
-    
-            let twitch = SKSpriteNode(imageNamed: "Twix.png")
-            twitch.setScale(0.5)
-            twitch.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.10 , y: frame.maxY - UIScreen.main.bounds.width * 0.18)
-            twitch.name = "twitch"
-            addChild(twitch)
-    
-            let inventory = SKSpriteNode(imageNamed: "inventory.png")
-            inventory.setScale(0.5)
-            inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
-            inventory.name = "inventory"
-            addChild(inventory)
-    
-            let minigames = SKSpriteNode(imageNamed: "minigames.png")
-            minigames.setScale(0.5)
-            minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
-            minigames.name = "minigames"
-            addChild(minigames)
-    
-            let shop = SKSpriteNode(imageNamed: "shop.png")
-            shop.setScale(0.5)
-            shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
-            shop.name = "shop"
-            addChild(shop)
-    
-        }
+    func spawnCornerButtons() {
+        let customization = SKSpriteNode(imageNamed: "customization.png")
+        customization.setScale(0.5)
+        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
+        customization.name = "customization"
+        addChild(customization)
+        
+        let twitch = SKSpriteNode(imageNamed: "Twix.png")
+        twitch.setScale(0.5)
+        twitch.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.10 , y: frame.maxY - UIScreen.main.bounds.width * 0.18)
+        twitch.name = "twitch"
+        addChild(twitch)
+        
+        let inventory = SKSpriteNode(imageNamed: "inventory.png")
+        inventory.setScale(0.5)
+        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+        inventory.name = "inventory"
+        addChild(inventory)
+        
+        let minigames = SKSpriteNode(imageNamed: "minigames.png")
+        minigames.setScale(0.5)
+        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
+        minigames.name = "minigames"
+        addChild(minigames)
+        
+        let shop = SKSpriteNode(imageNamed: "shop.png")
+        shop.setScale(0.5)
+        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+        shop.name = "shop"
+        addChild(shop)
+        
+    }
     
     func spawnOmettoStats() {
         
@@ -413,10 +402,6 @@ extension TamagotchiMainScene {
         bedroomNight.position = CGPoint(x: (-frame.midX * 2.4),y: frame.minY)
         bedroomNight.name = "bedroomnight"
         
-//        label.position = CGPoint(x: frame.midX, y: frame.midY)
-//        label.name = "label"
-//        label.isUserInteractionEnabled = false
-//        addChild(label)
         
         
         
@@ -497,15 +482,7 @@ extension TamagotchiMainScene {
         let scomparsa = SKAction.fadeOut(withDuration: time)
         elem.run(scomparsa)
     }
-    
-    private func setBathroom () {
-        
-        //        bathroom.size = (view?.scene?.frame)
-    }
-    
-    private func setBedroom () {
-        //        bedroom.size = (view?.scene?.frame)
-    }
+
     
     private func omettofadeOut() {
         
@@ -557,14 +534,7 @@ extension TamagotchiMainScene {
             case .up :
                 print("UP")
             case .left :
-
-//                if activeRoom == -1 {
-//
-//                    let goleft = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-//                    label.run(goleft)
-//
-//                    activeRoom = activeRoom + 1
-//                }
+                
                 
                 if activeRoom == 0 {
                     
@@ -572,60 +542,36 @@ extension TamagotchiMainScene {
                     label.run(goright)
                     
                     activeRoom =  1
-//                    leftedge = true
-//                    rightedge = false
                 }
                 
-                else if activeRoom == 1 {
+                else if activeRoom == 1  && startstream == false {
                     
                     let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
                     label.run(goright)
                     
                     activeRoom = 2
-//                    leftedge = false
-//                    rightedge = true
                 }
                 
-                 else if activeRoom == 2 {
+                else if activeRoom == 2 {
                     
-//                    let goleft = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-//                    label.run(goleft)
-                    
-//                    activeRoom = activeRoom + 1
-//                    rightedge = true
-//                    leftedge = false
                 }
                 
-//                if activeRoom == 3 {
-//
-//                }
                 
                 print("LEFT, \(activeRoom)")
             case .down :
                 print("DOWN")
             case .right :
-
-//                if activeRoom == -1 {
-//
-//                }
+                
                 if activeRoom == 0 {
-                   
-//                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-//                    label.run(goleft)
-//
-//                    activeRoom = activeRoom - 1
-//                    leftedge = false
-//                    rightedge = false
+                    
                 }
                 
-                else if activeRoom == 1 {
-                   
+                else if activeRoom == 1 && startstream == false {
+                    
                     let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
                     label.run(goleft)
                     
                     activeRoom = 0
-//                    leftedge = false
-//                    rightedge = false
                 }
                 
                 else if activeRoom == 2 {
@@ -636,12 +582,7 @@ extension TamagotchiMainScene {
                     activeRoom = 1
                 }
                 
-//                if activeRoom == 3 {
-//                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-//                    label.run(goleft)
-//
-//                    activeRoom = activeRoom - 1
-//                }
+                
                 
                 print("RIGHT, \(activeRoom)")
             default :
