@@ -5,7 +5,7 @@
 //  Created by Alessandro Masullo on 04/06/22.
 //
 
-// e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.appleacademy.DemoBgTask.refresh"]
+// e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"refresh"]
 
 import SwiftUI
 import UIKit
@@ -14,16 +14,24 @@ import BackgroundTasks
 @main
 struct Macro_Challenge_HurricaneApp: App {
     
+    init() {
+//        DataManager.standard.setMochi(mochi: MochiJson())
+        print(DataManager.standard.getMochi())
+//                let mochi = Mochi()
+//                mochi.save()
+        
+    }
+    
     @UIApplicationDelegateAdaptor var delegate: FSAppDelegate
     
     var body: some Scene {
         WindowGroup {
-//                        TamagotchiView()
-//                        .statusBar(hidden: true)
-//                        .ignoresSafeArea()
-//                        BathroomSceneView()
-//                            .statusBar(hidden: true)
-//                            .ignoresSafeArea()
+            //                        TamagotchiView()
+            //                        .statusBar(hidden: true)
+            //                        .ignoresSafeArea()
+            //                        BathroomSceneView()
+            //                            .statusBar(hidden: true)
+            //                            .ignoresSafeArea()
             BedroomView()
                 .statusBar(hidden: true)
                 .ignoresSafeArea()
@@ -125,8 +133,11 @@ class FSSceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
         let operationQueue = OperationQueue()
         let refreshOperation = BlockOperation {
             
-//            DataManager.standard.setMochi(mochi: MochiJson())
-//            print(DataManager.standard.getMochi())
+            //            let mochi = Mochi()
+            //            mochi.save()
+            
+            //            DataManager.standard.setMochi(mochi: MochiJson())
+            //            print(DataManager.standard.getMochi())
             
         }
         

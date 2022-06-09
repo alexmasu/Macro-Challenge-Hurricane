@@ -85,7 +85,7 @@ class DataManager: NSObject {
     }
     
     // MARK: - Saved mochi
-    @Storage(key: "mochi", defaultValue: "NULL")
+    @Storage(key: "mochi", defaultValue: "{\n  \"pPoop\" : 0,\n  \"birth\" : 676457247.92682195,\n  \"pHealthHunger\" : 0,\n  \"health\" : 0,\n  \"energy\" : 0,\n  \"pHunger\" : 0,\n  \"pHappyness\" : 0,\n  \"maxEnergy\" : 0,\n  \"pHealthIll\" : 0,\n  \"is_new\" : true,\n  \"pHealthThirst\" : 0,\n  \"pThirst\" : 0,\n  \"cleanlyness\" : 0,\n  \"ageType\" : 0,\n  \"pWake\" : 0,\n  \"maxThirst\" : 0,\n  \"nPoop\" : 0,\n  \"sleeping\" : false,\n  \"euphoria\" : false,\n  \"maxHappiness\" : 0,\n  \"hunger\" : 0,\n  \"maxHunger\" : 0,\n  \"pEnergyGain\" : 0,\n  \"maxHealth\" : 0,\n  \"happiness\" : 0,\n  \"thirst\" : 0,\n  \"maxCleanlyness\" : 0,\n  \"pCleanlyness\" : 0,\n  \"pIll\" : 0,\n  \"pEnergy\" : 0,\n  \"ill\" : false,\n  \"streaming\" : false,\n  \"alive\" : false\n}")
     var mochi: String
     
     // MARK: - Setter mochi
