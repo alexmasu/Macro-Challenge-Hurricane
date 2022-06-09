@@ -397,7 +397,7 @@ extension TamagotchiMainScene {
         
         bathroom.position = CGPoint(x: frame.midX * 2.4 ,y: frame.minY)
         bathroom.name = "bathroom"
-        bathroom.setScale(0.46)
+        bathroom.setScale(0.47)
         label.addChild(bathroom)
         
         bedroom.setScale(0.47)
@@ -570,82 +570,90 @@ extension TamagotchiMainScene {
                 print("UP")
             case .left :
 
+//                if activeRoom == -1 {
+//
+//                    let goleft = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                    label.run(goleft)
+//
+//                    activeRoom = activeRoom + 1
+//                }
+                
                 if activeRoom == 0 {
                     
-                    let goleft = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goleft)
+                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+                    label.run(goright)
                     
-                    activeRoom = activeRoom + 1
-                    leftedge = true
-                    rightedge = false
+                    activeRoom =  1
+//                    leftedge = true
+//                    rightedge = false
                 }
                 
-                if activeRoom == 1 {
+                else if activeRoom == 1 {
                     
-                    let goleft = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goleft)
+                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+                    label.run(goright)
                     
-                    activeRoom = activeRoom + 1
-                    leftedge = false
-                    rightedge = false
+                    activeRoom = 2
+//                    leftedge = false
+//                    rightedge = true
                 }
                 
-                if activeRoom == 2 {
+                 else if activeRoom == 2 {
                     
 //                    let goleft = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
 //                    label.run(goleft)
                     
-                    activeRoom = activeRoom + 1
-                    rightedge = true
-                    leftedge = false
+//                    activeRoom = activeRoom + 1
+//                    rightedge = true
+//                    leftedge = false
                 }
                 
-                if activeRoom == 3 {
-                    
-                }
+//                if activeRoom == 3 {
+//
+//                }
                 
                 print("LEFT, \(activeRoom)")
             case .down :
                 print("DOWN")
             case .right :
 
-                if activeRoom == -1 {
-                    
-                }
+//                if activeRoom == -1 {
+//
+//                }
                 if activeRoom == 0 {
                    
-                    let goright = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goright)
-                    
-                    activeRoom = activeRoom - 1
-                    leftedge = false
-                    rightedge = false
+//                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                    label.run(goleft)
+//
+//                    activeRoom = activeRoom - 1
+//                    leftedge = false
+//                    rightedge = false
                 }
                 
-                if activeRoom == 1 {
+                else if activeRoom == 1 {
                    
-                    let goright = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goright)
+                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+                    label.run(goleft)
                     
-                    activeRoom = activeRoom - 1
-                    leftedge = false
-                    rightedge = false
+                    activeRoom = 0
+//                    leftedge = false
+//                    rightedge = false
                 }
                 
-                if activeRoom == 2 {
+                else if activeRoom == 2 {
                     
-                    let goright = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goright)
+                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+                    label.run(goleft)
                     
-                    activeRoom = activeRoom - 1
+                    activeRoom = 1
                 }
                 
-                if activeRoom == 3 {
-                    let goright = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goright)
-                    
-                    activeRoom = activeRoom - 2
-                }
+//                if activeRoom == 3 {
+//                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                    label.run(goleft)
+//
+//                    activeRoom = activeRoom - 1
+//                }
                 
                 print("RIGHT, \(activeRoom)")
             default :
