@@ -201,31 +201,31 @@ extension BedroomScene {
     func spawnCornerButtons() {
         let customization = SKSpriteNode(imageNamed: "customization.png")
         customization.setScale(0.5)
-        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
+        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.height * 0.20)
         customization.name = "customization"
         addChild(customization)
         
         let setting = SKSpriteNode(imageNamed: "setting.png")
         setting.setScale(0.5)
-        setting.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
+        setting.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.height * 0.20)
         setting.name = "setting"
         addChild(setting)
         
         let inventory = SKSpriteNode(imageNamed: "inventory.png")
         inventory.setScale(0.5)
-        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.height * 0.20)
         inventory.name = "inventory"
         addChild(inventory)
         
         let minigames = SKSpriteNode(imageNamed: "minigames.png")
         minigames.setScale(0.5)
-        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
+        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.25)
         minigames.name = "minigames"
         addChild(minigames)
         
         let shop = SKSpriteNode(imageNamed: "shop.png")
         shop.setScale(0.5)
-        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.height * 0.20)
         shop.name = "shop"
         addChild(shop)
         

@@ -96,10 +96,8 @@ class TamagotchiMainScene :  SKScene {
                 
                 if (node.name == "ometto") {
                     
-                    
                     self.curr = node
                     self.checkSwipe = false
-                    self.swipeStart = location
                     nodes.append(node)
                     
                 }
@@ -109,7 +107,6 @@ class TamagotchiMainScene :  SKScene {
                     
                     self.curr = node
                     self.checkSwipe = false
-                    self.swipeStart = location
                     nodes.append(node)
                     
                 }
@@ -120,13 +117,17 @@ class TamagotchiMainScene :  SKScene {
                     
                     self.curr = node
                     self.checkSwipe = false
-                    self.swipeStart = location
                     nodes.append(node)
                     
                 }
                 
+                if (node.name == "light")  {
+                    
+                    self.curr = node
+                    nodes.append(node)
+                }
                 
-                if (node.name == "light") || (node.name == "nightlight") {
+                if node.name == "nightlight" {
                     
                     self.curr = node
                     nodes.append(node)
@@ -138,22 +139,20 @@ class TamagotchiMainScene :  SKScene {
                     
                     self.curr = node
                     self.checkSwipe = false
-                    self.swipeStart = location
                     nodes.append(node)
                     
                 }
-                //                else if node.name == "inventory" {
-                //                    let inventoryScene = InventoryScene()
-                //                    inventoryScene.size = (view?.frame.size)!
-                //                    let transition = SKTransition.fade(withDuration: 1.5)
-                //                    self.view?.presentScene(inventoryScene, transition: transition)
-                //                }
+                                else if node.name == "inventory" {
+                                    let inventoryScene = InventoryScene()
+                                    inventoryScene.size = (view?.frame.size)!
+                                    let transition = SKTransition.fade(withDuration: 1.5)
+                                    self.view?.presentScene(inventoryScene, transition: transition)
+                                }
                 
                 else if (node.name == "customization") {
                     
                     self.curr = node
                     self.checkSwipe = false
-                    self.swipeStart = location
                     nodes.append(node)
                     
                 }
@@ -161,7 +160,6 @@ class TamagotchiMainScene :  SKScene {
                     
                     self.curr = node
                     self.checkSwipe = false
-                    self.swipeStart = location
                     nodes.append(node)
                     
                 }
@@ -190,7 +188,7 @@ class TamagotchiMainScene :  SKScene {
             
             if (node.name == "omettostreamerday") {
                 if omettoOn == false {
-                    spawnOmettoStats()
+//                    spawnOmettoStats()
                     spawnStatsButtons()
                     omettoOn = true
                     
@@ -205,14 +203,15 @@ class TamagotchiMainScene :  SKScene {
             if (node.name == "ometto") {
                 
                 if omettoOn == false {
-                    spawnOmettoStats()
+//                    spawnOmettoStats()
                     spawnStatsButtons()
 //                    spawnOmettoButtons()
                     omettoOn = true
                 }
                 
                 else if omettoOn == true {
-                    removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
+//                    removeChildren(in: [hunger, thirst, cleaning, energy, happiness,health])
+                    omettofadeOut()
                     omettoOn = false
                 }
                 
@@ -221,20 +220,12 @@ class TamagotchiMainScene :  SKScene {
                 
             }
             
-            if node.name == "light" || node.name == "nightlight" {
-                if isNight == false {
-                    removeChildren(in: [bedroom,light,squarestreamingday])
-                    addChild(bedroomNight)
-                    addChild(nightlight)
-                    addChild(squarestreamingnight)
-                    isNight = true
-                } else if isNight == true {
-                    removeChildren(in: [bedroomNight,nightlight,squarestreamingnight])
-                    addChild(bedroom)
-                    addChild(light)
-                    addChild(squarestreamingday)
-                    isNight = false
-                }
+            if node.name == "light" {
+                setBedroomBackgroundNight()
+            }
+            
+            if node.name == "nightlight" {
+                setBedroomBackgroundDay()
             }
             
             if (node.name == "monitor") && (omettoOn == false) {
@@ -311,40 +302,53 @@ extension TamagotchiMainScene {
         
     }
     
+    func setBedroomBackgroundNight(){
+        bedroom.removeAllChildren()
+        label.removeChildren(in: [bedroom])
+        label.addChild(bedroomNight)
+        bedroomNight.addChild(nightlight)
+    }
+    
+    func setBedroomBackgroundDay(){
+        bedroomNight.removeAllChildren()
+        label.removeChildren(in: [bedroomNight])
+        label.addChild(bedroom)
+        bedroom.addChild(light)
+    }
     
     
-    //    func spawnCornerButtons() {
-    //        let customization = SKSpriteNode(imageNamed: "customization.png")
-    //        customization.setScale(0.5)
-    //        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
-    //        customization.name = "customization"
-    //        addChild(customization)
-    //
-    //        let setting = SKSpriteNode(imageNamed: "setting.png")
-    //        setting.setScale(0.5)
-    //        setting.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
-    //        setting.name = "setting"
-    //        addChild(setting)
-    //
-    //        let inventory = SKSpriteNode(imageNamed: "inventory.png")
-    //        inventory.setScale(0.5)
-    //        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
-    //        inventory.name = "inventory"
-    //        addChild(inventory)
-    //
-    //        let minigames = SKSpriteNode(imageNamed: "minigames.png")
-    //        minigames.setScale(0.5)
-    //        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
-    //        minigames.name = "minigames"
-    //        addChild(minigames)
-    //
-    //        let shop = SKSpriteNode(imageNamed: "shop.png")
-    //        shop.setScale(0.5)
-    //        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
-    //        shop.name = "shop"
-    //        addChild(shop)
-    //
-    //    }
+        func spawnCornerButtons() {
+            let customization = SKSpriteNode(imageNamed: "customization.png")
+            customization.setScale(0.5)
+            customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
+            customization.name = "customization"
+            addChild(customization)
+    
+            let twitch = SKSpriteNode(imageNamed: "Twix.png")
+            twitch.setScale(0.5)
+            twitch.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.10 , y: frame.maxY - UIScreen.main.bounds.width * 0.18)
+            twitch.name = "twitch"
+            addChild(twitch)
+    
+            let inventory = SKSpriteNode(imageNamed: "inventory.png")
+            inventory.setScale(0.5)
+            inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+            inventory.name = "inventory"
+            addChild(inventory)
+    
+            let minigames = SKSpriteNode(imageNamed: "minigames.png")
+            minigames.setScale(0.5)
+            minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
+            minigames.name = "minigames"
+            addChild(minigames)
+    
+            let shop = SKSpriteNode(imageNamed: "shop.png")
+            shop.setScale(0.5)
+            shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+            shop.name = "shop"
+            addChild(shop)
+    
+        }
     
     func spawnOmettoStats() {
         
@@ -406,7 +410,7 @@ extension TamagotchiMainScene {
         label.addChild(bedroom)
         
         bedroomNight.setScale(0.47)
-        bedroomNight.position = CGPoint(x: (-frame.midX * 3),y: frame.minY)
+        bedroomNight.position = CGPoint(x: (-frame.midX * 2.4),y: frame.minY)
         bedroomNight.name = "bedroomnight"
         
 //        label.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -420,9 +424,9 @@ extension TamagotchiMainScene {
     
     func spawnRoomElements() {
         
-        lamp.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY + UIScreen.main.bounds.height * 0.01)
+        lamp.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.42, y: frame.midY - UIScreen.main.bounds.height * 0.45)
         lamp.name = "lamp"
-        lamp.setScale(0.8)
+        lamp.setScale(1.8)
         background.addChild(lamp)
         
         monitor.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.42, y: frame.midY - UIScreen.main.bounds.height * 0.375)
@@ -435,7 +439,6 @@ extension TamagotchiMainScene {
         pc.setScale(1.8)
         background.addChild(pc)
         
-        
         sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.18,y: frame.midY + UIScreen.main.bounds.height * 0.095)
         sponge.name = "sponge"
         sponge.setScale(0.8)
@@ -447,20 +450,20 @@ extension TamagotchiMainScene {
         bathroom.addChild(bath)
         
         
-        light.setScale(0.5)
-        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
+        light.setScale(0.8)
+        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.18,y: frame.midY - UIScreen.main.bounds.width * 0.45)
         light.name = "light"
         bedroom.addChild(light)
         
-        nightlight.setScale(0.5)
-        nightlight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.2,y: frame.midY + UIScreen.main.bounds.width * 0.15)
+        nightlight.setScale(0.8)
+        nightlight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.18,y: frame.midY - UIScreen.main.bounds.width * 0.45)
         nightlight.name = "nightlight"
         
     }
     
     func spawnOmetto() {
         square.setScale(0.95)
-        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.19)
+        square.position = CGPoint(x: frame.midX , y: frame.midY - UIScreen.main.bounds.width * 0.45)
         square.name = "ometto"
         addChild(square)
     }
@@ -468,9 +471,11 @@ extension TamagotchiMainScene {
     func setupScene() {
         
         spawnBackground()
+        spawnCornerButtons()
         spawnRoomElements()
         spawnOmetto()
         spawnOmettoStats()
+        spawnOmettoButtons()
         spawnOmettoStreamer()
         
         self.wasInitialized = true
@@ -528,23 +533,6 @@ extension TamagotchiMainScene {
         fadeInAnim(elem: health, time: 0.5)
     }
     
-}
-
-// MARK: Generic Functions
-
-extension TamagotchiMainScene {
-    
-    //    private func settfadeOut() {
-    //
-    //        fadeOutAnim(elem: self.audiobutton, time: 1.5)
-    //        fadeOutAnim(elem: self.settingsCircleOval1, time: 1.5)
-    //        fadeOutAnim(elem: self.twitchbutton, time: 1.5)
-    //        fadeOutAnim(elem: self.settingsCircleOval2, time: 1.5)
-    //        fadeOutAnim(elem: self.languagebutton, time: 1.5)
-    //        fadeOutAnim(elem: self.settingsCircleOval3, time: 1.5)
-    //        fadeOutAnim(elem: self.settingsCircle, time: 1.5)
-    //
-    //    }
 }
 
 // MARK: Swipe Handler
