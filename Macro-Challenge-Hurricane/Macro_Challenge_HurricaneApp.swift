@@ -14,6 +14,10 @@ import BackgroundTasks
 @main
 struct Macro_Challenge_HurricaneApp: App {
     
+    init() {
+        DataManager.standard.setInventory(inventory: InventoryJson())
+    }
+    
     @UIApplicationDelegateAdaptor var delegate: FSAppDelegate
     
     var body: some Scene {

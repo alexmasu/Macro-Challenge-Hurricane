@@ -210,7 +210,7 @@ class DataManager: NSObject {
     }
     
     // MARK: - Saved inventory
-    @Storage(key: "inventory", defaultValue: "{\n  \"i\" : [\n\n  ]\n}")
+    @Storage(key: "inventory", defaultValue: "{\n  \"i\" : [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ]\n}")
     var inventory: String
     
     // MARK: - Setter inventory
@@ -251,7 +251,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved inventory
-    @Storage(key: "customInventory", defaultValue: "{\n  \"i\" : [\n\n  ]\n}")
+    @Storage(key: "customInventory", defaultValue: "{\n  \"i\" : [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ]\n}")
     var customInventory: String
     
     // MARK: - Setter inventory
@@ -292,7 +292,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved streaming
-    @Storage(key: "streamingInventory", defaultValue: "{\n  \"i\" : [\n\n  ]\n}")
+    @Storage(key: "streamingInventory", defaultValue: "{\n  \"i\" : [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ]\n}")
     var streamingInventory: String
     
     // MARK: - Setter streaming
