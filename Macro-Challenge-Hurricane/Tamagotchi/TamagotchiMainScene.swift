@@ -10,7 +10,6 @@ import SpriteKit
 
 class TamagotchiMainScene :  SKScene {
     
-    
     let background = SKSpriteNode(imageNamed: "Background.png")
     let sponge = SKSpriteNode(imageNamed: "sponge.png")
     let bath = SKSpriteNode(imageNamed: "bath.png")
@@ -22,7 +21,7 @@ class TamagotchiMainScene :  SKScene {
     let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let pc = SKSpriteNode(imageNamed: "pc2.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
-    let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
+//    let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let squarestreamingday = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let squarestreamingnight = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
@@ -223,14 +222,13 @@ class TamagotchiMainScene :  SKScene {
             if (node.name == "monitor") && (omettoOn == false) {
                 
                 if startstream == false {
-                    removeChildren(in: [square])
-                    addChild(squarestreaming)
-                    
+                    square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.06)
+                    square.xScale = -1.0
                     startstream = true
                 }
                 else if startstream == true {
-                    removeChildren(in: [squarestreaming])
-                    addChild(square)
+                    square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.198)
+                    square.xScale = 1.0
                     startstream = false
                 }
                 
@@ -296,6 +294,7 @@ extension TamagotchiMainScene {
         label.removeChildren(in: [bedroom])
         label.addChild(bedroomNight)
         bedroomNight.addChild(nightlight)
+        
     }
     
     func setBedroomBackgroundDay(){
@@ -367,15 +366,6 @@ extension TamagotchiMainScene {
         
     }
     
-    
-    
-    func spawnOmettoStreamer() {
-        squarestreaming.setScale(0.95)
-        squarestreaming.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.1, y: frame.midY + UIScreen.main.bounds.width * 0.11)
-        squarestreaming.name = "omettostreamer"
-        
-    }
-    
 }
 
 // MARK: - Game Scene Setup
@@ -424,9 +414,9 @@ extension TamagotchiMainScene {
         pc.setScale(1.8)
         background.addChild(pc)
         
-        sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.18,y: frame.midY + UIScreen.main.bounds.height * 0.095)
+        sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.65,y: frame.midY - UIScreen.main.bounds.width * 0.65)
         sponge.name = "sponge"
-        sponge.setScale(0.8)
+        sponge.setScale(1.5)
         bathroom.addChild(sponge)
         
         bath.position = CGPoint(x: frame.midX ,y: frame.midY - UIScreen.main.bounds.height * 0.23)
@@ -447,8 +437,8 @@ extension TamagotchiMainScene {
     }
     
     func spawnOmetto() {
-        square.setScale(0.95)
-        square.position = CGPoint(x: frame.midX , y: frame.midY - UIScreen.main.bounds.width * 0.45)
+        square.setScale(0.9)
+        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.198)
         square.name = "ometto"
         addChild(square)
     }
@@ -461,7 +451,6 @@ extension TamagotchiMainScene {
         spawnOmetto()
         spawnOmettoStats()
         spawnOmettoButtons()
-        spawnOmettoStreamer()
         
         self.wasInitialized = true
         
