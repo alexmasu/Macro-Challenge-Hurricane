@@ -23,10 +23,6 @@ class TamagotchiMainScene :  SKScene {
     let square = SKSpriteNode(imageNamed: "Ometto.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
-    let setting = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-    let inventory = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-    let shop = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
-    let customization = SKShapeNode(rectOf: CGSize(width: UIScreen.main.bounds.width * 0.15, height: UIScreen.main.bounds.width * 0.15))
     let hunger = SKSpriteNode(imageNamed: "HungerButton.png")
     let thirst = SKSpriteNode(imageNamed: "ThirstGroup.png")
     let cleaning = SKSpriteNode(imageNamed: "CleanlinessGroup.png")
@@ -78,12 +74,6 @@ class TamagotchiMainScene :  SKScene {
             let location = touch.location(in: self)
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes {
-                
-//                if node.name == "omettostreamerday" {
-//
-//                    self.curr = node
-//                    nodes.append(node)
-//                }
                 
                 if (node.name == "ometto") {
                     
@@ -177,17 +167,17 @@ class TamagotchiMainScene :  SKScene {
             //            else {
             print("\(node.name)...")
             
-//            if (node.name == "omettostreamerday") {
-//                if omettoOn == false {
-//                    spawnStatsButtons()
-//                    omettoOn = true
-//
-//                } else if omettoOn == true {
-//                    omettofadeOut()
-//                    omettoOn = false
-//                }
-//
-//            }
+            //            if (node.name == "omettostreamerday") {
+            //                if omettoOn == false {
+            //                    spawnStatsButtons()
+            //                    omettoOn = true
+            //
+            //                } else if omettoOn == true {
+            //                    omettofadeOut()
+            //                    omettoOn = false
+            //                }
+            //
+            //            }
             
             
             if (node.name == "ometto") {
@@ -220,11 +210,11 @@ class TamagotchiMainScene :  SKScene {
                 if startstream == false {
                     square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
                     square.xScale = -0.8
-//                    square.setScale(0.8)
+                    //                    square.setScale(0.8)
                     startstream = true
                 }
                 else if startstream == true {
-                    square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.198)
+                    square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
                     square.xScale = 1.0
                     square.setScale(0.8)
                     startstream = false
@@ -306,31 +296,31 @@ extension TamagotchiMainScene {
     func spawnCornerButtons() {
         let customization = SKSpriteNode(imageNamed: "customization.png")
         customization.setScale(0.5)
-        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.width * 0.20)
+        customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.height * 0.085)
         customization.name = "customization"
         addChild(customization)
         
         let twitch = SKSpriteNode(imageNamed: "Twix.png")
         twitch.setScale(0.5)
-        twitch.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.10 , y: frame.maxY - UIScreen.main.bounds.width * 0.18)
+        twitch.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.10 , y: frame.maxY - UIScreen.main.bounds.height * 0.085)
         twitch.name = "twitch"
         addChild(twitch)
         
         let inventory = SKSpriteNode(imageNamed: "inventory.png")
         inventory.setScale(0.5)
-        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+        inventory.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.height * 0.08)
         inventory.name = "inventory"
         addChild(inventory)
         
         let minigames = SKSpriteNode(imageNamed: "minigames.png")
         minigames.setScale(0.5)
-        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.width * 0.25)
+        minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
         minigames.name = "minigames"
         addChild(minigames)
         
         let shop = SKSpriteNode(imageNamed: "shop.png")
         shop.setScale(0.5)
-        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.width * 0.20)
+        shop.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.height * 0.08)
         shop.name = "shop"
         addChild(shop)
         
@@ -432,7 +422,7 @@ extension TamagotchiMainScene {
     
     func spawnOmetto() {
         square.setScale(0.8)
-        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.198)
+        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
         square.name = "ometto"
         addChild(square)
     }
@@ -465,7 +455,7 @@ extension TamagotchiMainScene {
         let scomparsa = SKAction.fadeOut(withDuration: time)
         elem.run(scomparsa)
     }
-
+    
     
     private func omettofadeOut() {
         
