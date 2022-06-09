@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 
 class Mochi: NSObject, NSCoding{
     
     func save(){
-        let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive)
+        self.is_new = false
+        let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive,is_new: self.is_new)
         
         DataManager.standard.setMochi(mochi: savingMochi)
             print("mochi saved")
@@ -19,7 +21,7 @@ class Mochi: NSObject, NSCoding{
     override init(){
         
         let readingMochi = DataManager.standard.getMochi()
-        if readingMochi != nil{
+        if !readingMochi!.is_new {
             maxHunger = readingMochi!.maxHunger
             maxThirst = readingMochi!.maxThirst
             maxCleanlyness = readingMochi!.maxCleanlyness
@@ -52,6 +54,7 @@ class Mochi: NSObject, NSCoding{
             euphoria = readingMochi!.euphoria
             birth = readingMochi!.birth
             alive = readingMochi!.alive
+            is_new = readingMochi!.is_new
         }
         else {
             maxHunger = 50
@@ -86,6 +89,7 @@ class Mochi: NSObject, NSCoding{
             euphoria = false
             birth = Date.now
             alive = true
+            is_new = false
         }
         
         
@@ -162,7 +166,7 @@ class Mochi: NSObject, NSCoding{
         let birth = decoder.decodeObject(of: NSDate.self, forKey: "birth") as Date?
         let alive = decoder.decodeObject(of: NSNumber.self, forKey: "alive") as! Bool? ?? false
         
-        self.init(MaxHunger : maxHunger, MaxThirst : maxThirst, MaxCleanlyness : maxCleanlyness, MaxHealth : maxHealth, MaxEnergy : maxEnergy, MaxHappyness : maxHappiness, Hunger : hunger, Thirst : thirst, Cleanlyness :cleanlyness, Health : health, Energy : energy, Happiness : happiness, AgeType : ageType, Alive : alive)
+        self.init(MaxHunger : maxHunger, MaxThirst : maxThirst, MaxCleanlyness : maxCleanlyness, MaxHealth : maxHealth, MaxEnergy : maxEnergy, MaxHappyness : maxHappiness, Hunger : hunger, Thirst : thirst, Cleanlyness :cleanlyness, Health : health, Energy : energy, Happiness : happiness, AgeType : ageType, Alive : alive, Is_new: false)
         self.sleeping = sleeping
         self.streaming = streaming
         self.ill = ill
@@ -238,9 +242,10 @@ class Mochi: NSObject, NSCoding{
     var birth : Date?
 //    se il mochi è morto sarà false
     var alive : Bool
+    var is_new : Bool
     
     
-    init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Alive :Bool){
+    init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Alive :Bool,Is_new:Bool){
         
         maxHunger = MaxHunger
         maxThirst = MaxThirst
@@ -259,6 +264,7 @@ class Mochi: NSObject, NSCoding{
         streaming = false
         ill = false
         alive = Alive
+        is_new = false
     }
     
 }
