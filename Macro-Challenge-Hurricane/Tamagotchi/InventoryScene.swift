@@ -12,98 +12,23 @@ import SpriteKit
 class InventoryScene : SKScene {
     
     
-    let background = SKSpriteNode(imageNamed: "Background.png")
     let contentNode = SKNode()
     let effectNode = SKEffectNode()
     let blurNode = SKShapeNode()
     
-    let blurFilter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": 75])
-
-    override init() {
-        super.init(size: CGSize(width: 0.0, height: 0.0))
-//        background.setScale(0.5)
-        addChild(background)
-        addChild(effectNode)
-        effectNode.addChild(blurNode)
-        addChild(contentNode)
+    override func didMove(to view: SKView) {
         
-        
-        blurNode.zPosition = 1100
-        self.filter = blurFilter
-        let fillTexture = self.view?.texture(from: contentNode, crop: blurNode.frame)
-        blurNode.fillColor = .white
-        blurNode.fillTexture = fillTexture
-
+        let filter = CIFilter(name: "CIGaussianBlur")
+        // Set the blur amount. Adjust this to achieve the desired effect
+        let blurAmount = 10.0
+        filter?.setValue(blurAmount, forKey: kCIInputRadiusKey)
+        let texture = SKTexture(imageNamed: "Background.png")
+        let sprite = SKSpriteNode(texture: texture)
+        effectNode.filter = filter
+        effectNode.position = self.view!.center
+        effectNode.blendMode = .alpha
+        effectNode.addChild(sprite)
+        self.addChild(effectNode)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-//    func blurScreen() {
-//                let effectsNode = SKEffectNode()
-//                filter!.setValue(blur, forKey: kCIInputRadiusKey)
-//                effectsNode.filter = filter
-//                effectsNode.position = self.view!.center
-//                effectsNode.blendMode = .alpha
-//                // Add the effects node to the scene
-//                self.addChild(background)
-//                self.addChild(effectsNode)
-//
-//            }
-    
-//
-//    func omettoMaxStats(){
-//
-//    }
-//
-//    func barsPosition() {
-//
-//    var health = CGFloat(ometto.omettoMaxStats)
-//    var stamina = CGFloat(ometto.omettoMaxStats)
-//    var cleanliness = CGFloat(ometto.omettoMaxStats)
-//    var hunger = CGFloat(ometto.omettoMaxStats)
-//    var thirst = CGFloat(ometto.omettoMaxStats)
-//    var happiness = CGFloat(ometto.omettoMaxStats)
-//
-//    let barwidth = omettoHealthBar.size.width * 0.98 * 0.16
-//    let barheight = omettoHealthBar.size.height * 0.8 * 0.16(activeRoom as! SimpleEncounter).enemyBar_Fill = SKShapeNode(rectOf: CGSize(width: barwidth, height: barheight), cornerRadius: 3)
-//    var barpath = UIBezierPath(roundedRect: CGRect(x : (frame.midX * 0.505) - (barwidth / 2), y :  (frame.midY * 1.794) - (barheight / 2), width: (barwidth * (health / health)), height: barheight), cornerRadius: 3)(activeRoom as! SimpleEncounter).omettoBar_Fill!.path = barpath.cgPath
-////    (activeRoom as! SimpleEncounter).omettoBar_Fill!.fillColor = UIColor(Color("HpBar"))
-////    (activeRoom as! SimpleEncounter).omettoBar_Fill!.strokeColor = UIColor(Color("HpBar"))
-//    addChild((activeRoom as! SimpleEncounter).omettoBar_Fill!)
-//    }
-//
-//
-//    override func didMove(to view: SKView) {
-//
-//    }
-//
-//    override func update(_ currentTime: TimeInterval) {
-//
-//    }
-//
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch = touches.first {
-//            let location = touch.location(in: self)
-//            let touchedNodes = self.nodes(at: location)
-//
-//            for node in touchedNodes {
-//
-//            }
-//        }
-//    }
-//
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//    }
-//
-//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//    }
-//
-//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-//
-//    }
-//
     
 }
