@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4810EA422853560500351F47 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810EA412853560500351F47 /* InventoryView.swift */; };
 		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
 		48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */; };
 		48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B3283B947800B0D986 /* TamagotchiView.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4810EA412853560500351F47 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
 		48EE65A52837AC1E00B0D986 /* RhytmGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
 		48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
 		48EE65B3283B947800B0D986 /* TamagotchiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				48EE65B3283B947800B0D986 /* TamagotchiView.swift */,
 				9678EF8F284747BC00AE1C4E /* BathroomSceneView.swift */,
 				9678EF9128476C7E00AE1C4E /* BedroomView.swift */,
+				4810EA412853560500351F47 /* InventoryView.swift */,
 				9678EF9328476CAC00AE1C4E /* BedroomScene.swift */,
 				48EE65BB2844DAB400B0D986 /* ShopScene.swift */,
 			);
@@ -404,6 +407,7 @@
 				7FDAF9F428509727004276E0 /* Customizable.swift in Sources */,
 				7FDAF9DE285093E2004276E0 /* CustomInventory.swift in Sources */,
 				7FDAF9FA28509D38004276E0 /* WebViewController.swift in Sources */,
+				4810EA422853560500351F47 /* InventoryView.swift in Sources */,
 				7FDAF9F0285096DD004276E0 /* CustomInventoryJson.swift in Sources */,
 				7FDAF9DA285093A5004276E0 /* Currencies.swift in Sources */,
 				963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */,
