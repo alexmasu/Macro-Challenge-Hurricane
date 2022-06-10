@@ -21,7 +21,7 @@ class TamagotchiMainScene :  SKScene {
     let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let pc = SKSpriteNode(imageNamed: "pc2.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
-//    let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
+    //    let squarestreaming = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let squarestreamingday = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let squarestreamingnight = SKSpriteNode(imageNamed: "OmettoStreaming.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
@@ -471,7 +471,7 @@ extension TamagotchiMainScene {
         let scomparsa = SKAction.fadeOut(withDuration: time)
         elem.run(scomparsa)
     }
-
+    
     
     private func omettofadeOut() {
         
@@ -497,6 +497,10 @@ extension TamagotchiMainScene {
         fadeInAnim(elem: happiness, time: 0.5)
         
         fadeInAnim(elem: health, time: 0.5)
+    }
+    
+    func toBathroomAnim() {
+        
     }
     
 }
@@ -531,6 +535,8 @@ extension TamagotchiMainScene {
                     label.run(goright)
                     
                     activeRoom =  1
+                    
+                    
                 }
                 
                 else if activeRoom == 1  && settingsOn == false {
@@ -539,6 +545,8 @@ extension TamagotchiMainScene {
                     label.run(goright)
                     
                     activeRoom = 2
+                    
+                    
                 }
                 
                 else if activeRoom == 2 {

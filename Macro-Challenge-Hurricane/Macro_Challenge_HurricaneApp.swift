@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct Macro_Challenge_HurricaneApp: App {
     
-    var activeroom = -1
+ 
     
     var body: some Scene {
         WindowGroup {

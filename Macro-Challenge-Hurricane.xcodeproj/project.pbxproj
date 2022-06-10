@@ -128,6 +128,7 @@
 				9678EF8F284747BC00AE1C4E /* BathroomSceneView.swift */,
 				9678EF9128476C7E00AE1C4E /* BedroomView.swift */,
 				48EE65BB2844DAB400B0D986 /* ShopScene.swift */,
+				961BD2A82850DCA10074675A /* InventorySceneView.swift */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -162,7 +163,6 @@
 				963D5AC82834F5E8008ECEC7 /* LottieView.swift */,
 				4810EA3F2850B2D300351F47 /* ContentView.swift */,
 				963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */,
-				961BD2A82850DCA10074675A /* InventorySceneView.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
 				7F621F0F282E46C3007FE06B /* Preview Content */,
 				963D5ABA2834EE31008ECEC7 /* Localizable.strings */,
