@@ -133,4 +133,16 @@ class Inventory : NSObject, NSCoding{
         return toShow
     }
 //    let consumableV = [hamburger,pizza,patatine,acqua,soda,sevenMochi,gelato,cornetto,siringa]
+    func displayCount() -> [Int]{
+        var elem = 0
+        var tempV: [Int] = []
+        while i[elem] < i.count{
+            if i[elem] > 0{
+                tempV.append(i[elem])
+            }
+            elem = elem + 1
+        }
+        
+        return tempV
+    }
 }
