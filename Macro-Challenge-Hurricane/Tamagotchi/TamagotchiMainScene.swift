@@ -223,7 +223,6 @@ class TamagotchiMainScene :  SKScene {
             }
             
             
-            
             if (node.name == "shop") {
                 
                 let shopScene = ShopScene()
@@ -232,6 +231,7 @@ class TamagotchiMainScene :  SKScene {
                 self.view?.presentScene(shopScene, transition: transition)
                 
             }
+            
             if (node.name == "customization") {
                 
                 let customizationScene = CustomizationScene()
@@ -240,6 +240,7 @@ class TamagotchiMainScene :  SKScene {
                 self.view?.presentScene(customizationScene, transition: transition)
                 
             }
+            
             if (node.name == "minigames") {
                 
                 let minigamesScene = MinigamesScene()
@@ -399,30 +400,32 @@ extension TamagotchiMainScene {
         pc.setScale(1.8)
         background.addChild(pc)
         
-        sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.height * 0.65,y: frame.midY - UIScreen.main.bounds.width * 0.65)
+        sponge.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 1.35 ,y: frame.midY - UIScreen.main.bounds.height * 0.3)
         sponge.name = "sponge"
-        sponge.setScale(1.5)
+        sponge.setScale(1.7)
         bathroom.addChild(sponge)
         
-        bath.position = CGPoint(x: frame.midX ,y: frame.midY - UIScreen.main.bounds.height * 0.23)
+        bath.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.35,y: frame.midY - UIScreen.main.bounds.height * 0.94)
         bath.name = "bath"
+        bath.setScale(2.0)
         bath.zPosition = 1.0
         bathroom.addChild(bath)
         
         light.setScale(0.8)
-        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.18,y: frame.midY - UIScreen.main.bounds.width * 0.45)
+        light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.35,y: frame.midY - UIScreen.main.bounds.height * 0.3)
         light.name = "light"
         bedroom.addChild(light)
         
         nightlight.setScale(0.8)
-        nightlight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.height * 0.18,y: frame.midY - UIScreen.main.bounds.width * 0.45)
+        nightlight.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.35,y: frame.midY - UIScreen.main.bounds.height * 0.3)
         nightlight.name = "nightlight"
         
     }
     
     func spawnOmetto() {
         square.setScale(0.8)
-        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+//        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
         square.name = "ometto"
         addChild(square)
     }
@@ -459,28 +462,29 @@ extension TamagotchiMainScene {
     
     private func omettofadeOut() {
         
-        fadeOutAnim(elem: self.hunger, time: 0.5)
-        fadeOutAnim(elem: self.thirst, time: 0.5)
-        fadeOutAnim(elem: self.cleaning, time: 0.5)
-        fadeOutAnim(elem: self.energy, time: 0.5)
-        fadeOutAnim(elem: self.happiness, time: 0.5)
-        fadeOutAnim(elem: self.health, time: 0.5)
+        fadeOutAnim(elem: self.hunger, time: 1.0)
+        fadeOutAnim(elem: self.thirst, time: 1.0)
+        fadeOutAnim(elem: self.cleaning, time: 1.0)
+        fadeOutAnim(elem: self.energy, time: 1.0)
+        fadeOutAnim(elem: self.happiness, time: 1.0)
+        fadeOutAnim(elem: self.health, time: 1.0)
         
     }
     
     func spawnStatsButtons() {
         
-        fadeInAnim(elem: hunger, time: 0.5)
+        fadeInAnim(elem: hunger, time: 1.0)
         
-        fadeInAnim(elem: thirst, time: 0.5)
+        fadeInAnim(elem: thirst, time: 1.0)
         
-        fadeInAnim(elem: cleaning, time: 0.5)
+        fadeInAnim(elem: cleaning, time: 1.0)
         
-        fadeInAnim(elem: energy, time: 0.5)
+        fadeInAnim(elem: energy, time: 1.0)
         
-        fadeInAnim(elem: happiness, time: 0.5)
+        fadeInAnim(elem: happiness, time: 1.0)
         
-        fadeInAnim(elem: health, time: 0.5)
+        fadeInAnim(elem: health, time: 1.0)
+        
     }
     
 }
@@ -516,6 +520,12 @@ extension TamagotchiMainScene {
                     
                     activeRoom =  1
                 }
+//
+//                else if activeRoom == 0 && lightswitch == true {
+//
+//                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                    label.run(goright)
+//                }
                 
                 else if activeRoom == 1  && startstream == false {
                     

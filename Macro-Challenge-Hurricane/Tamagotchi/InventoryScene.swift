@@ -13,10 +13,22 @@ class InventoryScene : SKScene {
     
     
     let contentNode = SKNode()
-    let effectNode = SKEffectNode()
+    let contentNodeBackButton = SKNode()
     let blurNode = SKShapeNode()
+    let effectNode = SKEffectNode()
+    
+    var wasInitialized: Bool = false
     
     override func didMove(to view: SKView) {
+                setupInventoryScene()
+    }
+}
+
+
+// MARK: - Schermata Principale
+extension InventoryScene {
+    
+    func BlurEffect(){
         
         let filter = CIFilter(name: "CIGaussianBlur")
         // Set the blur amount. Adjust this to achieve the desired effect
@@ -29,6 +41,34 @@ class InventoryScene : SKScene {
         effectNode.blendMode = .alpha
         effectNode.addChild(sprite)
         self.addChild(effectNode)
+        
     }
+    
+    func BackButton() {
+        let leftCornerSymbol = SKSpriteNode(imageNamed: "Twix.png")
+        leftCornerSymbol.setScale(0.5)
+        leftCornerSymbol.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.height * 0.085)
+        leftCornerSymbol.name = "backbutton"
+        addChild(leftCornerSymbol)
+    }
+    
+    func InventoryTitle() {
+        let myLabel = SKLabelNode(fontNamed: "Mabook")
+        myLabel.text = "Inventory"
+        myLabel.fontSize = 30
+        myLabel.position = CGPoint(x: frame.minX, y: frame.maxY)
+        self.addChild(myLabel)
+    }
+    
+    func setupInventoryScene() {
+        
+        BlurEffect()
+        BackButton()
+        InventoryTitle()
+        
+        self.wasInitialized = true
+
+    }
+
     
 }
