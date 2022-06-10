@@ -95,4 +95,42 @@ class Inventory : NSObject, NSCoding{
         }
         return false
     }
+    
+    func selectForDisplay() -> [Consumable]{
+        var elem = 0
+        var tempV: [Int] = []
+        while i[elem] < i.count{
+            if i[elem] > 0{
+                tempV.append(elem)
+            }
+            elem = elem + 1
+        }
+        var toShow: [Consumable] = []
+        for el in tempV{
+            switch el {
+            case 0:
+                toShow.append(hamburger)
+            case 1:
+                toShow.append(pizza)
+            case 2:
+                toShow.append(patatine)
+            case 3:
+                toShow.append(acqua)
+            case 4:
+                toShow.append(soda)
+            case 5:
+                toShow.append(sevenMochi)
+            case 6:
+                toShow.append(gelato)
+            case 7:
+                toShow.append(cornetto)
+            case 8:
+                toShow.append(siringa)
+            default :
+                print("koi doesn't exist")
+            }
+        }
+        return toShow
+    }
+//    let consumableV = [hamburger,pizza,patatine,acqua,soda,sevenMochi,gelato,cornetto,siringa]
 }
