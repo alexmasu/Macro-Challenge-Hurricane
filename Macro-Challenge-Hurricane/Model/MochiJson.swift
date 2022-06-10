@@ -41,6 +41,7 @@ struct MochiJson: Codable {
     var pIll: Int = 0
     var pEnergy: Int = 0
     var pEnergyGain: Int = 0
+    var pStreamPay: Int = 0
     var nPoop: Int = 0
     var pPoop: Int = 0
     var pWake: Int = 0

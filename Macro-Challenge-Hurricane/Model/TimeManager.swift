@@ -69,7 +69,7 @@ class TimeManager {
         lastSave = date
     }
     
-    func AfterOffline(mochi : Mochi,currencies : Currencies) {
+    func AfterOffline(mochi : Mochi,currencies : Currencies, streamingInventory: StreamingInventory) {
         // si dovranno mettere check sull'euphoria e relativi guadagni etc etc
         
         var poopInterval : Int
@@ -165,6 +165,13 @@ class TimeManager {
                     mochi.pEnergy = mochi.pEnergy - 100
                     mochi.energy = max(0, mochi.energy - 1)
                 }
+                var a : Int = 0
+                var tempSeconds = timeElapsedsince(date1: lastSave!)
+                while tempSeconds > 3599 {
+                    tempSeconds = tempSeconds - 3600
+                    a = a + 1
+                }
+                
             }
             else{
                 mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: lastSave!))/864)
@@ -289,8 +296,8 @@ class TimeManager {
         }
         if found == true{
             switch m{
-            case 0: gain = 15
-            default: gain = 15
+            case 0: gain = 5
+            default: gain = 5
             }
         }
         else {
@@ -310,8 +317,11 @@ class TimeManager {
                 currencies.followers = currencies.followers + Int.random(in: 1...2)
                 tempSecondsOfStreaming = tempSecondsOfStreaming - 3600
             }
-            
-            
+            mochi.pStreamPay = mochi.pStreamPay + (100 * tempSecondsOfStreaming % 3600) / 3600
+            if (mochi.pStreamPay > 99) {
+                mochi.pStreamPay = mochi.pStreamPay - 100
+                secondsOfStreaming = secondsOfStreaming + 3600
+            }
             var stdGain : Double = Double(secondsOfStreaming * gain  / 3600)
             var extraGain : Double = Double(gain) * 0.001 * Double(currencies.followers * (secondsOfStreaming / 3600))
             currencies.money = currencies.money +  Int(stdGain) + Int(extraGain)
@@ -322,6 +332,11 @@ class TimeManager {
             while tempSecondsOfStreaming/3600 >= 1 {
                 currencies.followers = currencies.followers + Int.random(in: 0...2)
                 tempSecondsOfStreaming = tempSecondsOfStreaming - 3600
+            }
+            mochi.pStreamPay = mochi.pStreamPay + (100 * tempSecondsOfStreaming % 3600) / 3600
+            if (mochi.pStreamPay > 99) {
+                mochi.pStreamPay = mochi.pStreamPay - 100
+                secondsOfStreaming = secondsOfStreaming + 3600
             }
             var stdGain : Double = Double(secondsOfStreaming * gain  / 3600)
             var extraGain : Double = Double(gain) * 0.001 * Double(currencies.followers * (secondsOfStreaming / 3600))
@@ -334,6 +349,11 @@ class TimeManager {
                 currencies.followers = currencies.followers + Int.random(in: 0...1)
                 tempSecondsOfStreaming = tempSecondsOfStreaming - 3600
             }
+            mochi.pStreamPay = mochi.pStreamPay + (100 * tempSecondsOfStreaming % 3600) / 3600
+            if (mochi.pStreamPay > 99) {
+                mochi.pStreamPay = mochi.pStreamPay - 100
+                secondsOfStreaming = secondsOfStreaming + 3600
+            }
             var stdGain : Double = Double(secondsOfStreaming * gain  / 3600)
             var extraGain : Double = Double(gain) * 0.001 * Double(currencies.followers * (secondsOfStreaming / 3600))
             currencies.money = currencies.money +  Int(stdGain) + Int(extraGain)
@@ -344,6 +364,11 @@ class TimeManager {
             while tempSecondsOfStreaming/3600 >= 1 {
                 currencies.followers = currencies.followers - 1
                 tempSecondsOfStreaming = tempSecondsOfStreaming - 3600
+            }
+            mochi.pStreamPay = mochi.pStreamPay + (100 * tempSecondsOfStreaming % 3600) / 3600
+            if (mochi.pStreamPay > 99) {
+                mochi.pStreamPay = mochi.pStreamPay - 100
+                secondsOfStreaming = secondsOfStreaming + 3600
             }
             var stdGain : Double = Double(secondsOfStreaming * gain  / 3600)
             var extraGain : Double = Double(gain) * 0.001 * Double(currencies.followers * (secondsOfStreaming / 3600))

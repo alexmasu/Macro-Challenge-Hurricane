@@ -11,7 +11,7 @@ import Foundation
 class Mochi: NSObject, NSCoding{
     
     func save(){
-        let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive)
+        let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, pStreamPay: self.pStreamPay , nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive)
         
         DataManager.standard.setMochi(mochi: savingMochi)
             print("mochi saved")
@@ -43,6 +43,7 @@ class Mochi: NSObject, NSCoding{
             pIll = readingMochi!.pIll
             pEnergy = readingMochi!.pEnergy
             pEnergyGain = readingMochi!.pEnergyGain
+            pStreamPay = readingMochi!.pStreamPay
             nPoop = readingMochi!.nPoop
             pPoop = readingMochi!.pPoop
             pWake = readingMochi!.pWake
@@ -77,6 +78,7 @@ class Mochi: NSObject, NSCoding{
             pIll = 0
             pEnergy = 0
             pEnergyGain = 0
+            pStreamPay = 0
             nPoop = 0
             pPoop = 0
             pWake = 0
@@ -114,6 +116,7 @@ class Mochi: NSObject, NSCoding{
         coder.encode(pIll, forKey: "pIll")
         coder.encode(pEnergy, forKey: "pEnergy")
         coder.encode(pEnergyGain, forKey: "pEnergyGain")
+        coder.encode(pStreamPay, forKey: "pStreamPay")
         coder.encode(nPoop, forKey: "nPoop")
         coder.encode(pPoop, forKey: "pPoop")
         coder.encode(pWake, forKey: "pWake")
@@ -152,6 +155,7 @@ class Mochi: NSObject, NSCoding{
         let pIll = decoder.decodeObject(of: NSNumber.self, forKey: "pIll") as! Int? ?? 0
         let pEnergy = decoder.decodeObject(of: NSNumber.self, forKey: "pEnergy") as! Int? ?? 0
         let pEnergyGain = decoder.decodeObject(of: NSNumber.self, forKey: "pEnergyGain") as! Int? ?? 0
+        let pStreamPay = decoder.decodeObject(of: NSNumber.self, forKey: "pStreamPay") as! Int? ?? 0
         let nPoop = decoder.decodeObject(of: NSNumber.self, forKey: "nPoop") as! Int? ?? 0
         let pPoop = decoder.decodeObject(of: NSNumber.self, forKey: "pPoop") as! Int? ?? 0
         let pWake = decoder.decodeObject(of: NSNumber.self, forKey: "pWake") as! Int? ?? 0
@@ -173,6 +177,7 @@ class Mochi: NSObject, NSCoding{
         self.pIll = pIll
         self.pEnergy = pEnergy
         self.pEnergyGain = pEnergyGain
+        self.pStreamPay = pStreamPay
         self.nPoop = nPoop
         self.pPoop = pPoop
         self.pWake = pWake
@@ -225,6 +230,7 @@ class Mochi: NSObject, NSCoding{
     var pIll = 0
     var pEnergy = 0
     var pEnergyGain = 0
+    var pStreamPay = 0
     // numero di cacchine su schermo
     var nPoop = 0
     var pPoop = 0
