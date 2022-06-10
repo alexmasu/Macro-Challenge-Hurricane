@@ -31,7 +31,6 @@ extension InventoryScene {
     func BlurEffect(){
         
         let filter = CIFilter(name: "CIGaussianBlur")
-        // Set the blur amount. Adjust this to achieve the desired effect
         let blurAmount = 70.0
         filter?.setValue(blurAmount, forKey: kCIInputRadiusKey)
         let texture = SKTexture(imageNamed: "Background.png")
@@ -69,6 +68,8 @@ extension InventoryScene {
         self.wasInitialized = true
 
     }
-
+    
+//    inventory.selectForDisplay()
+//    inventory.displayCount()
     
 }
