@@ -424,8 +424,8 @@ extension TamagotchiMainScene {
     
     func spawnOmetto() {
         square.setScale(0.8)
-//        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
-        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
+        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+//        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
         square.name = "ometto"
         addChild(square)
     }
@@ -526,12 +526,6 @@ extension TamagotchiMainScene {
                     
                     
                 }
-//
-//                else if activeRoom == 0 && lightswitch == true {
-//
-//                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-//                    label.run(goright)
-//                }
                 
                 else if activeRoom == 1  && settingsOn == false {
                     
