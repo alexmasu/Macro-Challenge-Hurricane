@@ -37,7 +37,7 @@ struct Macro_Challenge_HurricaneApp: App {
         let customInventory = CustomInventory()
         let streamInventory = StreamingInventory()
         
-        timemanager.AfterOffline(mochi: mochi, currencies: currencies)
+        timemanager.AfterOffline(mochi: mochi, currencies: currencies, streamingInventory: streamInventory)
         print(mochi.thirst)
         print(mochi.pThirst)
         
@@ -56,7 +56,7 @@ struct Macro_Challenge_HurricaneApp: App {
             //                        BathroomSceneView()
             //                            .statusBar(hidden: true)
             //                            .ignoresSafeArea()
-            BedroomView()
+            TamagotchiView()
                 .statusBar(hidden: true)
                 .ignoresSafeArea()
         }
