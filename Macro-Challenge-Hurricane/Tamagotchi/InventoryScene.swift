@@ -33,6 +33,14 @@ class InventoryScene : SKScene {
             let location = touch.location(in: self)
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes {
+                
+                if node.name == "backbutton" {
+                    let tamagotchiMainScene = TamagotchiMainScene()
+                    tamagotchiMainScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 0.5)
+                    self.view?.presentScene(tamagotchiMainScene, transition: transition)
+                }
+                
             }
         }
     }
