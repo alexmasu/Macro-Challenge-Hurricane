@@ -12,6 +12,11 @@ import SpriteKit
 
 struct TamagotchiView: View {
     
+    @StateObject var gameLogic: StreamMochiGameLogic =  StreamMochiGameLogic.shared
+    
+    // The game state is used to transition between the different states of the game
+    @Binding var currentGameState: GameState
+    
     var scene : SKScene {
         let scene = TamagotchiMainScene()
         scene.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -20,15 +25,34 @@ struct TamagotchiView: View {
     }
     
     var body: some View {
+        ZStack {
         SpriteView(scene: scene)
             .frame(width: UIScreen.main
                 .bounds.width, height: UIScreen.main.bounds.height)
             .ignoresSafeArea()
+        }.onChange(of: gameLogic.temp_bool) { _ in
+            if gameLogic.temp_bool {
+                
+                /** # PRO TIP!
+                 * You can experiment by adding other types of animations here before presenting the game over screen.
+                 */
+                
+                withAnimation {
+                    
+                     self.presentTwitchScreen()
+                }
+            }
+        }
+    }
+    
+    private func presentTwitchScreen() {
+        self.currentGameState = .twitchLogin
     }
 }
 
-struct TamagotchiView_Previews: PreviewProvider {
-    static var previews: some View {
-        TamagotchiView()
-    }
-}
+
+//struct TamagotchiView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TamagotchiView()
+//    }
+//}

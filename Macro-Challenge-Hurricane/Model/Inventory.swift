@@ -49,6 +49,8 @@ class Inventory : NSObject, NSCoding{
             else {
                 currencies.money = currencies.money - consumable.price
                 i[consumable.id] = i[consumable.id] + 1
+                currencies.save()
+                self.save()
                 return 0
             }
         }
@@ -90,6 +92,8 @@ class Inventory : NSObject, NSCoding{
                 return false
             }
             i[consumable.id] = i[consumable.id] - 1
+            self.save()
+            mochi.save()
             return true
             
         }

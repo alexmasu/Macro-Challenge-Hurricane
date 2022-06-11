@@ -377,41 +377,53 @@ class TimeManager {
         }
         arrayHappyness.removeAll()
         mochi.streaming = false
+        mochi.save()
+        currencies.save()
+        self.save()
     }
     func startStreaming(mochi : Mochi){
     mochi.streaming = true
         savedDate = Date.now
         arrayHappyness.append(mochi.happiness)
+        mochi.save()
+        self.save()
     }
     func lightOn(mochi : Mochi){
         if mochi.sleeping{
             mochi.sleeping = false
         }
+        mochi.save()
     }
     func lightOff(mochi: Mochi){
         if mochi.energy < 50 {
             mochi.sleeping = true
         }
+        mochi.save()
     }
     func shower(cleanCount: Int, mochi: Mochi){
         mochi.cleanlyness = min(mochi.cleanlyness + cleanCount * 20 , 100)
+        mochi.save()
     }
     func reduceHunger(mochi: Mochi){
-        // inserire euphoria check
+        
         mochi.hunger = max(0, mochi.hunger - 1)
         mochi.pHunger = 0
+        mochi.save()
     }
     func reduceThirst(mochi:Mochi){
         mochi.thirst = max ( 0,mochi.thirst - 1)
         mochi.pThirst = 0
+        mochi.save()
     }
     func spawnPoop(mochi: Mochi){
         mochi.nPoop = mochi.nPoop + 1
         mochi.pPoop = 0
+        mochi.save()
     }
     func reduceCleanlyness(mochi: Mochi){
         mochi.cleanlyness = mochi.cleanlyness + 1
         mochi.pCleanlyness = 0
+        mochi.save()
     }
     func illCheck(mochi: Mochi){
         var illChance : Int = 0
@@ -434,15 +446,18 @@ class TimeManager {
         if roll < illChance {
             mochi.ill = true
         }
+        mochi.save()
         
     }
     func reduceEnergy(mochi: Mochi){
         mochi.energy = max ( 0,mochi.energy - 1)
         mochi.pEnergy = 0
+        mochi.save()
     }
     func gainEnergy(mochi: Mochi){
         mochi.energy = min ( mochi.maxEnergy, mochi.energy + 1)
         mochi.pEnergyGain = 0
+        mochi.save()
     }
     func reduceHealth(mochi: Mochi){
         if mochi.hunger == 0 {
@@ -457,6 +472,7 @@ class TimeManager {
             mochi.health = max (0, mochi.health - 1 )
             mochi.pHealthIll = 25
         }
+        mochi.save()
     }
     func reduceHappyness(mochi: Mochi){
         mochi.pHappyness = 0
@@ -472,6 +488,7 @@ class TimeManager {
         if mochi.ill == true {
             mochi.happiness = max(0, mochi.happiness - 1)
         }
+        mochi.save()
     }
 //    ricordare di contare il svegliarsi da solo del pupo dalla scena
 }

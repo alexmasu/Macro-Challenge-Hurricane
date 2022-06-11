@@ -7,8 +7,13 @@
 
 import Foundation
 import SpriteKit
+import SwiftUI
 
 class TamagotchiMainScene :  SKScene {
+    
+    var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic.shared
+    
+    
     
     let background = SKSpriteNode(imageNamed: "Background.png")
     let sponge = SKSpriteNode(imageNamed: "sponge.png")
@@ -228,7 +233,7 @@ class TamagotchiMainScene :  SKScene {
                 
             }
             if (node.name == "twitch") {
-                
+                gameLogic.temp_bool = true
             }
             
             if node.name == "light" {
