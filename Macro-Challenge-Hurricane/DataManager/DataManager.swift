@@ -114,6 +114,7 @@ class DataManager: NSObject {
             
             let decoder = JSONDecoder()
             
+            print(mochi)
             let jsonData: Data = self.mochi.data(using: .utf8)!
             
             let mochiDecoded = try? decoder.decode(MochiJson.self, from: jsonData)
@@ -127,7 +128,7 @@ class DataManager: NSObject {
     }
     
     // MARK: - Saved Currencies
-    @Storage(key: "currencies", defaultValue: "{\n  \"money\" : 0,\n  \"followers\" : 0,\n  \"bite\" : 0\n}")
+    @Storage(key: "currencies", defaultValue: "{\n  \"money\" : -100,\n  \"followers\" : 0,\n  \"bite\" : 0\n}")
     var currencies: String
     
     // MARK: - Setter Currencies
@@ -168,7 +169,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved timeManager
-    @Storage(key: "timeManager", defaultValue: "{\n  \"savedDate\" : -63114076800,\n  \"arrayHappyness\" : [\n\n  ],\n  \"lastSave\" : -63114076800\n}")
+    @Storage(key: "timeManager", defaultValue: "{\n  \"savedDate\" : -63114076800,\n  \"arrayHappyness\" : [\n-100\n  ]\n,\n  \"lastSave\" : -63114076800\n}")
     var timeManager: String
     
     // MARK: - Setter timeManager
@@ -210,7 +211,7 @@ class DataManager: NSObject {
     }
     
     // MARK: - Saved inventory
-    @Storage(key: "inventory", defaultValue: "{\n  \"i\" : [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ]\n}")
+    @Storage(key: "inventory", defaultValue: "{\n  \"i\" : [\n    -100,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0\n  ]\n}")
     var inventory: String
     
     // MARK: - Setter inventory
@@ -251,7 +252,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved inventory
-    @Storage(key: "customInventory", defaultValue: "{\n  \"i\" : [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ]\n}")
+    @Storage(key: "customInventory", defaultValue: "{\n  \"i\" : [\n    -100,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0\n  ]\n}")
     var customInventory: String
     
     // MARK: - Setter inventory
@@ -292,7 +293,7 @@ class DataManager: NSObject {
         }
     }
     // MARK: - Saved streaming
-    @Storage(key: "streamingInventory", defaultValue: "{\n  \"i\" : [\n    0,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    7,\n    8,\n    9,\n    10,\n    11\n  ]\n}")
+    @Storage(key: "streamingInventory", defaultValue: "{\n  \"i\" : [\n    -100,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0,\n    0\n  ]\n}")
     var streamingInventory: String
     
     // MARK: - Setter streaming

@@ -25,7 +25,7 @@ class TimeManager {
     }
     init(){
         let readingTimeManager = DataManager.standard.getTimeManager()
-        if readingTimeManager != nil{
+        if readingTimeManager?.arrayHappyness != [-100]{
             lastSave = readingTimeManager!.lastSave
             savedDate = readingTimeManager!.savedDate
             arrayHappyness = readingTimeManager!.arrayHappyness
@@ -130,7 +130,7 @@ class TimeManager {
         
         mochi.pIll = mochi.pIll + 100 * (timeElapsedsince(date1: lastSave!)%1800) / 1800
         if (mochi.pIll > 99) {
-            mochi.pIll = mochi.pHunger - 100
+            mochi.pIll = mochi.pIll - 100
             illChecks = illChecks + 1
         }
         var i = 0

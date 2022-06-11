@@ -23,7 +23,7 @@ class CustomInventory : NSObject, NSCoding{
     }
     override init(){
         let readingCustomInventory = DataManager.standard.getCustomInventory()
-        if readingCustomInventory != nil{
+        if readingCustomInventory?.i[0] != -100 {
             i = readingCustomInventory!.i
         }
         else {

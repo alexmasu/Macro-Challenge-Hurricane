@@ -25,7 +25,7 @@ class StreamingInventory : NSObject, NSCoding{
     }
     override init(){
         let readingStreamingInventory = DataManager.standard.getStreamingInventory()
-        if readingStreamingInventory != nil{
+        if readingStreamingInventory?.i[0] != -100{
             i = readingStreamingInventory!.i
         }
         else {

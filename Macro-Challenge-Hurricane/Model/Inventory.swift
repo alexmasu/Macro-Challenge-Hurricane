@@ -18,7 +18,7 @@ class Inventory : NSObject, NSCoding{
     }
     override init(){
         let readingInventory = DataManager.standard.getInventory()
-        if readingInventory != nil{
+        if readingInventory?.i[0] != -100 {
             i = readingInventory!.i
         }
         else {

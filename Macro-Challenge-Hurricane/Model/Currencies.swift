@@ -23,7 +23,7 @@ class Currencies: NSObject, NSCoding{
     }
     override init(){
         let readingCurrencies = DataManager.standard.getCurrencies()
-        if readingCurrencies != nil{
+        if readingCurrencies?.money != -100{
             money = readingCurrencies!.money
             bite = readingCurrencies!.bite
             followers = readingCurrencies!.bite

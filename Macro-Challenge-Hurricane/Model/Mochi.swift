@@ -19,7 +19,7 @@ class Mochi: NSObject, NSCoding{
     override init(){
         
         let readingMochi = DataManager.standard.getMochi()
-        if readingMochi != nil{
+        if readingMochi?.ageType != 0 {
             maxHunger = readingMochi!.maxHunger
             maxThirst = readingMochi!.maxThirst
             maxCleanlyness = readingMochi!.maxCleanlyness
