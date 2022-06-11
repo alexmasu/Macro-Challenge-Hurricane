@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 import WebKit
+import SpriteKit
 
 struct WebView : UIViewRepresentable {
     
