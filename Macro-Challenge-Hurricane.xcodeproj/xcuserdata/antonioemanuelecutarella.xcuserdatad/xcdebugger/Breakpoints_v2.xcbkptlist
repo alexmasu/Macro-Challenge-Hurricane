@@ -14,9 +14,9 @@
             filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
-            landmarkName = "spawnOmetto()"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "spawnOmettoStats()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "touchesBegan(_:with:)"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

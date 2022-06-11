@@ -123,11 +123,10 @@ class TamagotchiMainScene :  SKScene {
                     nodes.append(node)
                     
                 }
-                else if (node.name == "inventory") {
-                    let inventoryScene = InventoryScene()
-                    inventoryScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 1.5)
-                    self.view?.presentScene(inventoryScene, transition: transition)
+                if (node.name == "inventory") {
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
                 }
                 
                 else if (node.name == "customization") {
@@ -227,16 +226,23 @@ class TamagotchiMainScene :  SKScene {
                 
                 let shopScene = ShopScene()
                 shopScene.size = (view?.frame.size)!
-                let transition = SKTransition.fade(withDuration: 1.5)
+                let transition = SKTransition.fade(withDuration: 0.5)
                 self.view?.presentScene(shopScene, transition: transition)
                 
+            }
+            
+            if (node.name == "inventory") {
+                let inventoryScene = InventoryScene()
+                inventoryScene.size = (view?.frame.size)!
+                let transition = SKTransition.fade(withDuration: 0.5)
+                self.view?.presentScene(inventoryScene, transition: transition)
             }
             
             if (node.name == "customization") {
                 
                 let customizationScene = CustomizationScene()
                 customizationScene.size = (view?.frame.size)!
-                let transition = SKTransition.fade(withDuration: 1.5)
+                let transition = SKTransition.fade(withDuration: 0.5)
                 self.view?.presentScene(customizationScene, transition: transition)
                 
             }
@@ -245,7 +251,7 @@ class TamagotchiMainScene :  SKScene {
                 
                 let minigamesScene = MinigamesScene()
                 minigamesScene.size = (view?.frame.size)!
-                let transition = SKTransition.fade(withDuration: 1.5)
+                let transition = SKTransition.fade(withDuration: 0.5)
                 self.view?.presentScene(minigamesScene, transition: transition)
             }
         }
@@ -467,28 +473,28 @@ extension TamagotchiMainScene {
     
     private func omettofadeOut() {
         
-        fadeOutAnim(elem: self.hunger, time: 1.0)
-        fadeOutAnim(elem: self.thirst, time: 1.0)
-        fadeOutAnim(elem: self.cleaning, time: 1.0)
-        fadeOutAnim(elem: self.energy, time: 1.0)
-        fadeOutAnim(elem: self.happiness, time: 1.0)
-        fadeOutAnim(elem: self.health, time: 1.0)
+        fadeOutAnim(elem: self.hunger, time: 0.5)
+        fadeOutAnim(elem: self.thirst, time: 0.5)
+        fadeOutAnim(elem: self.cleaning, time: 0.5)
+        fadeOutAnim(elem: self.energy, time: 0.5)
+        fadeOutAnim(elem: self.happiness, time: 0.5)
+        fadeOutAnim(elem: self.health, time: 0.5)
         
     }
     
     func spawnStatsButtons() {
         
-        fadeInAnim(elem: hunger, time: 1.0)
+        fadeInAnim(elem: hunger, time: 0.5)
         
-        fadeInAnim(elem: thirst, time: 1.0)
+        fadeInAnim(elem: thirst, time: 0.5)
         
-        fadeInAnim(elem: cleaning, time: 1.0)
+        fadeInAnim(elem: cleaning, time: 0.5)
         
-        fadeInAnim(elem: energy, time: 1.0)
+        fadeInAnim(elem: energy, time: 0.5)
         
-        fadeInAnim(elem: happiness, time: 1.0)
+        fadeInAnim(elem: happiness, time: 0.5)
         
-        fadeInAnim(elem: health, time: 1.0)
+        fadeInAnim(elem: health, time: 0.5)
         
     }
     
