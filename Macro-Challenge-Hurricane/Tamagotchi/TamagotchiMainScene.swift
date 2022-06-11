@@ -29,6 +29,8 @@ class TamagotchiMainScene :  SKScene {
     let energy = SKSpriteNode(imageNamed: "StaminaGroup.png")
     let happiness = SKSpriteNode(imageNamed: "HappinessGroup.png")
     let health = SKSpriteNode(imageNamed: "HealthGroup.png")
+    let soap = SKSpriteNode(imageNamed: "soap.png")
+//    let doccino = SKSpriteNode(imageNamed: "Twix.png")
     
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
@@ -41,6 +43,7 @@ class TamagotchiMainScene :  SKScene {
     var omettoOn = false
     var leftedge = false
     var rightedge = false
+    var soapApplied : Int = 0
     var activeRoom = 1
     
     private var curr : SKNode?
@@ -62,7 +65,6 @@ class TamagotchiMainScene :  SKScene {
         
         addSwipeGestureRecognizers()
     }
-    
     
     
     override func update(_ currentTime: TimeInterval) {
@@ -93,7 +95,6 @@ class TamagotchiMainScene :  SKScene {
                 }
                 
                 
-                
                 if (node.name == "monitor") && (omettoOn == false) {
                     
                     self.curr = node
@@ -114,7 +115,23 @@ class TamagotchiMainScene :  SKScene {
                     nodes.append(node)
                 }
                 
+                if (node.name == "doccino") {
+                    self.curr = node
+                    nodes.append(node)
+                }
                 
+                if (node.name == "sponge") {
+                    
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
+                    
+                }
+                
+                if (node.name == "soap") {
+                    self.curr = node
+                    nodes.append(node)
+                }
                 
                 if (node.name == "shop") {
                     
@@ -190,6 +207,24 @@ class TamagotchiMainScene :  SKScene {
                     omettofadeOut()
                     omettoOn = false
                 }
+         
+// Far lavare l'ometto.
+//
+//                if (node.name == "ometto") {
+//                    soapApplied+=1
+//                    label.addChild(soap)
+//                } else if (node.name == "ometto") && (soapApplied > 5) {
+//                    print("ciao")
+//                    }
+//
+//                if (node.name == "minigames") {
+//                    if (soapApplied > 0) {
+//                        label.removeChildren(in: [soap])
+//                    }
+//                    else {
+//                        print("ciao")
+//                    }
+//                }
                 
             }
             if (node.name == "twitch") {
@@ -247,13 +282,6 @@ class TamagotchiMainScene :  SKScene {
                 
             }
             
-            if (node.name == "minigames") {
-                
-                let minigamesScene = MinigamesScene()
-                minigamesScene.size = (view?.frame.size)!
-                let transition = SKTransition.fade(withDuration: 0.5)
-                self.view?.presentScene(minigamesScene, transition: transition)
-            }
         }
         
         self.curr = nil
@@ -335,27 +363,27 @@ extension TamagotchiMainScene {
     
     func spawnOmettoStats() {
         
-        hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y )
+        hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4 )
         hunger.name = "hunger"
         hunger.alpha = 0.0
-        
-        thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
+
+        thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
         thirst.name = "thirst"
         thirst.alpha = 0.0
-        
-        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
+
+        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         cleaning.name = "cleanliness"
         cleaning.alpha = 0.0
-        
-        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.14)
+
+        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.09, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         energy.name = "energy"
         energy.alpha = 0.0
-        
-        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
+
+        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.24, y: square.position.y + UIScreen.main.bounds.height * 0.49)
         happiness.name = "happiness"
         happiness.alpha = 0.0
-        
-        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y)
+
+        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.4)
         health.name = "health"
         health.alpha = 0.0
         
@@ -417,6 +445,14 @@ extension TamagotchiMainScene {
         bath.zPosition = 1.0
         bathroom.addChild(bath)
         
+        soap.name = "soap"
+        soap.setScale(2.0)
+        soap.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.1 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
+        
+//        doccino.name = "doccino"
+//        doccino.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
+//        bathroom.addChild(doccino)
+//
         light.setScale(0.8)
         light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.35,y: frame.midY - UIScreen.main.bounds.height * 0.3)
         light.name = "light"
