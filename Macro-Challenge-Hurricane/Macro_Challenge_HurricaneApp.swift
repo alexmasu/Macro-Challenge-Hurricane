@@ -163,6 +163,22 @@ class FSSceneDelegate: NSObject, UIWindowSceneDelegate, ObservableObject {
         let operationQueue = OperationQueue()
         let refreshOperation = BlockOperation {
             
+            var timemanager = TimeManager()
+            var mochi = Mochi()
+            var inventory = Inventory()
+            var currencies = Currencies()
+            var customInventory = CustomInventory()
+            var streamInventory = StreamingInventory()
+            
+            timemanager.AfterOffline(mochi: mochi, currencies: currencies, streamingInventory: streamInventory)
+            
+            timemanager.save()
+            mochi.save()
+            inventory.save()
+            currencies.save()
+            customInventory.save()
+            streamInventory.save()
+            
             //            DataManager.standard.setMochi(mochi: MochiJson())
             //            print(DataManager.standard.getMochi())
             
