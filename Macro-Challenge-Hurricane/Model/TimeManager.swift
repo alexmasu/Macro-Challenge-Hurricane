@@ -377,6 +377,9 @@ class TimeManager {
         }
         arrayHappyness.removeAll()
         mochi.streaming = false
+        mochi.save()
+        currencies.save()
+        self.save()
     }
     func startStreaming(mochi : Mochi){
     mochi.streaming = true
