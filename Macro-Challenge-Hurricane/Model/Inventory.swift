@@ -12,17 +12,19 @@ class Inventory : NSObject, NSCoding{
         coder.encode(i, forKey: "inventory")
     }
     func save(){
-        let savingInventory = InventoryJson(i: self.i)
+        let savingInventory = InventoryJson(i: self.i,new:self.new)
         DataManager.standard.setInventory(inventory: savingInventory)
         print("inventory saved")
     }
     override init(){
         let readingInventory = DataManager.standard.getInventory()
-        if readingInventory != nil{
+        if (readingInventory?.new) != nil{
             i = readingInventory!.i
+            new = false
         }
         else {
             i = []
+            new = false
         }
         
         
@@ -33,9 +35,11 @@ class Inventory : NSObject, NSCoding{
     }
     
     var i: [Int]
+    var new: Bool
     
     init (I : [Int]){
         i = I
+        new = false
     }
     func buy(currencies: Currencies, selected : Int) -> Int{
         if selected <= consumableV.count{

@@ -16,18 +16,21 @@ class CustomInventory : NSObject, NSCoding{
     let equipped = 2
     
     var i: [Int]
+    var new: Bool
     func save(){
-        let savingCustomInventory = CustomInventoryJson(i: self.i)
+        let savingCustomInventory = CustomInventoryJson(i: self.i,new: self.new)
         DataManager.standard.setCustomInventory(customInventory: savingCustomInventory)
             print("Customization inventory saved")
     }
     override init(){
         let readingCustomInventory = DataManager.standard.getCustomInventory()
-        if readingCustomInventory != nil{
+        if (readingCustomInventory?.new) != nil{
             i = readingCustomInventory!.i
+            new = false
         }
         else {
             i = []
+            new = false
         }
         
         
@@ -64,6 +67,7 @@ class CustomInventory : NSObject, NSCoding{
     
     init (I : [Int]){
         i = I
+        new = false
     }
     func buy(currencies: Currencies, selected : Int) -> Int{
         if i[selected] != 2 && i[selected] != 1{

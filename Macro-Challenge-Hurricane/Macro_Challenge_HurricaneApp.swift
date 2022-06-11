@@ -17,6 +17,7 @@ struct Macro_Challenge_HurricaneApp: App {
     init() {
         var timemanager = TimeManager()
         var mochi = Mochi()
+        print("\(mochi.energy)")
         var inventory = Inventory()
         var currencies = Currencies()
         var customInventory = CustomInventory()
@@ -43,7 +44,11 @@ struct Macro_Challenge_HurricaneApp: App {
 //        var customInventory = CustomInventory()
 //        var streamInventory = StreamingInventory()
         
-        timemanager.AfterOffline(mochi: mochi, currencies: currencies, streamingInventory: streamInventory)
+        if mochi.new == false{
+            timemanager.AfterOffline(mochi: mochi, currencies: currencies, streamingInventory: streamInventory)
+        }
+        mochi.new = false
+        
         
         mochi.save()
         currencies.save()

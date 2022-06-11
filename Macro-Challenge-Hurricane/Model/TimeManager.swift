@@ -18,22 +18,25 @@ class TimeManager {
     var lastSave: Date?
     var arrayHappyness : [Int]
     var savedDate : Date
+    var new : Bool
     func save(){
-        let savingTimeManager = TimeManagerJson(lastSave: self.lastSave ?? Date.now, savedDate: self.savedDate, arrayHappyness: self.arrayHappyness)
+        let savingTimeManager = TimeManagerJson(lastSave: self.lastSave ?? Date.now, savedDate: self.savedDate, arrayHappyness: self.arrayHappyness, new: self.new)
         DataManager.standard.setTimeManager(timeManager: savingTimeManager)
             print("timeManager saved")
     }
     init(){
         let readingTimeManager = DataManager.standard.getTimeManager()
-        if readingTimeManager != nil{
+        if ((readingTimeManager?.new) != nil) {
             lastSave = readingTimeManager!.lastSave
             savedDate = readingTimeManager!.savedDate
             arrayHappyness = readingTimeManager!.arrayHappyness
+            new = false
         }
         else {
             lastSave = Date.now
             savedDate = Date.now
             arrayHappyness = []
+            new = false
         }
         
         
@@ -85,7 +88,7 @@ class TimeManager {
             poopInterval = 10800
         }
         
-        mochi.nPoop = mochi.nPoop + 1 * (timeElapsedsince(date1: lastSave!))/poopInterval
+        mochi.nPoop = min(5,mochi.nPoop + 1 * (timeElapsedsince(date1: lastSave!))/poopInterval)
         mochi.pPoop = mochi.pPoop + (100 * (timeElapsedsince(date1: lastSave!)%poopInterval)) / poopInterval
         if (mochi.pPoop > 99) {
             mochi.pPoop = mochi.pPoop - 100
@@ -130,7 +133,7 @@ class TimeManager {
         
         mochi.pIll = mochi.pIll + 100 * (timeElapsedsince(date1: lastSave!)%1800) / 1800
         if (mochi.pIll > 99) {
-            mochi.pIll = mochi.pHunger - 100
+            mochi.pIll = mochi.pIll - 100
             illChecks = illChecks + 1
         }
         var i = 0
@@ -174,6 +177,8 @@ class TimeManager {
                 
             }
             else{
+                print("\(mochi.energy)")
+                print("\((timeElapsedsince(date1: lastSave!))/864)")
                 mochi.energy = max (0, mochi.energy - 1 * (timeElapsedsince(date1: lastSave!))/864)
                 mochi.pEnergy = mochi.pEnergy + (100 * (timeElapsedsince(date1: lastSave!)%864)) / 864
                 if (mochi.pEnergy > 99) {
@@ -400,95 +405,8 @@ class TimeManager {
         }
         mochi.save()
     }
-    func shower(cleanCount: Int, mochi: Mochi){
-        mochi.cleanlyness = min(mochi.cleanlyness + cleanCount * 20 , 100)
-        mochi.save()
-    }
-    func reduceHunger(mochi: Mochi){
-        
-        mochi.hunger = max(0, mochi.hunger - 1)
-        mochi.pHunger = 0
-        mochi.save()
-    }
-    func reduceThirst(mochi:Mochi){
-        mochi.thirst = max ( 0,mochi.thirst - 1)
-        mochi.pThirst = 0
-        mochi.save()
-    }
-    func spawnPoop(mochi: Mochi){
-        mochi.nPoop = mochi.nPoop + 1
-        mochi.pPoop = 0
-        mochi.save()
-    }
-    func reduceCleanlyness(mochi: Mochi){
-        mochi.cleanlyness = mochi.cleanlyness + 1
-        mochi.pCleanlyness = 0
-        mochi.save()
-    }
-    func illCheck(mochi: Mochi){
-        var illChance : Int = 0
-        if (mochi.cleanlyness > 79){
-            illChance = 0
-        }
-        if (mochi.cleanlyness < 80){
-            illChance = (100 - mochi.cleanlyness)/5
-        }
-        if mochi.cleanlyness <  50{
-            illChance = (100 - mochi.cleanlyness)/4
-        }
-        if mochi.cleanlyness < 25{
-            illChance = (100 - mochi.cleanlyness)/3
-        }
-        
-        mochi.pIll = 0
-        
-        var roll = Int.random(in: 1...100)
-        if roll < illChance {
-            mochi.ill = true
-        }
-        mochi.save()
-        
-    }
-    func reduceEnergy(mochi: Mochi){
-        mochi.energy = max ( 0,mochi.energy - 1)
-        mochi.pEnergy = 0
-        mochi.save()
-    }
-    func gainEnergy(mochi: Mochi){
-        mochi.energy = min ( mochi.maxEnergy, mochi.energy + 1)
-        mochi.pEnergyGain = 0
-        mochi.save()
-    }
-    func reduceHealth(mochi: Mochi){
-        if mochi.hunger == 0 {
-            mochi.health = max (0, mochi.health - 1)
-            mochi.pHealthHunger = 0
-        }
-        if mochi.thirst == 0 {
-            mochi.health = max (0, mochi.health - 1 )
-            mochi.pHealthThirst = 0
-        }
-        if mochi.ill == true {
-            mochi.health = max (0, mochi.health - 1 )
-            mochi.pHealthIll = 25
-        }
-        mochi.save()
-    }
-    func reduceHappyness(mochi: Mochi){
-        mochi.pHappyness = 0
-        if mochi.hunger < 30 {
-            mochi.happiness = max(0, mochi.happiness - 1)
-        }
-        if mochi.thirst < 30 {
-            mochi.happiness = max(0, mochi.happiness - 1)
-        }
-        if mochi.cleanlyness < 30 {
-            mochi.happiness = max(0, mochi.happiness - 1)
-        }
-        if mochi.ill == true {
-            mochi.happiness = max(0, mochi.happiness - 1)
-        }
-        mochi.save()
-    }
+    
+    
+    
 //    ricordare di contare il svegliarsi da solo del pupo dalla scena
 }
