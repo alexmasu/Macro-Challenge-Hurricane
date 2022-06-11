@@ -46,12 +46,14 @@ class StreamingInventory : NSObject, NSCoding{
                 }
             }
             i[selected] = 2
+            self.save()
         }
     }
     
     func unlock(selected : Int) {
         if i[selected] != 1 && i[selected] != 2 && selected <= customizableV.count{
             i[selected] = 1
+            self.save()
         }
     }
     
@@ -79,6 +81,8 @@ class StreamingInventory : NSObject, NSCoding{
                 else {
                     currencies.money = currencies.money - customizable.price
                     i[selected] = 1
+                    self.save()
+                    currencies.save()
                     return 0
                 }
             }
@@ -89,6 +93,8 @@ class StreamingInventory : NSObject, NSCoding{
                 else {
                     currencies.bite = currencies.bite - customizable.priceBite
                     i[selected] = 1
+                    self.save()
+                    currencies.save()
                     return 0
                 }
             }
