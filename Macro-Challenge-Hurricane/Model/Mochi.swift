@@ -266,5 +266,18 @@ class Mochi: NSObject, NSCoding{
         ill = false
         alive = Alive
     }
+//    fame sete pulizia energia felicità vita
+    func Stats() -> [Int]{
+        var stats: [Int] = []
+        stats.append(hunger)
+        stats.append(thirst)
+        stats.append(cleanlyness)
+        stats.append(energy)
+        stats.append(happiness)
+        stats.append(health)
+
+        return stats
+        
+    }
     
 }
