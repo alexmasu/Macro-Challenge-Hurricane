@@ -31,13 +31,9 @@ struct TwitchView: View {
     
     var body: some View {
         
-        Text("")
-        Text("")
         //        WebView().fullScreenCover(isPresented: gamelogic.$temp_bool,content: FullScreenModalView.init)
-        //        sheet(isPresented: gamelogic.$temp_bool) {
-        //            Text("Dio porco")
-        //            WebView()
-        //        }
+                WebView()
+
     }
     
     private func backToMainScreen() {
