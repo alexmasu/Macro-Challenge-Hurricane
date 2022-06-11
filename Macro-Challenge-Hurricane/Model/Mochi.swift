@@ -56,7 +56,6 @@ class Mochi: NSObject, NSCoding{
             new = false
         }
         else {
-            print("\("hello")")
             maxHunger = 50
             maxThirst = 50
             maxCleanlyness = 100
