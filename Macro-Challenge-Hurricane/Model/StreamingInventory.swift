@@ -16,20 +16,23 @@ class StreamingInventory : NSObject, NSCoding{
     let unlocked =  1
     
     let equipped = 2
+    var new: Bool
     
     var i: [Int]
     func save(){
-        let savingStreamingInventory = StreamingInventoryJson(i: self.i)
+        let savingStreamingInventory = StreamingInventoryJson(i: self.i,new : self.new)
         DataManager.standard.setStreamingInventory(streamingInventory: savingStreamingInventory)
             print("Customization inventory saved")
     }
     override init(){
         let readingStreamingInventory = DataManager.standard.getStreamingInventory()
-        if readingStreamingInventory != nil{
+        if (readingStreamingInventory?.new) != nil{
             i = readingStreamingInventory!.i
+            new = false
         }
         else {
             i = []
+            new = false
         }
         
         
@@ -66,6 +69,7 @@ class StreamingInventory : NSObject, NSCoding{
     
     init (I : [Int]){
         i = I
+        new = false
     }
     func buy(currencies: Currencies, selected : Int) -> Int{
         if i[selected] != 2 && i[selected] != 1{

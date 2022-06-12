@@ -11,7 +11,7 @@ import Foundation
 class Mochi: NSObject, NSCoding{
     
     func save(){
-        let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, pStreamPay: self.pStreamPay , nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive)
+        let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, pStreamPay: self.pStreamPay , nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive, new : self.new)
         
         DataManager.standard.setMochi(mochi: savingMochi)
             print("mochi saved")
@@ -19,7 +19,7 @@ class Mochi: NSObject, NSCoding{
     override init(){
         
         let readingMochi = DataManager.standard.getMochi()
-        if readingMochi != nil{
+        if ((readingMochi?.new) != nil) {
             maxHunger = readingMochi!.maxHunger
             maxThirst = readingMochi!.maxThirst
             maxCleanlyness = readingMochi!.maxCleanlyness
@@ -53,6 +53,7 @@ class Mochi: NSObject, NSCoding{
             euphoria = readingMochi!.euphoria
             birth = readingMochi!.birth
             alive = readingMochi!.alive
+            new = false
         }
         else {
             maxHunger = 50
@@ -88,6 +89,7 @@ class Mochi: NSObject, NSCoding{
             euphoria = false
             birth = Date.now
             alive = true
+            new = true
         }
         
         
@@ -126,6 +128,7 @@ class Mochi: NSObject, NSCoding{
         coder.encode(euphoria, forKey: "euphoria")
         coder.encode(birth, forKey: "birth")
         coder.encode(alive, forKey: "alive")
+        coder.encode(new,forKey: "new")
         
         
         
@@ -165,8 +168,9 @@ class Mochi: NSObject, NSCoding{
         let euphoria = decoder.decodeObject(of: NSNumber.self, forKey: "euphoria") as! Bool? ?? false
         let birth = decoder.decodeObject(of: NSDate.self, forKey: "birth") as Date?
         let alive = decoder.decodeObject(of: NSNumber.self, forKey: "alive") as! Bool? ?? false
+        let new = decoder.decodeObject(of: NSNumber.self, forKey: "new") as! Bool? ?? false
         
-        self.init(MaxHunger : maxHunger, MaxThirst : maxThirst, MaxCleanlyness : maxCleanlyness, MaxHealth : maxHealth, MaxEnergy : maxEnergy, MaxHappyness : maxHappiness, Hunger : hunger, Thirst : thirst, Cleanlyness :cleanlyness, Health : health, Energy : energy, Happiness : happiness, AgeType : ageType, Alive : alive)
+        self.init(MaxHunger : maxHunger, MaxThirst : maxThirst, MaxCleanlyness : maxCleanlyness, MaxHealth : maxHealth, MaxEnergy : maxEnergy, MaxHappyness : maxHappiness, Hunger : hunger, Thirst : thirst, Cleanlyness :cleanlyness, Health : health, Energy : energy, Happiness : happiness, AgeType : ageType, Alive : alive,New : new)
         self.sleeping = sleeping
         self.streaming = streaming
         self.ill = ill
@@ -244,9 +248,10 @@ class Mochi: NSObject, NSCoding{
     var birth : Date?
 //    se il mochi è morto sarà false
     var alive : Bool
+    var new : Bool
     
     
-    init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Alive :Bool){
+    init (MaxHunger : Int, MaxThirst : Int, MaxCleanlyness : Int, MaxHealth : Int, MaxEnergy : Int, MaxHappyness : Int, Hunger : Int, Thirst : Int, Cleanlyness :Int, Health : Int, Energy : Int, Happiness : Int, AgeType : Int, Alive :Bool, New: Bool){
         
         maxHunger = MaxHunger
         maxThirst = MaxThirst
@@ -265,6 +270,8 @@ class Mochi: NSObject, NSCoding{
         streaming = false
         ill = false
         alive = Alive
+        new = New
+        
     }
 //    fame sete pulizia energia felicità vita
     func Stats() -> [Int]{
@@ -279,5 +286,99 @@ class Mochi: NSObject, NSCoding{
         return stats
         
     }
+    func shower(cleanCount: Int){
+        cleanlyness = min(cleanlyness + cleanCount * 20 , 100)
+        self.save()
+    }
+    func reduceHunger(){
+        
+        hunger = max(0, hunger - 1)
+        pHunger = 0
+        self.save()
+    }
+    func reduceThirst(){
+        thirst = max ( 0,thirst - 1)
+        pThirst = 0
+        self.save()
+    }
+    func spawnPoop(){
+        nPoop = nPoop + 1
+        pPoop = 0
+        save()
+    }
+    func reduceCleanlyness(mochi: Mochi){
+        cleanlyness = cleanlyness + 1
+        pCleanlyness = 0
+        save()
+    }
+    func pickUpPoop(){
+        nPoop = nPoop - 1
+    }
+    func illCheck(){
+        var illChance : Int = 0
+        if (cleanlyness > 79){
+            illChance = 0
+        }
+        if (cleanlyness < 80){
+            illChance = (100 - cleanlyness)/5
+        }
+        if cleanlyness <  50{
+            illChance = (100 - cleanlyness)/4
+        }
+        if cleanlyness < 25{
+            illChance = (100 - cleanlyness)/3
+        }
+        
+        pIll = 0
+        
+        let roll = Int.random(in: 1...100)
+        if roll < illChance {
+            ill = true
+        }
+        self.save()
+        
+    }
+    func reduceEnergy(){
+        energy = max ( 0,energy - 1)
+        pEnergy = 0
+        self.save()
+    }
+    func gainEnergy(){
+        energy = min ( maxEnergy, energy + 1)
+        pEnergyGain = 0
+        self.save()
+    }
+    func reduceHealth(){
+        if hunger == 0 {
+            health = max (0, health - 1)
+            pHealthHunger = 0
+        }
+        if thirst == 0 {
+            health = max (0, health - 1 )
+            pHealthThirst = 0
+        }
+        if ill == true {
+            health = max (0, health - 1 )
+            pHealthIll = 25
+        }
+        self.save()
+    }
+    func reduceHappyness(){
+        pHappyness = 0
+        if hunger < 30 {
+            happiness = max(0, happiness - 1)
+        }
+        if thirst < 30 {
+            happiness = max(0, happiness - 1)
+        }
+        if cleanlyness < 30 {
+            happiness = max(0, happiness - 1)
+        }
+        if ill == true {
+            happiness = max(0, happiness - 1)
+        }
+        self.save()
+    }
+
     
 }

@@ -51,4 +51,5 @@ struct MochiJson: Codable {
     var euphoria : Bool = false
     var birth : Date = Date.now
     var alive : Bool = false
+    var new : Bool = false
 }

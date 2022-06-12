@@ -595,9 +595,14 @@ extension TamagotchiMainScene {
     
     func spawnOmetto() {
         square.setScale(0.8)
-        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
-//        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
+//        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
         square.name = "ometto"
+//        square.physicsBody = SKPhysicsBody(circleOfRadius: square.size.width / 3)
+//        square.physicsBody?.restitution = 0.4
+//        let yRange = SKRange(lowerLimit: frame.midY - UIScreen.main.bounds.height * 0.21, upperLimit: frame.midY - UIScreen.main.bounds.height * 0.25)
+//        let yConstraint = SKConstraint.positionY(yRange)
+//        self.square.constraints = [yConstraint]
         addChild(square)
     }
     

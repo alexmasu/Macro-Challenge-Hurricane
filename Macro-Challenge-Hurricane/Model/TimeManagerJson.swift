@@ -9,4 +9,5 @@ struct TimeManagerJson: Codable{
     var lastSave : Date = Date.distantPast
     var savedDate : Date = Date.distantPast
     var arrayHappyness : [Int] = []
+    var new : Bool = false
 }
