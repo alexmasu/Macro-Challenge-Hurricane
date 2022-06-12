@@ -102,12 +102,67 @@ extension InventoryScene {
         myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.165)
         self.addChild(myLabel)
     }
+    
+    func stats(){
+        let hungerIcon = SKSpriteNode(imageNamed: "Hunger.png")
+        hungerIcon.setScale(0.4)
+        hungerIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.85, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
+        self.addChild(hungerIcon)
+        
+        let thirstIcon = SKSpriteNode(imageNamed: "Glass.png")
+        thirstIcon.setScale(0.4)
+        thirstIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.71, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
+        self.addChild(thirstIcon)
+        
+        let cleanIcon = SKSpriteNode(imageNamed: "Clean.png")
+        cleanIcon.setScale(0.4)
+        cleanIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.57, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
+        self.addChild(cleanIcon)
+        
+        let energyIcon = SKSpriteNode(imageNamed: "Stamina.png")
+        energyIcon.setScale(0.4)
+        energyIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.43, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
+        self.addChild(energyIcon)
+        
+        let healthIcon = SKSpriteNode(imageNamed: "Health.png")
+        healthIcon.setScale(0.4)
+        healthIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.29, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
+        self.addChild(healthIcon)
+        
+        let happyIcon = SKSpriteNode(imageNamed: "Happiness.png")
+        happyIcon.setScale(0.4)
+        happyIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.15, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
+        self.addChild(happyIcon)
+        
+        let hungerBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: hungerIcon.position.x - (hungerIcon.size.width)/(2 * 1.30), y: hungerIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        self.addChild(hungerBar)
+        
+        let thirstBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: thirstIcon.position.x - (thirstIcon.size.width)/(2 * 1.30), y: thirstIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        self.addChild(thirstBar)
+        
+        let cleanBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: cleanIcon.position.x - (cleanIcon.size.width)/(2 * 1.30), y: cleanIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        self.addChild(cleanBar)
+        
+        let energyBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: energyIcon.position.x - (energyIcon.size.width)/(2 * 1.30), y: energyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        self.addChild(energyBar)
+        
+        let healthBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: healthIcon.position.x - (healthIcon.size.width)/(2 * 1.30), y: healthIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        self.addChild(healthBar)
+        
+        let happyBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: happyIcon.position.x - (happyIcon.size.width)/(2 * 1.30), y: happyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        self.addChild(happyBar)
+
+
+
+        
+    }
 
     func setupInventoryScene() {
 
         BlurEffect()
         BackButton()
         InventoryTitle()
+        stats()
 
 //        self.wasInitialized = true
 
