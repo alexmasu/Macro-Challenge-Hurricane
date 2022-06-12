@@ -13,6 +13,7 @@ class TamagotchiMainScene : SKScene {
     
     var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic.shared
     
+    let switchpress = SKSpriteNode(imageNamed: "switch.png")
     let minigames = SKSpriteNode(imageNamed: "minigames.png")
     let background = SKSpriteNode(imageNamed: "Background.png")
     let sponge = SKSpriteNode(imageNamed: "sponge.png")
@@ -39,7 +40,11 @@ class TamagotchiMainScene : SKScene {
     let soap4 = SKSpriteNode(imageNamed: "soap.png")
     let soap5 = SKSpriteNode(imageNamed: "soap.png")
     let doccino = SKSpriteNode(imageNamed: "Doccino.png")
-    let water = SKSpriteNode(imageNamed: "acqua.png")
+    let water1 = SKSpriteNode(imageNamed: "acqua.png")
+    let water2 = SKSpriteNode(imageNamed: "acqua.png")
+    let water3 = SKSpriteNode(imageNamed: "acqua.png")
+    let water4 = SKSpriteNode(imageNamed: "acqua.png")
+    let water5 = SKSpriteNode(imageNamed: "acqua.png")
     
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
@@ -135,6 +140,12 @@ class TamagotchiMainScene : SKScene {
                     nodes.append(node)
                 }
                 
+                if (node.name == "switchpress") {
+                    
+                    self.curr = node
+                    nodes.append(node)
+                }
+                
                 if (node.name == "doccino") {
                     self.curr = node
                     nodes.append(node)
@@ -174,7 +185,27 @@ class TamagotchiMainScene : SKScene {
                 }
                 
                 
-                if (node.name == "water") {
+                if (node.name == "water1") {
+                    self.curr = node
+                    nodes.append(node)
+                }
+                
+                if (node.name == "water2") {
+                    self.curr = node
+                    nodes.append(node)
+                }
+                
+                if (node.name == "water3") {
+                    self.curr = node
+                    nodes.append(node)
+                }
+                
+                if (node.name == "water4") {
+                    self.curr = node
+                    nodes.append(node)
+                }
+                
+                if (node.name == "water5") {
                     self.curr = node
                     nodes.append(node)
                 }
@@ -258,6 +289,7 @@ class TamagotchiMainScene : SKScene {
 // Far lavare l'ometto.
 
             if (node.name == "sponge") {
+                bathroom.removeChildren(in: [water1,water2,water3,water4,water5])
                     spawnSoap()
             }
 
@@ -270,14 +302,14 @@ class TamagotchiMainScene : SKScene {
                 gameLogic.temp_bool = true
             }
             
-            if node.name == "light" {
+            if node.name == "switchpress" {
+                if lightswitch == false {
                 setBedroomBackgroundNight()
                 lightswitch = true
-            }
-            
-            if node.name == "nightlight" {
-                setBedroomBackgroundDay()
-                lightswitch = false
+                } else if lightswitch == true {
+                    setBedroomBackgroundDay()
+                    lightswitch = false
+                }
             }
             
             if (node.name == "monitor") && (omettoOn == false) {
@@ -504,18 +536,23 @@ extension TamagotchiMainScene {
     func removeSoap() {
         
         if soapApplied == 2 {
+            bathroom.addChild(water1)
             bathroom.removeChildren(in: [soap1])
 //            soapApplied = 0
         } else if soapApplied == 3 {
+            bathroom.addChild(water2)
             bathroom.removeChildren(in: [soap1, soap2])
 //            soapApplied = 0
         } else if soapApplied == 4 {
+            bathroom.addChild(water3)
             bathroom.removeChildren(in: [soap1,soap2,soap3])
 //            soapApplied = 0
         } else if soapApplied == 5 {
+            bathroom.addChild(water4)
             bathroom.removeChildren(in: [soap1,soap2,soap3,soap4])
 //            soapApplied = 0
         } else if soapApplied == 6 {
+            bathroom.addChild(water5)
             bathroom.removeChildren(in:[soap1,soap2,soap3,soap4,soap5])
 //            soapApplied = 0
         }
@@ -574,13 +611,43 @@ extension TamagotchiMainScene {
         soap5.setScale(2.0)
         soap5.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.25 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
         
+//        switchpress.setScale(0.5)
+        switchpress.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
+        switchpress.name = "switchpress"
+        
         doccino.name = "doccino"
         doccino.setScale(0.5)
         doccino.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
 //        bathroom.addChild(doccino)
         
-        water.name = "water"
-        water.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
+        water1.name = "water1"
+        water1.setScale(2)
+        water1.zPosition = 10000.0
+        water1.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.45 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
+
+        
+        water2.name = "water2"
+        water2.setScale(2)
+        water2.zPosition = 10000.0
+        water2.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.35 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
+
+        
+        water3.name = "water3"
+        water3.setScale(2)
+        water3.zPosition = 10000.0
+        water3.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.25 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
+
+        
+        water4.name = "water4"
+        water4.setScale(2)
+        water4.zPosition = 10000.0
+        water4.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.15 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
+
+        
+        water5.name = "water5"
+        water5.setScale(2)
+        water5.zPosition = 10000.0
+        water5.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.05 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
 
         light.setScale(0.8)
         light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.35,y: frame.midY - UIScreen.main.bounds.height * 0.3)
@@ -655,13 +722,13 @@ extension TamagotchiMainScene {
         removeChildren(in: [doccino])
     }
     
-//    func showLightswitch() {
-//        addChild(lightswitch)
-//    }
+    func showLightswitch() {
+        addChild(switchpress)
+    }
     
-//    func hideLightswitch() {
-//        removeChildren(in: [lightswitch])
-//    }
+    func hideLightswitch() {
+        removeChildren(in: [switchpress])
+    }
     
     private func omettofadeOut() {
         
@@ -727,6 +794,7 @@ extension TamagotchiMainScene {
                     
                     showMinigames()
                     hideDoccino()
+                    hideLightswitch()
 
                     activeRoom =  1
                     
@@ -742,6 +810,7 @@ extension TamagotchiMainScene {
                     let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
                     label.run(goright)
                     
+                    hideLightswitch()
                     hideMinigames()
                     showDoccino()
                     
@@ -761,7 +830,9 @@ extension TamagotchiMainScene {
             case .right :
                 
                 if activeRoom == 0 {
-                    
+                    showLightswitch()
+                    hideMinigames()
+                    hideDoccino()
                 }
                 
                 else if activeRoom == 1  && omettoOn == false {
@@ -770,6 +841,7 @@ extension TamagotchiMainScene {
                     let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
                     label.run(goleft)
                     
+                    showLightswitch()
                     hideDoccino()
                     hideMinigames()
                     
@@ -783,6 +855,7 @@ extension TamagotchiMainScene {
                     
                     showMinigames()
                     hideDoccino()
+                    hideLightswitch()
                     
                     activeRoom = 1
                 }
