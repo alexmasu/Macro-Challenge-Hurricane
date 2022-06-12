@@ -18,8 +18,8 @@ struct TamagotchiView: View {
     @Binding var currentGameState: GameState
     
     var scene : SKScene {
-        let scene = TamagotchiMainScene()
-        scene.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        let scene = TamagotchiMainScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+//        scene.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         scene.scaleMode = .fill
         return scene
     }

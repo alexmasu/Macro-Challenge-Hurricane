@@ -14,8 +14,8 @@
             filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "380"
-            endingLineNumber = "380"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
             landmarkName = "spawnOmettoStats()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,25 +46,9 @@
             filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "touchesBegan(_:with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F8EF06AA-BF74-4A24-9F2B-78BAE98EBD30"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -78,24 +62,8 @@
             filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "touchesEnded(_:with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0EC05870-3C61-452D-AEFD-5AF53E044EB4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Macro-Challenge-Hurricane/Tamagotchi/TamagotchiMainScene.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "touchesEnded(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
