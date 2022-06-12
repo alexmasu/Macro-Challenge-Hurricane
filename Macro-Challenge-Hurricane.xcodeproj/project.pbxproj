@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4810EA422853560500351F47 /* InventoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4810EA412853560500351F47 /* InventoryView.swift */; };
 		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
 		48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */; };
 		48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B3283B947800B0D986 /* TamagotchiView.swift */; };
@@ -340,8 +339,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 				it,
+				Base,
 			);
 			mainGroup = 7F621EFD282E46C2007FE06B;
 			packageReferences = (

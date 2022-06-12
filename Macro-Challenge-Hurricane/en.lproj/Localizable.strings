@@ -6,120 +6,32 @@
   
 */
 
-"hamburgerDescription" = "it looks tasty, I feel like i'm the clowns' king";
+// Consumable.swift
 
-"QuizTheory" = "Theory";
+"hamburger" = "hamburger";
+"it looks tasty, I feel like i'm the clowns' king" = "it looks tasty, I feel like i'm the clowns' king";
 
-"QuizTime" = "Quiz Time!";
+"pizza" = "pizza";
+"Simple, traditional without pineapple. Erne ta po magnà a pizza..." = "Simple, traditional without pineapple. Erne ta po magnà a pizza...";
 
-"QuizNextQuestion" = "Next";
 
-"QuizTimeDescription" = "Select the correct answer to each of the following questions.";
+"potato chip" = "potato chip";
+"I'll take a potato chip and eat it. Nobody will notice what's in the package..." = "I'll take a potato chip and eat it. Nobody will notice what's in the package...";
 
-"QuizTimeLetsGo" = "Let's Go!";
+"water" = "water";
+"luckily this doesn't come from a bathtub" = "luckily this doesn't come from a bathtub";
 
-"QuizScoreDescriptionA" = "You're a HIG Master!";
+"soda" = "soda";
 
-"QuizScoreDescriptionB" = "Excellent job!";
+"7Mochi" = "7Mochi";
 
-"QuizScoreDescriptionC" = "Nice Job!";
+"icecream" = "icecream";
+"chocolate, sweet, a little salty" = "chocolate, sweet, a little salty";
 
-"acqua" = "descrizioneacqua";
+"croissant" = "croissant";
+"catch him,catch him!" = "catch him,catch him!";
 
-"QuizScoreDescriptionD" = "Keep working hard!";
+"syringe" = "syringe";
+"Cures diseases. It doesn't hurt, it doesn't hurt..." = "Cures diseases. It doesn't hurt, it doesn't hurt...";
 
-"QuizScoreDescriptionF" = "Better luck next time!";
 
-"QuizScore" = "Final Score:";
-
-"QuizGrade" = "Letter Grade:";
-
-"QuizTimeElapsed" = "Total time: ";
-
-"QuizSeconds" = " seconds";
-
-"QuizRestart" = "Re-take Quiz";
-
-"Question" = "Question ";
-
-"Question1" = "When and how is it best to use page controls?";
-
-"Question2" = "When is it better to use the progress bars?";
-
-"Question3" = "How to configure the system buttons?";
-
-"Question4" = "How to use an action sheet?";
-
-"Question5" = "How to make a text always readable?";
-
-"Question6" = "What is meant by aesthetic integrity?";
-
-"Question7" = "How many tabs are generally best placed in a Tab Bar?";
-
-"Question8" = "How do you strengthen the meaning of a command in a context menu?";
-
-"Question9" = "Why are metaphors so important in UI / UX?";
-
-"Question10" = "Why limit the number of segmented checks?";
-
-"Answer1_1" = "When the scrolling is too long, giving the user the possibility to choose";
-
-"Answer1_2" = "When the scrolling is long, as the only possibility";
-
-"Answer1_3" = "You can always use it and it is always the best choice";
-
-"Answer1_4" = "SIIIIUUUM ";
-
-"Answer2_1" = "For quantifiable activities, if there is a defined duration";
-
-"Answer2_2" = "To make the app seem busier";
-
-"Answer2_3" = "Never, it is better to use an activity indicator";
-
-"Answer3_1" = "The system buttons have a default style that cannot be changed";
-
-"Answer3_2" = "It is mandatory to insert images or subtitles";
-
-"Answer3_3" = "You can add symbols, subtitles and fill in buttons to improve UX";
-
-"Answer4_1" = "To make choices related to the action, by providing a cancel button at the top left";
-
-"Answer4_2" = "Give many alternatives to make it more precise and effective";
-
-"Answer4_3" = "To provide elements not related to the action performed";
-
-"Answer5_1" = "Use large writing so that it is always legible";
-
-"Answer5_2" = "Use a dynamic type and test with accessibility conditions enabled";
-
-"Answer5_3" = "Use bold";
-
-"Answer6_1" = "Delete the hierarchy";
-
-"Answer6_2" = "Indicates the need to always use the same color and font";
-
-"Answer6_3" = "Indicates the way in which the function of the app and its structure are connected";
-
-"Answer7_1" = "Few tabs to have broad categories";
-
-"Answer7_2" = "Many tabs to be specific";
-
-"Answer7_3" = "A number that allows the specification and does not affect the interface";
-
-"Answer8_1" = "Using a different color";
-
-"Answer8_2" = "Using a glyph";
-
-"Answer8_3" = "Using bold or a different font";
-
-"Answer9_1" = "They facilitate interaction";
-
-"Answer9_2" = "Enhance the interface";
-
-"Answer9_3" = "Make the text easier to understand";
-
-"Answer10_1" = "Increase cognitive load";
-
-"Answer10_2" = "To improve usability";
-
-"Answer10_3" = "You should never use them";
