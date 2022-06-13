@@ -13,6 +13,8 @@ class TamagotchiMainScene : SKScene {
     
     var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic.shared
     
+//    let labelwrite = SKLabelNode(text: "Minigames coming soon!")
+    var dialogueBackground = SKSpriteNode(imageNamed: "comingsoonminigames.png")
     var switchpress = SKSpriteNode(imageNamed: "lampadina.png")
     let minigames = SKSpriteNode(imageNamed: "minigames.png")
     let background = SKSpriteNode(imageNamed: "Background.png")
@@ -50,6 +52,7 @@ class TamagotchiMainScene : SKScene {
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     var label = SKSpriteNode()
+    var message = false
     var startstream = false
     var checkSwipe = false
     var lightswitch = false
@@ -349,7 +352,19 @@ class TamagotchiMainScene : SKScene {
                 
             }
             
+            if (node.name == "minigames") {
+                if message == false{
+                    square.zPosition = -10.0
+                    background.addChild(dialogueBackground)
+
+                    message = true
+                } else if message == true {
+                    removeChildren(in: [dialogueBackground])
+                    message = false
+            }
         }
+            
+    }
         
         self.curr = nil
     }
@@ -695,6 +710,16 @@ extension TamagotchiMainScene {
         addChild(square)
     }
     
+//    func spawnPopUp(){
+        
+//        dialogueBackground.anchorPoint = CGPoint(x: 0, y: 0)
+//        labelwrite.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
+//    }
+    
+//    func despawnPopUp(){
+//        background.removeChildren(in: [dialogueBackground,labelwrite])
+//    }
+    
     func setupScene() {
         
         spawnBackground()
@@ -705,6 +730,8 @@ extension TamagotchiMainScene {
         spawnOmettoButtons()
         spawnSoap()
         removeSoap()
+//        spawnPopUp()
+//        despawnPopUp()
         
         self.wasInitialized = true
         
