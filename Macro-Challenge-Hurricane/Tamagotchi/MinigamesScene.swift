@@ -106,9 +106,15 @@ extension MinigamesScene {
     
     func ComingSoon() {
         let comingSoonLabel = SKLabelNode(fontNamed: "Mabook")
-        comingSoonLabel.text = "Coming Soon...".localized()
+        comingSoonLabel.text = "Games will be present in the final version, we give you +10 happiness for your understanding".localized()
         comingSoonLabel.fontSize = 30
         comingSoonLabel.position = CGPoint(x:UIScreen.main.bounds.midX,y: UIScreen.main.bounds.midY)
+        comingSoonLabel.preferredMaxLayoutWidth = CGFloat(self.size.width * 0.80)
+        comingSoonLabel.yScale = 0.8
+        comingSoonLabel.xScale = 0.8
+        comingSoonLabel.numberOfLines = 3
         self.addChild(comingSoonLabel)
     }
+    
+    
 }
