@@ -14,7 +14,7 @@ class Mochi: NSObject, NSCoding{
         let savingMochi = MochiJson(maxHunger: self.maxHunger, maxThirst: self.maxHunger, maxCleanlyness: self.maxCleanlyness, maxHealth: self.maxHealth, maxEnergy: self.maxEnergy, maxHappiness: self.maxHappiness, hunger: self.hunger, thirst: self.thirst, cleanlyness: self.cleanlyness, health: self.health, energy: self.energy, happiness: self.happiness, ageType: self.ageType, sleeping: self.sleeping, streaming: self.streaming, ill: self.ill, pHunger: self.pHunger, pThirst: self.pThirst, pCleanlyness: self.pCleanlyness, pHappyness: self.pHappyness, pIll: self.pIll, pEnergy: self.pEnergy, pEnergyGain: self.pEnergyGain, pStreamPay: self.pStreamPay , nPoop: self.nPoop, pPoop: self.pPoop, pWake: self.pWake, pHealthHunger: self.pHealthHunger, pHealthThirst: self.pHealthThirst, pHealthIll: self.pHealthIll, euphoria: self.euphoria, birth: self.birth ?? Date.now, alive: self.alive, new : self.new)
         
         DataManager.standard.setMochi(mochi: savingMochi)
-            print("mochi saved")
+        print("mochi saved")
     }
     override init(){
         
@@ -244,9 +244,9 @@ class Mochi: NSObject, NSCoding{
     var pHealthIll = 0
     // true se l'utente sta seguendo la live
     var euphoria = false
-//    data di nascita del mochi
+    //    data di nascita del mochi
     var birth : Date?
-//    se il mochi è morto sarà false
+    //    se il mochi è morto sarà false
     var alive : Bool
     var new : Bool
     
@@ -273,7 +273,7 @@ class Mochi: NSObject, NSCoding{
         new = New
         
     }
-//    fame sete pulizia energia felicità vita
+    //    fame sete pulizia energia felicità vita
     func Stats() -> [Int]{
         var stats: [Int] = []
         stats.append(hunger)
@@ -282,7 +282,7 @@ class Mochi: NSObject, NSCoding{
         stats.append(energy)
         stats.append(happiness)
         stats.append(health)
-
+        
         return stats
         
     }
@@ -379,6 +379,6 @@ class Mochi: NSObject, NSCoding{
         }
         self.save()
     }
-
+    
     
 }

@@ -13,7 +13,7 @@ class TamagotchiMainScene : SKScene {
     
     var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic.shared
     
-    let switchpress = SKSpriteNode(imageNamed: "switch.png")
+    var switchpress = SKSpriteNode(imageNamed: "lampadina.png")
     let minigames = SKSpriteNode(imageNamed: "minigames.png")
     let background = SKSpriteNode(imageNamed: "Background.png")
     let sponge = SKSpriteNode(imageNamed: "sponge.png")
@@ -275,7 +275,7 @@ class TamagotchiMainScene : SKScene {
                 }
                 
                 else if omettoOn == true {
-                    omettofadeOut()
+                    omettofadeOut(fadetime: 0.5)
                     omettoOn = false
                 }
             }
@@ -379,6 +379,7 @@ extension TamagotchiMainScene {
     }
     
     func setBedroomBackgroundNight(){
+        switchpress.texture = SKTexture(imageNamed: "spenta.png")
         bedroom.removeAllChildren()
         label.removeChildren(in: [bedroom])
         label.addChild(bedroomNight)
@@ -387,6 +388,7 @@ extension TamagotchiMainScene {
     }
     
     func setBedroomBackgroundDay(){
+        switchpress.texture = SKTexture(imageNamed: "lampadina.png")
         bedroomNight.removeAllChildren()
         label.removeChildren(in: [bedroomNight])
         label.addChild(bedroom)
@@ -631,7 +633,7 @@ extension TamagotchiMainScene {
 //        soap5.setScale(2.0)
         soap5.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.35, y: frame.midY - UIScreen.main.bounds.height * 0.68)
         
-        //        switchpress.setScale(0.5)
+        switchpress.setScale(0.4)
         switchpress.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
         switchpress.name = "switchpress"
         
@@ -750,14 +752,14 @@ extension TamagotchiMainScene {
         removeChildren(in: [switchpress])
     }
     
-    private func omettofadeOut() {
+    private func omettofadeOut(fadetime : CGFloat) {
         
-        fadeOutAnim(elem: self.hunger, time: 0.5)
-        fadeOutAnim(elem: self.thirst, time: 0.5)
-        fadeOutAnim(elem: self.cleaning, time: 0.5)
-        fadeOutAnim(elem: self.energy, time: 0.5)
-        fadeOutAnim(elem: self.happiness, time: 0.5)
-        fadeOutAnim(elem: self.health, time: 0.5)
+        fadeOutAnim(elem: self.hunger, time: fadetime)
+        fadeOutAnim(elem: self.thirst, time: fadetime)
+        fadeOutAnim(elem: self.cleaning, time: fadetime)
+        fadeOutAnim(elem: self.energy, time: fadetime)
+        fadeOutAnim(elem: self.happiness, time: fadetime)
+        fadeOutAnim(elem: self.health, time: fadetime)
         
     }
     
@@ -787,7 +789,7 @@ extension TamagotchiMainScene {
             },
             SKAction.run {
                 [self] in
-                let move = SKAction.move(to: CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08), duration: 1.0)
+                let move = SKAction.move(to: CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08), duration: 0.8)
                 square.run(move)
             }
         ])
@@ -839,85 +841,160 @@ extension TamagotchiMainScene {
                 print("UP")
             case .left :
                 
-                
-                if activeRoom == 0 && omettoOn == false && lightswitch == false {
+                if omettoOn == false {
+                    if activeRoom == 0 && lightswitch == false {
+                        
+                        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+                        label.run(goright)
+                        
+                        showMinigames()
+                        hideDoccino()
+                        hideLightswitch()
+                        
+                        activeRoom =  1
+                        
+                        
+                    }
                     
-                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goright)
+                    else if activeRoom == 1  && omettoOn == false {
+                        
+                        toBathroomAnim()
+                        hideLightswitch()
+                        hideMinigames()
+                        showDoccino()
+                        
+                        activeRoom = 2
+                        
+                        
+                    }
                     
-                    showMinigames()
-                    hideDoccino()
-                    hideLightswitch()
-                    
-                    activeRoom =  1
+                    else if activeRoom == 2 {
+                        
+                    }
                     
                     
+                    print("LEFT, \(activeRoom)")
+                }
+                else {
+                    omettofadeOut(fadetime: 0.1)
+                    omettoOn = false
+                    if activeRoom == 0 && lightswitch == false {
+                        
+                        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+                        label.run(goright)
+                        
+                        showMinigames()
+                        hideDoccino()
+                        hideLightswitch()
+                        
+                        activeRoom =  1
+                        
+                        
+                    }
+                    
+                    else if activeRoom == 1  && omettoOn == false {
+                        
+                        toBathroomAnim()
+                        hideLightswitch()
+                        hideMinigames()
+                        showDoccino()
+                        
+                        activeRoom = 2
+                        
+                        
+                    }
+                    
+                    else if activeRoom == 2 {
+                        
+                    }
+                    
+                    
+                    print("LEFT, \(activeRoom)")
                 }
                 
-                else if activeRoom == 1  && omettoOn == false {
-                    
-                    
-                    //                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    //                    label.run(goright)
-                  
-                    
-                    
-                    toBathroomAnim()
-                    hideLightswitch()
-                    hideMinigames()
-                    showDoccino()
-                    
-                    activeRoom = 2
-                    
-                    
-                }
                 
-                else if activeRoom == 2 {
-                    
-                }
-                
-                
-                print("LEFT, \(activeRoom)")
             case .down :
                 print("DOWN")
             case .right :
                 
-                
-                
-                if activeRoom == 0 {
-                    showLightswitch()
-                    hideMinigames()
-                    hideDoccino()
+                if omettoOn == false {
+                    
+                    if activeRoom == 0 {
+                        showLightswitch()
+                        hideMinigames()
+                        hideDoccino()
+                    }
+                    
+                    else if activeRoom == 1  && omettoOn == false {
+                        
+                        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+                        label.run(goleft)
+                        
+                        showLightswitch()
+                        hideDoccino()
+                        hideMinigames()
+                        
+                        activeRoom = 0
+                    }
+                    
+                    else if activeRoom == 2  && omettoOn == false{
+                        
+                        //                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+                        //                    label.run(goleft)
+                        
+                        
+                        fromBathroomAnim()
+                        showMinigames()
+                        hideDoccino()
+                        hideLightswitch()
+                        
+                        activeRoom = 1
+                        
+                    }
+                    
+                    print("RIGHT, \(activeRoom)")
+                    
+                }
+                else {
+                    omettofadeOut(fadetime: 0.1)
+                    omettoOn = false
+                    if activeRoom == 0 {
+                        showLightswitch()
+                        hideMinigames()
+                        hideDoccino()
+                    }
+                    
+                    else if activeRoom == 1  && omettoOn == false {
+                        
+                        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+                        label.run(goleft)
+                        
+                        showLightswitch()
+                        hideDoccino()
+                        hideMinigames()
+                        
+                        activeRoom = 0
+                    }
+                    
+                    else if activeRoom == 2  && omettoOn == false{
+                        
+                        //                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+                        //                    label.run(goleft)
+                        
+                        
+                        fromBathroomAnim()
+                        showMinigames()
+                        hideDoccino()
+                        hideLightswitch()
+                        
+                        activeRoom = 1
+                        
+                    }
+                    
+                    print("RIGHT, \(activeRoom)")
+                    
                 }
                 
-                else if activeRoom == 1  && omettoOn == false {
-                    
-                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goleft)
-                    
-                    showLightswitch()
-                    hideDoccino()
-                    hideMinigames()
-                    
-                    activeRoom = 0
-                }
-                
-                else if activeRoom == 2  && omettoOn == false{
-                    
-                    //                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    //                    label.run(goleft)
-                    
-                    
-                    fromBathroomAnim()
-                    showMinigames()
-                    hideDoccino()
-                    hideLightswitch()
-                    
-                    activeRoom = 1
-                    
-                }
-                
-                print("RIGHT, \(activeRoom)")
                 
                 
                 
@@ -928,46 +1005,3 @@ extension TamagotchiMainScene {
         
     }
 }
-
-
-
-//if activeRoom == 0 && lightswitch == false {
-//
-//    if omettoOn == false {
-//    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-//    label.run(goright)
-//
-//    showMinigames()
-//    hideDoccino()
-//    hideLightswitch()
-//
-//    activeRoom =  1
-//    } else if omettoOn == true {
-//
-//        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-//        label.run(goright)
-//
-//        showMinigames()
-//        hideDoccino()
-//        hideLightswitch()
-//
-//        activeRoom =  1
-//    }
-//
-//
-//
-//} else if activeRoom == 0 && lightswitch == true {
-//
-//
-//
-//        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-//        label.run(goright)
-//
-//        showMinigames()
-//        hideDoccino()
-//        hideLightswitch()
-//
-//        activeRoom =  1
-//
-//
-//}

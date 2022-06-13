@@ -146,7 +146,7 @@ class TwitchService {
             
             req.headers[.custom("client-id")] = "\(client_id)"
             
-            req.addQueryParameter(name: "broadcaster_id", value: "136011430")
+            req.addQueryParameter(name: "broadcaster_id", value: "29750090")
             
             req.addQueryParameter(name: "user_id", value: user_id)
             
