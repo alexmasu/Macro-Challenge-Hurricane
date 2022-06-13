@@ -272,9 +272,9 @@ class TamagotchiMainScene : SKScene {
             //
             //            }
             
+            // Far lavare l'ometto.
             
-            if (node.name == "ometto") {
-                
+            if (node.name == "ometto") && activeRoom != 2 {
                 if omettoOn == false {
                     spawnStatsButtons()
                     omettoOn = true
@@ -286,9 +286,8 @@ class TamagotchiMainScene : SKScene {
                 }
             }
             
-            // Far lavare l'ometto.
-            
-            if (node.name == "sponge") {
+            else if (node.name == "ometto") && activeRoom == 2 {
+                
                 bathroom.removeChildren(in: [water1,water2,water3,water4,water5])
                 spawnSoap()
             }
@@ -759,7 +758,7 @@ extension TamagotchiMainScene {
     
     func toBathroomAnim() {
         let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-
+        
         let azioni = SKAction.group([
             SKAction.run {
                 [self] in
