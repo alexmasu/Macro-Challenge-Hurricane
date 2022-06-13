@@ -36,3 +36,18 @@
 "syringe" = "siringa";
 "Cures diseases. It doesn't hurt, it doesn't hurt..." = "Cura le malattie. non fa male, non fa male...";
 
+
+// Inventory Scene
+"Inventory" = "Inventario";
+
+// Shop Scene
+"Shop" = "Negozio";
+
+// Customization Scene
+"Customization" = "Personalizzazione";
+
+"Coming Soon..." = "In arrivo...";
+
+"Done" = "Fatto";
+
+"Mini Games" = "Mini Giochi";

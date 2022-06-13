@@ -354,6 +354,14 @@ class TamagotchiMainScene : SKScene {
                 
             }
             
+            if (node.name == "minigames") {
+                let minigamesScene = MinigamesScene()
+                minigamesScene.size = (view?.frame.size)!
+                let transition = SKTransition.fade(withDuration: 0.5)
+                self.view?.presentScene(minigamesScene, transition: transition)
+            }
+            
+            
         }
         
         self.curr = nil
