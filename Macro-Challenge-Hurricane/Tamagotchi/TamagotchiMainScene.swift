@@ -498,30 +498,35 @@ extension TamagotchiMainScene {
         
         else if soapApplied == 1 {
             soapApplied+=1
+            soap1.setScale(0.5)
             bathroom.addChild(soap1)
             print("2")
         }
         
         else if soapApplied == 2 {
             soapApplied+=1
+            soap2.setScale(0.5)
             bathroom.addChild(soap2)
             print("3")
         }
         
         else if soapApplied == 3 {
             soapApplied+=1
+            soap3.setScale(0.5)
             bathroom.addChild(soap3)
             print("4")
         }
         
         else if soapApplied == 4 {
             soapApplied+=1
+            soap4.setScale(0.5)
             bathroom.addChild(soap4)
             print("5")
             
         }
         else if soapApplied == 5 {
             soapApplied+=1
+            soap5.setScale(0.5)
             bathroom.addChild(soap5)
             print("6")
             
@@ -535,24 +540,29 @@ extension TamagotchiMainScene {
     func removeSoap() {
         
         if soapApplied == 2 {
+            
             bathroom.addChild(water1)
             bathroom.removeChildren(in: [soap1])
             //            soapApplied = 0
         } else if soapApplied == 3 {
             bathroom.addChild(water2)
             bathroom.removeChildren(in: [soap1, soap2])
+            
             //            soapApplied = 0
         } else if soapApplied == 4 {
             bathroom.addChild(water3)
             bathroom.removeChildren(in: [soap1,soap2,soap3])
+            
             //            soapApplied = 0
         } else if soapApplied == 5 {
             bathroom.addChild(water4)
             bathroom.removeChildren(in: [soap1,soap2,soap3,soap4])
+            
             //            soapApplied = 0
         } else if soapApplied == 6 {
             bathroom.addChild(water5)
             bathroom.removeChildren(in:[soap1,soap2,soap3,soap4,soap5])
+            
             //            soapApplied = 0
         }
         else {
@@ -591,24 +601,29 @@ extension TamagotchiMainScene {
         bathroom.addChild(bath)
         
         soap1.name = "soap1"
-        soap1.setScale(2.0)
-        soap1.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.05 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
+//        soap1.setScale(2.0)
+        soap1.zPosition = 100000.0
+        soap1.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 1.1, y: frame.midY - UIScreen.main.bounds.height * 0.75)
         
         soap2.name = "soap2"
-        soap2.setScale(2.0)
-        soap2.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.1 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
+        soap2.zPosition = 1000000.0
+//        soap2.setScale(2.0)
+        soap2.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.9, y: frame.midY - UIScreen.main.bounds.height * 0.55)
         
         soap3.name = "soap3"
-        soap3.setScale(2.0)
-        soap3.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
+        soap3.zPosition = 1000000.0
+//        soap3.setScale(2.0)
+        soap3.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.7, y: frame.midY - UIScreen.main.bounds.height * 0.62)
         
         soap4.name = "soap4"
-        soap4.setScale(2.0)
-        soap4.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.2 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
+        soap4.zPosition = 1000000.0
+//        soap4.setScale(2.0)
+        soap4.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.5, y: frame.midY - UIScreen.main.bounds.height * 0.55)
         
         soap5.name = "soap5"
-        soap5.setScale(2.0)
-        soap5.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.25 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
+        soap5.zPosition = 100000.0
+//        soap5.setScale(2.0)
+        soap5.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.3, y: frame.midY - UIScreen.main.bounds.height * 0.68)
         
         //        switchpress.setScale(0.5)
         switchpress.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
