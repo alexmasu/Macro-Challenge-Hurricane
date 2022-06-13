@@ -65,19 +65,19 @@ class TamagotchiMainScene : SKScene {
     
     var wasInitialized: Bool = false
     
-//    override init(size: CGSize) {
-//        super.init(size: size)
-//
-//        let doccino = SKSpriteNode(imageNamed: "Doccino")
-//        doccino.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
-//        doccino.name = "doccino"; // set the name for your sprite
-//        doccino.isUserInteractionEnabled = false; // userInteractionEnabled should be disabled
-//        bathroom.addChild(doccino)
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    //    override init(size: CGSize) {
+    //        super.init(size: size)
+    //
+    //        let doccino = SKSpriteNode(imageNamed: "Doccino")
+    //        doccino.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
+    //        doccino.name = "doccino"; // set the name for your sprite
+    //        doccino.isUserInteractionEnabled = false; // userInteractionEnabled should be disabled
+    //        bathroom.addChild(doccino)
+    //    }
+    //
+    //    required init?(coder aDecoder: NSCoder) {
+    //        fatalError("init(coder:) has not been implemented")
+    //    }
     
     
     override func didMove(to view: SKView) {
@@ -272,9 +272,9 @@ class TamagotchiMainScene : SKScene {
             //
             //            }
             
+            // Far lavare l'ometto.
             
-            if (node.name == "ometto") {
-                
+            if (node.name == "ometto") && activeRoom != 2 {
                 if omettoOn == false {
                     spawnStatsButtons()
                     omettoOn = true
@@ -286,16 +286,15 @@ class TamagotchiMainScene : SKScene {
                 }
             }
             
-// Far lavare l'ometto.
-
-            if (node.name == "sponge") {
+            else if (node.name == "ometto") && activeRoom == 2 {
+                
                 bathroom.removeChildren(in: [water1,water2,water3,water4,water5])
-                    spawnSoap()
+                spawnSoap()
             }
-
-                if (node.name == "doccino") {
-                        removeSoap()
-                        soapApplied = 1
+            
+            if (node.name == "doccino") {
+                removeSoap()
+                soapApplied = 1
             }
             
             if (node.name == "twitch") {
@@ -304,8 +303,8 @@ class TamagotchiMainScene : SKScene {
             
             if node.name == "switchpress" {
                 if lightswitch == false {
-                setBedroomBackgroundNight()
-                lightswitch = true
+                    setBedroomBackgroundNight()
+                    lightswitch = true
                 } else if lightswitch == true {
                     setBedroomBackgroundDay()
                     lightswitch = false
@@ -420,7 +419,7 @@ extension TamagotchiMainScene {
         inventory.name = "inventory"
         addChild(inventory)
         
-//        let minigames = SKSpriteNode(imageNamed: "minigames.png")
+        //        let minigames = SKSpriteNode(imageNamed: "minigames.png")
         minigames.setScale(0.5)
         minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
         minigames.name = "minigames"
@@ -439,23 +438,23 @@ extension TamagotchiMainScene {
         hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4 )
         hunger.name = "hunger"
         hunger.alpha = 0.0
-
+        
         thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
         thirst.name = "thirst"
         thirst.alpha = 0.0
-
+        
         cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         cleaning.name = "cleanliness"
         cleaning.alpha = 0.0
-
+        
         energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.09, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         energy.name = "energy"
         energy.alpha = 0.0
-
+        
         happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.24, y: square.position.y + UIScreen.main.bounds.height * 0.49)
         happiness.name = "happiness"
         happiness.alpha = 0.0
-
+        
         health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.4)
         health.name = "health"
         health.alpha = 0.0
@@ -491,70 +490,80 @@ extension TamagotchiMainScene {
     }
     
     func spawnSoap() {
-
-            if soapApplied == 0 {
-                soapApplied+=1
-                print("1")
-            }
-
-            else if soapApplied == 1 {
-                soapApplied+=1
-                bathroom.addChild(soap1)
-                print("2")
-            }
-
-            else if soapApplied == 2 {
-                soapApplied+=1
-                bathroom.addChild(soap2)
-                print("3")
-            }
-
-            else if soapApplied == 3 {
-                soapApplied+=1
-                bathroom.addChild(soap3)
-                print("4")
-            }
-
-            else if soapApplied == 4 {
-                soapApplied+=1
-                bathroom.addChild(soap4)
-                print("5")
-                
-            }
-            else if soapApplied == 5 {
+        
+        if soapApplied == 0 {
             soapApplied+=1
+            print("1")
+        }
+        
+        else if soapApplied == 1 {
+            soapApplied+=1
+            soap1.setScale(0.5)
+            bathroom.addChild(soap1)
+            print("2")
+        }
+        
+        else if soapApplied == 2 {
+            soapApplied+=1
+            soap2.setScale(0.5)
+            bathroom.addChild(soap2)
+            print("3")
+        }
+        
+        else if soapApplied == 3 {
+            soapApplied+=1
+            soap3.setScale(0.5)
+            bathroom.addChild(soap3)
+            print("4")
+        }
+        
+        else if soapApplied == 4 {
+            soapApplied+=1
+            soap4.setScale(0.5)
+            bathroom.addChild(soap4)
+            print("5")
+            
+        }
+        else if soapApplied == 5 {
+            soapApplied+=1
+            soap5.setScale(0.5)
             bathroom.addChild(soap5)
             print("6")
             
-            }
+        }
         
         else if soapApplied > 6 {
-                print("bolleeeee")
-            }
+            print("bolleeeee")
         }
+    }
     
     func removeSoap() {
         
         if soapApplied == 2 {
+            
             bathroom.addChild(water1)
             bathroom.removeChildren(in: [soap1])
-//            soapApplied = 0
+            //            soapApplied = 0
         } else if soapApplied == 3 {
             bathroom.addChild(water2)
             bathroom.removeChildren(in: [soap1, soap2])
-//            soapApplied = 0
+            
+            //            soapApplied = 0
         } else if soapApplied == 4 {
             bathroom.addChild(water3)
             bathroom.removeChildren(in: [soap1,soap2,soap3])
-//            soapApplied = 0
+            
+            //            soapApplied = 0
         } else if soapApplied == 5 {
             bathroom.addChild(water4)
             bathroom.removeChildren(in: [soap1,soap2,soap3,soap4])
-//            soapApplied = 0
+            
+            //            soapApplied = 0
         } else if soapApplied == 6 {
             bathroom.addChild(water5)
             bathroom.removeChildren(in:[soap1,soap2,soap3,soap4,soap5])
-//            soapApplied = 0
+            
+            //            soapApplied = 0
         }
         else {
             print("no soap left to clear")
@@ -592,63 +601,68 @@ extension TamagotchiMainScene {
         bathroom.addChild(bath)
         
         soap1.name = "soap1"
-        soap1.setScale(2.0)
-        soap1.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.05 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
-
-        soap2.name = "soap2"
-        soap2.setScale(2.0)
-        soap2.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.1 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
-
-        soap3.name = "soap3"
-        soap3.setScale(2.0)
-        soap3.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
-
-        soap4.name = "soap4"
-        soap4.setScale(2.0)
-        soap4.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.2 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
-
-        soap5.name = "soap5"
-        soap5.setScale(2.0)
-        soap5.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.25 , y: frame.minY + UIScreen.main.bounds.height * 0.1)
+//        soap1.setScale(2.0)
+        soap1.zPosition = 100000.0
+        soap1.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 1.1, y: frame.midY - UIScreen.main.bounds.height * 0.75)
         
-//        switchpress.setScale(0.5)
+        soap2.name = "soap2"
+        soap2.zPosition = 1000000.0
+//        soap2.setScale(2.0)
+        soap2.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.9, y: frame.midY - UIScreen.main.bounds.height * 0.55)
+        
+        soap3.name = "soap3"
+        soap3.zPosition = 1000000.0
+//        soap3.setScale(2.0)
+        soap3.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.7, y: frame.midY - UIScreen.main.bounds.height * 0.62)
+        
+        soap4.name = "soap4"
+        soap4.zPosition = 1000000.0
+//        soap4.setScale(2.0)
+        soap4.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.5, y: frame.midY - UIScreen.main.bounds.height * 0.55)
+        
+        soap5.name = "soap5"
+        soap5.zPosition = 100000.0
+//        soap5.setScale(2.0)
+        soap5.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.3, y: frame.midY - UIScreen.main.bounds.height * 0.68)
+        
+        //        switchpress.setScale(0.5)
         switchpress.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
         switchpress.name = "switchpress"
         
         doccino.name = "doccino"
         doccino.setScale(0.5)
         doccino.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
-//        bathroom.addChild(doccino)
+        //        bathroom.addChild(doccino)
         
         water1.name = "water1"
         water1.setScale(2)
         water1.zPosition = 10000.0
         water1.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.45 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
-
+        
         
         water2.name = "water2"
         water2.setScale(2)
         water2.zPosition = 10000.0
         water2.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.35 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
-
+        
         
         water3.name = "water3"
         water3.setScale(2)
         water3.zPosition = 10000.0
         water3.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.25 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
-
+        
         
         water4.name = "water4"
         water4.setScale(2)
         water4.zPosition = 10000.0
         water4.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.15 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
-
+        
         
         water5.name = "water5"
         water5.setScale(2)
         water5.zPosition = 10000.0
         water5.position = CGPoint(x: frame.minX - UIScreen.main.bounds.width * 0.05 , y: frame.minY - UIScreen.main.bounds.height * 0.1)
-
+        
         light.setScale(0.8)
         light.position = CGPoint(x: frame.midX + UIScreen.main.bounds.width * 0.35,y: frame.midY - UIScreen.main.bounds.height * 0.3)
         light.name = "light"
@@ -662,14 +676,14 @@ extension TamagotchiMainScene {
     
     func spawnOmetto() {
         square.setScale(0.8)
-//        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
-        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
+        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+        //        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
         square.name = "ometto"
-//        square.physicsBody = SKPhysicsBody(circleOfRadius: square.size.width / 3)
-//        square.physicsBody?.restitution = 0.4
-//        let yRange = SKRange(lowerLimit: frame.midY - UIScreen.main.bounds.height * 0.21, upperLimit: frame.midY - UIScreen.main.bounds.height * 0.25)
-//        let yConstraint = SKConstraint.positionY(yRange)
-//        self.square.constraints = [yConstraint]
+        //        square.physicsBody = SKPhysicsBody(circleOfRadius: square.size.width / 3)
+        //        square.physicsBody?.restitution = 0.4
+        //        let yRange = SKRange(lowerLimit: frame.midY - UIScreen.main.bounds.height * 0.21, upperLimit: frame.midY - UIScreen.main.bounds.height * 0.25)
+        //        let yConstraint = SKConstraint.positionY(yRange)
+        //        self.square.constraints = [yConstraint]
         addChild(square)
     }
     
@@ -705,7 +719,7 @@ extension TamagotchiMainScene {
     }
     
     func showDoccino() {
-            addChild(doccino)
+        addChild(doccino)
     }
     
     func showMinigames() {
@@ -758,8 +772,41 @@ extension TamagotchiMainScene {
     }
     
     func toBathroomAnim() {
+        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
         
+        let azioni = SKAction.group([
+            SKAction.run {
+                [self] in
+                label.run(goright)
+            },
+            SKAction.run {
+                [self] in
+                let move = SKAction.move(to: CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08), duration: 1.0)
+                square.run(move)
+            }
+        ])
+        
+        self.run(azioni)
     }
+    
+    func fromBathroomAnim() {
+        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+        
+        let azioni1 = SKAction.group([
+            SKAction.run {
+                [self] in
+                label.run(goleft)
+            },
+            SKAction.run {
+                [self] in
+                let move = SKAction.move(to: CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21), duration: 0.6)
+                square.run(move)
+            }
+        ])
+        
+        self.run(azioni1)
+    }
+    
     
 }
 
@@ -795,21 +842,21 @@ extension TamagotchiMainScene {
                     showMinigames()
                     hideDoccino()
                     hideLightswitch()
-
+                    
                     activeRoom =  1
                     
-                    
-                } else if activeRoom == 0 && lightswitch == true {
                     
                 }
                 
                 else if activeRoom == 1  && omettoOn == false {
                     
                     
+                    //                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+                    //                    label.run(goright)
+                  
                     
-                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goright)
                     
+                    toBathroomAnim()
                     hideLightswitch()
                     hideMinigames()
                     showDoccino()
@@ -829,6 +876,8 @@ extension TamagotchiMainScene {
                 print("DOWN")
             case .right :
                 
+                
+                
                 if activeRoom == 0 {
                     showLightswitch()
                     hideMinigames()
@@ -836,7 +885,6 @@ extension TamagotchiMainScene {
                 }
                 
                 else if activeRoom == 1  && omettoOn == false {
-            
                     
                     let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
                     label.run(goleft)
@@ -849,20 +897,24 @@ extension TamagotchiMainScene {
                 }
                 
                 else if activeRoom == 2  && omettoOn == false{
-                                        
-                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goleft)
                     
+                    //                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+                    //                    label.run(goleft)
+                    
+                    
+                    fromBathroomAnim()
                     showMinigames()
                     hideDoccino()
                     hideLightswitch()
                     
                     activeRoom = 1
+                    
                 }
                 
-                
-                
                 print("RIGHT, \(activeRoom)")
+                
+                
+                
             default :
                 print("NOPE")
             }
@@ -870,3 +922,46 @@ extension TamagotchiMainScene {
         
     }
 }
+
+
+
+//if activeRoom == 0 && lightswitch == false {
+//
+//    if omettoOn == false {
+//    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+//    label.run(goright)
+//
+//    showMinigames()
+//    hideDoccino()
+//    hideLightswitch()
+//
+//    activeRoom =  1
+//    } else if omettoOn == true {
+//
+//        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+//        label.run(goright)
+//
+//        showMinigames()
+//        hideDoccino()
+//        hideLightswitch()
+//
+//        activeRoom =  1
+//    }
+//
+//
+//
+//} else if activeRoom == 0 && lightswitch == true {
+//
+//
+//
+//        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+//        label.run(goright)
+//
+//        showMinigames()
+//        hideDoccino()
+//        hideLightswitch()
+//
+//        activeRoom =  1
+//
+//
+//}
