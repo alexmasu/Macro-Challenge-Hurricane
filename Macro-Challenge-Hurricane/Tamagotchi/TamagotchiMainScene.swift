@@ -662,8 +662,8 @@ extension TamagotchiMainScene {
     
     func spawnOmetto() {
         square.setScale(0.8)
-//        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
-        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
+        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+//        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
         square.name = "ometto"
 //        square.physicsBody = SKPhysicsBody(circleOfRadius: square.size.width / 3)
 //        square.physicsBody?.restitution = 0.4
@@ -758,8 +758,41 @@ extension TamagotchiMainScene {
     }
     
     func toBathroomAnim() {
+        let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+
+        let azioni = SKAction.group([
+            SKAction.run {
+                [self] in
+                label.run(goright)
+            },
+            SKAction.run {
+                [self] in
+                let move = SKAction.move(to: CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08), duration: 1.0)
+                square.run(move)
+            }
+        ])
         
+        self.run(azioni)
     }
+    
+    func fromBathroomAnim() {
+        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+        
+        let azioni1 = SKAction.group([
+            SKAction.run {
+                [self] in
+                label.run(goleft)
+            },
+            SKAction.run {
+                [self] in
+                let move = SKAction.move(to: CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21), duration: 0.6)
+                square.run(move)
+            }
+        ])
+        
+        self.run(azioni1)
+    }
+
     
 }
 
@@ -807,9 +840,10 @@ extension TamagotchiMainScene {
                     
                     
                     
-                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goright)
+//                    let goright = SKAction.move(by: CGVector(dx: (-background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                    label.run(goright)
                     
+                    toBathroomAnim()
                     hideLightswitch()
                     hideMinigames()
                     showDoccino()
@@ -850,9 +884,10 @@ extension TamagotchiMainScene {
                 
                 else if activeRoom == 2  && omettoOn == false{
                                         
-                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                    label.run(goleft)
+//                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                    label.run(goleft)
                     
+                    fromBathroomAnim()
                     showMinigames()
                     hideDoccino()
                     hideLightswitch()
