@@ -19,6 +19,7 @@
 		7F70294D285330EA00EB4C29 /* StreamMochiGameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70294C285330EA00EB4C29 /* StreamMochiGameLogic.swift */; };
 		7F70294F28548DB800EB4C29 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70294E28548DB800EB4C29 /* Constants.swift */; };
 		7F70295128548FB100EB4C29 /* TwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70295028548FB100EB4C29 /* TwitchView.swift */; };
+		7F70295528572B9600EB4C29 /* Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70295428572B9600EB4C29 /* Broadcaster.swift */; };
 		7FDAF9CE2850920F004276E0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9CD2850920F004276E0 /* DataManager.swift */; };
 		7FDAF9D02850923D004276E0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9CF2850923D004276E0 /* Storage.swift */; };
 		7FDAF9D228509286004276E0 /* TwitchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9D128509286004276E0 /* TwitchService.swift */; };
@@ -81,6 +82,7 @@
 		7F70294C285330EA00EB4C29 /* StreamMochiGameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamMochiGameLogic.swift; sourceTree = "<group>"; };
 		7F70294E28548DB800EB4C29 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F70295028548FB100EB4C29 /* TwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchView.swift; sourceTree = "<group>"; };
+		7F70295428572B9600EB4C29 /* Broadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcaster.swift; sourceTree = "<group>"; };
 		7FDAF9CD2850920F004276E0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7FDAF9CF2850923D004276E0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		7FDAF9D128509286004276E0 /* TwitchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchService.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				7FDAF9F328509727004276E0 /* Customizable.swift */,
 				7FDAF9F528509CE8004276E0 /* Token.swift */,
 				7FDAF9F728509D00004276E0 /* User.swift */,
+				7F70295428572B9600EB4C29 /* Broadcaster.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				7FDAF9F2285096F7004276E0 /* Consumable.swift in Sources */,
 				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
 				7FDAF9D228509286004276E0 /* TwitchService.swift in Sources */,
+				7F70295528572B9600EB4C29 /* Broadcaster.swift in Sources */,
 				7FDAF9D02850923D004276E0 /* Storage.swift in Sources */,
 				7FDAF9D82850937C004276E0 /* Channel.swift in Sources */,
 				968566E12844DDA8000D06BA /* InventoryScene.swift in Sources */,

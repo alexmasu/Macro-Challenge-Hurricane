@@ -125,4 +125,38 @@ class TwitchService {
     }
     
     
+    
+    /*
+     https://dev.twitch.tv/docs/api/reference#check-user-subscription
+     
+     Checks if a specific user (user_id) is subscribed to a specific channel (broadcaster_id).
+     
+     */
+    func checkUserSubscription(token: String,client_id: String,user_id: String) async {
+        do {
+            
+            let req = HTTPRequest {
+                // Setup default params
+                $0.url = URL(string: "https://api.twitch.tv/helix/subscriptions/user")!
+                $0.method = .get
+                $0.timeout = 15
+            }
+            
+            req.headers[.authorization] = "Bearer \(token)"
+            
+            req.headers[.custom("client-id")] = "\(client_id)"
+            
+            req.addQueryParameter(name: "broadcaster_id", value: "136011430")
+            
+            req.addQueryParameter(name: "user_id", value: user_id)
+            
+            let response = try await req.fetch(Broadcaster.self)
+            
+        } catch  {
+            print("\(user_id) has no subscriptions to 136011430")
+            print(error.localizedDescription)
+        }
+    }
+    
+    
 }
