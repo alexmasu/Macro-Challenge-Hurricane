@@ -10,24 +10,49 @@ import Foundation
 import SpriteKit
 
 class InventoryScene : SKScene {
-
-
+    
+    
     let contentNode = SKNode()
     let contentNodeBackButton = SKNode()
     let blurNode = SKShapeNode()
     let effectNode = SKEffectNode()
-
-
-//    var wasInitialized: Bool = false
-
+    
+    
+    let hamburger = SKSpriteNode(imageNamed: "Hamburger.png")
+    
+    var settingContainer = SKShapeNode()
+    var nodes = [SKNode()]
+    var label = SKSpriteNode()
+    var startstream = false
+    var checkSwipe = false
+    var lightswitch = false
+    var mute = false
+    var settingsOn = false
+    var omettoOn = false
+    var leftedge = false
+    var rightedge = false
+    var soapApplied : Int = 0
+    var activeRoom = 1
+    private var curr : SKNode?
+    private var swipeStart : CGPoint?
+    private var swipeEnd : CGPoint?
+    
+    
+    
+    //    var wasInitialized: Bool = false
+    
     override func didMove(to view: SKView) {
-                setupInventoryScene()
+        setupInventoryScene()
+        hamburger.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+        hamburger.setScale(0.1)
+        hamburger.name = "hamburger"
+        addChild(hamburger)
     }
-
+    
     override func update(_ currentTime: TimeInterval) {
-
+        
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
@@ -35,32 +60,54 @@ class InventoryScene : SKScene {
             for node in touchedNodes {
                 
                 if node.name == "backbutton" {
-                    let tamagotchiMainScene = TamagotchiMainScene(size: (view?.frame.size)!)
-//                    tamagotchiMainScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 0.5)
-                    self.view?.presentScene(tamagotchiMainScene, transition: transition)
+                    self.curr = node
+                }
+                
+                if node.name == "hamburger" {
+                    self.curr = node
                 }
                 
             }
         }
     }
-
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-
-
-                if let touch = touches.first {
-                    let location = touch.location(in: self)
-                }
+        
+        if let touch = touches.first, let node = self.curr {
+            let location = touch.location(in: self)
+            
+            if node.name == "backbutton" {
+                
+                let tamagotchiMainScene = TamagotchiMainScene(size: (view?.frame.size)!)
+                //                    tamagotchiMainScene.size = (view?.frame.size)!
+                let transition = SKTransition.fade(withDuration: 0.5)
+                self.view?.presentScene(tamagotchiMainScene, transition: transition)
+            }
+            
+            if node.name == "hamburger" {
+                
+                print(Macro_Challenge_HurricaneApp.mochi.hunger)
+                
+                Macro_Challenge_HurricaneApp.mochi.maxHunger = 100
+                
+                Macro_Challenge_HurricaneApp.inventory.consume(mochi: Macro_Challenge_HurricaneApp.mochi, selected: 0)
+                
+                print(Macro_Challenge_HurricaneApp.mochi.hunger)
+            }
+            
+        }
+        
+        self.curr = nil
+        
     }
-
-
+    
+    
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        
     }
-
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        
     }
 }
 
@@ -69,7 +116,7 @@ class InventoryScene : SKScene {
 extension InventoryScene {
     
     func BlurEffect(){
-
+        
         let filter = CIFilter(name: "CIGaussianBlur")
         // Set the blur amount. Adjust this to achieve the desired effect
         let blurAmount = 70.0
@@ -81,7 +128,7 @@ extension InventoryScene {
         effectNode.blendMode = .alpha
         effectNode.addChild(sprite)
         self.addChild(effectNode)
-
+        
     }
     
     
@@ -93,12 +140,12 @@ extension InventoryScene {
         leftCornerSymbol.name = "backbutton"
         addChild(leftCornerSymbol)
     }
-
+    
     func InventoryTitle() {
         let myLabel = SKLabelNode(fontNamed: "Mabook")
         myLabel.text = "Inventory"
         myLabel.fontSize = 30
-//        myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.09)
+        //        myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.09)
         myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.165)
         self.addChild(myLabel)
     }
@@ -151,22 +198,22 @@ extension InventoryScene {
         
         let happyBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: happyIcon.position.x - (happyIcon.size.width)/(2 * 1.30), y: happyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
         self.addChild(happyBar)
-
-
-
+        
+        
+        
         
     }
-
+    
     func setupInventoryScene() {
-
+        
         BlurEffect()
         BackButton()
         InventoryTitle()
         stats()
-
-//        self.wasInitialized = true
-
+        
+        //        self.wasInitialized = true
+        
     }
-
-
+    
+    
 }

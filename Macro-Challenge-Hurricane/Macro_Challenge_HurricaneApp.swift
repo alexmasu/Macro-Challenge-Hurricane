@@ -14,14 +14,21 @@ import BackgroundTasks
 @main
 struct Macro_Challenge_HurricaneApp: App {
     
+    static var mochi: Mochi = Mochi()
+    static var timemanager = TimeManager()
+    static var inventory = Inventory()
+    static var currencies = Currencies()
+    static var customInventory = CustomInventory()
+    static var streamInventory = StreamingInventory()
+    
     init() {
-        var timemanager = TimeManager()
-        var mochi = Mochi()
-        print("\(mochi.energy)")
-        var inventory = Inventory()
-        var currencies = Currencies()
-        var customInventory = CustomInventory()
-        var streamInventory = StreamingInventory()
+//        var timemanager = TimeManager()
+//        var mochi = Mochi()
+//        print("\(mochi.energy)")
+//        var inventory = Inventory()
+//        var currencies = Currencies()
+//        var customInventory = CustomInventory()
+//        var streamInventory = StreamingInventory()
         
 //        let today = Date()
 //        print(today)
@@ -44,16 +51,16 @@ struct Macro_Challenge_HurricaneApp: App {
 //        var customInventory = CustomInventory()
 //        var streamInventory = StreamingInventory()
         
-        if mochi.new == false{
-            timemanager.AfterOffline(mochi: mochi, currencies: currencies, streamingInventory: streamInventory)
-        }
-        mochi.new = false
-        
-        
-        mochi.save()
-        currencies.save()
-        timemanager.save()
-        timemanager.lastSave = Date.now
+//        if mochi.new == false{
+//            timemanager.AfterOffline(mochi: mochi, currencies: currencies, streamingInventory: streamInventory)
+//        }
+//        mochi.new = false
+//        
+//        
+//        mochi.save()
+//        currencies.save()
+//        timemanager.save()
+//        timemanager.lastSave = Date.now
         
     }
     

@@ -12,6 +12,8 @@ import SpriteKit
 
 struct InventorySceneView: View {
     
+    @StateObject var mochi: Mochi = Mochi()
+    
     var scene : SKScene {
         let scene = InventoryScene()
         scene.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -24,5 +26,6 @@ struct InventorySceneView: View {
             .frame(width: UIScreen.main
                 .bounds.width, height: UIScreen.main.bounds.height)
             .ignoresSafeArea()
+            .environmentObject(mochi)
     }
 }

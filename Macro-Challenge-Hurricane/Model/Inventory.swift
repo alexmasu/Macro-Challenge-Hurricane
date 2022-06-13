@@ -23,7 +23,7 @@ class Inventory : NSObject, NSCoding{
             new = false
         }
         else {
-            i = []
+            i = [1,0,0,0,0,0,0,0,0,0]
             new = false
         }
         
