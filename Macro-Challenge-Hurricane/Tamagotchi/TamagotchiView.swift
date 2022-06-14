@@ -12,8 +12,7 @@ import SpriteKit
 
 struct TamagotchiView: View {
     
-    @StateObject var gameLogic: StreamMochiGameLogic =  StreamMochiGameLogic.shared
-    @State var showTwitch  = false
+    @ObservedObject var gameLogic: StreamMochiGameLogic =  StreamMochiGameLogic.shared
     
     // The game state is used to transition between the different states of the game
     @Binding var currentGameState: GameState
@@ -32,19 +31,10 @@ struct TamagotchiView: View {
                         .bounds.width, height: UIScreen.main.bounds.height)
                     .ignoresSafeArea()
             }
-            .sheet(isPresented: $showTwitch) {
-                SheetView(showTwitch: self.$showTwitch, currentGameState: $currentGameState)
-//                TwitchView(currentGameState: $currentGameState)
+            .sheet(isPresented: $gameLogic.temp_bool) {
+                SheetView(currentGameState: $currentGameState)
             }
-        .onChange(of: gameLogic.temp_bool) { _ in
-            if gameLogic.temp_bool {
-                
-                //                withAnimation() {
-                showTwitch = true
-                //                     self.presentTwitchScreen()
-                //                }
-            }
-        }
+
     }
     
     private func presentTwitchScreen() {
@@ -53,15 +43,9 @@ struct TamagotchiView: View {
 }
 
 
-//struct TamagotchiView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TamagotchiView()
-//    }
-//}
 
 
 struct SheetView: View {
-    @Binding var showTwitch : Bool
     @Binding var currentGameState: GameState
     @StateObject var gameLogic: StreamMochiGameLogic =  StreamMochiGameLogic.shared
 
@@ -72,8 +56,8 @@ struct SheetView: View {
                 .navigationTitle(Text(""))
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(trailing: Button(action: {
-                    self.showTwitch = false
-                    gameLogic.temp_bool = false
+                    print("ciao")
+                    gameLogic.temp_bool.toggle()
                 }){
                     Text("Done".localized())
                         .bold()
