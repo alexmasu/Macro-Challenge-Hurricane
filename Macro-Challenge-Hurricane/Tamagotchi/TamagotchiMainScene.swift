@@ -49,20 +49,20 @@ class TamagotchiMainScene : SKScene {
 //    let poop = SKSpriteNode(imageNamed: "poop.png")
     
     var poopPositions: [CGPoint] = [
-        CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.5),
-        CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.4),
-        CGPoint(x: UIScreen.main.bounds.midX*0.24, y: UIScreen.main.bounds.midY*0.4),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.24, y: UIScreen.main.bounds.maxY*0.18),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.2),
         CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.49),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.8, y: UIScreen.main.bounds.maxY*0.2),
         CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.2)
     ]
     
-    var poopPositionsDict: [String: CGPoint] = [
-        "position1":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.5),
-        "position2":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.4),
-        "position3":CGPoint(x: UIScreen.main.bounds.midX*0.24, y: UIScreen.main.bounds.midY*0.4),
-        "position4":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.49),
-        "position5":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.2)
-    ]
+//    var poopPositionsDict: [String: CGPoint] = [
+//        "position1":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.5),
+//        "position2":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.4),
+//        "position3":CGPoint(x: UIScreen.main.bounds.midX*0.24, y: UIScreen.main.bounds.midY*0.4),
+//        "position4":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.49),
+//        "position5":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.2)
+//    ]
     
     
     var settingContainer = SKShapeNode()
