@@ -45,6 +45,24 @@ class TamagotchiMainScene : SKScene {
     let water3 = SKSpriteNode(imageNamed: "acqua.png")
     let water4 = SKSpriteNode(imageNamed: "acqua.png")
     let water5 = SKSpriteNode(imageNamed: "acqua.png")
+//    let poop = SKSpriteNode(imageNamed: "poop.png")
+    
+    var poopPositions: [CGPoint] = [
+        CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.5),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.4),
+        CGPoint(x: UIScreen.main.bounds.midX*0.24, y: UIScreen.main.bounds.midY*0.4),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.49),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.2)
+    ]
+    
+    var poopPositionsDict: [String: CGPoint] = [
+        "position1":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.5),
+        "position2":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.4),
+        "position3":CGPoint(x: UIScreen.main.bounds.midX*0.24, y: UIScreen.main.bounds.midY*0.4),
+        "position4":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.49),
+        "position5":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.2)
+    ]
+    
     
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
@@ -89,6 +107,8 @@ class TamagotchiMainScene : SKScene {
         setupScene()
         
         addSwipeGestureRecognizers()
+        
+        poopGenerator(poop_number: Macro_Challenge_HurricaneApp.mochi.nPoop)
     }
     
     
@@ -239,6 +259,12 @@ class TamagotchiMainScene : SKScene {
                     
                 }
                 
+                if (node.name == "poop") {
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
+                }
+                
             }
             
         }
@@ -355,10 +381,18 @@ class TamagotchiMainScene : SKScene {
             }
             
             if (node.name == "minigames") {
+                Macro_Challenge_HurricaneApp.mochi.happiness = min(100, Macro_Challenge_HurricaneApp.mochi.happiness+10)
                 let minigamesScene = MinigamesScene()
                 minigamesScene.size = (view?.frame.size)!
                 let transition = SKTransition.fade(withDuration: 0.5)
                 self.view?.presentScene(minigamesScene, transition: transition)
+            }
+            
+            if (node.name == "poop") {
+                print("poop toccato")
+                Macro_Challenge_HurricaneApp.mochi.pickUpPoop()
+                node.removeFromParent()
+                print("npoop = \(Macro_Challenge_HurricaneApp.mochi.nPoop)")
             }
             
             
@@ -815,6 +849,30 @@ extension TamagotchiMainScene {
         ])
         
         self.run(azioni1)
+    }
+    
+    
+    func poopGenerator(poop_number:Int) {
+        if poop_number > 0 {
+            
+            let count = 1...poop_number
+            print("numero cacche=\(poop_number)")
+            
+            var temp_arr = poopPositions
+            
+            for _ in count {
+                
+                if let index = temp_arr.indices.randomElement() {
+                    let value = temp_arr.remove(at: index)
+                    let poop = SKSpriteNode(imageNamed: "poop.png")
+                    poop.setScale(0.36)
+                    poop.name = "poop"
+                    poopPositions.shuffle()
+                    poop.position = value
+                    addChild(poop)
+                }
+            }
+        }
     }
     
     
