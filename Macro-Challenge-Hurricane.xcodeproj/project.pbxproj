@@ -43,6 +43,7 @@
 		7FDAF9F828509D00004276E0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F728509D00004276E0 /* User.swift */; };
 		7FDAF9FA28509D38004276E0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F928509D38004276E0 /* WebView.swift */; };
 		7FDAF9FC2850B3F8004276E0 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9FB2850B3F8004276E0 /* String+localized.swift */; };
+		95B1901128591D7B000EAC9E /* Mabook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B190102858E79E000EAC9E /* Mabook.ttf */; };
 		96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
 		963D5AB82834EE31008ECEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 963D5ABA2834EE31008ECEC7 /* Localizable.strings */; };
@@ -371,6 +372,7 @@
 				7F621F1B282E54CB007FE06B /* .gitignore in Resources */,
 				963D5AC22834F301008ECEC7 /* blender.json in Resources */,
 				7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */,
+				95B1901128591D7B000EAC9E /* Mabook.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

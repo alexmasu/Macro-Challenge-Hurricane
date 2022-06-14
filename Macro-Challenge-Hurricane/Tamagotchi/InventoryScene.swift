@@ -322,7 +322,7 @@ extension InventoryScene {
         img.zPosition = 20
         
         
-        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.width)/2) , size: img.size), cornerRadius: 10)
+        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.height)/2) , size: img.size), cornerRadius: 10)
         roundedR.fillColor = UIColor.gray
         roundedR.zPosition = 10
         
@@ -330,9 +330,14 @@ extension InventoryScene {
         img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
         addChild(img)
         
-        let imgName = SKLabelNode(text: item.name)
+        let imgName = SKLabelNode(fontNamed: "Mabook")
+        imgName.text = item.name
+        imgName.fontSize = 13
+        imgName.fontColor = UIColor.white
+        imgName.position = CGPoint(x: img.position.x, y: img.position.y + img.size.height * 0.64)
+        imgName.zPosition = 100
         
-        
+        addChild(imgName)
 
         
     }
