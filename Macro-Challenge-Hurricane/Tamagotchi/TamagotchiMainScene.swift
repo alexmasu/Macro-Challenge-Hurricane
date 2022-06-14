@@ -27,6 +27,7 @@ class TamagotchiMainScene : SKScene {
     let pc = SKSpriteNode(imageNamed: "pc2.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
+    let streamingmonitor = SKSpriteNode(imageNamed: "Monitor2.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
     let hunger = SKSpriteNode(imageNamed: "HungerButton.png")
     let thirst = SKSpriteNode(imageNamed: "ThirstGroup.png")
@@ -80,6 +81,27 @@ class TamagotchiMainScene : SKScene {
     private var curr : SKNode?
     private var swipeStart : CGPoint?
     private var swipeEnd : CGPoint?
+    
+    var arcHunger = UIBezierPath()
+    var arcThirst = UIBezierPath()
+    var arcClean = UIBezierPath()
+    var arcEnergy = UIBezierPath()
+    var arcHappy = UIBezierPath()
+    var arcHealth = UIBezierPath()
+    
+    var arcHungerBar = SKShapeNode()
+    var arcThirstBar = SKShapeNode()
+    var arcCleanBar = SKShapeNode()
+    var arcEnergyBar = SKShapeNode()
+    var arcHappyBar = SKShapeNode()
+    var arcHealthBar = SKShapeNode()
+    
+    let verdeAcqua = UIColor(named: "verdeAcqua")!
+    let arancione = UIColor(named:"arancione")!
+    let rosso = UIColor(named: "rosso")!
+    
+    
+
     
     var wasInitialized: Bool = false
     
@@ -146,6 +168,11 @@ class TamagotchiMainScene : SKScene {
                     self.checkSwipe = false
                     nodes.append(node)
                     
+                }
+                
+                if node.name == ("monitor2") && (omettoOn == false) {
+                    self.curr = node
+                    nodes.append(node)
                 }
                 
                 if (node.name == "light") {
@@ -286,18 +313,6 @@ class TamagotchiMainScene : SKScene {
             //            else {
             print("\(String(describing: node.name))...")
             
-            //            if (node.name == "omettostreamerday") {
-            //                if omettoOn == false {
-            //                    spawnStatsButtons()
-            //                    omettoOn = true
-            //
-            //                } else if omettoOn == true {
-            //                    omettofadeOut()
-            //                    omettoOn = false
-            //                }
-            //
-            //            }
-            
             // Far lavare l'ometto.
             
             if (node.name == "ometto") && activeRoom != 2 {
@@ -342,16 +357,17 @@ class TamagotchiMainScene : SKScene {
                 if startstream == false {
                     square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
                     square.xScale = -0.8
-                    //                    square.setScale(0.8)
+                    removeChildren(in: [monitor])
+                    background.addChild(streamingmonitor)
                     startstream = true
                 }
                 else if startstream == true {
                     square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
                     square.xScale = 1.0
                     square.setScale(0.8)
+                    background.removeChildren(in: [streamingmonitor])
                     startstream = false
                 }
-                
             }
             
             
@@ -463,7 +479,7 @@ extension TamagotchiMainScene {
         inventory.name = "inventory"
         addChild(inventory)
         
-        //        let minigames = SKSpriteNode(imageNamed: "minigames.png")
+
         minigames.setScale(0.5)
         minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
         minigames.name = "minigames"
@@ -480,32 +496,184 @@ extension TamagotchiMainScene {
     func spawnOmettoStats() {
         
         hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4 )
+        hunger.setScale(0.8)
         hunger.name = "hunger"
         hunger.alpha = 0.0
         
         thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        thirst.setScale(0.8)
         thirst.name = "thirst"
         thirst.alpha = 0.0
         
-        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.11, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        cleaning.setScale(0.8)
         cleaning.name = "cleanliness"
         cleaning.alpha = 0.0
         
-        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.09, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.11, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        energy.setScale(0.8)
         energy.name = "energy"
         energy.alpha = 0.0
         
-        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.24, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4)
+        happiness.setScale(0.8)
         happiness.name = "happiness"
         happiness.alpha = 0.0
         
-        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.4)
+        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        health.setScale(0.8)
         health.name = "health"
         health.alpha = 0.0
         
+        
+//        Macro_Challenge_HurricaneApp.mochi.hunger = 90
+        
+        arcHunger = UIBezierPath(arcCenter: hunger.position, radius: (hunger.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.hunger)) / Macro_Challenge_HurricaneApp.mochi.maxHunger) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHungerBar.lineWidth = (hunger.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.59{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcHungerBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.29 {
+//            arcHungerBar.fillColor = arancione
+            arcHungerBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcHungerBar.strokeColor = rosso
+        }
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) < 10 {
+            arcHungerBar.fillColor = rosso
+            
+            arcHunger = UIBezierPath(arcCenter: hunger.position, radius: (hunger.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+            arcHungerBar.path = arcClean.cgPath
+            arcHungerBar.alpha = 0.0
+            
+            
+                    
+            
+            addChild(arcHungerBar)
+//        Macro_Challenge_HurricaneApp.mochi.thirst = 100
+        
+        arcThirst = UIBezierPath(arcCenter: thirst.position, radius: (thirst.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.thirst)) / Macro_Challenge_HurricaneApp.mochi.maxThirst) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcThirstBar.lineWidth = (thirst.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.59{
+            arcThirstBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxThirst) > 0.29 {
+
+            arcThirstBar.strokeColor = arancione
+        }else {
+            arcThirstBar.strokeColor = rosso
+        }
+            
+            arcThirstBar.path = arcThirst.cgPath
+                    
+            
+            addChild(arcThirstBar)
+        
+        Macro_Challenge_HurricaneApp.mochi.cleanlyness = 0
+        arcClean = UIBezierPath(arcCenter: cleaning.position, radius: (cleaning.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.cleanlyness)) / Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcCleanBar.lineWidth = (cleaning.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) > 0.59{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcHungerBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) > 0.29 {
+//            arcHungerBar.fillColor = arancione
+            arcCleanBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcCleanBar.strokeColor = rosso
+        }
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) < 10 {
+            arcCleanBar.fillColor = rosso
+            
+            arcClean = UIBezierPath(arcCenter: cleaning.position, radius: (cleaning.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+            arcCleanBar.path = arcClean.cgPath
+        arcCleanBar.alpha = 0.0
+                    
+            
+            addChild(arcCleanBar)
+
+        arcEnergy = UIBezierPath(arcCenter: energy.position, radius: (energy.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.energy)) / Macro_Challenge_HurricaneApp.mochi.maxEnergy) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcEnergyBar.lineWidth = (energy.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) > 0.59{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcEnergyBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) > 0.29 {
+//            arcHungerBar.fillColor = arancione
+            arcEnergyBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcEnergyBar.strokeColor = rosso
+        }
+            
+            arcEnergyBar.path = arcEnergy.cgPath
+                    
+            
+            addChild(arcEnergyBar)
+        
+        arcHealth = UIBezierPath(arcCenter: health.position, radius: (health.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.health)) / Macro_Challenge_HurricaneApp.mochi.maxHealth) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHealthBar.lineWidth = (health.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) > 0.59{
+            arcHealthBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) > 0.29 {
+            arcHealthBar.strokeColor = arancione
+        }else {
+            arcHealthBar.strokeColor = rosso
+        }
+            
+            arcHealthBar.path = arcHealth.cgPath
+                    
+            addChild(arcHealthBar)
+        
+        arcHappy = UIBezierPath(arcCenter: happiness.position, radius: (happiness.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.happiness)) / Macro_Challenge_HurricaneApp.mochi.maxHappiness) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHappyBar.lineWidth = (happiness.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHappiness) > 0.59{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcHappyBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) > 0.29 {
+//            arcHungerBar.fillColor = arancione
+            arcHappyBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcHappyBar.strokeColor = rosso
+        }
+            
+            arcHappyBar.path = arcHappy.cgPath
+                    
+            
+            addChild(arcHappyBar)
+
+        
+        
+
+
     }
     
+
 }
+    
 
 // MARK: - Game Scene Setup
 extension TamagotchiMainScene {
@@ -628,6 +796,11 @@ extension TamagotchiMainScene {
         monitor.setScale(0.8)
         background.addChild(monitor)
         
+        streamingmonitor.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.42, y: frame.midY - UIScreen.main.bounds.height * 0.375)
+        streamingmonitor.name = "monitor2"
+        streamingmonitor.setScale(0.8)
+//        background.addChild(streamingmonitor)
+        
         pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 1.3, y: frame.midY - UIScreen.main.bounds.height * 0.42)
         pc.name = "pc"
         pc.setScale(1.8)
@@ -652,22 +825,22 @@ extension TamagotchiMainScene {
         soap2.name = "soap2"
         soap2.zPosition = 1000000.0
 //        soap2.setScale(2.0)
-        soap2.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.9, y: frame.midY - UIScreen.main.bounds.height * 0.55)
+        soap2.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.9, y: frame.midY - UIScreen.main.bounds.height * 0.6)
         
         soap3.name = "soap3"
         soap3.zPosition = 1000000.0
 //        soap3.setScale(2.0)
-        soap3.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.7, y: frame.midY - UIScreen.main.bounds.height * 0.62)
+        soap3.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.7, y: frame.midY - UIScreen.main.bounds.height * 0.65)
         
         soap4.name = "soap4"
         soap4.zPosition = 1000000.0
 //        soap4.setScale(2.0)
-        soap4.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.5, y: frame.midY - UIScreen.main.bounds.height * 0.55)
+        soap4.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.5, y: frame.midY - UIScreen.main.bounds.height * 0.58)
         
         soap5.name = "soap5"
         soap5.zPosition = 100000.0
 //        soap5.setScale(2.0)
-        soap5.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.3, y: frame.midY - UIScreen.main.bounds.height * 0.68)
+        soap5.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.35, y: frame.midY - UIScreen.main.bounds.height * 0.68)
         
         switchpress.setScale(0.4)
         switchpress.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
@@ -731,6 +904,16 @@ extension TamagotchiMainScene {
         addChild(square)
     }
     
+//    func spawnPopUp(){
+        
+//        dialogueBackground.anchorPoint = CGPoint(x: 0, y: 0)
+//        labelwrite.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
+//    }
+    
+//    func despawnPopUp(){
+//        background.removeChildren(in: [dialogueBackground,labelwrite])
+//    }
+    
     func setupScene() {
         
         spawnBackground()
@@ -741,6 +924,8 @@ extension TamagotchiMainScene {
         spawnOmettoButtons()
         spawnSoap()
         removeSoap()
+//        spawnPopUp()
+//        despawnPopUp()
         
         self.wasInitialized = true
         

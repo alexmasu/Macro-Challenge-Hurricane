@@ -302,7 +302,7 @@ class Mochi: NSObject, NSCoding{
         self.save()
     }
     func spawnPoop(){
-        nPoop = nPoop + 1
+        nPoop = min( 5 , nPoop + 1)
         pPoop = 0
         save()
     }
@@ -312,7 +312,8 @@ class Mochi: NSObject, NSCoding{
         save()
     }
     func pickUpPoop(){
-        nPoop = nPoop - 1
+        nPoop = max(nPoop - 1, 0)
+        save()
     }
     func illCheck(){
         var illChance : Int = 0

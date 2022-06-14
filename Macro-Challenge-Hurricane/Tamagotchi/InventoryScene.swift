@@ -17,7 +17,6 @@ class InventoryScene : SKScene {
     let blurNode = SKShapeNode()
     let effectNode = SKEffectNode()
     
-    
     let hamburger = SKSpriteNode(imageNamed: "Hamburger.png")
     
     var settingContainer = SKShapeNode()
@@ -41,6 +40,28 @@ class InventoryScene : SKScene {
     
     //    var wasInitialized: Bool = false
     
+
+    var hungerBarShapeNode = SKShapeNode()
+    var thirstBarShapeNode = SKShapeNode()
+    var cleanBarShapeNode = SKShapeNode()
+    var energyBarShapeNode = SKShapeNode()
+    var healthBarShapeNode = SKShapeNode()
+    var happyBarShapeNode = SKShapeNode()
+    
+    var hungerRectangle = CGRect()
+    var thirstRectangle = CGRect()
+    var cleanRectangle = CGRect()
+    var energyRectangle = CGRect()
+    var healthRectangle = CGRect()
+    var happyRectangle = CGRect()
+
+
+    
+
+
+//    var wasInitialized: Bool = false
+
+
     override func didMove(to view: SKView) {
         setupInventoryScene()
         hamburger.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
@@ -150,33 +171,34 @@ extension InventoryScene {
         self.addChild(myLabel)
     }
     
-    func stats(){
-        let hungerIcon = SKSpriteNode(imageNamed: "Hunger.png")
+    func stats(mochi: Mochi){
+        
+        let hungerIcon = SKSpriteNode(imageNamed: "piattto.png")
         hungerIcon.setScale(0.4)
         hungerIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.85, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
         self.addChild(hungerIcon)
         
-        let thirstIcon = SKSpriteNode(imageNamed: "Glass.png")
+        let thirstIcon = SKSpriteNode(imageNamed: "bicchiere.png")
         thirstIcon.setScale(0.4)
         thirstIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.71, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
         self.addChild(thirstIcon)
         
-        let cleanIcon = SKSpriteNode(imageNamed: "Clean.png")
+        let cleanIcon = SKSpriteNode(imageNamed: "bolleicon.png")
         cleanIcon.setScale(0.4)
         cleanIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.57, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
         self.addChild(cleanIcon)
         
-        let energyIcon = SKSpriteNode(imageNamed: "Stamina.png")
+        let energyIcon = SKSpriteNode(imageNamed: "energy.png")
         energyIcon.setScale(0.4)
         energyIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.43, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
         self.addChild(energyIcon)
         
-        let healthIcon = SKSpriteNode(imageNamed: "Health.png")
+        let healthIcon = SKSpriteNode(imageNamed: "salute.png")
         healthIcon.setScale(0.4)
         healthIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.29, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
         self.addChild(healthIcon)
         
-        let happyIcon = SKSpriteNode(imageNamed: "Happiness.png")
+        let happyIcon = SKSpriteNode(imageNamed: "smile.png")
         happyIcon.setScale(0.4)
         happyIcon.position = CGPoint(x:  frame.maxX - UIScreen.main.bounds.width * 0.15, y: frame.maxY - UIScreen.main.bounds.height * 0.105)
         self.addChild(happyIcon)
@@ -199,20 +221,213 @@ extension InventoryScene {
         let happyBar = SKShapeNode(rect: CGRect(origin: CGPoint(x: happyIcon.position.x - (happyIcon.size.width)/(2 * 1.30), y: happyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
         self.addChild(happyBar)
         
+        let barwidth = (happyIcon.size.width) * 0.75
+        let barheight = (frame.maxY)/23
+        var hungerV = CGFloat(mochi.hunger)
+        var thirstV = CGFloat(mochi.thirst)
+        var cleanV = CGFloat(mochi.cleanlyness)
+        var energyV = CGFloat(mochi.energy)
+        var healthV = CGFloat(mochi.health)
+        var happyV = CGFloat(mochi.happiness)
+       
+        var hungerBarFill = SKShapeNode(rectOf: CGSize(width: barwidth, height: barheight), cornerRadius: 5)
         
+        var thirstBarFill = SKShapeNode(rectOf: CGSize(width: barwidth, height: barheight), cornerRadius: 5)
         
+        var cleanBarFill = SKShapeNode(rectOf: CGSize(width: barwidth, height: barheight), cornerRadius: 5)
+        
+        var energyBarFill = SKShapeNode(rectOf: CGSize(width: barwidth, height: barheight), cornerRadius: 5)
+        
+        var healthBarFill = SKShapeNode(rectOf: CGSize(width: barwidth, height: barheight), cornerRadius: 5)
+        
+        var happyBarFill = SKShapeNode(rectOf: CGSize(width: barwidth, height: barheight), cornerRadius: 5)
+       
+        var hungerPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: hungerIcon.position.x - (hungerIcon.size.width)/(2 * 1.30), y: hungerIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        
+        var thirstPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: thirstIcon.position.x - (thirstIcon.size.width)/(2 * 1.30), y: thirstIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        
+        var cleanPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: cleanIcon.position.x - (cleanIcon.size.width)/(2 * 1.30), y: cleanIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        
+        var energyPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: energyIcon.position.x - (energyIcon.size.width)/(2 * 1.30), y: energyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        
+        var healthPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: healthIcon.position.x - (healthIcon.size.width)/(2 * 1.30), y: healthIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        
+        var happyPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(x: happyIcon.position.x - (happyIcon.size.width)/(2 * 1.30), y: happyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23)), cornerRadius: 5)
+        
+        hungerRectangle = CGRect(origin: CGPoint(x: hungerIcon.position.x - (hungerIcon.size.width)/(2 * 1.30), y: hungerIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23))
+        
+        thirstRectangle = CGRect(origin: CGPoint(x: thirstIcon.position.x - (thirstIcon.size.width)/(2 * 1.30), y: thirstIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23))
+        
+        cleanRectangle = CGRect(origin: CGPoint(x: cleanIcon.position.x - (cleanIcon.size.width)/(2 * 1.30), y: cleanIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23))
+        
+        energyRectangle = CGRect(origin: CGPoint(x: energyIcon.position.x - (energyIcon.size.width)/(2 * 1.30), y: energyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23))
+        
+        healthRectangle = CGRect(origin: CGPoint(x: healthIcon.position.x - (healthIcon.size.width)/(2 * 1.30), y: healthIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23))
+        
+        happyRectangle = CGRect(origin: CGPoint(x: happyIcon.position.x - (happyIcon.size.width)/(2 * 1.30), y: happyIcon.position.y + (frame.maxY ) * 0.018), size: CGSize(width: (happyIcon.size.width) * 0.75, height: (frame.maxY)/23))
+        
+       
+        hungerBarShapeNode.path = hungerPath.cgPath
+        thirstBarShapeNode.path = thirstPath.cgPath
+        cleanBarShapeNode.path = cleanPath.cgPath
+        energyBarShapeNode.path = energyPath.cgPath
+        healthBarShapeNode.path = healthPath.cgPath
+        happyBarShapeNode.path = happyPath.cgPath
+        
+        hungerBarShapeNode.fillColor = UIColor.yellow
+        hungerBarShapeNode.strokeColor = UIColor.yellow
+        
+        thirstBarShapeNode.fillColor = UIColor.yellow
+        thirstBarShapeNode.strokeColor = UIColor.yellow
+        
+        cleanBarShapeNode.fillColor = UIColor.yellow
+        cleanBarShapeNode.strokeColor = UIColor.yellow
+        
+        energyBarShapeNode.fillColor = UIColor.yellow
+        energyBarShapeNode.strokeColor = UIColor.yellow
+        
+        healthBarShapeNode.fillColor = UIColor.yellow
+        healthBarShapeNode.strokeColor = UIColor.yellow
+        
+        happyBarShapeNode.fillColor = UIColor.yellow
+        happyBarShapeNode.strokeColor = UIColor.yellow
+     
+        self.addChild(hungerBarShapeNode)
+        self.addChild(thirstBarShapeNode)
+        self.addChild(cleanBarShapeNode)
+        self.addChild(energyBarShapeNode)
+        self.addChild(healthBarShapeNode)
+        self.addChild(happyBarShapeNode)
         
     }
     
+    func update_straight_bar (mochi: Mochi) {
+        let barwidth = hungerRectangle.size.width
+        let barheight = hungerRectangle.size.height
+        var hungerV = CGFloat(mochi.hunger)
+        var thirstV = CGFloat(mochi.thirst)
+        var cleanV = CGFloat(mochi.cleanlyness)
+        var energyV = CGFloat(mochi.energy)
+        var healthV = CGFloat(mochi.health)
+        var happyV = CGFloat(mochi.happiness)
+        
+        let verdeAcqua = UIColor(named: "verdeAcqua")!
+        let arancione = UIColor(named:"arancione")!
+        let rosso = UIColor(named: "rosso")!
+        
+
+        var hungerpath = UIBezierPath(roundedRect: CGRect(x: hungerRectangle.minX, y: hungerRectangle.minY, width: barwidth, height: barheight * (hungerV / CGFloat(mochi.maxHunger))), cornerRadius: 3)
+        
+        
+        hungerBarShapeNode.path = hungerpath.cgPath
+        if hungerV / CGFloat(mochi.maxHunger) > 0.59{
+            hungerBarShapeNode.fillColor = verdeAcqua
+            hungerBarShapeNode.strokeColor = verdeAcqua
+        }
+        else if hungerV / CGFloat(mochi.maxHunger) > 0.29 {
+            hungerBarShapeNode.fillColor = arancione
+            hungerBarShapeNode.strokeColor = arancione
+        }else {
+            hungerBarShapeNode.fillColor = rosso
+            hungerBarShapeNode.strokeColor = rosso
+        }
+        
+        var thirstpath = UIBezierPath(roundedRect: CGRect(x: thirstRectangle.minX, y: thirstRectangle.minY, width: barwidth, height: barheight * (thirstV / CGFloat(mochi.maxThirst))), cornerRadius: 3)
+        
+        thirstBarShapeNode.path = thirstpath.cgPath
+        if thirstV / CGFloat(mochi.maxThirst) > 0.59{
+            thirstBarShapeNode.fillColor = verdeAcqua
+            thirstBarShapeNode.strokeColor = verdeAcqua
+        }
+        else if thirstV / CGFloat(mochi.maxThirst) > 0.29 {
+            thirstBarShapeNode.fillColor = arancione
+            thirstBarShapeNode.strokeColor = arancione
+        }else {
+            thirstBarShapeNode.fillColor = rosso
+            thirstBarShapeNode.strokeColor = rosso
+        }
+        
+        var cleanpath = UIBezierPath(roundedRect: CGRect(x: cleanRectangle.minX, y: cleanRectangle.minY, width: barwidth, height: barheight * (cleanV / CGFloat(mochi.maxCleanlyness))), cornerRadius: 3)
+        
+        cleanBarShapeNode.path = cleanpath.cgPath
+        if cleanV / CGFloat(mochi.maxCleanlyness) > 0.59{
+            cleanBarShapeNode.fillColor = verdeAcqua
+            cleanBarShapeNode.strokeColor = verdeAcqua
+        }
+        else if cleanV / CGFloat(mochi.maxCleanlyness) > 0.29 {
+            cleanBarShapeNode.fillColor = arancione
+            cleanBarShapeNode.strokeColor = arancione
+        }else {
+            cleanBarShapeNode.fillColor = rosso
+            cleanBarShapeNode.strokeColor = rosso
+        }
+        
+        var energypath = UIBezierPath(roundedRect: CGRect(x: energyRectangle.minX, y: energyRectangle.minY, width: barwidth, height: barheight * (energyV / CGFloat(mochi.maxEnergy))), cornerRadius: 3)
+        
+        energyBarShapeNode.path = energypath.cgPath
+        if energyV / CGFloat(mochi.maxEnergy) > 0.59{
+            energyBarShapeNode.fillColor = verdeAcqua
+            energyBarShapeNode.strokeColor = verdeAcqua
+        }
+        else if energyV / CGFloat(mochi.maxEnergy) > 0.29 {
+            energyBarShapeNode.fillColor = arancione
+            energyBarShapeNode.strokeColor = arancione
+        }else {
+            energyBarShapeNode.fillColor = rosso
+            energyBarShapeNode.strokeColor = rosso
+        }
+        
+        var healthpath = UIBezierPath(roundedRect: CGRect(x: healthRectangle.minX, y: healthRectangle.minY, width: barwidth, height: barheight * (healthV / CGFloat(mochi.maxHealth))), cornerRadius: 3)
+        
+        
+        healthBarShapeNode.path = healthpath.cgPath
+        
+        if healthV / CGFloat(mochi.maxHealth) > 0.59{
+            healthBarShapeNode.fillColor = verdeAcqua
+            healthBarShapeNode.strokeColor = verdeAcqua
+        }
+        else if healthV / CGFloat(mochi.maxHealth) > 0.29 {
+            healthBarShapeNode.fillColor = arancione
+            healthBarShapeNode.strokeColor = arancione
+        }else {
+            healthBarShapeNode.fillColor = rosso
+            healthBarShapeNode.strokeColor = rosso
+        }
+        
+        var happypath = UIBezierPath(roundedRect: CGRect(x: happyRectangle.minX, y: happyRectangle.minY, width: barwidth, height: barheight * (happyV / CGFloat(mochi.maxHealth))), cornerRadius: 3)
+        
+        happyBarShapeNode.path = happypath.cgPath
+        if happyV / CGFloat(mochi.maxHappiness) > 0.59{
+            happyBarShapeNode.fillColor = verdeAcqua
+            happyBarShapeNode.strokeColor = verdeAcqua
+        }
+        else if happyV / CGFloat(mochi.maxHappiness) > 0.29 {
+            happyBarShapeNode.fillColor = arancione
+            happyBarShapeNode.strokeColor = arancione
+        }else {
+            happyBarShapeNode.fillColor = rosso
+            happyBarShapeNode.strokeColor = rosso
+        }
+        
+//        card.addChild(card.hpBar_Fill!)
+        
+    }
     func setupInventoryScene() {
         
         BlurEffect()
         BackButton()
         InventoryTitle()
-        stats()
+        stats(mochi: Macro_Challenge_HurricaneApp.mochi)
+//        Macro_Challenge_HurricaneApp.mochi.hunger = 10
+//        Macro_Challenge_HurricaneApp.mochi.cleanlyness = 30
         
-        //        self.wasInitialized = true
+        update_straight_bar(mochi: Macro_Challenge_HurricaneApp.mochi)
         
+        
+
+//        self.wasInitialized = true
+
+
     }
     
     
