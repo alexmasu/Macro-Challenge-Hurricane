@@ -23,7 +23,7 @@ class Inventory : NSObject, NSCoding{
             new = false
         }
         else {
-            i = [1,0,0,0,0,0,0,0,0,0]
+            i = [1,1,0,1,0,0,0,0,0,0]
             new = false
         }
         
@@ -106,8 +106,9 @@ class Inventory : NSObject, NSCoding{
     
     func selectForDisplay() -> [Consumable]{
         var elem = 0
+        
         var tempV: [Int] = []
-        while i[elem] < i.count{
+        while elem < i.count{
             if i[elem] > 0{
                 tempV.append(elem)
             }

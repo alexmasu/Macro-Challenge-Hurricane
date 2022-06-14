@@ -6,6 +6,10 @@
 	<array>
 		<string>refresh</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Mabook.ttf</string>
+	</array>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

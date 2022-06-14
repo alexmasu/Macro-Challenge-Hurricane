@@ -23,12 +23,12 @@ class InventoryScene : SKScene {
     let hamburger = SKSpriteNode(imageNamed: "Hamburger.png")
     
     let box = CGSize(width : UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
-    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.6)
+    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.72)
     var HorizontalOffset = CGFloat(UIScreen.main.bounds.width * 0.33)
-    var VerticalOffset = CGFloat(UIScreen.main.bounds.height * 0.001)
-    var elemCorrente = 1
+    var VerticalOffset = CGFloat(UIScreen.main.bounds.height * 0.15)
+    var elemCorrente = 0
     var row : CGFloat = 0
-    var inventario = Inventory()
+    var inventario = Macro_Challenge_HurricaneApp.inventory
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     var label = SKSpriteNode()
@@ -312,23 +312,43 @@ extension InventoryScene {
     
 //    quando è 0 deve fare elemCorrente +=1 e row +=1
     
-    func spawnQuadrati(){
+    func spawnObject(item: Consumable){
         let quadrato = SKShapeNode(rectOf: box)
-        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * row), y: initialPos.y + (VerticalOffset * row))
+        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * CGFloat(elemCorrente)), y: initialPos.y - (VerticalOffset * row))
         addChild(quadrato)
+        let img = SKSpriteNode(imageNamed: item.consumable_image)
+        img.size = CGSize(width: quadrato.frame.size.width * 0.7, height: quadrato.frame.size.height * 0.7)
+        img.position = CGPoint( x: quadrato.position.x, y: quadrato.position.y - quadrato.frame.size.height * 0.145)
+        img.zPosition = 20
+        
+        
+        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.width)/2) , size: img.size), cornerRadius: 10)
+        roundedR.fillColor = UIColor.gray
+        roundedR.zPosition = 10
+        
+        addChild(roundedR)
+        img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
+        addChild(img)
+        
+        let imgName = SKLabelNode(text: item.name)
+        
+        
+
+        
     }
     
     func calcoli() {
-        for el in inventario.i {
-            if elemCorrente%3 == 1 {
-                spawnQuadrati()
+        let displayedI = inventario.selectForDisplay()
+        for el in displayedI {
+            if (elemCorrente+1)%3 == 1 {
+                spawnObject(item: el)
                 elemCorrente+=1
-            } else if elemCorrente%3 == 2 {
-                spawnQuadrati()
+            } else if (elemCorrente+1)%3 == 2 {
+                spawnObject(item: el)
                 elemCorrente+=1
-            } else if elemCorrente%3 == 0 {
-                spawnQuadrati()
-                elemCorrente+=1
+            } else if (elemCorrente+1)%3 == 0 {
+                spawnObject(item: el)
+                elemCorrente = 0
                 row += 1
             }
         }
@@ -450,7 +470,7 @@ extension InventoryScene {
         BlurEffect()
         BackButton()
         InventoryTitle()
-        stats()
+//        stats()
         calcoli()
         
         //        self.wasInitialized = true
