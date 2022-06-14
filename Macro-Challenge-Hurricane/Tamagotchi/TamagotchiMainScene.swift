@@ -64,6 +64,23 @@ class TamagotchiMainScene : SKScene {
     private var swipeStart : CGPoint?
     private var swipeEnd : CGPoint?
     
+    var arcHunger = UIBezierPath()
+    var arcThirst = UIBezierPath()
+    var arcClean = UIBezierPath()
+    var arcEnergy = UIBezierPath()
+    var arcHappy = UIBezierPath()
+    var arcHealth = UIBezierPath()
+    
+    var arcHungerBar = SKShapeNode()
+    var arcThirstBar = SKShapeNode()
+    var arcCleanBar = SKShapeNode()
+    var arcEnergyBar = SKShapeNode()
+    var arcHappyBar = SKShapeNode()
+    var arcHealthBar = SKShapeNode()
+    
+    
+
+    
     var wasInitialized: Bool = false
     
     //    override init(size: CGSize) {
@@ -450,29 +467,49 @@ extension TamagotchiMainScene {
         thirst.name = "thirst"
         thirst.alpha = 0.0
         
-        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.11, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         cleaning.setScale(0.8)
         cleaning.name = "cleanliness"
         cleaning.alpha = 0.0
         
-        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.11, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         energy.setScale(0.8)
         energy.name = "energy"
         energy.alpha = 0.0
         
-        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4)
         happiness.setScale(0.8)
         happiness.name = "happiness"
         happiness.alpha = 0.0
         
-        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4)
+        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
         health.setScale(0.8)
         health.name = "health"
         health.alpha = 0.0
         
+        
+        Macro_Challenge_HurricaneApp.mochi.hunger = 60
+        arcHunger = UIBezierPath(arcCenter: hunger.position, radius: (hunger.size.width / 2 ) * 1.1 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(360 * Macro_Challenge_HurricaneApp.mochi.hunger)) / Macro_Challenge_HurricaneApp.mochi.maxHunger) + 90 ).degreesToRadians(), clockwise: false)
+            
+            arcHungerBar.lineWidth = (hunger.size.width / 2 * 0.19)
+            arcHungerBar.strokeColor = SKColor(Color("verdeAcqua"))
+            arcHungerBar.path = arcHunger.cgPath
+                    
+            
+            addChild(arcHungerBar)
+        
     }
-    
+//    func updateStatsBar(){
+//        if bar == "plHp" {
+//                hp_bar.path = UIBezierPath(arcCenter: CGPoint(x: 0, y: 0), radius: (plStatus.size.width / 2 * 0.97) * 0.4, startAngle: CGFloat(-90).degreesToRadians(), endAngle: CGFloat(-((Float(180 * player.status.hp / player.status.maxHp)) + 90)).degreesToRadians(), clockwise: false).cgPath
+//        }
+//        else if bar == "plEss" {
+//            mana_bar.path = UIBezierPath(arcCenter: CGPoint(x: 0, y: 0), radius: (plStatus.size.width / 2 * 0.97) * 0.4, startAngle: CGFloat(-90).degreesToRadians(), endAngle: CGFloat((Float(180 * player.status.essence) / 10) - 90).degreesToRadians(), clockwise: true).cgPath
+//        }
+//    }
+
 }
+    
 
 // MARK: - Game Scene Setup
 extension TamagotchiMainScene {
