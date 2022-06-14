@@ -13,8 +13,6 @@ class TamagotchiMainScene : SKScene {
     
     var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic.shared
     
-//    let labelwrite = SKLabelNode(text: "Minigames coming soon!")
-    var dialogueBackground = SKSpriteNode(imageNamed: "comingsoonminigames.png")
     var switchpress = SKSpriteNode(imageNamed: "lampadina.png")
     let minigames = SKSpriteNode(imageNamed: "minigames.png")
     let background = SKSpriteNode(imageNamed: "Background.png")
@@ -52,7 +50,6 @@ class TamagotchiMainScene : SKScene {
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     var label = SKSpriteNode()
-    var message = false
     var startstream = false
     var checkSwipe = false
     var lightswitch = false
@@ -353,15 +350,13 @@ class TamagotchiMainScene : SKScene {
             }
             
             if (node.name == "minigames") {
-                if message == false{
-                    square.zPosition = -10.0
-                    background.addChild(dialogueBackground)
-
-                    message = true
-                } else if message == true {
-                    removeChildren(in: [dialogueBackground])
-                    message = false
+                let minigamesScene = MinigamesScene()
+                minigamesScene.size = (view?.frame.size)!
+                let transition = SKTransition.fade(withDuration: 0.5)
+                self.view?.presentScene(minigamesScene, transition: transition)
             }
+            
+            
         }
             
     }

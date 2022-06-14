@@ -94,11 +94,19 @@ extension CustomizationScene {
     
     func CustomizationTitle() {
         let myLabel = SKLabelNode(fontNamed: "Mabook")
-        myLabel.text = "Customization"
+        myLabel.text = "Customization".localized()
         myLabel.fontSize = 30
         //        myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.09)
         myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.165)
         self.addChild(myLabel)
+    }
+    
+    func ComingSoon() {
+        let comingSoonLabel = SKLabelNode(fontNamed: "Mabook")
+        comingSoonLabel.text = "Coming Soon...".localized()
+        comingSoonLabel.fontSize = 30
+        comingSoonLabel.position = CGPoint(x:UIScreen.main.bounds.midX,y: UIScreen.main.bounds.midY)
+        self.addChild(comingSoonLabel)
     }
     
     func setupCustomizationScene() {
@@ -106,6 +114,7 @@ extension CustomizationScene {
         BlurEffect()
         BackButton()
         CustomizationTitle()
+        ComingSoon()
         
         //        self.wasInitialized = true
         

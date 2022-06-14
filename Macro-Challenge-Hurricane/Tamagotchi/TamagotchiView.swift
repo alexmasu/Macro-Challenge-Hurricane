@@ -75,7 +75,7 @@ struct SheetView: View {
                     self.showTwitch = false
                     gameLogic.temp_bool = false
                 }){
-                    Text("Done")
+                    Text("Done".localized())
                         .bold()
                 })
         }
