@@ -205,6 +205,7 @@ extension BathroomScene {
         energy.name = "energy"
         
         happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.09)
+        happiness.setScale(0.5)
         happiness.name = "happiness"
         
         health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y)

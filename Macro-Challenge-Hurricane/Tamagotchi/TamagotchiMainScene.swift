@@ -27,6 +27,7 @@ class TamagotchiMainScene : SKScene {
     let pc = SKSpriteNode(imageNamed: "pc2.png")
     let square = SKSpriteNode(imageNamed: "Ometto.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
+    let streamingmonitor = SKSpriteNode(imageNamed: "Monitor2.png")
     let twitchbutton = SKSpriteNode(imageNamed: "Twix.png")
     let hunger = SKSpriteNode(imageNamed: "HungerButton.png")
     let thirst = SKSpriteNode(imageNamed: "ThirstGroup.png")
@@ -126,6 +127,11 @@ class TamagotchiMainScene : SKScene {
                     self.checkSwipe = false
                     nodes.append(node)
                     
+                }
+                
+                if node.name == ("monitor2") && (omettoOn == false) {
+                    self.curr = node
+                    nodes.append(node)
                 }
                 
                 if (node.name == "light") {
@@ -260,18 +266,6 @@ class TamagotchiMainScene : SKScene {
             //            else {
             print("\(String(describing: node.name))...")
             
-            //            if (node.name == "omettostreamerday") {
-            //                if omettoOn == false {
-            //                    spawnStatsButtons()
-            //                    omettoOn = true
-            //
-            //                } else if omettoOn == true {
-            //                    omettofadeOut()
-            //                    omettoOn = false
-            //                }
-            //
-            //            }
-            
             // Far lavare l'ometto.
             
             if (node.name == "ometto") && activeRoom != 2 {
@@ -316,16 +310,17 @@ class TamagotchiMainScene : SKScene {
                 if startstream == false {
                     square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
                     square.xScale = -0.8
-                    //                    square.setScale(0.8)
+                    removeChildren(in: [monitor])
+                    background.addChild(streamingmonitor)
                     startstream = true
                 }
                 else if startstream == true {
                     square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
                     square.xScale = 1.0
                     square.setScale(0.8)
+                    background.removeChildren(in: [streamingmonitor])
                     startstream = false
                 }
-                
             }
             
             
@@ -363,6 +358,8 @@ class TamagotchiMainScene : SKScene {
             
             
         }
+            
+    }
         
         self.curr = nil
     }
@@ -429,7 +426,7 @@ extension TamagotchiMainScene {
         inventory.name = "inventory"
         addChild(inventory)
         
-        //        let minigames = SKSpriteNode(imageNamed: "minigames.png")
+
         minigames.setScale(0.5)
         minigames.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
         minigames.name = "minigames"
@@ -446,26 +443,32 @@ extension TamagotchiMainScene {
     func spawnOmettoStats() {
         
         hunger.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4 )
+        hunger.setScale(0.8)
         hunger.name = "hunger"
         hunger.alpha = 0.0
         
         thirst.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        thirst.setScale(0.8)
         thirst.name = "thirst"
         thirst.alpha = 0.0
         
         cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        cleaning.setScale(0.8)
         cleaning.name = "cleanliness"
         cleaning.alpha = 0.0
         
         energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.09, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        energy.setScale(0.8)
         energy.name = "energy"
         energy.alpha = 0.0
         
         happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.24, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        happiness.setScale(0.8)
         happiness.name = "happiness"
         happiness.alpha = 0.0
         
         health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.4)
+        health.setScale(0.8)
         health.name = "health"
         health.alpha = 0.0
         
@@ -594,6 +597,11 @@ extension TamagotchiMainScene {
         monitor.setScale(0.8)
         background.addChild(monitor)
         
+        streamingmonitor.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.42, y: frame.midY - UIScreen.main.bounds.height * 0.375)
+        streamingmonitor.name = "monitor2"
+        streamingmonitor.setScale(0.8)
+//        background.addChild(streamingmonitor)
+        
         pc.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 1.3, y: frame.midY - UIScreen.main.bounds.height * 0.42)
         pc.name = "pc"
         pc.setScale(1.8)
@@ -618,22 +626,22 @@ extension TamagotchiMainScene {
         soap2.name = "soap2"
         soap2.zPosition = 1000000.0
 //        soap2.setScale(2.0)
-        soap2.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.9, y: frame.midY - UIScreen.main.bounds.height * 0.55)
+        soap2.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.9, y: frame.midY - UIScreen.main.bounds.height * 0.6)
         
         soap3.name = "soap3"
         soap3.zPosition = 1000000.0
 //        soap3.setScale(2.0)
-        soap3.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.7, y: frame.midY - UIScreen.main.bounds.height * 0.62)
+        soap3.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.7, y: frame.midY - UIScreen.main.bounds.height * 0.65)
         
         soap4.name = "soap4"
         soap4.zPosition = 1000000.0
 //        soap4.setScale(2.0)
-        soap4.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.5, y: frame.midY - UIScreen.main.bounds.height * 0.55)
+        soap4.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.5, y: frame.midY - UIScreen.main.bounds.height * 0.58)
         
         soap5.name = "soap5"
         soap5.zPosition = 100000.0
 //        soap5.setScale(2.0)
-        soap5.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.3, y: frame.midY - UIScreen.main.bounds.height * 0.68)
+        soap5.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.35, y: frame.midY - UIScreen.main.bounds.height * 0.68)
         
         switchpress.setScale(0.4)
         switchpress.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.5 , y: frame.minY + UIScreen.main.bounds.height * 0.09)
@@ -697,6 +705,16 @@ extension TamagotchiMainScene {
         addChild(square)
     }
     
+//    func spawnPopUp(){
+        
+//        dialogueBackground.anchorPoint = CGPoint(x: 0, y: 0)
+//        labelwrite.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
+//    }
+    
+//    func despawnPopUp(){
+//        background.removeChildren(in: [dialogueBackground,labelwrite])
+//    }
+    
     func setupScene() {
         
         spawnBackground()
@@ -707,6 +725,8 @@ extension TamagotchiMainScene {
         spawnOmettoButtons()
         spawnSoap()
         removeSoap()
+//        spawnPopUp()
+//        despawnPopUp()
         
         self.wasInitialized = true
         
