@@ -358,8 +358,6 @@ class TamagotchiMainScene : SKScene {
             
             
         }
-            
-    }
         
         self.curr = nil
     }
@@ -457,17 +455,17 @@ extension TamagotchiMainScene {
         cleaning.name = "cleanliness"
         cleaning.alpha = 0.0
         
-        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.09, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         energy.setScale(0.8)
         energy.name = "energy"
         energy.alpha = 0.0
         
-        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.24, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
         happiness.setScale(0.8)
         happiness.name = "happiness"
         happiness.alpha = 0.0
         
-        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.4)
+        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4)
         health.setScale(0.8)
         health.name = "health"
         health.alpha = 0.0
