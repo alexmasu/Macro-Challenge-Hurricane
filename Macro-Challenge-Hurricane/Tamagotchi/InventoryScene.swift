@@ -16,37 +16,46 @@ class InventoryScene : SKScene {
     let contentNodeBackButton = SKNode()
     let blurNode = SKShapeNode()
     let effectNode = SKEffectNode()
+    let square1 = SKShapeNode()
+    let square2 = SKShapeNode()
+    let square3 = SKShapeNode()
     
     
     let hamburger = SKSpriteNode(imageNamed: "Hamburger.png")
     
+    let box = CGSize(width : UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
+    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.6)
+    var HorizontalOffset = CGFloat(UIScreen.main.bounds.width * 0.33)
+    var VerticalOffset = CGFloat(UIScreen.main.bounds.height * 0.001)
+    var elemCorrente = 1
+    var row : CGFloat = 0
+    var inventario = Inventory()
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     var label = SKSpriteNode()
-    var startstream = false
-    var checkSwipe = false
-    var lightswitch = false
-    var mute = false
-    var settingsOn = false
-    var omettoOn = false
-    var leftedge = false
-    var rightedge = false
-    var soapApplied : Int = 0
-    var activeRoom = 1
+//    var startstream = false
+//    var checkSwipe = false
+//    var lightswitch = false
+//    var mute = false
+//    var settingsOn = false
+//    var omettoOn = false
+//    var leftedge = false
+//    var rightedge = false
+//    var soapApplied : Int = 0
+//    var activeRoom = 1
     private var curr : SKNode?
-    private var swipeStart : CGPoint?
-    private var swipeEnd : CGPoint?
-    
+//    private var swipeStart : CGPoint?
+//    private var swipeEnd : CGPoint?
     
     
     //    var wasInitialized: Bool = false
     
     override func didMove(to view: SKView) {
         setupInventoryScene()
-        hamburger.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-        hamburger.setScale(0.1)
-        hamburger.name = "hamburger"
-        addChild(hamburger)
+//        hamburger.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+//        hamburger.setScale(0.1)
+//        hamburger.name = "hamburger"
+//        addChild(hamburger)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -84,16 +93,16 @@ class InventoryScene : SKScene {
                 self.view?.presentScene(tamagotchiMainScene, transition: transition)
             }
             
-            if node.name == "hamburger" {
-                
-                print(Macro_Challenge_HurricaneApp.mochi.hunger)
-                
-                Macro_Challenge_HurricaneApp.mochi.maxHunger = 100
-                
-                Macro_Challenge_HurricaneApp.inventory.consume(mochi: Macro_Challenge_HurricaneApp.mochi, selected: 0)
-                
-                print(Macro_Challenge_HurricaneApp.mochi.hunger)
-            }
+//            if node.name == "hamburger" {
+//
+//                print(Macro_Challenge_HurricaneApp.mochi.hunger)
+//
+//                Macro_Challenge_HurricaneApp.mochi.maxHunger = 100
+//
+//                Macro_Challenge_HurricaneApp.inventory.consume(mochi: Macro_Challenge_HurricaneApp.mochi, selected: 0)
+//
+//                print(Macro_Challenge_HurricaneApp.mochi.hunger)
+//            }
             
         }
         
@@ -134,9 +143,9 @@ extension InventoryScene {
     
     func BackButton() {
         let leftCornerSymbol = SKSpriteNode(imageNamed: "BackButton.png")
-        leftCornerSymbol.setScale(1.0)
-        leftCornerSymbol.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.08 , y: frame.maxY - UIScreen.main.bounds.height * 0.075)
+//        leftCornerSymbol.setScale(1.0)
         leftCornerSymbol.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.08 , y: frame.maxY - UIScreen.main.bounds.height * 0.15)
+ 
         leftCornerSymbol.name = "backbutton"
         addChild(leftCornerSymbol)
     }
@@ -204,12 +213,37 @@ extension InventoryScene {
         
     }
     
+//    quando è 0 deve fare elemCorrente +=1 e row +=1
+    
+    func spawnQuadrati(){
+        let quadrato = SKShapeNode(rectOf: box)
+        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * row), y: initialPos.y + (VerticalOffset * row))
+        addChild(quadrato)
+    }
+    
+    func calcoli() {
+        for el in inventario.i {
+            if elemCorrente%3 == 1 {
+                spawnQuadrati()
+                elemCorrente+=1
+            } else if elemCorrente%3 == 2 {
+                spawnQuadrati()
+                elemCorrente+=1
+            } else if elemCorrente%3 == 0 {
+                spawnQuadrati()
+                elemCorrente+=1
+                row += 1
+            }
+        }
+    }
+    
     func setupInventoryScene() {
         
         BlurEffect()
         BackButton()
         InventoryTitle()
         stats()
+        calcoli()
         
         //        self.wasInitialized = true
         
