@@ -312,7 +312,7 @@ class Mochi: NSObject, NSCoding{
         save()
     }
     func pickUpPoop(){
-        nPoop = nPoop - 1
+        nPoop = max(nPoop - 1, 0)
         save()
     }
     func illCheck(){
