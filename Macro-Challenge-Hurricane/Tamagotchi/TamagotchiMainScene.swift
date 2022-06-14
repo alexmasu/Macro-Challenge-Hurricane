@@ -46,6 +46,24 @@ class TamagotchiMainScene : SKScene {
     let water3 = SKSpriteNode(imageNamed: "acqua.png")
     let water4 = SKSpriteNode(imageNamed: "acqua.png")
     let water5 = SKSpriteNode(imageNamed: "acqua.png")
+//    let poop = SKSpriteNode(imageNamed: "poop.png")
+    
+    var poopPositions: [CGPoint] = [
+        CGPoint(x: UIScreen.main.bounds.maxX*0.24, y: UIScreen.main.bounds.maxY*0.18),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.2),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.49),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.8, y: UIScreen.main.bounds.maxY*0.2),
+        CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.2)
+    ]
+    
+//    var poopPositionsDict: [String: CGPoint] = [
+//        "position1":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.5),
+//        "position2":CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.4),
+//        "position3":CGPoint(x: UIScreen.main.bounds.midX*0.24, y: UIScreen.main.bounds.midY*0.4),
+//        "position4":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.49),
+//        "position5":CGPoint(x: UIScreen.main.bounds.maxX*0.9, y: UIScreen.main.bounds.maxY*0.2)
+//    ]
+    
     
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
@@ -63,6 +81,27 @@ class TamagotchiMainScene : SKScene {
     private var curr : SKNode?
     private var swipeStart : CGPoint?
     private var swipeEnd : CGPoint?
+    
+    var arcHunger = UIBezierPath()
+    var arcThirst = UIBezierPath()
+    var arcClean = UIBezierPath()
+    var arcEnergy = UIBezierPath()
+    var arcHappy = UIBezierPath()
+    var arcHealth = UIBezierPath()
+    
+    var arcHungerBar = SKShapeNode()
+    var arcThirstBar = SKShapeNode()
+    var arcCleanBar = SKShapeNode()
+    var arcEnergyBar = SKShapeNode()
+    var arcHappyBar = SKShapeNode()
+    var arcHealthBar = SKShapeNode()
+    
+    let verdeAcqua = UIColor(named: "verdeAcqua")!
+    let arancione = UIColor(named:"arancione")!
+    let rosso = UIColor(named: "rosso")!
+    
+    
+
     
     var wasInitialized: Bool = false
     
@@ -90,6 +129,8 @@ class TamagotchiMainScene : SKScene {
         setupScene()
         
         addSwipeGestureRecognizers()
+        
+        poopGenerator(poop_number: Macro_Challenge_HurricaneApp.mochi.nPoop)
     }
     
     
@@ -245,6 +286,12 @@ class TamagotchiMainScene : SKScene {
                     
                 }
                 
+                if (node.name == "poop") {
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
+                }
+                
             }
             
         }
@@ -271,6 +318,8 @@ class TamagotchiMainScene : SKScene {
             if (node.name == "ometto") && activeRoom != 2 {
                 if omettoOn == false {
                     spawnStatsButtons()
+                    updateStatBars()
+                    
                     omettoOn = true
                 }
                 
@@ -350,10 +399,18 @@ class TamagotchiMainScene : SKScene {
             }
             
             if (node.name == "minigames") {
+                Macro_Challenge_HurricaneApp.mochi.happiness = min(100, Macro_Challenge_HurricaneApp.mochi.happiness+10)
                 let minigamesScene = MinigamesScene()
                 minigamesScene.size = (view?.frame.size)!
                 let transition = SKTransition.fade(withDuration: 0.5)
                 self.view?.presentScene(minigamesScene, transition: transition)
+            }
+            
+            if (node.name == "poop") {
+                print("poop toccato")
+                Macro_Challenge_HurricaneApp.mochi.pickUpPoop()
+                node.removeFromParent()
+                print("npoop = \(Macro_Challenge_HurricaneApp.mochi.nPoop)")
             }
             
             
@@ -450,29 +507,368 @@ extension TamagotchiMainScene {
         thirst.name = "thirst"
         thirst.alpha = 0.0
         
-        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        cleaning.position = CGPoint(x: square.position.x - UIScreen.main.bounds.width * 0.11, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         cleaning.setScale(0.8)
         cleaning.name = "cleanliness"
         cleaning.alpha = 0.0
         
-        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.12, y: square.position.y + UIScreen.main.bounds.height * 0.54)
+        energy.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.11, y: square.position.y + UIScreen.main.bounds.height * 0.54)
         energy.setScale(0.8)
         energy.name = "energy"
         energy.alpha = 0.0
         
-        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
+        happiness.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4)
         happiness.setScale(0.8)
         happiness.name = "happiness"
         happiness.alpha = 0.0
         
-        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.34, y: square.position.y + UIScreen.main.bounds.height * 0.4)
+        health.position = CGPoint(x: square.position.x + UIScreen.main.bounds.width * 0.29, y: square.position.y + UIScreen.main.bounds.height * 0.49)
         health.setScale(0.8)
         health.name = "health"
         health.alpha = 0.0
         
+        
+//        Macro_Challenge_HurricaneApp.mochi.hunger = 90
+        
+        arcHunger = UIBezierPath(arcCenter: hunger.position, radius: (hunger.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.hunger)) / Macro_Challenge_HurricaneApp.mochi.maxHunger) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHungerBar.lineWidth = (hunger.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcHungerBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcHungerBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcHungerBar.strokeColor = rosso
+        }
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) < 0.10 {
+            arcHungerBar.fillColor = rosso
+            
+            arcHunger = UIBezierPath(arcCenter: hunger.position, radius: (hunger.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+            arcHungerBar.path = arcClean.cgPath
+            arcHungerBar.alpha = 0.0
+            
+            addChild(arcHungerBar)
+//        Macro_Challenge_HurricaneApp.mochi.thirst = 100
+        
+        arcThirst = UIBezierPath(arcCenter: thirst.position, radius: (thirst.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.thirst)) / Macro_Challenge_HurricaneApp.mochi.maxThirst) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcThirstBar.lineWidth = (thirst.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.49{
+            arcThirstBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxThirst) > 0.24 {
+
+            arcThirstBar.strokeColor = arancione
+        }else {
+            arcThirstBar.strokeColor = rosso
+        }
+            
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) < 0.10 {
+            arcThirstBar.fillColor = rosso
+            
+            arcThirst = UIBezierPath(arcCenter: thirst.position, radius: (thirst.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+            arcThirstBar.path = arcThirst.cgPath
+            arcThirstBar.alpha = 0.0
+            
+            addChild(arcThirstBar)
+        
+        arcClean = UIBezierPath(arcCenter: cleaning.position, radius: (cleaning.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.cleanlyness)) / Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcCleanBar.lineWidth = (cleaning.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcCleanBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcCleanBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcCleanBar.strokeColor = rosso
+        }
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) < 0.10 {
+            arcCleanBar.fillColor = rosso
+            
+            arcClean = UIBezierPath(arcCenter: cleaning.position, radius: (cleaning.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+            arcCleanBar.path = arcClean.cgPath
+        arcCleanBar.alpha = 0.0
+                    
+            
+            addChild(arcCleanBar)
+
+        arcEnergy = UIBezierPath(arcCenter: energy.position, radius: (energy.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.energy)) / Macro_Challenge_HurricaneApp.mochi.maxEnergy) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcEnergyBar.lineWidth = (energy.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcEnergyBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcEnergyBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcEnergyBar.strokeColor = rosso
+        }
+            
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) < 0.10 {
+            arcEnergyBar.fillColor = rosso
+            
+            arcEnergy = UIBezierPath(arcCenter: energy.position, radius: (energy.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+        arcEnergyBar.path = arcEnergy.cgPath
+        arcEnergyBar.alpha = 0.0
+                    
+            
+        addChild(arcEnergyBar)
+        
+        arcHealth = UIBezierPath(arcCenter: health.position, radius: (health.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.health)) / Macro_Challenge_HurricaneApp.mochi.maxHealth) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHealthBar.lineWidth = (health.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) > 0.49{
+            arcHealthBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) > 0.24 {
+            arcHealthBar.strokeColor = arancione
+        }else {
+            arcHealthBar.strokeColor = rosso
+        }
+            
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) < 0.10 {
+            arcHealthBar.fillColor = rosso
+            
+            arcHealth = UIBezierPath(arcCenter: health.position, radius: (health.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+        arcHealthBar.path = arcHealth.cgPath
+        arcHealthBar.alpha = 0.0
+                    
+            addChild(arcHealthBar)
+        
+        arcHappy = UIBezierPath(arcCenter: happiness.position, radius: (happiness.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.happiness)) / Macro_Challenge_HurricaneApp.mochi.maxHappiness) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHappyBar.lineWidth = (happiness.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHappiness) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcHappyBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcHappyBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcHappyBar.strokeColor = rosso
+        }
+            
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) < 0.10 {
+            arcHappyBar.fillColor = rosso
+            
+            arcHappy = UIBezierPath(arcCenter: happiness.position, radius: (happiness.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+        arcHappyBar.path = arcHappy.cgPath
+        arcHappyBar.alpha = 0.0
+            
+            addChild(arcHappyBar)
+
     }
     
+    func updateStatBars(){
+        
+//        Macro_Challenge_HurricaneApp.mochi.hunger = 0
+//        Macro_Challenge_HurricaneApp.mochi.thirst = 15
+//        Macro_Challenge_HurricaneApp.mochi.cleanlyness = 30
+//        Macro_Challenge_HurricaneApp.mochi.health = 58
+//        Macro_Challenge_HurricaneApp.mochi.happiness = 90
+
+
+
+
+        
+        arcHunger = UIBezierPath(arcCenter: hunger.position, radius: (hunger.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.hunger)) / Macro_Challenge_HurricaneApp.mochi.maxHunger) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHungerBar.lineWidth = (hunger.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcHungerBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcHungerBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcHungerBar.strokeColor = rosso
+        }
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.hunger) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHunger) < 0.10 {
+            arcHungerBar.fillColor = rosso
+            
+            arcHunger = UIBezierPath(arcCenter: hunger.position, radius: (hunger.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+            arcHungerBar.path = arcHunger.cgPath
+            arcHungerBar.alpha = 1
+            
+        
+        arcThirst = UIBezierPath(arcCenter: thirst.position, radius: (thirst.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.thirst)) / Macro_Challenge_HurricaneApp.mochi.maxThirst) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcThirstBar.lineWidth = (thirst.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxThirst) > 0.49{
+            arcThirstBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxThirst) > 0.24 {
+
+            arcThirstBar.strokeColor = arancione
+        }else {
+            arcThirstBar.strokeColor = rosso
+        }
+            
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) / CGFloat(Macro_Challenge_HurricaneApp.mochi.thirst) < 0.10 {
+            arcThirstBar.fillColor = rosso
+            
+            arcThirst = UIBezierPath(arcCenter: thirst.position, radius: (thirst.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+            arcThirstBar.path = arcThirst.cgPath
+            arcThirstBar.alpha = 1
+            
+        
+        arcClean = UIBezierPath(arcCenter: cleaning.position, radius: (cleaning.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.cleanlyness)) / Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcCleanBar.lineWidth = (cleaning.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcCleanBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcCleanBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcCleanBar.strokeColor = rosso
+        }
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.cleanlyness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxCleanlyness) < 0.10 {
+            arcCleanBar.fillColor = rosso
+            
+            arcClean = UIBezierPath(arcCenter: cleaning.position, radius: (cleaning.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+        arcCleanBar.path = arcClean.cgPath
+        arcCleanBar.alpha = 1
+                    
+            
+
+        arcEnergy = UIBezierPath(arcCenter: energy.position, radius: (energy.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.energy)) / Macro_Challenge_HurricaneApp.mochi.maxEnergy) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcEnergyBar.lineWidth = (energy.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcEnergyBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcEnergyBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcEnergyBar.strokeColor = rosso
+        }
+            
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.energy) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxEnergy) < 0.10 {
+            arcEnergyBar.fillColor = rosso
+            
+            arcEnergy = UIBezierPath(arcCenter: energy.position, radius: (energy.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+        arcEnergyBar.path = arcEnergy.cgPath
+        arcEnergyBar.alpha = 1
+                    
+            
+        
+        arcHealth = UIBezierPath(arcCenter: health.position, radius: (health.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.health)) / Macro_Challenge_HurricaneApp.mochi.maxHealth) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHealthBar.lineWidth = (health.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) > 0.49{
+            arcHealthBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) > 0.24 {
+            arcHealthBar.strokeColor = arancione
+        }else {
+            arcHealthBar.strokeColor = rosso
+        }
+            
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.health) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHealth) < 0.10 {
+            arcHealthBar.fillColor = rosso
+            
+            arcHealth = UIBezierPath(arcCenter: health.position, radius: (health.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+        arcHealthBar.path = arcHealth.cgPath
+        arcHealthBar.alpha = 1
+                    
+        
+        arcHappy = UIBezierPath(arcCenter: happiness.position, radius: (happiness.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-360 * Macro_Challenge_HurricaneApp.mochi.happiness)) / Macro_Challenge_HurricaneApp.mochi.maxHappiness) + 90 ).degreesToRadians(), clockwise: false)
+            
+        arcHappyBar.lineWidth = (happiness.size.width / 2 * 0.28)
+        
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.maxHappiness) > 0.49{
+//            arcHungerBar.fillColor = verdeAcqua
+            arcHappyBar.strokeColor = verdeAcqua
+        }
+        else if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) > 0.24 {
+//            arcHungerBar.fillColor = arancione
+            arcHappyBar.strokeColor = arancione
+        }else {
+//            arcHungerBar.fillColor = rosso
+            arcHappyBar.strokeColor = rosso
+        }
+            
+        if CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) / CGFloat(Macro_Challenge_HurricaneApp.mochi.happiness) < 0.10 {
+            arcHappyBar.fillColor = rosso
+            
+            arcHappy = UIBezierPath(arcCenter: happiness.position, radius: (happiness.size.width / 2 ) * 1.15 , startAngle: CGFloat(90).degreesToRadians(), endAngle: CGFloat((Int(Float(-15 + 90 )))).degreesToRadians(), clockwise: false)
+            
+        }
+        arcHappyBar.path = arcHappy.cgPath
+        arcHappyBar.alpha = 1
+
+    }
+    func statsBarDisappear(){
+        arcHungerBar.alpha = 0.0
+        arcThirstBar.alpha = 0.0
+        arcHappyBar.alpha = 0.0
+        arcEnergyBar.alpha = 0.0
+        arcHealthBar.alpha = 0.0
+        arcCleanBar.alpha = 0.0
+
+    }
+
 }
+    
 
 // MARK: - Game Scene Setup
 extension TamagotchiMainScene {
@@ -746,6 +1142,11 @@ extension TamagotchiMainScene {
         elem.run(scomparsa)
     }
     
+    private func fadeOutArchi(elem: SKShapeNode, time: CGFloat) {
+        let scomparsa = SKAction.fadeOut(withDuration: time)
+        elem.run(scomparsa)
+    }
+    
     func showDoccino() {
         addChild(doccino)
     }
@@ -780,6 +1181,13 @@ extension TamagotchiMainScene {
         fadeOutAnim(elem: self.energy, time: fadetime)
         fadeOutAnim(elem: self.happiness, time: fadetime)
         fadeOutAnim(elem: self.health, time: fadetime)
+        
+        fadeOutArchi(elem: self.arcHungerBar, time: fadetime)
+        fadeOutArchi(elem: self.arcThirstBar, time: fadetime)
+        fadeOutArchi(elem: self.arcCleanBar, time: fadetime)
+        fadeOutArchi(elem: self.arcEnergyBar, time: fadetime)
+        fadeOutArchi(elem: self.arcHappyBar, time: fadetime)
+        fadeOutArchi(elem: self.arcHealthBar, time: fadetime)
         
     }
     
@@ -833,6 +1241,30 @@ extension TamagotchiMainScene {
         ])
         
         self.run(azioni1)
+    }
+    
+    
+    func poopGenerator(poop_number:Int) {
+        if poop_number > 0 {
+            
+            let count = 1...poop_number
+            print("numero cacche=\(poop_number)")
+            
+            var temp_arr = poopPositions
+            
+            for _ in count {
+                
+                if let index = temp_arr.indices.randomElement() {
+                    let value = temp_arr.remove(at: index)
+                    let poop = SKSpriteNode(imageNamed: "poop.png")
+                    poop.setScale(0.36)
+                    poop.name = "poop"
+                    poopPositions.shuffle()
+                    poop.position = value
+                    addChild(poop)
+                }
+            }
+        }
     }
     
     
