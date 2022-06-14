@@ -313,6 +313,7 @@ class Mochi: NSObject, NSCoding{
     }
     func pickUpPoop(){
         nPoop = nPoop - 1
+        save()
     }
     func illCheck(){
         var illChance : Int = 0
