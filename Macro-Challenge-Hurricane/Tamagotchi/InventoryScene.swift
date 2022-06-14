@@ -164,7 +164,7 @@ extension InventoryScene {
     
     func InventoryTitle() {
         let myLabel = SKLabelNode(fontNamed: "Mabook")
-        myLabel.text = "Inventory"
+        myLabel.text = "Inventory".localized()
         myLabel.fontSize = 30
         //        myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.09)
         myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.165)
