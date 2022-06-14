@@ -320,11 +320,11 @@ extension InventoryScene {
         
         
         hungerBarShapeNode.path = hungerpath.cgPath
-        if hungerV / CGFloat(mochi.maxHunger) > 0.59{
+        if hungerV / CGFloat(mochi.maxHunger) > 0.49{
             hungerBarShapeNode.fillColor = verdeAcqua
             hungerBarShapeNode.strokeColor = verdeAcqua
         }
-        else if hungerV / CGFloat(mochi.maxHunger) > 0.29 {
+        else if hungerV / CGFloat(mochi.maxHunger) > 0.24 {
             hungerBarShapeNode.fillColor = arancione
             hungerBarShapeNode.strokeColor = arancione
         }else {
@@ -335,11 +335,11 @@ extension InventoryScene {
         var thirstpath = UIBezierPath(roundedRect: CGRect(x: thirstRectangle.minX, y: thirstRectangle.minY, width: barwidth, height: barheight * (thirstV / CGFloat(mochi.maxThirst))), cornerRadius: 3)
         
         thirstBarShapeNode.path = thirstpath.cgPath
-        if thirstV / CGFloat(mochi.maxThirst) > 0.59{
+        if thirstV / CGFloat(mochi.maxThirst) > 0.49{
             thirstBarShapeNode.fillColor = verdeAcqua
             thirstBarShapeNode.strokeColor = verdeAcqua
         }
-        else if thirstV / CGFloat(mochi.maxThirst) > 0.29 {
+        else if thirstV / CGFloat(mochi.maxThirst) > 0.24{
             thirstBarShapeNode.fillColor = arancione
             thirstBarShapeNode.strokeColor = arancione
         }else {
@@ -350,11 +350,11 @@ extension InventoryScene {
         var cleanpath = UIBezierPath(roundedRect: CGRect(x: cleanRectangle.minX, y: cleanRectangle.minY, width: barwidth, height: barheight * (cleanV / CGFloat(mochi.maxCleanlyness))), cornerRadius: 3)
         
         cleanBarShapeNode.path = cleanpath.cgPath
-        if cleanV / CGFloat(mochi.maxCleanlyness) > 0.59{
+        if cleanV / CGFloat(mochi.maxCleanlyness) > 0.49{
             cleanBarShapeNode.fillColor = verdeAcqua
             cleanBarShapeNode.strokeColor = verdeAcqua
         }
-        else if cleanV / CGFloat(mochi.maxCleanlyness) > 0.29 {
+        else if cleanV / CGFloat(mochi.maxCleanlyness) > 0.24 {
             cleanBarShapeNode.fillColor = arancione
             cleanBarShapeNode.strokeColor = arancione
         }else {
@@ -365,11 +365,11 @@ extension InventoryScene {
         var energypath = UIBezierPath(roundedRect: CGRect(x: energyRectangle.minX, y: energyRectangle.minY, width: barwidth, height: barheight * (energyV / CGFloat(mochi.maxEnergy))), cornerRadius: 3)
         
         energyBarShapeNode.path = energypath.cgPath
-        if energyV / CGFloat(mochi.maxEnergy) > 0.59{
+        if energyV / CGFloat(mochi.maxEnergy) > 0.49{
             energyBarShapeNode.fillColor = verdeAcqua
             energyBarShapeNode.strokeColor = verdeAcqua
         }
-        else if energyV / CGFloat(mochi.maxEnergy) > 0.29 {
+        else if energyV / CGFloat(mochi.maxEnergy) > 0.24 {
             energyBarShapeNode.fillColor = arancione
             energyBarShapeNode.strokeColor = arancione
         }else {
@@ -382,11 +382,11 @@ extension InventoryScene {
         
         healthBarShapeNode.path = healthpath.cgPath
         
-        if healthV / CGFloat(mochi.maxHealth) > 0.59{
+        if healthV / CGFloat(mochi.maxHealth) > 0.49{
             healthBarShapeNode.fillColor = verdeAcqua
             healthBarShapeNode.strokeColor = verdeAcqua
         }
-        else if healthV / CGFloat(mochi.maxHealth) > 0.29 {
+        else if healthV / CGFloat(mochi.maxHealth) > 0.24 {
             healthBarShapeNode.fillColor = arancione
             healthBarShapeNode.strokeColor = arancione
         }else {
@@ -397,11 +397,11 @@ extension InventoryScene {
         var happypath = UIBezierPath(roundedRect: CGRect(x: happyRectangle.minX, y: happyRectangle.minY, width: barwidth, height: barheight * (happyV / CGFloat(mochi.maxHealth))), cornerRadius: 3)
         
         happyBarShapeNode.path = happypath.cgPath
-        if happyV / CGFloat(mochi.maxHappiness) > 0.59{
+        if happyV / CGFloat(mochi.maxHappiness) > 0.49{
             happyBarShapeNode.fillColor = verdeAcqua
             happyBarShapeNode.strokeColor = verdeAcqua
         }
-        else if happyV / CGFloat(mochi.maxHappiness) > 0.29 {
+        else if happyV / CGFloat(mochi.maxHappiness) > 0.24 {
             happyBarShapeNode.fillColor = arancione
             happyBarShapeNode.strokeColor = arancione
         }else {
