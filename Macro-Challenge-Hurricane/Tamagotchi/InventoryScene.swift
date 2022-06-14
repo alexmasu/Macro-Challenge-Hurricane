@@ -332,12 +332,13 @@ extension InventoryScene {
         
         let imgName = SKLabelNode(fontNamed: "Mabook")
         imgName.text = item.name
-        imgName.fontSize = 13
+        imgName.fontSize = 18
         imgName.fontColor = UIColor.white
         imgName.position = CGPoint(x: img.position.x, y: img.position.y + img.size.height * 0.64)
         imgName.zPosition = 100
         
         addChild(imgName)
+        quadrato.alpha = 0
 
         
     }
