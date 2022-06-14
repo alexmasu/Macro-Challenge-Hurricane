@@ -312,7 +312,7 @@ extension InventoryScene {
     
 //    quando è 0 deve fare elemCorrente +=1 e row +=1
     
-    func spawnObject(item: Consumable){
+    func spawnObject(item: Consumable, quantity : Int){
         let quadrato = SKShapeNode(rectOf: box)
         quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * CGFloat(elemCorrente)), y: initialPos.y - (VerticalOffset * row))
         addChild(quadrato)
@@ -323,8 +323,9 @@ extension InventoryScene {
         
         
         let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.height)/2) , size: img.size), cornerRadius: 10)
-        roundedR.fillColor = UIColor.gray
+        roundedR.fillColor = UIColor.lightGray
         roundedR.zPosition = 10
+        roundedR.alpha = 0.7
         
         addChild(roundedR)
         img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
@@ -338,6 +339,27 @@ extension InventoryScene {
         imgName.zPosition = 100
         
         addChild(imgName)
+        
+        let quantityR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 , y: (img.position.y) - (img.size.height) * 0.5) , size: CGSize(width: img.size.width * 0.45, height: img.size.height * 0.3)), cornerRadius: 4)
+        quantityR.fillColor = UIColor.white
+        quantityR.zPosition = 30
+        
+        addChild(quantityR)
+        
+        let borderR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 + img.size.width * 0.016 , y: (img.position.y) - (img.size.height) * 0.4 - img.size.height * 0.09) , size: CGSize(width: img.size.width * 0.45 * 0.95, height: img.size.height * 0.3 * 0.95)), cornerRadius: 4)
+        
+        borderR.strokeColor = UIColor.black
+        quantityR.addChild(borderR)
+        
+        let quantityL = SKLabelNode(fontNamed: "Mabook")
+        quantityL.text = String("x \(quantity)")
+        quantityL.fontSize = 15
+        quantityL.fontColor = UIColor.black
+        quantityL.position = CGPoint(x: img.position.x + img.size.width * 0.48, y: img.position.y - img.size.height * 0.45)
+        quantityL.zPosition = 200
+        addChild(quantityL)
+        
+        
         quadrato.alpha = 0
 
         
@@ -345,18 +367,21 @@ extension InventoryScene {
     
     func calcoli() {
         let displayedI = inventario.selectForDisplay()
+        let quantityI = inventario.displayCount()
+        var e = 0
         for el in displayedI {
             if (elemCorrente+1)%3 == 1 {
-                spawnObject(item: el)
+                spawnObject(item: el, quantity: quantityI[e])
                 elemCorrente+=1
             } else if (elemCorrente+1)%3 == 2 {
-                spawnObject(item: el)
+                spawnObject(item: el, quantity: quantityI[e])
                 elemCorrente+=1
             } else if (elemCorrente+1)%3 == 0 {
-                spawnObject(item: el)
+                spawnObject(item: el, quantity: quantityI[e])
                 elemCorrente = 0
                 row += 1
             }
+            e = e + 1
         }
     }
     
