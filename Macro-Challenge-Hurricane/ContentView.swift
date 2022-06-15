@@ -13,7 +13,6 @@ struct ContentView: View {
     
     @State var currentGameState: GameState = .mainScreen
     
-    
     @EnvironmentObject var appDelegate: FSAppDelegate
     @EnvironmentObject var sceneDelegate: FSSceneDelegate
     
@@ -30,5 +29,7 @@ struct ContentView: View {
                 .environmentObject(gameLogic)
         }
     }
+    
+    
 }
 

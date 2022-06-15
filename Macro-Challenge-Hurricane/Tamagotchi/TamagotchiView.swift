@@ -33,13 +33,23 @@ struct TamagotchiView: View {
             }
             .sheet(isPresented: $gameLogic.temp_bool) {
                 SheetView(currentGameState: $currentGameState)
+                
             }
+            .overlay(loadingOverlay)
 
     }
     
     private func presentTwitchScreen() {
         self.currentGameState = .twitchLogin
     }
+    
+    @ViewBuilder private var loadingOverlay : some View {
+        if gameLogic.show_info {
+            InfoView()
+        }
+    }
+
+    
 }
 
 
@@ -64,5 +74,7 @@ struct SheetView: View {
                 })
         }
     }
+    
+    
     
 }

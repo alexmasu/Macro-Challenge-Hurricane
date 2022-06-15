@@ -447,7 +447,14 @@ class TamagotchiMainScene : SKScene {
             }
             
             if (node.name == "info") {
-                gameLogic.show_info = true
+                
+                if gameLogic.show_info == false {
+                    gameLogic.show_info = true
+                }
+                else {
+                    gameLogic.show_info = false
+                }
+                
             }
             
         }
