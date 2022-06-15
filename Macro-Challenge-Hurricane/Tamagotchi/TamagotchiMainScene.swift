@@ -101,8 +101,8 @@ class TamagotchiMainScene : SKScene {
     let arancione = UIColor(named:"arancione")!
     let rosso = UIColor(named: "rosso")!
     
-    var idlearray : [String] = []
-    var idlemochi : [String] = []
+    var idlearray : [String] = ["000"]
+    var idlemochi : [SKTexture] = []
     
 
     
@@ -1119,6 +1119,7 @@ extension TamagotchiMainScene {
         spawnOmettoButtons()
         spawnSoap()
         removeSoap()
+        idleAnim()
 //        spawnPopUp()
 //        despawnPopUp()
         
@@ -1132,7 +1133,31 @@ extension TamagotchiMainScene {
 
 extension TamagotchiMainScene {
     
+    private func idleAnim() {
+        var i = 1
+        while ( i < 175) {
+            if (i < 10) {
+                idlearray.append("00" + "\(i)")
+            }
+            else if (i < 100) {
+                idlearray.append("0" + "\(i)")
 
+            }
+            else if (i > 99) {
+                idlearray.append("\(i)")
+
+            }
+            i += 1
+        }
+        for el in idlearray {
+            idlemochi.append(SKTexture(imageNamed: "mochibody\(el).png"))
+            idlemochi.last?.filteringMode = .nearest
+        }
+        let idle = SKAction.animate(with: idlemochi, timePerFrame: 0.033)
+        let idle_forever = SKAction.repeatForever(idle)
+        square.run(idle_forever)
+
+    }
     
     private func fadeInAnim(elem : SKSpriteNode, time : CGFloat) {
         let comparsa = SKAction.fadeIn(withDuration: time)
