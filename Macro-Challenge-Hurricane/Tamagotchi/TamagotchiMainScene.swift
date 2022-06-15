@@ -295,6 +295,9 @@ class TamagotchiMainScene : SKScene {
                     nodes.append(node)
                 }
                 
+                if (node.name == "info") {
+                    self.curr = node
+                }
             }
             
         }
@@ -443,6 +446,9 @@ class TamagotchiMainScene : SKScene {
                 print("npoop = \(Macro_Challenge_HurricaneApp.mochi.nPoop)")
             }
             
+            if (node.name == "info") {
+                gameLogic.show_info = true
+            }
             
         }
         
@@ -498,6 +504,12 @@ extension TamagotchiMainScene {
         customization.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.15 , y: frame.maxY - UIScreen.main.bounds.height * 0.085)
         customization.name = "customization"
         addChild(customization)
+        
+        let info = SKSpriteNode(imageNamed: "info.png")
+        info.setScale(0.6)
+        info.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.13, y: frame.maxY - UIScreen.main.bounds.height * 0.15)
+        info.name = "info"
+        addChild(info)
         
         let twitch = SKSpriteNode(imageNamed: "Twix.png")
         twitch.setScale(0.5)
