@@ -7,6 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4898F4A72859CDD1002E4F26 /* I Nani I Nani I Nani.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47A2859CDD1002E4F26 /* I Nani I Nani I Nani.wav */; };
+		4898F4A82859CDD1002E4F26 /* A Fess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47B2859CDD1002E4F26 /* A Fess.wav */; };
+		4898F4A92859CDD1002E4F26 /* Però Dammi il Tempo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47C2859CDD1002E4F26 /* Però Dammi il Tempo.wav */; };
+		4898F4AA2859CDD1002E4F26 /* Nya Nya.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47D2859CDD1002E4F26 /* Nya Nya.wav */; };
+		4898F4AB2859CDD1002E4F26 /* Lore.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47E2859CDD1002E4F26 /* Lore.wav */; };
+		4898F4AC2859CDD1002E4F26 /* Ventidue.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47F2859CDD1002E4F26 /* Ventidue.wav */; };
+		4898F4AD2859CDD1002E4F26 /* Popi Popi.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4802859CDD1002E4F26 /* Popi Popi.wav */; };
+		4898F4AE2859CDD1002E4F26 /* Miao.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4812859CDD1002E4F26 /* Miao.wav */; };
+		4898F4AF2859CDD1002E4F26 /* A Me M Piac a Nutell.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4822859CDD1002E4F26 /* A Me M Piac a Nutell.wav */; };
+		4898F4B02859CDD1002E4F26 /* Moan8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4832859CDD1002E4F26 /* Moan8.wav */; };
+		4898F4B12859CDD1002E4F26 /* Ora Ora Ora.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4842859CDD1002E4F26 /* Ora Ora Ora.wav */; };
+		4898F4B22859CDD1002E4F26 /* Capiamo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4852859CDD1002E4F26 /* Capiamo.wav */; };
+		4898F4B32859CDD1002E4F26 /* Ocodewa.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4862859CDD1002E4F26 /* Ocodewa.wav */; };
+		4898F4B42859CDD1002E4F26 /* Bono.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4872859CDD1002E4F26 /* Bono.wav */; };
+		4898F4B52859CDD1002E4F26 /* Chong China.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4882859CDD1002E4F26 /* Chong China.wav */; };
+		4898F4B62859CDD1002E4F26 /* Ara Ara.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4892859CDD1002E4F26 /* Ara Ara.wav */; };
+		4898F4B72859CDD1002E4F26 /* M Piac 'o Gelat.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F48A2859CDD1002E4F26 /* M Piac 'o Gelat.wav */; };
+		4898F4B82859CDD1002E4F26 /* King.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F48B2859CDD1002E4F26 /* King.wav */; };
+		4898F4B92859CDD1002E4F26 /* Ho i Pugni nelle Mani.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F48C2859CDD1002E4F26 /* Ho i Pugni nelle Mani.wav */; };
+		4898F4BA2859CDD1002E4F26 /* Si Va a Letto.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F48D2859CDD1002E4F26 /* Si Va a Letto.wav */; };
+		4898F4BB2859CDD1002E4F26 /* Lezzo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F48E2859CDD1002E4F26 /* Lezzo.wav */; };
+		4898F4BC2859CDD1002E4F26 /* A Capocchj.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F48F2859CDD1002E4F26 /* A Capocchj.wav */; };
+		4898F4BD2859CDD1002E4F26 /* Peffozz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4902859CDD1002E4F26 /* Peffozz.wav */; };
+		4898F4BE2859CDD1002E4F26 /* E mman 'e Marnar.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4912859CDD1002E4F26 /* E mman 'e Marnar.wav */; };
+		4898F4BF2859CDD1002E4F26 /* Boiadeh.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4922859CDD1002E4F26 /* Boiadeh.wav */; };
+		4898F4C02859CDD1002E4F26 /* Merz.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4932859CDD1002E4F26 /* Merz.wav */; };
+		4898F4C12859CDD1002E4F26 /* Oh Elden Ring.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4942859CDD1002E4F26 /* Oh Elden Ring.wav */; };
+		4898F4C22859CDD1002E4F26 /* Un Pollo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4952859CDD1002E4F26 /* Un Pollo.wav */; };
+		4898F4C32859CDD1002E4F26 /* Bucchi.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4962859CDD1002E4F26 /* Bucchi.wav */; };
+		4898F4C42859CDD1002E4F26 /* Harambe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4972859CDD1002E4F26 /* Harambe.wav */; };
+		4898F4C52859CDD1002E4F26 /* A Capocchj c'a Pann.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4982859CDD1002E4F26 /* A Capocchj c'a Pann.wav */; };
+		4898F4C62859CDD1002E4F26 /* Muda Muda Muda.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4992859CDD1002E4F26 /* Muda Muda Muda.wav */; };
+		4898F4C72859CDD1002E4F26 /* Moan5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F49A2859CDD1002E4F26 /* Moan5.wav */; };
+		4898F4C82859CDD1002E4F26 /* Moan4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F49B2859CDD1002E4F26 /* Moan4.wav */; };
+		4898F4C92859CDD1002E4F26 /* Moan6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F49C2859CDD1002E4F26 /* Moan6.wav */; };
+		4898F4CA2859CDD1002E4F26 /* Praise The Sun.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F49D2859CDD1002E4F26 /* Praise The Sun.wav */; };
+		4898F4CB2859CDD1002E4F26 /* Moan7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F49E2859CDD1002E4F26 /* Moan7.wav */; };
+		4898F4CC2859CDD1002E4F26 /* TRAKKIA.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F49F2859CDD1002E4F26 /* TRAKKIA.wav */; };
+		4898F4CD2859CDD1002E4F26 /* Moan3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4A02859CDD1002E4F26 /* Moan3.wav */; };
+		4898F4CE2859CDD1002E4F26 /* Moan2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4A12859CDD1002E4F26 /* Moan2.wav */; };
+		4898F4CF2859CDD1002E4F26 /* Peni.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4A22859CDD1002E4F26 /* Peni.wav */; };
+		4898F4D02859CDD1002E4F26 /* Yare Yare Daze.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4A32859CDD1002E4F26 /* Yare Yare Daze.wav */; };
+		4898F4D12859CDD1002E4F26 /* Moan1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4A42859CDD1002E4F26 /* Moan1.wav */; };
+		4898F4D22859CDD1002E4F26 /* Arricc Arricc.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4A52859CDD1002E4F26 /* Arricc Arricc.wav */; };
+		4898F4D32859CDD1002E4F26 /* Uwu Uwu.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F4A62859CDD1002E4F26 /* Uwu Uwu.wav */; };
+		4898F4D82859CE2E002E4F26 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4898F4D72859CE2E002E4F26 /* Audio.swift */; };
 		48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65A52837AC1E00B0D986 /* RhytmGame.swift */; };
 		48EE65B2283B839300B0D986 /* TamagotchiMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */; };
 		48EE65B4283B947800B0D986 /* TamagotchiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EE65B3283B947800B0D986 /* TamagotchiView.swift */; };
@@ -70,6 +116,52 @@
 
 /* Begin PBXFileReference section */
 		4810EA412853560500351F47 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		4898F47A2859CDD1002E4F26 /* I Nani I Nani I Nani.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "I Nani I Nani I Nani.wav"; sourceTree = "<group>"; };
+		4898F47B2859CDD1002E4F26 /* A Fess.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "A Fess.wav"; sourceTree = "<group>"; };
+		4898F47C2859CDD1002E4F26 /* Però Dammi il Tempo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Però Dammi il Tempo.wav"; sourceTree = "<group>"; };
+		4898F47D2859CDD1002E4F26 /* Nya Nya.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Nya Nya.wav"; sourceTree = "<group>"; };
+		4898F47E2859CDD1002E4F26 /* Lore.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Lore.wav; sourceTree = "<group>"; };
+		4898F47F2859CDD1002E4F26 /* Ventidue.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Ventidue.wav; sourceTree = "<group>"; };
+		4898F4802859CDD1002E4F26 /* Popi Popi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Popi Popi.wav"; sourceTree = "<group>"; };
+		4898F4812859CDD1002E4F26 /* Miao.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Miao.wav; sourceTree = "<group>"; };
+		4898F4822859CDD1002E4F26 /* A Me M Piac a Nutell.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "A Me M Piac a Nutell.wav"; sourceTree = "<group>"; };
+		4898F4832859CDD1002E4F26 /* Moan8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan8.wav; sourceTree = "<group>"; };
+		4898F4842859CDD1002E4F26 /* Ora Ora Ora.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ora Ora Ora.wav"; sourceTree = "<group>"; };
+		4898F4852859CDD1002E4F26 /* Capiamo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Capiamo.wav; sourceTree = "<group>"; };
+		4898F4862859CDD1002E4F26 /* Ocodewa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Ocodewa.wav; sourceTree = "<group>"; };
+		4898F4872859CDD1002E4F26 /* Bono.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bono.wav; sourceTree = "<group>"; };
+		4898F4882859CDD1002E4F26 /* Chong China.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Chong China.wav"; sourceTree = "<group>"; };
+		4898F4892859CDD1002E4F26 /* Ara Ara.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ara Ara.wav"; sourceTree = "<group>"; };
+		4898F48A2859CDD1002E4F26 /* M Piac 'o Gelat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "M Piac 'o Gelat.wav"; sourceTree = "<group>"; };
+		4898F48B2859CDD1002E4F26 /* King.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = King.wav; sourceTree = "<group>"; };
+		4898F48C2859CDD1002E4F26 /* Ho i Pugni nelle Mani.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Ho i Pugni nelle Mani.wav"; sourceTree = "<group>"; };
+		4898F48D2859CDD1002E4F26 /* Si Va a Letto.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Si Va a Letto.wav"; sourceTree = "<group>"; };
+		4898F48E2859CDD1002E4F26 /* Lezzo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Lezzo.wav; sourceTree = "<group>"; };
+		4898F48F2859CDD1002E4F26 /* A Capocchj.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "A Capocchj.wav"; sourceTree = "<group>"; };
+		4898F4902859CDD1002E4F26 /* Peffozz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Peffozz.wav; sourceTree = "<group>"; };
+		4898F4912859CDD1002E4F26 /* E mman 'e Marnar.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "E mman 'e Marnar.wav"; sourceTree = "<group>"; };
+		4898F4922859CDD1002E4F26 /* Boiadeh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Boiadeh.wav; sourceTree = "<group>"; };
+		4898F4932859CDD1002E4F26 /* Merz.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Merz.wav; sourceTree = "<group>"; };
+		4898F4942859CDD1002E4F26 /* Oh Elden Ring.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Oh Elden Ring.wav"; sourceTree = "<group>"; };
+		4898F4952859CDD1002E4F26 /* Un Pollo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Un Pollo.wav"; sourceTree = "<group>"; };
+		4898F4962859CDD1002E4F26 /* Bucchi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bucchi.wav; sourceTree = "<group>"; };
+		4898F4972859CDD1002E4F26 /* Harambe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Harambe.wav; sourceTree = "<group>"; };
+		4898F4982859CDD1002E4F26 /* A Capocchj c'a Pann.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "A Capocchj c'a Pann.wav"; sourceTree = "<group>"; };
+		4898F4992859CDD1002E4F26 /* Muda Muda Muda.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Muda Muda Muda.wav"; sourceTree = "<group>"; };
+		4898F49A2859CDD1002E4F26 /* Moan5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan5.wav; sourceTree = "<group>"; };
+		4898F49B2859CDD1002E4F26 /* Moan4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan4.wav; sourceTree = "<group>"; };
+		4898F49C2859CDD1002E4F26 /* Moan6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan6.wav; sourceTree = "<group>"; };
+		4898F49D2859CDD1002E4F26 /* Praise The Sun.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Praise The Sun.wav"; sourceTree = "<group>"; };
+		4898F49E2859CDD1002E4F26 /* Moan7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan7.wav; sourceTree = "<group>"; };
+		4898F49F2859CDD1002E4F26 /* TRAKKIA.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TRAKKIA.wav; sourceTree = "<group>"; };
+		4898F4A02859CDD1002E4F26 /* Moan3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan3.wav; sourceTree = "<group>"; };
+		4898F4A12859CDD1002E4F26 /* Moan2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan2.wav; sourceTree = "<group>"; };
+		4898F4A22859CDD1002E4F26 /* Peni.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Peni.wav; sourceTree = "<group>"; };
+		4898F4A32859CDD1002E4F26 /* Yare Yare Daze.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Yare Yare Daze.wav"; sourceTree = "<group>"; };
+		4898F4A42859CDD1002E4F26 /* Moan1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Moan1.wav; sourceTree = "<group>"; };
+		4898F4A52859CDD1002E4F26 /* Arricc Arricc.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Arricc Arricc.wav"; sourceTree = "<group>"; };
+		4898F4A62859CDD1002E4F26 /* Uwu Uwu.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Uwu Uwu.wav"; sourceTree = "<group>"; };
+		4898F4D72859CE2E002E4F26 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		48EE65A52837AC1E00B0D986 /* RhytmGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhytmGame.swift; sourceTree = "<group>"; };
 		48EE65B1283B839300B0D986 /* TamagotchiMainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiMainScene.swift; sourceTree = "<group>"; };
 		48EE65B3283B947800B0D986 /* TamagotchiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamagotchiView.swift; sourceTree = "<group>"; };
@@ -145,6 +237,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4898F4792859CDD1002E4F26 /* Streamochi Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				4898F47A2859CDD1002E4F26 /* I Nani I Nani I Nani.wav */,
+				4898F47B2859CDD1002E4F26 /* A Fess.wav */,
+				4898F47C2859CDD1002E4F26 /* Però Dammi il Tempo.wav */,
+				4898F47D2859CDD1002E4F26 /* Nya Nya.wav */,
+				4898F47E2859CDD1002E4F26 /* Lore.wav */,
+				4898F47F2859CDD1002E4F26 /* Ventidue.wav */,
+				4898F4802859CDD1002E4F26 /* Popi Popi.wav */,
+				4898F4812859CDD1002E4F26 /* Miao.wav */,
+				4898F4822859CDD1002E4F26 /* A Me M Piac a Nutell.wav */,
+				4898F4832859CDD1002E4F26 /* Moan8.wav */,
+				4898F4842859CDD1002E4F26 /* Ora Ora Ora.wav */,
+				4898F4852859CDD1002E4F26 /* Capiamo.wav */,
+				4898F4862859CDD1002E4F26 /* Ocodewa.wav */,
+				4898F4872859CDD1002E4F26 /* Bono.wav */,
+				4898F4882859CDD1002E4F26 /* Chong China.wav */,
+				4898F4892859CDD1002E4F26 /* Ara Ara.wav */,
+				4898F48A2859CDD1002E4F26 /* M Piac 'o Gelat.wav */,
+				4898F48B2859CDD1002E4F26 /* King.wav */,
+				4898F48C2859CDD1002E4F26 /* Ho i Pugni nelle Mani.wav */,
+				4898F48D2859CDD1002E4F26 /* Si Va a Letto.wav */,
+				4898F48E2859CDD1002E4F26 /* Lezzo.wav */,
+				4898F48F2859CDD1002E4F26 /* A Capocchj.wav */,
+				4898F4902859CDD1002E4F26 /* Peffozz.wav */,
+				4898F4912859CDD1002E4F26 /* E mman 'e Marnar.wav */,
+				4898F4922859CDD1002E4F26 /* Boiadeh.wav */,
+				4898F4932859CDD1002E4F26 /* Merz.wav */,
+				4898F4942859CDD1002E4F26 /* Oh Elden Ring.wav */,
+				4898F4952859CDD1002E4F26 /* Un Pollo.wav */,
+				4898F4962859CDD1002E4F26 /* Bucchi.wav */,
+				4898F4972859CDD1002E4F26 /* Harambe.wav */,
+				4898F4982859CDD1002E4F26 /* A Capocchj c'a Pann.wav */,
+				4898F4992859CDD1002E4F26 /* Muda Muda Muda.wav */,
+				4898F49A2859CDD1002E4F26 /* Moan5.wav */,
+				4898F49B2859CDD1002E4F26 /* Moan4.wav */,
+				4898F49C2859CDD1002E4F26 /* Moan6.wav */,
+				4898F49D2859CDD1002E4F26 /* Praise The Sun.wav */,
+				4898F49E2859CDD1002E4F26 /* Moan7.wav */,
+				4898F49F2859CDD1002E4F26 /* TRAKKIA.wav */,
+				4898F4A02859CDD1002E4F26 /* Moan3.wav */,
+				4898F4A12859CDD1002E4F26 /* Moan2.wav */,
+				4898F4A22859CDD1002E4F26 /* Peni.wav */,
+				4898F4A32859CDD1002E4F26 /* Yare Yare Daze.wav */,
+				4898F4A42859CDD1002E4F26 /* Moan1.wav */,
+				4898F4A52859CDD1002E4F26 /* Arricc Arricc.wav */,
+				4898F4A62859CDD1002E4F26 /* Uwu Uwu.wav */,
+			);
+			path = "Streamochi Sounds";
+			sourceTree = "<group>";
+		};
 		48EE65A42837ABE500B0D986 /* RhytmGame */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +304,7 @@
 		48EE65A92837B1DB00B0D986 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4898F4792859CDD1002E4F26 /* Streamochi Sounds */,
 				95B190102858E79E000EAC9E /* Mabook.ttf */,
 			);
 			path = Resources;
@@ -268,6 +413,7 @@
 				7FDAF9EB2850968F004276E0 /* StreamingInventory.swift */,
 				7FDAF9ED285096A9004276E0 /* StreamingInventoryJson.swift */,
 				7FDAF9EF285096DD004276E0 /* CustomInventoryJson.swift */,
+				4898F4D72859CE2E002E4F26 /* Audio.swift */,
 				7FDAF9F1285096F7004276E0 /* Consumable.swift */,
 				7FDAF9F328509727004276E0 /* Customizable.swift */,
 				7FDAF9F528509CE8004276E0 /* Token.swift */,
@@ -367,12 +513,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4898F4BB2859CDD1002E4F26 /* Lezzo.wav in Resources */,
+				4898F4C22859CDD1002E4F26 /* Un Pollo.wav in Resources */,
+				4898F4CC2859CDD1002E4F26 /* TRAKKIA.wav in Resources */,
+				4898F4C52859CDD1002E4F26 /* A Capocchj c'a Pann.wav in Resources */,
+				4898F4AE2859CDD1002E4F26 /* Miao.wav in Resources */,
+				4898F4C02859CDD1002E4F26 /* Merz.wav in Resources */,
+				4898F4CA2859CDD1002E4F26 /* Praise The Sun.wav in Resources */,
+				4898F4AC2859CDD1002E4F26 /* Ventidue.wav in Resources */,
+				4898F4D12859CDD1002E4F26 /* Moan1.wav in Resources */,
+				4898F4BF2859CDD1002E4F26 /* Boiadeh.wav in Resources */,
+				4898F4CD2859CDD1002E4F26 /* Moan3.wav in Resources */,
+				4898F4C62859CDD1002E4F26 /* Muda Muda Muda.wav in Resources */,
+				4898F4C32859CDD1002E4F26 /* Bucchi.wav in Resources */,
+				4898F4A92859CDD1002E4F26 /* Però Dammi il Tempo.wav in Resources */,
+				4898F4AD2859CDD1002E4F26 /* Popi Popi.wav in Resources */,
+				4898F4A82859CDD1002E4F26 /* A Fess.wav in Resources */,
+				4898F4C82859CDD1002E4F26 /* Moan4.wav in Resources */,
+				4898F4BC2859CDD1002E4F26 /* A Capocchj.wav in Resources */,
+				4898F4CF2859CDD1002E4F26 /* Peni.wav in Resources */,
+				4898F4B62859CDD1002E4F26 /* Ara Ara.wav in Resources */,
 				963D5AB82834EE31008ECEC7 /* Localizable.strings in Resources */,
+				4898F4D02859CDD1002E4F26 /* Yare Yare Daze.wav in Resources */,
+				4898F4B42859CDD1002E4F26 /* Bono.wav in Resources */,
+				4898F4B12859CDD1002E4F26 /* Ora Ora Ora.wav in Resources */,
+				4898F4C42859CDD1002E4F26 /* Harambe.wav in Resources */,
+				4898F4B52859CDD1002E4F26 /* Chong China.wav in Resources */,
+				4898F4AB2859CDD1002E4F26 /* Lore.wav in Resources */,
+				4898F4AF2859CDD1002E4F26 /* A Me M Piac a Nutell.wav in Resources */,
+				4898F4B02859CDD1002E4F26 /* Moan8.wav in Resources */,
+				4898F4B82859CDD1002E4F26 /* King.wav in Resources */,
+				4898F4BD2859CDD1002E4F26 /* Peffozz.wav in Resources */,
 				7F621F11282E46C3007FE06B /* Preview Assets.xcassets in Resources */,
+				4898F4B32859CDD1002E4F26 /* Ocodewa.wav in Resources */,
+				4898F4B92859CDD1002E4F26 /* Ho i Pugni nelle Mani.wav in Resources */,
+				4898F4C72859CDD1002E4F26 /* Moan5.wav in Resources */,
 				7F621F1B282E54CB007FE06B /* .gitignore in Resources */,
+				4898F4AA2859CDD1002E4F26 /* Nya Nya.wav in Resources */,
+				4898F4A72859CDD1002E4F26 /* I Nani I Nani I Nani.wav in Resources */,
+				4898F4C92859CDD1002E4F26 /* Moan6.wav in Resources */,
+				4898F4B72859CDD1002E4F26 /* M Piac 'o Gelat.wav in Resources */,
+				4898F4CB2859CDD1002E4F26 /* Moan7.wav in Resources */,
+				4898F4BA2859CDD1002E4F26 /* Si Va a Letto.wav in Resources */,
+				4898F4C12859CDD1002E4F26 /* Oh Elden Ring.wav in Resources */,
+				4898F4BE2859CDD1002E4F26 /* E mman 'e Marnar.wav in Resources */,
 				963D5AC22834F301008ECEC7 /* blender.json in Resources */,
 				7F621F0E282E46C3007FE06B /* Assets.xcassets in Resources */,
 				95B1901128591D7B000EAC9E /* Mabook.ttf in Resources */,
+				4898F4D22859CDD1002E4F26 /* Arricc Arricc.wav in Resources */,
+				4898F4D32859CDD1002E4F26 /* Uwu Uwu.wav in Resources */,
+				4898F4CE2859CDD1002E4F26 /* Moan2.wav in Resources */,
+				4898F4B22859CDD1002E4F26 /* Capiamo.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +594,7 @@
 				7FDAF9F2285096F7004276E0 /* Consumable.swift in Sources */,
 				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
 				7FDAF9D228509286004276E0 /* TwitchService.swift in Sources */,
+				4898F4D82859CE2E002E4F26 /* Audio.swift in Sources */,
 				7F70295528572B9600EB4C29 /* Broadcaster.swift in Sources */,
 				7FDAF9D02850923D004276E0 /* Storage.swift in Sources */,
 				7FDAF9D82850937C004276E0 /* Channel.swift in Sources */,
