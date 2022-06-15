@@ -12,5 +12,7 @@ class StreamMochiGameLogic: ObservableObject {
     static let shared: StreamMochiGameLogic = StreamMochiGameLogic()
     
     @Published var temp_bool: Bool = false
+    @Published var show_info : Bool = false
+    @Published var curr_room : Int = 1
     
 }
