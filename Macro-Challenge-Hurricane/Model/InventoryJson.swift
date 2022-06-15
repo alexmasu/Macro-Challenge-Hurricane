@@ -7,6 +7,6 @@
 
 import Foundation
 struct InventoryJson: Codable{
-    var i: [Int] = [0,0,0,0,0,0,0,0,0,0]
+    var i: [Int] = [0,0,0,0,0]
     var new = false
 }

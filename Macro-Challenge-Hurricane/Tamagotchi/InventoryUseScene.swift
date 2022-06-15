@@ -56,7 +56,10 @@ class InventoryUseScene : SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
+        
+        
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {

@@ -56,19 +56,19 @@ class Mochi: NSObject, NSCoding{
             new = false
         }
         else {
-            maxHunger = 50
-            maxThirst = 50
+            maxHunger = 100
+            maxThirst = 100
             maxCleanlyness = 100
             maxHealth = 100
-            maxEnergy = 50
+            maxEnergy = 100
             maxHappiness = 100
-            health = 100
+            health = 60
             energy = 50
-            happiness = 100
-            ageType = 0
-            hunger = 50
-            thirst = 50
-            cleanlyness = 100
+            happiness = 85
+            ageType = 2
+            hunger = 22
+            thirst = 33
+            cleanlyness = 43
             sleeping = false
             streaming = false
             ill = false
@@ -80,7 +80,7 @@ class Mochi: NSObject, NSCoding{
             pEnergy = 0
             pEnergyGain = 0
             pStreamPay = 0
-            nPoop = 0
+            nPoop = 2
             pPoop = 0
             pWake = 0
             pHealthHunger = 0
