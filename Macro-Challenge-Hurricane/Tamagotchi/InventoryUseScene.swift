@@ -1,15 +1,14 @@
 //
-//  CustomizationScene.swift
+//  InventoryUseScene.swift
 //  Macro-Challenge-Hurricane
 //
-//  Created by Antonio Emanuele Cutarella on 30/05/22.
-//
+//  Created by Marco Scaglione on 15/06/22.
 //
 
 import Foundation
 import SpriteKit
 
-class InventoryScene : SKScene {
+class InventoryUseScene : SKScene {
     
     
     let contentNode = SKNode()
@@ -32,24 +31,11 @@ class InventoryScene : SKScene {
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     var label = SKSpriteNode()
-//    var startstream = false
-//    var checkSwipe = false
-//    var lightswitch = false
-//    var mute = false
-//    var settingsOn = false
-//    var omettoOn = false
-//    var leftedge = false
-//    var rightedge = false
-//    var soapApplied : Int = 0
-//    var activeRoom = 1
-    private var curr : SKNode?
-//    private var swipeStart : CGPoint?
-//    private var swipeEnd : CGPoint?
     
-    
-    //    var wasInitialized: Bool = false
-    
+    var item : Consumable
 
+    private var curr : SKNode?
+    
     var hungerBarShapeNode = SKShapeNode()
     var thirstBarShapeNode = SKShapeNode()
     var cleanBarShapeNode = SKShapeNode()
@@ -64,19 +50,8 @@ class InventoryScene : SKScene {
     var healthRectangle = CGRect()
     var happyRectangle = CGRect()
 
-
-    
-
-
-//    var wasInitialized: Bool = false
-
-
     override func didMove(to view: SKView) {
-        setupInventoryScene()
-//        hamburger.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-//        hamburger.setScale(0.1)
-//        hamburger.name = "hamburger"
-//        addChild(hamburger)
+        setupInventoryUseScene()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -93,41 +68,15 @@ class InventoryScene : SKScene {
                     self.curr = node
                 }
                 
-                if node.name == consumableV[0].name {
-                    let inventoryUseScene = InventoryUseScene(itemName: node.name!,size: (view?.frame.size)!)
-                    
+                
+                if node.name == "useButton" {
+                    Macro_Challenge_HurricaneApp.inventory.consume(mochi: Macro_Challenge_HurricaneApp.mochi, selected: item.id)
+                    let tamagotchiMainScene = TamagotchiMainScene(size: (view?.frame.size)!)
                     //                    tamagotchiMainScene.size = (view?.frame.size)!
                     let transition = SKTransition.fade(withDuration: 0.5)
-                    self.view?.presentScene(inventoryUseScene, transition: transition)
+                    self.view?.presentScene(tamagotchiMainScene, transition: transition)
                 }
-                if node.name == consumableV[1].name {
-                    let inventoryUseScene = InventoryUseScene(itemName: node.name!,size: (view?.frame.size)!)
-                    
-                    //                    tamagotchiMainScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 0.5)
-                    self.view?.presentScene(inventoryUseScene, transition: transition)
-                }
-                if node.name == consumableV[2].name {
-                    let inventoryUseScene = InventoryUseScene(itemName: node.name!,size: (view?.frame.size)!)
-                    
-                    //                    tamagotchiMainScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 0.5)
-                    self.view?.presentScene(inventoryUseScene, transition: transition)
-                }
-                if node.name == consumableV[3].name {
-                    let inventoryUseScene = InventoryUseScene(itemName: node.name!,size: (view?.frame.size)!)
-                    
-                    //                    tamagotchiMainScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 0.5)
-                    self.view?.presentScene(inventoryUseScene, transition: transition)
-                }
-                if node.name == consumableV[4].name {
-                    let inventoryUseScene = InventoryUseScene(itemName: node.name!,size: (view?.frame.size)!)
-                    
-                    //                    tamagotchiMainScene.size = (view?.frame.size)!
-                    let transition = SKTransition.fade(withDuration: 0.5)
-                    self.view?.presentScene(inventoryUseScene, transition: transition)
-                }
+                
             }
         }
     }
@@ -139,10 +88,10 @@ class InventoryScene : SKScene {
             
             if node.name == "backbutton" {
                 
-                let tamagotchiMainScene = TamagotchiMainScene(size: (view?.frame.size)!)
+                let inventoryScene = InventoryScene(size: (view?.frame.size)!)
                 //                    tamagotchiMainScene.size = (view?.frame.size)!
                 let transition = SKTransition.fade(withDuration: 0.5)
-                self.view?.presentScene(tamagotchiMainScene, transition: transition)
+                self.view?.presentScene(inventoryScene, transition: transition)
             }
             
 //            if node.name == "hamburger" {
@@ -169,14 +118,33 @@ class InventoryScene : SKScene {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+        
+        
+    }
+    init (itemName: String, size: CGSize){
+        var tempName : String
+        item = consumableV[0]
+        for el in consumableV{
+            tempName = el.name
+            if tempName == itemName {
+                item = el
+            }
+        }
+        
+        super.init(size: size)
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 
 // MARK: - Schermata Principale
-extension InventoryScene {
+extension InventoryUseScene {
     
-    func BlurEffect(){
+    func BlurEffectUse(){
         
         let filter = CIFilter(name: "CIGaussianBlur")
         // Set the blur amount. Adjust this to achieve the desired effect
@@ -193,7 +161,7 @@ extension InventoryScene {
     }
     
     
-    func BackButton() {
+    func BackButtonUse() {
         let leftCornerSymbol = SKSpriteNode(imageNamed: "BackButton.png")
 //        leftCornerSymbol.setScale(1.0)
         leftCornerSymbol.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.08 , y: frame.maxY - UIScreen.main.bounds.height * 0.15)
@@ -202,16 +170,90 @@ extension InventoryScene {
         addChild(leftCornerSymbol)
     }
     
-    func InventoryTitle() {
+    func InventoryTitleUse() {
         let myLabel = SKLabelNode(fontNamed: "Mabook")
         myLabel.text = "Inventory".localized()
         myLabel.fontSize = 30
         //        myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.09)
         myLabel.position = CGPoint(x: frame.maxX - UIScreen.main.bounds.width * 0.49, y: frame.maxY - UIScreen.main.bounds.height * 0.165)
         self.addChild(myLabel)
+        
     }
     
-    func stats(mochi: Mochi){
+    func inventoryUseElements(){
+        
+        
+        let itemNameLabel = SKLabelNode(fontNamed: "Mabook")
+        itemNameLabel.text = item.name
+        itemNameLabel.fontColor = UIColor.white
+        itemNameLabel.position = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.735)
+        itemNameLabel.fontSize = 40
+        addChild(itemNameLabel)
+        
+        let quadrato = SKShapeNode(rectOf: box)
+        quadrato.position = CGPoint(x:  frame.width * 0.5, y: frame.height * 0.63)
+        addChild(quadrato)
+        let img = SKSpriteNode(imageNamed: item.consumable_image)
+        img.size = CGSize(width: quadrato.frame.size.width * 1.2, height: quadrato.frame.size.height * 1.2)
+        img.position = CGPoint( x: quadrato.position.x, y: quadrato.position.y - quadrato.frame.size.height * 0.145)
+        img.zPosition = 20
+        
+        
+        
+        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.height)/2) , size: img.size), cornerRadius: 10)
+        roundedR.fillColor = UIColor.lightGray
+        roundedR.zPosition = 10
+        roundedR.alpha = 0.7
+        roundedR.strokeColor = .clear
+        
+        addChild(roundedR)
+        img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
+        addChild(img)
+        
+        
+        let itemDescLabel = SKLabelNode(fontNamed: "Mabook")
+        itemDescLabel.text = item.info
+        itemDescLabel.fontColor = UIColor.white
+        itemDescLabel.fontSize = 28
+        itemDescLabel.position = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.395)
+        itemDescLabel.preferredMaxLayoutWidth = CGFloat(self.size.width * 0.9)
+        itemDescLabel.yScale = 0.9
+        itemDescLabel.xScale = 0.9
+        itemDescLabel.numberOfLines = 4
+        
+        
+        addChild(itemDescLabel)
+        
+        let roundedUse = SKShapeNode(rect: CGRect(origin: CGPoint(x: UIScreen.main.bounds.width * 0.1 , y: UIScreen.main.bounds.height * 0.17) , size: CGSize(width: 0.8 * UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)), cornerRadius: 10)
+        roundedUse.fillColor = UIColor.lightGray
+        roundedUse.zPosition = 10
+        roundedUse.alpha = 0.5
+        roundedUse.strokeColor = .clear
+        roundedUse.name = "useButton"
+        
+        addChild(roundedUse)
+        
+        let UseLabel = SKLabelNode(fontNamed: "Mabook")
+        UseLabel.text = "Use".localized()
+        UseLabel.fontColor = UIColor.white
+        UseLabel.position = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.2025)
+        UseLabel.fontSize = 40
+        UseLabel.zPosition = 200
+        addChild(UseLabel)
+        
+        let disponibileLabel = SKLabelNode(fontNamed: "Mabook")
+        disponibileLabel.text = "Disponibile".localized() + ": \(Macro_Challenge_HurricaneApp.inventory.i[item.id])"
+        disponibileLabel.fontColor = UIColor.white
+        disponibileLabel.position = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.31)
+        disponibileLabel.fontSize = 40
+        disponibileLabel.zPosition = 200
+        addChild(disponibileLabel)
+        
+        
+        quadrato.alpha = 0
+    }
+    
+    func statsUse(mochi: Mochi){
         
         let hungerIcon = SKSpriteNode(imageNamed: "piattto.png")
         hungerIcon.setScale(0.4)
@@ -343,81 +385,80 @@ extension InventoryScene {
     
 //    quando è 0 deve fare elemCorrente +=1 e row +=1
     
-    func spawnObject(item: Consumable, quantity : Int){
-        let quadrato = SKShapeNode(rectOf: box)
-        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * CGFloat(elemCorrente)), y: initialPos.y - (VerticalOffset * row))
-        addChild(quadrato)
-        let img = SKSpriteNode(imageNamed: item.consumable_image)
-        img.size = CGSize(width: quadrato.frame.size.width * 0.7, height: quadrato.frame.size.height * 0.7)
-        img.position = CGPoint( x: quadrato.position.x, y: quadrato.position.y - quadrato.frame.size.height * 0.145)
-        img.zPosition = 20
-        img.name = item.name
-        
-        
-        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.height)/2) , size: img.size), cornerRadius: 10)
-        roundedR.fillColor = UIColor.lightGray
-        roundedR.zPosition = 10
-        roundedR.alpha = 0.7
-        
-        addChild(roundedR)
-        img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
-        addChild(img)
-        
-        let imgName = SKLabelNode(fontNamed: "Mabook")
-        imgName.text = item.name
-        imgName.fontSize = 18
-        imgName.fontColor = UIColor.white
-        imgName.position = CGPoint(x: img.position.x, y: img.position.y + img.size.height * 0.64)
-        imgName.zPosition = 100
-        
-        addChild(imgName)
-        
-        let quantityR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 , y: (img.position.y) - (img.size.height) * 0.5) , size: CGSize(width: img.size.width * 0.45, height: img.size.height * 0.3)), cornerRadius: 4)
-        quantityR.fillColor = UIColor.white
-        quantityR.zPosition = 30
-        
-        addChild(quantityR)
-        
-        let borderR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 + img.size.width * 0.016 , y: (img.position.y) - (img.size.height) * 0.4 - img.size.height * 0.09) , size: CGSize(width: img.size.width * 0.45 * 0.95, height: img.size.height * 0.3 * 0.95)), cornerRadius: 4)
-        
-        borderR.strokeColor = UIColor.black
-        quantityR.addChild(borderR)
-        
-        let quantityL = SKLabelNode(fontNamed: "Mabook")
-        quantityL.text = String("x \(quantity)")
-        quantityL.fontSize = 15
-        quantityL.fontColor = UIColor.black
-        quantityL.position = CGPoint(x: img.position.x + img.size.width * 0.48, y: img.position.y - img.size.height * 0.45)
-        quantityL.zPosition = 200
-        addChild(quantityL)
-        
-        
-        quadrato.alpha = 0
-
-        
-    }
+//    func spawnObject(item: Consumable, quantity : Int){
+//        let quadrato = SKShapeNode(rectOf: box)
+//        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * CGFloat(elemCorrente)), y: initialPos.y - (VerticalOffset * row))
+//        addChild(quadrato)
+//        let img = SKSpriteNode(imageNamed: item.consumable_image)
+//        img.size = CGSize(width: quadrato.frame.size.width * 0.7, height: quadrato.frame.size.height * 0.7)
+//        img.position = CGPoint( x: quadrato.position.x, y: quadrato.position.y - quadrato.frame.size.height * 0.145)
+//        img.zPosition = 20
+//
+//
+//        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.height)/2) , size: img.size), cornerRadius: 10)
+//        roundedR.fillColor = UIColor.lightGray
+//        roundedR.zPosition = 10
+//        roundedR.alpha = 0.7
+//
+//        addChild(roundedR)
+//        img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
+//        addChild(img)
+//
+//        let imgName = SKLabelNode(fontNamed: "Mabook")
+//        imgName.text = item.name
+//        imgName.fontSize = 18
+//        imgName.fontColor = UIColor.white
+//        imgName.position = CGPoint(x: img.position.x, y: img.position.y + img.size.height * 0.64)
+//        imgName.zPosition = 100
+//
+//        addChild(imgName)
+//
+//        let quantityR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 , y: (img.position.y) - (img.size.height) * 0.5) , size: CGSize(width: img.size.width * 0.45, height: img.size.height * 0.3)), cornerRadius: 4)
+//        quantityR.fillColor = UIColor.white
+//        quantityR.zPosition = 30
+//
+//        addChild(quantityR)
+//
+//        let borderR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 + img.size.width * 0.016 , y: (img.position.y) - (img.size.height) * 0.4 - img.size.height * 0.09) , size: CGSize(width: img.size.width * 0.45 * 0.95, height: img.size.height * 0.3 * 0.95)), cornerRadius: 4)
+//
+//        borderR.strokeColor = UIColor.black
+//        quantityR.addChild(borderR)
+//
+//        let quantityL = SKLabelNode(fontNamed: "Mabook")
+//        quantityL.text = String("x \(quantity)")
+//        quantityL.fontSize = 15
+//        quantityL.fontColor = UIColor.black
+//        quantityL.position = CGPoint(x: img.position.x + img.size.width * 0.48, y: img.position.y - img.size.height * 0.45)
+//        quantityL.zPosition = 200
+//        addChild(quantityL)
+//
+//
+//        quadrato.alpha = 0
+//
+//
+//    }
     
-    func calcoli() {
-        let displayedI = inventario.selectForDisplay()
-        let quantityI = inventario.displayCount()
-        var e = 0
-        for el in displayedI {
-            if (elemCorrente+1)%3 == 1 {
-                spawnObject(item: el, quantity: quantityI[e])
-                elemCorrente+=1
-            } else if (elemCorrente+1)%3 == 2 {
-                spawnObject(item: el, quantity: quantityI[e])
-                elemCorrente+=1
-            } else if (elemCorrente+1)%3 == 0 {
-                spawnObject(item: el, quantity: quantityI[e])
-                elemCorrente = 0
-                row += 1
-            }
-            e = e + 1
-        }
-    }
-    
-    func update_straight_bar (mochi: Mochi) {
+//    func calcoli() {
+//        let displayedI = inventario.selectForDisplay()
+//        let quantityI = inventario.displayCount()
+//        var e = 0
+//        for el in displayedI {
+//            if (elemCorrente+1)%3 == 1 {
+//                spawnObject(item: el, quantity: quantityI[e])
+//                elemCorrente+=1
+//            } else if (elemCorrente+1)%3 == 2 {
+//                spawnObject(item: el, quantity: quantityI[e])
+//                elemCorrente+=1
+//            } else if (elemCorrente+1)%3 == 0 {
+//                spawnObject(item: el, quantity: quantityI[e])
+//                elemCorrente = 0
+//                row += 1
+//            }
+//            e = e + 1
+//        }
+//    }
+//
+    func update_straight_barUse (mochi: Mochi) {
         let barwidth = hungerRectangle.size.width
         let barheight = hungerRectangle.size.height
         var hungerV = CGFloat(mochi.hunger)
@@ -528,21 +569,21 @@ extension InventoryScene {
 //        card.addChild(card.hpBar_Fill!)
         
     }
-    func setupInventoryScene() {
+    func setupInventoryUseScene() {
         
-        BlurEffect()
-        BackButton()
-        InventoryTitle()
+        BlurEffectUse()
+        BackButtonUse()
+        InventoryTitleUse()
+        inventoryUseElements()
+        
 //        stats()
-        calcoli()
+//        calcoli()
         
-        //        self.wasInitialized = true
-        
-        stats(mochi: Macro_Challenge_HurricaneApp.mochi)
+        statsUse(mochi: Macro_Challenge_HurricaneApp.mochi)
 //        Macro_Challenge_HurricaneApp.mochi.hunger = 10
 //        Macro_Challenge_HurricaneApp.mochi.cleanlyness = 30
         
-        update_straight_bar(mochi: Macro_Challenge_HurricaneApp.mochi)
+        update_straight_barUse(mochi: Macro_Challenge_HurricaneApp.mochi)
         
         
 
@@ -807,5 +848,6 @@ extension InventoryScene {
 
     
 }
+
 
 

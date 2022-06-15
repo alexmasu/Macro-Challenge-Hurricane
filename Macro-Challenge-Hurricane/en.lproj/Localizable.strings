@@ -7,6 +7,9 @@
 */
 
 // Consumable.swift
+"Use" = "use";
+
+"Disponibile" = "Available";
 
 "hamburger" = "hamburger";
 "it looks tasty, I feel like i'm the clowns' king" = "it looks tasty, I feel like i'm the clowns' king";
