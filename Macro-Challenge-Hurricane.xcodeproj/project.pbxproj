@@ -91,11 +91,11 @@
 		7FDAF9FC2850B3F8004276E0 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9FB2850B3F8004276E0 /* String+localized.swift */; };
 		95B1901128591D7B000EAC9E /* Mabook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B190102858E79E000EAC9E /* Mabook.ttf */; };
 		95B190132859C36D000EAC9E /* InventoryUseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B190122859C36D000EAC9E /* InventoryUseScene.swift */; };
+		960F20142859EC9900E2CDBF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F20132859EC9900E2CDBF /* InfoView.swift */; };
 		96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
 		963D5AB82834EE31008ECEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 963D5ABA2834EE31008ECEC7 /* Localizable.strings */; };
 		963D5AC22834F301008ECEC7 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 963D5AC12834F301008ECEC7 /* blender.json */; };
-		963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AC82834F5E8008ECEC7 /* LottieView.swift */; };
 		963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */; };
 		963D5ACC2834F5F7008ECEC7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5ACB2834F5F7008ECEC7 /* ContentView.swift */; };
 		963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5ACD2834F626008ECEC7 /* BottomText.swift */; };
@@ -201,13 +201,13 @@
 		7FDAF9FB2850B3F8004276E0 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		95B190102858E79E000EAC9E /* Mabook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mabook.ttf; sourceTree = "<group>"; };
 		95B190122859C36D000EAC9E /* InventoryUseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryUseScene.swift; sourceTree = "<group>"; };
+		960F20132859EC9900E2CDBF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		961E4D672846563800FC8B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat_Ext.swift; sourceTree = "<group>"; };
 		963D5AB92834EE31008ECEC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		963D5ABB2834EE35008ECEC7 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		963D5AC12834F301008ECEC7 /* blender.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blender.json; sourceTree = "<group>"; };
 		963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro_Challenge_HurricaneApp.swift; sourceTree = "<group>"; };
-		963D5AC82834F5E8008ECEC7 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		963D5ACB2834F5F7008ECEC7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		963D5ACD2834F626008ECEC7 /* BottomText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomText.swift; sourceTree = "<group>"; };
 		963D5ACF2834F62C008ECEC7 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 				48EE65B0283B835600B0D986 /* Tamagotchi */,
 				7F621F17282E5291007FE06B /* Git */,
 				963D5ACB2834F5F7008ECEC7 /* ContentView.swift */,
-				963D5AC82834F5E8008ECEC7 /* LottieView.swift */,
+				960F20132859EC9900E2CDBF /* InfoView.swift */,
 				963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */,
 				7FDAF9D128509286004276E0 /* TwitchService.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
@@ -611,7 +611,6 @@
 				7FDAF9FC2850B3F8004276E0 /* String+localized.swift in Sources */,
 				7FDAF9EE285096A9004276E0 /* StreamingInventoryJson.swift in Sources */,
 				7FDAF9E4285095BA004276E0 /* TimeManager.swift in Sources */,
-				963D5AC92834F5E8008ECEC7 /* LottieView.swift in Sources */,
 				7FDAF9E22850951A004276E0 /* Mochi.swift in Sources */,
 				7F70294D285330EA00EB4C29 /* StreamMochiGameLogic.swift in Sources */,
 				48EE65BC2844DAB400B0D986 /* ShopScene.swift in Sources */,
@@ -623,6 +622,7 @@
 				7FDAF9F0285096DD004276E0 /* CustomInventoryJson.swift in Sources */,
 				7FDAF9DA285093A5004276E0 /* Currencies.swift in Sources */,
 				963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */,
+				960F20142859EC9900E2CDBF /* InfoView.swift in Sources */,
 				48EE65B8283CEF9300B0D986 /* RGPhysicsCategory.swift in Sources */,
 				968566E52844DF2A000D06BA /* MinigamesScene.swift in Sources */,
 				48EE65A62837AC1E00B0D986 /* RhytmGame.swift in Sources */,
