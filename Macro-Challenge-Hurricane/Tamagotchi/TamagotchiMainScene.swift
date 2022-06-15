@@ -25,7 +25,7 @@ class TamagotchiMainScene : SKScene {
     let light = SKSpriteNode(imageNamed: "light.png")
     let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let pc = SKSpriteNode(imageNamed: "pc2.png")
-    let square = SKSpriteNode(imageNamed: "mochibody.png")
+    let square = SKSpriteNode(imageNamed: "mochibody000.png")
     let face = SKSpriteNode(imageNamed: "felicio.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
     let streamingmonitor = SKSpriteNode(imageNamed: "Monitor2.png")
@@ -101,6 +101,8 @@ class TamagotchiMainScene : SKScene {
     let arancione = UIColor(named:"arancione")!
     let rosso = UIColor(named: "rosso")!
     
+    var idlearray : [String] = []
+    var idlemochi : [String] = []
     
 
     
@@ -1129,6 +1131,8 @@ extension TamagotchiMainScene {
 // MARK: Elements Animations
 
 extension TamagotchiMainScene {
+    
+
     
     private func fadeInAnim(elem : SKSpriteNode, time : CGFloat) {
         let comparsa = SKAction.fadeIn(withDuration: time)
