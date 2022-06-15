@@ -1,5 +1,5 @@
 //
-//  InfoView.swift
+//  InfoViewBedroom.swift
 //  Macro-Challenge-Hurricane
 //
 //  Created by Antonio Emanuele Cutarella on 15/06/22.
@@ -8,28 +8,13 @@
 import SwiftUI
 import AVFoundation
 
-struct InfoView: View {
+struct InfoViewBedroom: View {
     
     @StateObject var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic()
     
     
     var body: some View {
         ZStack{
-            VStack(alignment: .center){
-                Ellipse()
-                    .fill(Color.white)
-                    .frame(width: 250, height: 300, alignment: .center)
-                    .blur(radius: 30)
-                    .opacity(0.6)
-                    .overlay{
-                        Text("Monitor")
-                            .font(Font.custom("Mabook", size: 15))
-                            .foregroundColor(Color.black)
-                            .fontWeight(.bold)
-                            .position(x: 130, y: 100)
-                        Spacer()
-                    }
-            }
             VStack{
                 HStack{
                     Ellipse()
@@ -85,7 +70,7 @@ struct InfoView: View {
                         .blur(radius: 30)
                         .opacity(0.6)
                         .overlay{
-                            Text("Mini Games")
+                            Text("Light Switch")
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
@@ -103,7 +88,7 @@ struct InfoView: View {
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 70, y: 380)
+                                .position(x: 80, y: 380)
                             Spacer()
                         }
                 }

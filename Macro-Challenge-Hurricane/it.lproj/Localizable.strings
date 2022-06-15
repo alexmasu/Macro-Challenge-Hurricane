@@ -12,32 +12,32 @@
 "Disponibile" = "disponibile";
 
 "hamburger" = "hamburger";
-"it looks tasty, I feel like i'm the clowns' king" = "sembra gustoso, mi sento come se fossi il re dei clown";
+"hamburger description" = "sembra gustoso, mi sento come se fossi il re dei clown";
 
 "pizza" = "pizza";
-"Simple, traditional without pineapple. Erne ta po magna' a pizza..." = "Semplice, tradizionale senza ananas. Erne ta po magna' a pizza...";
+"pizza description" = "Semplice, tradizionale senza ananas. Erne ta po magna' a pizza...";
 
 
 "potato chip" = "patatine";
-"I'll take a potato chip and eat it. Nobody will notice what's in the package..." = "Prendo una patatina e me la mangio. Nessuno potra' notare cosa sta nel pacchetto...";
+"patatine description" = "Prendo una patatina e me la mangio. Nessuno potra' notare cosa sta nel pacchetto...";
 
 "water" = "acqua";
-"luckily this doesn't come from a bathtub" = "fortunatamente questa non viene da una vasca da bagno";
+"acqua description" = "fortunatamente questa non viene da una vasca da bagno";
 
 "soda" = "soda";
-"better not to shake it" = "meglio non agitarla";
+"soda description" = "meglio non agitarla";
 
 "7Mochi" = "7Mochi";
-"it is not green in color" = "non è di colore verde";
+"7Mochi description" = "non è di colore verde";
 
 "icecream" = "gelato";
-"chocolate, sweet, a little salty" = "al cioccolato, dolce, un po' salato";
+"icecream description" = "al cioccolato, dolce, un po' salato";
 
 "croissant" = "cornetto";
-"catch him,catch him!" = "pijatelo, pijatelo!";
+"croissant description" = "pijatelo, pijatelo!";
 
 "syringe" = "siringa";
-"Cures diseases. It doesn't hurt, it doesn't hurt..." = "Cura le malattie. non fa male, non fa male...";
+"syringe description" = "Cura le malattie. non fa male, non fa male...";
 
 
 // Inventory Scene
@@ -49,10 +49,18 @@
 // Customization Scene
 "Customization" = "Personalizzazione";
 
+"Twitch" = "Twitch";
+
+"Clean" = "Lava";
+
+"Monitor" = "Vai Live";
+
 "Coming Soon..." = "In arrivo...";
 
 "Done" = "Fatto";
 
 "Mini Games" = "Mini Giochi";
 
-"Games will be present in the final version, we give you +10 happiness for your understanding" = "I giochi saranno presenti nella versione finale , ti diamo +10 felicita per arricciare";
+"Mini Games coming soon" = "I mini giochi saranno presenti nella versione finale , ti diamo +10 felicita per la comprensione."; = "I mini giochi saranno presenti nella versione finale , ti diamo +10 felicita per la comprensione";
+
+"Light Switch" = "Dormi";

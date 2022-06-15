@@ -29,23 +29,23 @@ class Consumable: NSObject{
     
 }
 
-let hamburger = Consumable(Id: 0, Name: "hamburger".localized(), Price: 8, Requirement: 0, Info: "it looks tasty, I feel like i'm the clowns' king".localized(), Consumable_image: "paninemerd.png")
+let hamburger = Consumable(Id: 0, Name: "hamburger".localized(), Price: 8, Requirement: 0, Info: "hamburger description".localized(), Consumable_image: "paninemerd.png")
 
-let pizza = Consumable(Id: 1, Name: "pizza".localized(), Price: 12, Requirement: 50, Info: "Simple, traditional without pineapple. Erne ta po magna' a pizza...".localized(), Consumable_image: "pizzott.png")
+let pizza = Consumable(Id: 1, Name: "pizza".localized(), Price: 12, Requirement: 50, Info: "pizza description".localized(), Consumable_image: "pizzott.png")
 
-let patatine = Consumable(Id: 2, Name: "potato chip".localized(), Price: 4, Requirement: 0, Info: "I'll take a potato chip and eat it. Nobody will notice what's in the package...".localized(), Consumable_image: "patane.png")
+let patatine = Consumable(Id: 2, Name: "potato chip".localized(), Price: 4, Requirement: 0, Info: "patatine description".localized(), Consumable_image: "patane.png")
 
-let acqua = Consumable(Id: 3, Name: "water".localized(), Price: 5, Requirement: 0, Info: "luckily this doesn't come from a bathtub".localized(), Consumable_image: "Acquarella.png")
+let acqua = Consumable(Id: 3, Name: "water".localized(), Price: 5, Requirement: 0, Info: "acqua description".localized(), Consumable_image: "Acquarella.png")
 
-//let soda = Consumable(Id: 4, Name: "soda".localized(),Price: 9,Requirement: 0,Info: "better not to shake it".localized(), Consumable_image: "")
+//let soda = Consumable(Id: 4, Name: "soda".localized(),Price: 9,Requirement: 0,Info: "soda description".localized(), Consumable_image: "")
 //
-//let sevenMochi = Consumable(Id: 5, Name: "7Mochi".localized(), Price: 13, Requirement: 50, Info: "it is not green in color".localized(), Consumable_image: "")
+//let sevenMochi = Consumable(Id: 5, Name: "7Mochi".localized(), Price: 13, Requirement: 50, Info: "7Mochi description".localized(), Consumable_image: "")
 //
-//let gelato = Consumable(Id: 6, Name: "icecream".localized(), Price: 12, Requirement: 100, Info: "chocolate, sweet, a little salty".localized(), Consumable_image: "")
+//let gelato = Consumable(Id: 6, Name: "icecream".localized(), Price: 12, Requirement: 100, Info: "icecream description".localized(), Consumable_image: "")
 //
-//let cornetto = Consumable (Id: 7, Name: "croissant".localized(), Price: 18, Requirement: 100, Info: "catch him,catch him!".localized(), Consumable_image: "")
+//let cornetto = Consumable (Id: 7, Name: "croissant".localized(), Price: 18, Requirement: 100, Info: "croissant description".localized(), Consumable_image: "")
 //
-let siringa = Consumable(Id: 4, Name: "syringe".localized(), Price: 9, Requirement: 0, Info: "Cures diseases. It doesn't hurt, it doesn't hurt...".localized(), Consumable_image: "Siringella.png")
+let siringa = Consumable(Id: 4, Name: "syringe".localized(), Price: 9, Requirement: 0, Info: "syringe description".localized(), Consumable_image: "Siringella.png")
 
 //let consumableV = [hamburger,pizza,patatine,acqua,soda,sevenMochi,gelato,cornetto,siringa]
 

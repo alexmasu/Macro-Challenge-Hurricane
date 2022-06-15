@@ -114,6 +114,8 @@
 		968566E12844DDA8000D06BA /* InventoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968566E02844DDA8000D06BA /* InventoryScene.swift */; };
 		968566E32844DEAE000D06BA /* CustomizationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968566E22844DEAE000D06BA /* CustomizationScene.swift */; };
 		968566E52844DF2A000D06BA /* MinigamesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968566E42844DF2A000D06BA /* MinigamesScene.swift */; };
+		96A5DB13285A7C9D00F53E99 /* InfoViewBathroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5DB12285A7C9C00F53E99 /* InfoViewBathroom.swift */; };
+		96A5DB15285A7CA700F53E99 /* InfoViewBedroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A5DB14285A7CA700F53E99 /* InfoViewBedroom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +228,8 @@
 		968566E02844DDA8000D06BA /* InventoryScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryScene.swift; sourceTree = "<group>"; };
 		968566E22844DEAE000D06BA /* CustomizationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationScene.swift; sourceTree = "<group>"; };
 		968566E42844DF2A000D06BA /* MinigamesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinigamesScene.swift; sourceTree = "<group>"; };
+		96A5DB12285A7C9C00F53E99 /* InfoViewBathroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewBathroom.swift; sourceTree = "<group>"; };
+		96A5DB14285A7CA700F53E99 /* InfoViewBedroom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewBedroom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +368,8 @@
 				7F621F17282E5291007FE06B /* Git */,
 				963D5ACB2834F5F7008ECEC7 /* ContentView.swift */,
 				960F20132859EC9900E2CDBF /* InfoView.swift */,
+				96A5DB12285A7C9C00F53E99 /* InfoViewBathroom.swift */,
+				96A5DB14285A7CA700F53E99 /* InfoViewBedroom.swift */,
 				963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */,
 				7FDAF9D128509286004276E0 /* TwitchService.swift */,
 				7F621F0D282E46C3007FE06B /* Assets.xcassets */,
@@ -615,6 +621,7 @@
 				7FDAF9EE285096A9004276E0 /* StreamingInventoryJson.swift in Sources */,
 				7FDAF9E4285095BA004276E0 /* TimeManager.swift in Sources */,
 				7FDAF9E22850951A004276E0 /* Mochi.swift in Sources */,
+				96A5DB15285A7CA700F53E99 /* InfoViewBedroom.swift in Sources */,
 				7F70294D285330EA00EB4C29 /* StreamMochiGameLogic.swift in Sources */,
 				48EE65BC2844DAB400B0D986 /* ShopScene.swift in Sources */,
 				963D5ACC2834F5F7008ECEC7 /* ContentView.swift in Sources */,
@@ -633,6 +640,7 @@
 				7F70294F28548DB800EB4C29 /* Constants.swift in Sources */,
 				7FDAF9EA28509632004276E0 /* InventoryJson.swift in Sources */,
 				963D5ADA2834F62D008ECEC7 /* Quiz.swift in Sources */,
+				96A5DB13285A7C9D00F53E99 /* InfoViewBathroom.swift in Sources */,
 				7F70295128548FB100EB4C29 /* TwitchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

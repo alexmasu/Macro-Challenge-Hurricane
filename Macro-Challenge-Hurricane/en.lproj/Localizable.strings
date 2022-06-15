@@ -19,23 +19,25 @@
 
 
 "potato chip" = "potato chips";
-"I'll take a potato chip and eat it. Nobody will notice what's in the package..." = "I'll take a potato chip and eat it. Nobody will notice what's in the package...";
+"patatine description" = "I'll take a potato chip and eat it. Nobody will notice what's in the package...";
 
 "water" = "water";
-"luckily this doesn't come from a bathtub" = "luckily this doesn't come from a bathtub";
+"acqua description" = "luckily this doesn't come from a bathtub";
 
 "soda" = "soda";
+"soda description" = "It's better not to shake it";
 
 "7Mochi" = "7Mochi";
+"7Mochi description" = "It's not green";
 
 "icecream" = "icecream";
-"chocolate, sweet, a little salty" = "chocolate, sweet, a little salty";
+"icecream description" = "chocolate, sweet, a little salty";
 
 "croissant" = "croissant";
-"catch him,catch him!" = "catch him,catch him!";
+"croissant description" = "catch him,catch him!";
 
 "syringe" = "syringe";
-"Cures diseases. It doesn't hurt, it doesn't hurt..." = "Cures diseases. It doesn't hurt, it doesn't hurt...";
+"syringe description" = "Cures diseases. It doesn't hurt, it doesn't hurt...";
 
 
 // Inventory Scene
@@ -48,6 +50,11 @@
 // Customization Scene
 "Customization" = "Customization";
 
+"Twitch" = "Twitch";
+
+"Monitor" = "Go Live";
+
+"Clean" = "Clean";
 
 "Coming Soon..." = "Coming Soon...";
 
@@ -55,4 +62,6 @@
 
 "Mini Games" = "Mini Games";
 
-"Games will be present in the final version, we give you +10 happiness for your understanding" = "Games will be present in the final version, we give you +10 happiness for your understanding";
+"Mini Games coming soon" = "Games will be present in the final version, we give you +10 happiness for your understanding";
+
+"Light Switch" = "Sleep";

@@ -13,6 +13,8 @@ class StreamMochiGameLogic: ObservableObject {
     
     @Published var temp_bool: Bool = false
     @Published var show_info : Bool = false
+    @Published var square_pos_x : CGFloat = 0
+    @Published var square_pos_y : CGFloat = 0
     @Published var curr_room : Int = 1
     
 }
