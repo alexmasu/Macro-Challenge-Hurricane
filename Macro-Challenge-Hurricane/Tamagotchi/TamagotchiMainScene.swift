@@ -1314,7 +1314,7 @@ extension TamagotchiMainScene {
             },
             SKAction.run {
                 [self] in
-                let move = SKAction.move(to: CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21), duration: 0.8)
+                let move = SKAction.move(to: CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.217), duration: 0.8)
                 square.run(move)
             },
             SKAction.run {
