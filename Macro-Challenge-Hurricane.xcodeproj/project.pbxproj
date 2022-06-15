@@ -90,6 +90,7 @@
 		7FDAF9FA28509D38004276E0 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9F928509D38004276E0 /* WebView.swift */; };
 		7FDAF9FC2850B3F8004276E0 /* String+localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9FB2850B3F8004276E0 /* String+localized.swift */; };
 		95B1901128591D7B000EAC9E /* Mabook.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95B190102858E79E000EAC9E /* Mabook.ttf */; };
+		95B190132859C36D000EAC9E /* InventoryUseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B190122859C36D000EAC9E /* InventoryUseScene.swift */; };
 		960F20142859EC9900E2CDBF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F20132859EC9900E2CDBF /* InfoView.swift */; };
 		96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */; };
 		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
@@ -199,6 +200,7 @@
 		7FDAF9F928509D38004276E0 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		7FDAF9FB2850B3F8004276E0 /* String+localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localized.swift"; sourceTree = "<group>"; };
 		95B190102858E79E000EAC9E /* Mabook.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mabook.ttf; sourceTree = "<group>"; };
+		95B190122859C36D000EAC9E /* InventoryUseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryUseScene.swift; sourceTree = "<group>"; };
 		960F20132859EC9900E2CDBF /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		961E4D672846563800FC8B65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat_Ext.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				4810EA412853560500351F47 /* InventoryView.swift */,
 				9678EF9328476CAC00AE1C4E /* BedroomScene.swift */,
 				48EE65BB2844DAB400B0D986 /* ShopScene.swift */,
+				95B190122859C36D000EAC9E /* InventoryUseScene.swift */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				963D5ACE2834F626008ECEC7 /* BottomText.swift in Sources */,
 				7FDAF9F2285096F7004276E0 /* Consumable.swift in Sources */,
 				48EE65B6283CCEF000B0D986 /* RhytmGameView.swift in Sources */,
+				95B190132859C36D000EAC9E /* InventoryUseScene.swift in Sources */,
 				7FDAF9D228509286004276E0 /* TwitchService.swift in Sources */,
 				4898F4D82859CE2E002E4F26 /* Audio.swift in Sources */,
 				7F70295528572B9600EB4C29 /* Broadcaster.swift in Sources */,
@@ -768,7 +772,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
-				DEVELOPMENT_TEAM = B88Y6SKUDD;
+				DEVELOPMENT_TEAM = PLX9GGVS7R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
@@ -800,7 +804,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Macro-Challenge-Hurricane/Preview Content\"";
-				DEVELOPMENT_TEAM = B88Y6SKUDD;
+				DEVELOPMENT_TEAM = PLX9GGVS7R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Macro-Challenge-Hurricane/Info.plist";
