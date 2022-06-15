@@ -54,6 +54,13 @@ class ShopScene : SKScene {
     let rosso = UIColor(named: "rosso")!
     
     
+    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.72)
+    var HorizontalOffset = CGFloat(UIScreen.main.bounds.width * 0.33)
+    var VerticalOffset = CGFloat(UIScreen.main.bounds.height * 0.15)
+    var elemCorrente = 0
+    var row : CGFloat = 0
+    var inventario = Macro_Challenge_HurricaneApp.inventory
+    
     //    var wasInitialized: Bool = false
     
     override func didMove(to view: SKView) {
@@ -319,6 +326,59 @@ extension ShopScene {
         addChild(quadrato)
     }
     
+    func spawnObject(item: Consumable) {
+        let quadrato = SKShapeNode(rectOf: box)
+        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * CGFloat(elemCorrente)), y: initialPos.y - (VerticalOffset * row))
+        addChild(quadrato)
+        let img = SKSpriteNode(imageNamed: item.consumable_image)
+        img.size = CGSize(width: quadrato.frame.size.width * 0.7, height: quadrato.frame.size.height * 0.7)
+        img.position = CGPoint( x: quadrato.position.x, y: quadrato.position.y - quadrato.frame.size.height * 0.145)
+        img.zPosition = 20
+        img.name = item.name
+        
+        
+        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.height)/2) , size: img.size), cornerRadius: 10)
+        roundedR.fillColor = UIColor.lightGray
+        roundedR.zPosition = 10
+        roundedR.alpha = 0.7
+        
+        addChild(roundedR)
+        img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
+        addChild(img)
+        
+        let imgName = SKLabelNode(fontNamed: "Mabook")
+        imgName.text = item.name
+        imgName.fontSize = 18
+        imgName.fontColor = UIColor.white
+        imgName.position = CGPoint(x: img.position.x, y: img.position.y + img.size.height * 0.64)
+        imgName.zPosition = 100
+        
+        addChild(imgName)
+        
+        quadrato.alpha = 0
+    }
+    
+    
+    func calcoli() {
+        let displayedI = inventario.selectForDisplay()
+        let quantityI = inventario.displayCount()
+        var e = 0
+        for el in displayedI {
+            if (elemCorrente+1)%3 == 1 {
+                spawnObject(item: el)
+                elemCorrente+=1
+            } else if (elemCorrente+1)%3 == 2 {
+                spawnObject(item: el)
+                elemCorrente+=1
+            } else if (elemCorrente+1)%3 == 0 {
+                spawnObject(item: el)
+                elemCorrente = 0
+                row += 1
+            }
+            e = e + 1
+        }
+    }
+    
     
     func setupShopScene() {
         
@@ -334,6 +394,8 @@ extension ShopScene {
         twitchCategory()
         controllerCategory()
         shapeSpawner()
+        
+        calcoli()
         
         //        self.wasInitialized = true
         

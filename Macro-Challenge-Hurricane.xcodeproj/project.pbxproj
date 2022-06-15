@@ -66,6 +66,7 @@
 		7F70294F28548DB800EB4C29 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70294E28548DB800EB4C29 /* Constants.swift */; };
 		7F70295128548FB100EB4C29 /* TwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70295028548FB100EB4C29 /* TwitchView.swift */; };
 		7F70295528572B9600EB4C29 /* Broadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F70295428572B9600EB4C29 /* Broadcaster.swift */; };
+		7F702957285A4A5600EB4C29 /* ShopBuyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F702956285A4A5600EB4C29 /* ShopBuyScene.swift */; };
 		7FDAF9CE2850920F004276E0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9CD2850920F004276E0 /* DataManager.swift */; };
 		7FDAF9D02850923D004276E0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9CF2850923D004276E0 /* Storage.swift */; };
 		7FDAF9D228509286004276E0 /* TwitchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDAF9D128509286004276E0 /* TwitchService.swift */; };
@@ -177,6 +178,7 @@
 		7F70294E28548DB800EB4C29 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7F70295028548FB100EB4C29 /* TwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchView.swift; sourceTree = "<group>"; };
 		7F70295428572B9600EB4C29 /* Broadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcaster.swift; sourceTree = "<group>"; };
+		7F702956285A4A5600EB4C29 /* ShopBuyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopBuyScene.swift; sourceTree = "<group>"; };
 		7FDAF9CD2850920F004276E0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		7FDAF9CF2850923D004276E0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		7FDAF9D128509286004276E0 /* TwitchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitchService.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				9678EF9328476CAC00AE1C4E /* BedroomScene.swift */,
 				48EE65BB2844DAB400B0D986 /* ShopScene.swift */,
 				95B190122859C36D000EAC9E /* InventoryUseScene.swift */,
+				7F702956285A4A5600EB4C29 /* ShopBuyScene.swift */,
 			);
 			path = Tamagotchi;
 			sourceTree = "<group>";
@@ -622,6 +625,7 @@
 				7FDAF9F0285096DD004276E0 /* CustomInventoryJson.swift in Sources */,
 				7FDAF9DA285093A5004276E0 /* Currencies.swift in Sources */,
 				963D5ADC2834F62D008ECEC7 /* Question.swift in Sources */,
+				7F702957285A4A5600EB4C29 /* ShopBuyScene.swift in Sources */,
 				960F20142859EC9900E2CDBF /* InfoView.swift in Sources */,
 				48EE65B8283CEF9300B0D986 /* RGPhysicsCategory.swift in Sources */,
 				968566E52844DF2A000D06BA /* MinigamesScene.swift in Sources */,
