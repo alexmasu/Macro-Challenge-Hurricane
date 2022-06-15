@@ -23,12 +23,12 @@ class InventoryScene : SKScene {
     let hamburger = SKSpriteNode(imageNamed: "Hamburger.png")
     
     let box = CGSize(width : UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
-    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.6)
+    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.72)
     var HorizontalOffset = CGFloat(UIScreen.main.bounds.width * 0.33)
-    var VerticalOffset = CGFloat(UIScreen.main.bounds.height * 0.001)
-    var elemCorrente = 1
+    var VerticalOffset = CGFloat(UIScreen.main.bounds.height * 0.15)
+    var elemCorrente = 0
     var row : CGFloat = 0
-    var inventario = Inventory()
+    var inventario = Macro_Challenge_HurricaneApp.inventory
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     var label = SKSpriteNode()
@@ -312,25 +312,76 @@ extension InventoryScene {
     
 //    quando è 0 deve fare elemCorrente +=1 e row +=1
     
-    func spawnQuadrati(){
+    func spawnObject(item: Consumable, quantity : Int){
         let quadrato = SKShapeNode(rectOf: box)
-        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * row), y: initialPos.y + (VerticalOffset * row))
+        quadrato.position = CGPoint(x: initialPos.x + (HorizontalOffset * CGFloat(elemCorrente)), y: initialPos.y - (VerticalOffset * row))
         addChild(quadrato)
+        let img = SKSpriteNode(imageNamed: item.consumable_image)
+        img.size = CGSize(width: quadrato.frame.size.width * 0.7, height: quadrato.frame.size.height * 0.7)
+        img.position = CGPoint( x: quadrato.position.x, y: quadrato.position.y - quadrato.frame.size.height * 0.145)
+        img.zPosition = 20
+        
+        
+        let roundedR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) - (img.size.width)/2 , y: (img.position.y) - (img.size.height)/2) , size: img.size), cornerRadius: 10)
+        roundedR.fillColor = UIColor.lightGray
+        roundedR.zPosition = 10
+        roundedR.alpha = 0.7
+        
+        addChild(roundedR)
+        img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
+        addChild(img)
+        
+        let imgName = SKLabelNode(fontNamed: "Mabook")
+        imgName.text = item.name
+        imgName.fontSize = 18
+        imgName.fontColor = UIColor.white
+        imgName.position = CGPoint(x: img.position.x, y: img.position.y + img.size.height * 0.64)
+        imgName.zPosition = 100
+        
+        addChild(imgName)
+        
+        let quantityR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 , y: (img.position.y) - (img.size.height) * 0.5) , size: CGSize(width: img.size.width * 0.45, height: img.size.height * 0.3)), cornerRadius: 4)
+        quantityR.fillColor = UIColor.white
+        quantityR.zPosition = 30
+        
+        addChild(quantityR)
+        
+        let borderR = SKShapeNode(rect: CGRect(origin: CGPoint(x: (img.position.x) + img.size.width * 0.25 + img.size.width * 0.016 , y: (img.position.y) - (img.size.height) * 0.4 - img.size.height * 0.09) , size: CGSize(width: img.size.width * 0.45 * 0.95, height: img.size.height * 0.3 * 0.95)), cornerRadius: 4)
+        
+        borderR.strokeColor = UIColor.black
+        quantityR.addChild(borderR)
+        
+        let quantityL = SKLabelNode(fontNamed: "Mabook")
+        quantityL.text = String("x \(quantity)")
+        quantityL.fontSize = 15
+        quantityL.fontColor = UIColor.black
+        quantityL.position = CGPoint(x: img.position.x + img.size.width * 0.48, y: img.position.y - img.size.height * 0.45)
+        quantityL.zPosition = 200
+        addChild(quantityL)
+        
+        
+        quadrato.alpha = 0
+
+        
     }
     
     func calcoli() {
-        for el in inventario.i {
-            if elemCorrente%3 == 1 {
-                spawnQuadrati()
+        let displayedI = inventario.selectForDisplay()
+        let quantityI = inventario.displayCount()
+        var e = 0
+        for el in displayedI {
+            if (elemCorrente+1)%3 == 1 {
+                spawnObject(item: el, quantity: quantityI[e])
                 elemCorrente+=1
-            } else if elemCorrente%3 == 2 {
-                spawnQuadrati()
+            } else if (elemCorrente+1)%3 == 2 {
+                spawnObject(item: el, quantity: quantityI[e])
                 elemCorrente+=1
-            } else if elemCorrente%3 == 0 {
-                spawnQuadrati()
-                elemCorrente+=1
+            } else if (elemCorrente+1)%3 == 0 {
+                spawnObject(item: el, quantity: quantityI[e])
+                elemCorrente = 0
                 row += 1
             }
+            e = e + 1
         }
     }
     
@@ -450,7 +501,7 @@ extension InventoryScene {
         BlurEffect()
         BackButton()
         InventoryTitle()
-        stats()
+//        stats()
         calcoli()
         
         //        self.wasInitialized = true

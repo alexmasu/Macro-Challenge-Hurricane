@@ -25,7 +25,7 @@ class TamagotchiMainScene : SKScene {
     let light = SKSpriteNode(imageNamed: "light.png")
     let nightlight = SKSpriteNode(imageNamed: "nightlight.png")
     let pc = SKSpriteNode(imageNamed: "pc2.png")
-    let square = SKSpriteNode(imageNamed: "mochibody.png")
+    let square = SKSpriteNode(imageNamed: "mochibody000.png")
     let face = SKSpriteNode(imageNamed: "felicio.png")
     let monitor = SKSpriteNode(imageNamed: "Monitor.png")
     let streamingmonitor = SKSpriteNode(imageNamed: "Monitor2.png")
@@ -101,6 +101,8 @@ class TamagotchiMainScene : SKScene {
     let arancione = UIColor(named:"arancione")!
     let rosso = UIColor(named: "rosso")!
     
+    var idlearray : [String] = []
+    var idlemochi : [String] = []
     
 
     
@@ -1090,29 +1092,9 @@ extension TamagotchiMainScene {
     func spawnOmetto() {
         square.setScale(0.8)
         square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
-        face.position = square.position
-
-        //        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08)
         square.name = "ometto"
-        //        square.physicsBody = SKPhysicsBody(circleOfRadius: square.size.width / 3)
-        //        square.physicsBody?.restitution = 0.4
-        //        let yRange = SKRange(lowerLimit: frame.midY - UIScreen.main.bounds.height * 0.21, upperLimit: frame.midY - UIScreen.main.bounds.height * 0.25)
-        //        let yConstraint = SKConstraint.positionY(yRange)
-        //        self.square.constraints = [yConstraint]
         addChild(square)
-//        let container = SKSpriteNode()
-//        let body = SKSpriteNode(imageNamed: "mochibody.png")
-        
-//        container.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
-//        container.size = body.size
-//        container.setScale(0.8)
-//        container.name = "ometto"
-//        addChild(container)
-//        body.position = CGPoint(x: label.frame.midX, y: label.frame.midY - UIScreen.main.bounds.height * 0.21)
-//        body.setScale(0.8)
-//        addChild(body)
-//        face.position = CGPoint(x: body.frame.midX, y: body.frame.midY)
-        face.setScale(0.5)
+
         square.addChild(face)
 
     }
@@ -1149,6 +1131,8 @@ extension TamagotchiMainScene {
 // MARK: Elements Animations
 
 extension TamagotchiMainScene {
+    
+
     
     private func fadeInAnim(elem : SKSpriteNode, time : CGFloat) {
         let comparsa = SKAction.fadeIn(withDuration: time)

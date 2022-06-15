@@ -23,7 +23,7 @@ class Inventory : NSObject, NSCoding{
             new = false
         }
         else {
-            i = [1,0,0,0,0,0,0,0,0,0]
+            i = [1,1,3,3,2]
             new = false
         }
         
@@ -75,8 +75,11 @@ class Inventory : NSObject, NSCoding{
                 mochi.hunger = min(mochi.hunger + 20,mochi.maxHunger)
             case 3:
                 mochi.thirst = min(mochi.hunger + 30,mochi.maxHunger)
-            case 4:
-                mochi.thirst = min(mochi.thirst + 55, mochi.maxThirst)
+            case 4: mochi.ill = false
+                mochi.health = min(mochi.health + 35, mochi.maxHealth)
+                mochi.happiness = max(mochi.happiness - 40, 0)
+//dovrebbe essere questo ma per ora metto la siringa perchè il vettore è ridotto nella demo
+//                mochi.thirst = min(mochi.thirst + 55, mochi.maxThirst)
             case 5:
                 mochi.thirst = min(mochi.thirst + 80, mochi.maxThirst)
             case 6:
@@ -106,8 +109,9 @@ class Inventory : NSObject, NSCoding{
     
     func selectForDisplay() -> [Consumable]{
         var elem = 0
+        
         var tempV: [Int] = []
-        while i[elem] < i.count{
+        while elem < i.count{
             if i[elem] > 0{
                 tempV.append(elem)
             }
@@ -124,15 +128,15 @@ class Inventory : NSObject, NSCoding{
                 toShow.append(patatine)
             case 3:
                 toShow.append(acqua)
+//            case 4:
+//                toShow.append(soda)
+//            case 5:
+//                toShow.append(sevenMochi)
+//            case 6:
+//                toShow.append(gelato)
+//            case 7:
+//                toShow.append(cornetto)
             case 4:
-                toShow.append(soda)
-            case 5:
-                toShow.append(sevenMochi)
-            case 6:
-                toShow.append(gelato)
-            case 7:
-                toShow.append(cornetto)
-            case 8:
                 toShow.append(siringa)
             default :
                 print("koi doesn't exist")
@@ -145,7 +149,7 @@ class Inventory : NSObject, NSCoding{
     func displayCount() -> [Int]{
         var elem = 0
         var tempV: [Int] = []
-        while i[elem] < i.count{
+        while elem < i.count{
             if i[elem] > 0{
                 tempV.append(i[elem])
             }
