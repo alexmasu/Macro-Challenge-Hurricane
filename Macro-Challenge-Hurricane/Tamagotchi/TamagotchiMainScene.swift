@@ -165,7 +165,7 @@ class TamagotchiMainScene : SKScene {
                 }
                 
                 
-                if (node.name == "monitor") && (omettoOn == false) {
+                if (node.name == "monitor") {
                     
                     self.curr = node
                     self.checkSwipe = false
@@ -173,7 +173,7 @@ class TamagotchiMainScene : SKScene {
                     
                 }
                 
-                if node.name == ("monitor2") && (omettoOn == false) {
+                if node.name == ("monitor2") {
                     self.curr = node
                     nodes.append(node)
                 }
@@ -357,22 +357,49 @@ class TamagotchiMainScene : SKScene {
                 }
             }
             
-            if (node.name == "monitor") && (omettoOn == false) {
+            if (node.name == "monitor") {
                 
-                if startstream == false {
-                    square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
-                    square.xScale = -0.8
-                    removeChildren(in: [monitor])
-                    background.addChild(streamingmonitor)
-                    startstream = true
+                if omettoOn == false {
+                    if startstream == false {
+                        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
+                        square.xScale = -0.8
+//                        removeChildren(in: [monitor])
+//                        background.addChild(streamingmonitor)
+                        monitor.texture = SKTexture(imageNamed: "Monitor2.png")
+                        startstream = true
+                    }
+                    else if startstream == true {
+                        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+                        square.xScale = 1.0
+                        square.setScale(0.8)
+//                        background.removeChildren(in: [streamingmonitor])
+                        monitor.texture = SKTexture(imageNamed: "Monitor.png")
+                        startstream = false
+                    }
                 }
-                else if startstream == true {
-                    square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
-                    square.xScale = 1.0
-                    square.setScale(0.8)
-                    background.removeChildren(in: [streamingmonitor])
-                    startstream = false
+                else {
+                    
+                    omettofadeOut(fadetime: 0.5)
+
+                    
+                    if startstream == false {
+                        square.position = CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.2, y: frame.midY + UIScreen.main.bounds.height * 0.045)
+                        square.xScale = -0.8
+//                        removeChildren(in: [monitor])
+//                        background.addChild(streamingmonitor)
+                        monitor.texture = SKTexture(imageNamed: "Monitor2.png")
+                        startstream = true
+                    }
+                    else if startstream == true {
+                        square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
+                        square.xScale = 1.0
+                        square.setScale(0.8)
+//                        background.removeChildren(in: [streamingmonitor])
+                        monitor.texture = SKTexture(imageNamed: "Monitor.png")
+                        startstream = false
+                    }
                 }
+                
             }
             
             
@@ -1246,6 +1273,13 @@ extension TamagotchiMainScene {
                 [self] in
                 let move = SKAction.move(to: CGPoint(x: frame.midX - UIScreen.main.bounds.width * 0.15, y: frame.midY - UIScreen.main.bounds.height * 0.08), duration: 0.8)
                 square.run(move)
+            },
+            SKAction.run {
+                [self] in
+//                background.removeChildren(in: [streamingmonitor])
+//                background.addChild(monitor)
+                monitor.texture = SKTexture(imageNamed: "Monitor.png")
+                startstream = false
             }
         ])
         
@@ -1268,6 +1302,31 @@ extension TamagotchiMainScene {
         ])
         
         self.run(azioni1)
+    }
+    
+    private func toBedroomAnim () {
+        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+
+        let azioni = SKAction.group([
+            SKAction.run {
+                [self] in
+                label.run(goleft)
+            },
+            SKAction.run {
+                [self] in
+                let move = SKAction.move(to: CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21), duration: 0.8)
+                square.run(move)
+            },
+            SKAction.run {
+                [self] in
+//                background.removeChildren(in: [streamingmonitor])
+//                background.addChild(monitor)
+                monitor.texture = SKTexture(imageNamed: "Monitor.png")
+                startstream = false
+            }
+        ])
+        
+        self.run(azioni)
     }
     
     
@@ -1336,7 +1395,7 @@ extension TamagotchiMainScene {
                         
                     }
                     
-                    else if activeRoom == 1  && omettoOn == false {
+                    else if activeRoom == 1   {
                         
                         toBathroomAnim()
                         hideLightswitch()
@@ -1373,7 +1432,7 @@ extension TamagotchiMainScene {
                         
                     }
                     
-                    else if activeRoom == 1  && omettoOn == false {
+                    else if activeRoom == 1 {
                         
                         toBathroomAnim()
                         hideLightswitch()
@@ -1406,11 +1465,12 @@ extension TamagotchiMainScene {
                         hideDoccino()
                     }
                     
-                    else if activeRoom == 1  && omettoOn == false {
+                    else if activeRoom == 1 {
                         
-                        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                        label.run(goleft)
+//                        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                        label.run(goleft)
                         
+                        toBedroomAnim()
                         showLightswitch()
                         hideDoccino()
                         hideMinigames()
@@ -1418,7 +1478,7 @@ extension TamagotchiMainScene {
                         activeRoom = 0
                     }
                     
-                    else if activeRoom == 2  && omettoOn == false{
+                    else if activeRoom == 2 {
                         
                         //                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
                         //                    label.run(goleft)
@@ -1445,11 +1505,12 @@ extension TamagotchiMainScene {
                         hideDoccino()
                     }
                     
-                    else if activeRoom == 1  && omettoOn == false {
+                    else if activeRoom == 1 {
                         
-                        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
-                        label.run(goleft)
+//                        let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
+//                        label.run(goleft)
                         
+                        toBedroomAnim()
                         showLightswitch()
                         hideDoccino()
                         hideMinigames()
@@ -1457,7 +1518,7 @@ extension TamagotchiMainScene {
                         activeRoom = 0
                     }
                     
-                    else if activeRoom == 2  && omettoOn == false{
+                    else if activeRoom == 2 {
                         
                         //                    let goleft = SKAction.move(by: CGVector(dx: (background.frame.width * 1.0), dy: 0), duration: 0.6)
                         //                    label.run(goleft)
