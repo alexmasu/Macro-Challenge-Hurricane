@@ -11,13 +11,16 @@ import SwiftUI
 
 class ShopScene : SKScene {
     
-    
+    let food = SKSpriteNode(imageNamed: "food.png")
+    var boxSize = CGSize()
+    var stdSize = CGSize()
     let contentNode = SKNode()
     let contentNodeBackButton = SKNode()
     let blurNode = SKShapeNode()
     let effectNode = SKEffectNode()
     let box = CGSize(width : UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
     
+    var refPosition = CGPoint(x: UIScreen.main.bounds.maxX*0.15, y: UIScreen.main.bounds.maxY*0.80)
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
     var label = SKSpriteNode()
@@ -54,7 +57,7 @@ class ShopScene : SKScene {
     let rosso = UIColor(named: "rosso")!
     
     
-    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.72)
+    let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.673)
     var HorizontalOffset = CGFloat(UIScreen.main.bounds.width * 0.33)
     var VerticalOffset = CGFloat(UIScreen.main.bounds.height * 0.15)
     var elemCorrente = 0
@@ -196,7 +199,23 @@ extension ShopScene {
         effectNode.position = self.view!.center
         effectNode.blendMode = .alpha
         effectNode.addChild(sprite)
+        
+//        let categoryBackground = SKShapeNode(rect: CGRect(origin: CGPoint(x: UIScreen.main.bounds.maxX * 0.064, y: UIScreen.main.bounds.maxY * 0.787), size: CGSize(width: UIScreen.main.bounds.maxX * 0.868, height: UIScreen.main.bounds.maxY * 0.0264)), cornerRadius: 5)
+//        categoryBackground.strokeColor = .clear
+//        categoryBackground.fillColor = UIColor(cgColor: CGColor(red: 0.2, green: 0, blue: 0.43, alpha: 0.42))
+        let categoryBackground = SKSpriteNode(imageNamed: "selectorBackground1.png")
+        categoryBackground.position = CGPoint(x: UIScreen.main.bounds.maxX * 0.5, y: UIScreen.main.bounds.maxY * 0.8)
+        categoryBackground.setScale(0.2024)
+        categoryBackground.size = (CGSize(width: categoryBackground.size.width * 1.21, height: categoryBackground.size.height * 0.99))
+        
+        
+        categoryBackground.zPosition = 1
+        addChild(categoryBackground)
+        
         self.addChild(effectNode)
+        
+        
+        
     }
     
     
@@ -263,11 +282,22 @@ extension ShopScene {
      */
     
     func foodCategory() {
+        
         let food = SKSpriteNode(imageNamed: "food.png")
         food.name = "foodCategory"
         food.setScale(0.05)
-        food.position = CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.80)
+        food.position = CGPoint(x: UIScreen.main.bounds.maxX*0.15, y: UIScreen.main.bounds.maxY*0.80)
+        stdSize = food.size
+        refPosition = food.position
         addChild(food)
+        food.zPosition = 2
+        
+        let foodBox = SKShapeNode(rect: CGRect(origin: CGPoint(x: food.position.x - UIScreen.main.bounds.maxX * 0.175/2,y: food.position.y - stdSize.height*0.59), size: CGSize(width: UIScreen.main.bounds.maxX * 0.175, height: UIScreen.main.bounds.maxY * 0.033)), cornerRadius: 5)
+        
+        boxSize = foodBox.frame.size
+        addChild(foodBox)
+        
+        foodBox.alpha = 0
         
         //        let quadrato = SKShapeNode(rectOf: box, cornerRadius: 6)
         //        quadrato.position = CGPoint(x: followers.position.x ,y: followers.position.y)
@@ -283,8 +313,16 @@ extension ShopScene {
         let clothes = SKSpriteNode(imageNamed: "clothes.png")
         clothes.name = "clothesCategory"
         clothes.setScale(0.05)
-        clothes.position = CGPoint(x: UIScreen.main.bounds.maxX*0.30, y: UIScreen.main.bounds.maxY*0.80)
+        clothes.position = CGPoint(x: UIScreen.main.bounds.maxX*0.325, y: UIScreen.main.bounds.maxY*0.80)
+        clothes.zPosition = 2
+
         addChild(clothes)
+        
+        let clothesBox = SKShapeNode(rect: CGRect(origin: CGPoint(x: clothes.position.x - UIScreen.main.bounds.maxX * 0.175/2,y: clothes.position.y - stdSize.height*0.59), size: CGSize(width: UIScreen.main.bounds.maxX * 0.175, height: UIScreen.main.bounds.maxY * 0.033)), cornerRadius: 5)
+        
+        addChild(clothesBox)
+        
+        clothesBox.alpha = 0
     }
     
     func pictureCategory() {
@@ -292,23 +330,44 @@ extension ShopScene {
         picture.name = "pictureCategory"
         picture.setScale(0.05)
         picture.position = CGPoint(x: UIScreen.main.bounds.maxX*0.50, y: UIScreen.main.bounds.maxY*0.80)
+        picture.zPosition = 2
+
         addChild(picture)
+        
+        let pictureBox = SKShapeNode(rect: CGRect(origin: CGPoint(x: picture.position.x - UIScreen.main.bounds.maxX * 0.175/2,y: picture.position.y - stdSize.height*0.59), size: CGSize(width: UIScreen.main.bounds.maxX * 0.175, height: UIScreen.main.bounds.maxY * 0.033)), cornerRadius: 5)
+        
+        addChild(pictureBox)
+        pictureBox.alpha = 0
     }
     
     func twitchCategory() {
         let twitch = SKSpriteNode(imageNamed: "twitch_category.png")
         twitch.name = "twitchCategory"
         twitch.setScale(0.05)
-        twitch.position = CGPoint(x: UIScreen.main.bounds.maxX*0.70, y: UIScreen.main.bounds.maxY*0.80)
+        twitch.position = CGPoint(x: UIScreen.main.bounds.maxX*0.675, y: UIScreen.main.bounds.maxY*0.80)
+        twitch.zPosition = 2
+
         addChild(twitch)
+        
+        let twitchBox = SKShapeNode(rect: CGRect(origin: CGPoint(x: twitch.position.x - UIScreen.main.bounds.maxX * 0.175/2,y: twitch.position.y - stdSize.height*0.59), size: CGSize(width: UIScreen.main.bounds.maxX * 0.175, height: UIScreen.main.bounds.maxY * 0.033)), cornerRadius: 5)
+        
+        addChild(twitchBox)
+        twitchBox.alpha = 0
     }
     
     func controllerCategory() {
         let controller = SKSpriteNode(imageNamed: "controller.png")
         controller.name = "controllerCategory"
         controller.setScale(0.05)
-        controller.position = CGPoint(x: UIScreen.main.bounds.maxX*0.90, y: UIScreen.main.bounds.maxY*0.80)
+        controller.position = CGPoint(x: UIScreen.main.bounds.maxX*0.85, y: UIScreen.main.bounds.maxY*0.80)
+        controller.zPosition = 2
+
         addChild(controller)
+        
+        let controllerBox = SKShapeNode(rect: CGRect(origin: CGPoint(x: controller.position.x - UIScreen.main.bounds.maxX * 0.175/2,y: controller.position.y - stdSize.height*0.59), size: CGSize(width: UIScreen.main.bounds.maxX * 0.175, height: UIScreen.main.bounds.maxY * 0.033)), cornerRadius: 5)
+        
+        addChild(controllerBox)
+        controllerBox.alpha = 0
     }
     
     func shapeSpawner() {
@@ -320,9 +379,10 @@ extension ShopScene {
         quadrato.setScale(0.1)
         
         quadrato.zPosition = 20000000
+        quadrato.size = boxSize
         
         quadrato.position = CGPoint(x: (scene?.childNode(withName: "foodCategory")?.position.x)!,y: (scene?.childNode(withName: "foodCategory")?.position.y)!)
-        quadrato.alpha = 0
+        quadrato.alpha = 1
         addChild(quadrato)
     }
     
@@ -346,6 +406,30 @@ extension ShopScene {
         img.size = CGSize(width: img.size.width * 0.88, height: img.size.height * 0.88)
         addChild(img)
         
+        let priceTag = SKSpriteNode(imageNamed: "priceTag.png")
+        priceTag.position = CGPoint(x: img.position.x + img.size.width * 0.45 , y: img.position.y - img.size.height * 0.3888)
+        priceTag.zPosition = 20
+        priceTag.setScale(0.6125)
+        addChild(priceTag)
+        
+        let price = SKLabelNode(fontNamed: "Kefa")
+        price.text = "\(item.price)"
+        price.zPosition = 30
+        price.position = CGPoint(x: priceTag.position.x - priceTag.size.width * 0.065 , y: priceTag.position.y - priceTag.size.height * 0.16)
+        price.fontColor = UIColor.black
+        price.fontSize = 15
+        addChild(price)
+        
+        let moneyIcon = SKSpriteNode(imageNamed: "Coin.001")
+        moneyIcon.zPosition = 30
+        moneyIcon.position = CGPoint(x: priceTag.position.x + priceTag.size.width * 0.26 , y: priceTag.position.y + priceTag.size.height * 0.042)
+        moneyIcon.setScale(0.038*4.2)
+        
+        addChild(moneyIcon)
+        
+        
+        
+        
         let imgName = SKLabelNode(fontNamed: "Mabook")
         imgName.text = item.name
         imgName.fontSize = 18
@@ -360,8 +444,7 @@ extension ShopScene {
     
     
     func calcoli() {
-        let displayedI = inventario.selectForDisplay()
-        let quantityI = inventario.displayCount()
+        let displayedI = consumableV
         var e = 0
         for el in displayedI {
             if (elemCorrente+1)%3 == 1 {
@@ -379,21 +462,82 @@ extension ShopScene {
         }
     }
     
+    func separators(){
+        let separator0 = SKShapeNode(rect: CGRect(origin: CGPoint(x: UIScreen.main.bounds.maxX * 0.05, y: UIScreen.main.bounds.maxY * 0.74), size: CGSize(width: UIScreen.main.bounds.maxX * 0.90, height: UIScreen.main.bounds.maxY * 0.024)), cornerRadius: 10)
+        separator0.strokeColor = .clear
+        separator0.fillColor = UIColor(cgColor: CGColor(red: 0.2, green: 0, blue: 0.43, alpha: 0.42))
+        addChild(separator0)
+        
+        let unlocked = SKSpriteNode(imageNamed: "unlocked001.png")
+        unlocked.position = separator0.frame.origin
+        unlocked.position = CGPoint(x: unlocked.position.x + UIScreen.main.bounds.maxX * 0.055, y: unlocked.position.y + UIScreen.main.bounds.maxY * 0.0125)
+        unlocked.setScale(0.35)
+        addChild(unlocked)
+        
+        let follower0 = SKSpriteNode(imageNamed: "followers002.png")
+        follower0.position = separator0.frame.origin
+        follower0.setScale(0.330)
+        follower0.position = CGPoint(x: follower0.position.x + UIScreen.main.bounds.maxX * 0.4258, y: follower0.position.y + UIScreen.main.bounds.maxY * 0.0125)
+        addChild(follower0)
+        
+        let follower0Label = SKLabelNode (fontNamed: "kefa")
+        follower0Label.text = "0"
+        follower0Label.zPosition = 30
+        follower0Label.position = CGPoint(x: follower0.position.x + UIScreen.main.bounds.maxX * 0.066, y: follower0.position.y - UIScreen.main.bounds.maxY * 0.00755)
+        follower0Label.fontColor = UIColor.white
+        follower0Label.fontSize = 15
+        
+        addChild(follower0Label)
+        
+        let separator50 = SKShapeNode(rect: CGRect(origin: CGPoint(x: UIScreen.main.bounds.maxX * 0.05, y: UIScreen.main.bounds.maxY * 0.41), size: CGSize(width: UIScreen.main.bounds.maxX * 0.90, height: UIScreen.main.bounds.maxY * 0.024)), cornerRadius: 10)
+        separator50.strokeColor = .clear
+        separator50.fillColor = UIColor(cgColor: CGColor(red: 0.2, green: 0, blue: 0.43, alpha: 0.42))
+        addChild(separator50)
+        
+        let unlocked50 = SKSpriteNode(imageNamed: "unlocked001.png")
+        unlocked50.position = separator50.frame.origin
+        unlocked50.position = CGPoint(x: unlocked50.position.x + UIScreen.main.bounds.maxX * 0.055, y: unlocked50.position.y + UIScreen.main.bounds.maxY * 0.0125)
+        unlocked50.setScale(0.35)
+        addChild(unlocked50)
+        
+        let follower50 = SKSpriteNode(imageNamed: "followers002.png")
+        follower50.position = separator50.frame.origin
+        follower50.setScale(0.330)
+        follower50.position = CGPoint(x: follower50.position.x + UIScreen.main.bounds.maxX * 0.4258, y: follower50.position.y + UIScreen.main.bounds.maxY * 0.0125)
+        addChild(follower50)
+        
+        let follower50Label = SKLabelNode (fontNamed: "kefa")
+        follower50Label.text = "50"
+        follower50Label.zPosition = 30
+        follower50Label.position = CGPoint(x: follower50.position.x + UIScreen.main.bounds.maxX * 0.07, y: follower50.position.y - UIScreen.main.bounds.maxY * 0.00755)
+        follower50Label.fontColor = UIColor.white
+        follower50Label.fontSize = 15
+        
+        addChild(follower50Label)
+        
+        
+    }
+    
     
     func setupShopScene() {
         
         BlurEffect()
+
         BackButton()
         ShopTitle()
         Coins()
         Bits()
         Followers()
+
         foodCategory()
+
         clothesCategory()
         pictureCategory()
         twitchCategory()
         controllerCategory()
         shapeSpawner()
+        separators()
+        
         
         calcoli()
         
