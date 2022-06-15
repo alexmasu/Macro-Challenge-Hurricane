@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import SwiftUI
 
 class ShopScene : SKScene {
     
@@ -15,6 +16,7 @@ class ShopScene : SKScene {
     let contentNodeBackButton = SKNode()
     let blurNode = SKShapeNode()
     let effectNode = SKEffectNode()
+    let box = CGSize(width : UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
     
     var settingContainer = SKShapeNode()
     var nodes = [SKNode()]
@@ -84,6 +86,38 @@ class ShopScene : SKScene {
                     
                 }
                 
+                if (node.name == "clothesCategory") {
+                    
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
+                    
+                }
+                
+                if (node.name == "pictureCategory") {
+                    
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
+                    
+                }
+                
+                if (node.name == "twitchCategory") {
+                    
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
+                    
+                }
+                
+                if (node.name == "controllerCategory") {
+                    
+                    self.curr = node
+                    self.checkSwipe = false
+                    nodes.append(node)
+                    
+                }
+                
             }
         }
     }
@@ -95,9 +129,34 @@ class ShopScene : SKScene {
             
             
             if (node.name == "foodCategory") {
+                scene?.childNode(withName: "shape")?.alpha = 1
+                scene?.childNode(withName: "shape")?.position = CGPoint(x: node.position.x, y: node.position.y)
+                //                scene?.childNode(withName: "shapeFood")?.alpha = 1
+                //                scene?.childNode(withName: "shapeClothes")?.alpha = 0
+                //                scene?.childNode(withName: "shapePicture")?.alpha = 0
+                //                scene?.childNode(withName: "shapeTwitch")?.alpha = 0
+                //                scene?.childNode(withName: "shapeController")?.alpha = 0
                 
-                
-                
+            }
+            
+            if (node.name == "clothesCategory") {
+                scene?.childNode(withName: "shape")?.alpha = 1
+                scene?.childNode(withName: "shape")?.position = CGPoint(x: node.position.x, y: node.position.y)
+            }
+            
+            if (node.name == "pictureCategory") {
+                scene?.childNode(withName: "shape")?.alpha = 1
+                scene?.childNode(withName: "shape")?.position = CGPoint(x: node.position.x, y: node.position.y)
+            }
+            
+            if (node.name == "twitchCategory") {
+                scene?.childNode(withName: "shape")?.alpha = 1
+                scene?.childNode(withName: "shape")?.position = CGPoint(x: node.position.x, y: node.position.y)
+            }
+            
+            if (node.name == "controllerCategory") {
+                scene?.childNode(withName: "shape")?.alpha = 1
+                scene?.childNode(withName: "shape")?.position = CGPoint(x: node.position.x, y: node.position.y)
             }
             
             
@@ -191,17 +250,31 @@ extension ShopScene {
         addChild(followers)
     }
     
+    
+    /*
+     Category Bar
+     */
+    
     func foodCategory() {
-        let followers = SKSpriteNode(imageNamed: "food.png")
-        followers.name = "foodCategory"
-        followers.setScale(0.05)
-        followers.position = CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.80)
-        addChild(followers)
+        let food = SKSpriteNode(imageNamed: "food.png")
+        food.name = "foodCategory"
+        food.setScale(0.05)
+        food.position = CGPoint(x: UIScreen.main.bounds.maxX*0.10, y: UIScreen.main.bounds.maxY*0.80)
+        addChild(food)
+        
+        //        let quadrato = SKShapeNode(rectOf: box, cornerRadius: 6)
+        //        quadrato.position = CGPoint(x: followers.position.x ,y: followers.position.y)
+        //        quadrato.setScale(0.4)
+        //        quadrato.strokeColor = UIColor.purple
+        //        quadrato.name = "foodShape"
+        //        quadrato.alpha = 1  // set red to 50% transparent
+        //        addChild(quadrato)
     }
     
     
     func clothesCategory() {
         let clothes = SKSpriteNode(imageNamed: "clothes.png")
+        clothes.name = "clothesCategory"
         clothes.setScale(0.05)
         clothes.position = CGPoint(x: UIScreen.main.bounds.maxX*0.30, y: UIScreen.main.bounds.maxY*0.80)
         addChild(clothes)
@@ -209,6 +282,7 @@ extension ShopScene {
     
     func pictureCategory() {
         let picture = SKSpriteNode(imageNamed: "picture.png")
+        picture.name = "pictureCategory"
         picture.setScale(0.05)
         picture.position = CGPoint(x: UIScreen.main.bounds.maxX*0.50, y: UIScreen.main.bounds.maxY*0.80)
         addChild(picture)
@@ -216,6 +290,7 @@ extension ShopScene {
     
     func twitchCategory() {
         let twitch = SKSpriteNode(imageNamed: "twitch_category.png")
+        twitch.name = "twitchCategory"
         twitch.setScale(0.05)
         twitch.position = CGPoint(x: UIScreen.main.bounds.maxX*0.70, y: UIScreen.main.bounds.maxY*0.80)
         addChild(twitch)
@@ -223,9 +298,25 @@ extension ShopScene {
     
     func controllerCategory() {
         let controller = SKSpriteNode(imageNamed: "controller.png")
+        controller.name = "controllerCategory"
         controller.setScale(0.05)
         controller.position = CGPoint(x: UIScreen.main.bounds.maxX*0.90, y: UIScreen.main.bounds.maxY*0.80)
         addChild(controller)
+    }
+    
+    func shapeSpawner() {
+        
+        var quadrato = SKSpriteNode(imageNamed: "shapeShop.png")
+        
+        quadrato.name = "shape"
+        
+        quadrato.setScale(0.1)
+        
+        quadrato.zPosition = 20000000
+        
+        quadrato.position = CGPoint(x: (scene?.childNode(withName: "foodCategory")?.position.x)!,y: (scene?.childNode(withName: "foodCategory")?.position.y)!)
+        quadrato.alpha = 0
+        addChild(quadrato)
     }
     
     
@@ -242,6 +333,7 @@ extension ShopScene {
         pictureCategory()
         twitchCategory()
         controllerCategory()
+        shapeSpawner()
         
         //        self.wasInitialized = true
         
