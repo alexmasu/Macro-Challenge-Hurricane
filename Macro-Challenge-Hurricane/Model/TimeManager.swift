@@ -285,7 +285,9 @@ class TimeManager {
             }
         }
         lastSave = date
-      
+        save()
+        mochi.save()
+        
     }
     func stopStreaming(mochi: Mochi,currencies: Currencies, streamingInventory : StreamingInventory){
         var gain = 0

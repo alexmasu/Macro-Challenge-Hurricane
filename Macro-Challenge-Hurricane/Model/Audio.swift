@@ -16,10 +16,17 @@ import AVFoundation
 public class SKTAudio {
     
     public var backgroundMusicPlayer: AVAudioPlayer?
-    public var slide: AVAudioPlayer?
-    public var crack: AVAudioPlayer?
-    public var jump: AVAudioPlayer?
-    public var death: AVAudioPlayer?
+    public var nya: AVAudioPlayer?
+    public var miao: AVAudioPlayer?
+    public var uwu: AVAudioPlayer?
+    public var ora_ora: AVAudioPlayer?
+    public var muda : AVAudioPlayer?
+    public var harambe : AVAudioPlayer?
+    public var sun : AVAudioPlayer?
+    public var menz : AVAudioPlayer?
+    public var king : AVAudioPlayer?
+
+
     public var soundEffectPlayer: AVAudioPlayer?
     
     public var slide_url = Bundle.main.url(forResource: "Slide", withExtension: "mp3")
@@ -54,6 +61,12 @@ public class SKTAudio {
         }
     }
     
+//    public func checkFinish () -> Bool{
+//        if (soundEffectPlayer != nil) {
+//            return soundEffectPlayer!.isPlaying
+//        }
+//    }
+    
     public func pauseBackgroundMusic() {
         if let player = backgroundMusicPlayer {
             if player.isPlaying {
@@ -71,7 +84,7 @@ public class SKTAudio {
     }
     
     public func playSoundEffect(_ filename: String) {
-        let url = Bundle.main.url(forResource: filename, withExtension: "mp3")
+        let url = Bundle.main.url(forResource: filename, withExtension: "wav")
         if (url == nil) {
             print("Could not find file: \(filename)")
             return
@@ -93,92 +106,92 @@ public class SKTAudio {
         }
     }
     
-    public func prepareSoundEffect() {
-        
-        var error: NSError? = nil
-        
-        if (SKTAudio.sharedInstance().slide_url == nil) {
-            print("Could not find file")
-            return
-        }
-        
-        do {
-            SKTAudio.sharedInstance().slide = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().slide_url!)
-        } catch let error1 as NSError {
-            error = error1
-            SKTAudio.sharedInstance().slide = nil
-        }
-        
-        if let slide_player = SKTAudio.sharedInstance().slide {
-            slide_player.numberOfLoops = 0
-            slide_player.prepareToPlay()
-        } else {
-            print("Could not create audio player: \(error!)")
-        }
-        
-        
-        
-        if (SKTAudio.sharedInstance().crack_url == nil) {
-            print("Could not find file")
-            return
-        }
-        
-        do {
-            SKTAudio.sharedInstance().crack = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().crack_url!)
-        } catch let error2 as NSError {
-            error = error2
-            SKTAudio.sharedInstance().crack = nil
-        }
-        
-        if let crack_player = SKTAudio.sharedInstance().crack {
-            crack_player.numberOfLoops = 0
-            crack_player.prepareToPlay()
-        } else {
-            print("Could not create audio player: \(error!)")
-        }
-        
-        
-        
-        
-        if (SKTAudio.sharedInstance().jump_url == nil) {
-            print("Could not find file")
-            return
-        }
-        
-        do {
-            SKTAudio.sharedInstance().jump = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().jump_url!)
-        } catch let error3 as NSError {
-            error = error3
-            SKTAudio.sharedInstance().jump = nil
-        }
-        
-        if let jump_player = SKTAudio.sharedInstance().jump {
-            jump_player.numberOfLoops = 0
-            jump_player.prepareToPlay()
-        } else {
-            print("Could not create audio player: \(error!)")
-        }
-        
-        
-        if (SKTAudio.sharedInstance().death_url == nil) {
-            print("Could not find file")
-            return
-        }
-        
-        do {
-            SKTAudio.sharedInstance().death = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().death_url!)
-        } catch let error4 as NSError {
-            error = error4
-            SKTAudio.sharedInstance().death = nil
-        }
-        
-        if let death_player = SKTAudio.sharedInstance().death {
-            death_player.numberOfLoops = 0
-            death_player.prepareToPlay()
-        } else {
-            print("Could not create audio player: \(error!)")
-        }
-    }
+//    public func prepareSoundEffect() {
+//        
+//        var error: NSError? = nil
+//        
+//        if (SKTAudio.sharedInstance().slide_url == nil) {
+//            print("Could not find file")
+//            return
+//        }
+//        
+//        do {
+//            SKTAudio.sharedInstance().slide = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().slide_url!)
+//        } catch let error1 as NSError {
+//            error = error1
+//            SKTAudio.sharedInstance().slide = nil
+//        }
+//        
+//        if let slide_player = SKTAudio.sharedInstance().slide {
+//            slide_player.numberOfLoops = 0
+//            slide_player.prepareToPlay()
+//        } else {
+//            print("Could not create audio player: \(error!)")
+//        }
+//        
+//        
+//        
+//        if (SKTAudio.sharedInstance().crack_url == nil) {
+//            print("Could not find file")
+//            return
+//        }
+//        
+//        do {
+//            SKTAudio.sharedInstance().crack = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().crack_url!)
+//        } catch let error2 as NSError {
+//            error = error2
+//            SKTAudio.sharedInstance().crack = nil
+//        }
+//        
+//        if let crack_player = SKTAudio.sharedInstance().crack {
+//            crack_player.numberOfLoops = 0
+//            crack_player.prepareToPlay()
+//        } else {
+//            print("Could not create audio player: \(error!)")
+//        }
+//        
+//        
+//        
+//        
+//        if (SKTAudio.sharedInstance().jump_url == nil) {
+//            print("Could not find file")
+//            return
+//        }
+//        
+//        do {
+//            SKTAudio.sharedInstance().jump = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().jump_url!)
+//        } catch let error3 as NSError {
+//            error = error3
+//            SKTAudio.sharedInstance().jump = nil
+//        }
+//        
+//        if let jump_player = SKTAudio.sharedInstance().jump {
+//            jump_player.numberOfLoops = 0
+//            jump_player.prepareToPlay()
+//        } else {
+//            print("Could not create audio player: \(error!)")
+//        }
+//        
+//        
+//        if (SKTAudio.sharedInstance().death_url == nil) {
+//            print("Could not find file")
+//            return
+//        }
+//        
+//        do {
+//            SKTAudio.sharedInstance().death = try AVAudioPlayer(contentsOf: SKTAudio.sharedInstance().death_url!)
+//        } catch let error4 as NSError {
+//            error = error4
+//            SKTAudio.sharedInstance().death = nil
+//        }
+//        
+//        if let death_player = SKTAudio.sharedInstance().death {
+//            death_player.numberOfLoops = 0
+//            death_player.prepareToPlay()
+//        } else {
+//            print("Could not create audio player: \(error!)")
+//        }
+//    }
     
 }
 

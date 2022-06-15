@@ -15,6 +15,8 @@ class Mochi: NSObject, NSCoding{
         
         DataManager.standard.setMochi(mochi: savingMochi)
         print("mochi saved")
+        Macro_Challenge_HurricaneApp.timemanager.save()
+        Macro_Challenge_HurricaneApp.currencies.save()
     }
     override init(){
         
@@ -289,6 +291,7 @@ class Mochi: NSObject, NSCoding{
     func shower(cleanCount: Int){
         cleanlyness = min(cleanlyness + cleanCount * 20 , 100)
         self.save()
+        
     }
     func reduceHunger(){
         
