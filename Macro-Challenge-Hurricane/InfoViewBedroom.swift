@@ -85,15 +85,15 @@ struct InfoViewBedroom: View {
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 200, height: 140, alignment: .bottomTrailing)
-                        .position(x: 70, y: 120)
+                        .position(x: 70, y: 160)
                         .blur(radius: 30)
                         .opacity(0.7)
                         .overlay{
-                            Text("Light Switch")
+                            Text("LightSwitch")
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 70, y: 210)
+                                .position(x: 70, y: 190)
                             Spacer()
                         }
                     Ellipse()
