@@ -134,20 +134,20 @@ struct InfoView: View {
                 }
             }
         }
+        ZStack{
         Ellipse()
             .fill(Color.white)
             .frame(width: 200, height: 140)
             .position(x: 200, y: 650)
             .blur(radius: 30)
             .opacity(0.7)
-            .overlay{
-                Text("Ometto")
-                    .font(Font.custom("Mabook", size: 15))
-                    .foregroundColor(Color.black)
-                    .fontWeight(.bold)
-                    .position(x: 200, y: 650)
-                Spacer()
-            }
+            Text("Ometto")
+                .font(Font.custom("Mabook", size: 15))
+                .foregroundColor(Color.black)
+                .fontWeight(.bold)
+                .position(x: 200, y: 650)
+//                .position(x: gameLogic.square_pos_x, y: gameLogic.square_pos_y)
+        }
     }
 }
 

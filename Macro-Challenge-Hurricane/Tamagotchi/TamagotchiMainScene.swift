@@ -342,7 +342,7 @@ class TamagotchiMainScene : SKScene {
             
             // Far lavare l'ometto.
             
-            if (node.name == "ometto") && activeRoom != 2 {
+            if (node.name == "ometto") {
                 if omettoOn == false {
                     spawnStatsButtons()
                     updateStatBars()
@@ -355,12 +355,12 @@ class TamagotchiMainScene : SKScene {
                     omettoOn = false
                 }
             }
-            
-            else if (node.name == "ometto") && activeRoom == 2 {
-                
-                bathroom.removeChildren(in: [water1,water2,water3,water4,water5])
-                spawnSoap()
-            }
+//
+//            if (node.name == "ometto") && activeRoom == 2 {
+//
+//                bathroom.removeChildren(in: [water1,water2,water3,water4,water5])
+//                spawnSoap()
+//            }
             
             if (node.name == "doccino") {
                 removeSoap()
@@ -1161,7 +1161,8 @@ extension TamagotchiMainScene {
         square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
         square.name = "ometto"
         addChild(square)
-        
+        gameLogic.square_pos_x = square.position.x
+        gameLogic.square_pos_y = square.position.y
         square.addChild(face)
         
     }

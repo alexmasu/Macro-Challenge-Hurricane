@@ -61,8 +61,6 @@ struct TamagotchiView: View {
 }
 
 
-
-
 struct SheetView: View {
     @Binding var currentGameState: GameState
     @StateObject var gameLogic: StreamMochiGameLogic =  StreamMochiGameLogic.shared
