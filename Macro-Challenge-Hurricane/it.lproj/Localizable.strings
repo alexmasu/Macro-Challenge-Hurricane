@@ -8,14 +8,15 @@
 
 // Consumable.swift
 "Use" = "usa";
-
+"buy" = "compra";
+"comingSoon" = "nuovi oggetti per la personalizzazione in arrivo";
 "Disponibile" = "disponibile";
 
 "hamburger" = "hamburger";
 "hamburger description" = "sembra gustoso, mi sento come se fossi il re dei clown";
 
 "pizza" = "pizza";
-"pizza description" = "Semplice, tradizionale senza ananas. Erne ta po magna' a pizza...";
+"pizza description" = "Semplice, tradizionale senza ananas. Erne' ta po magna' a pizza...";
 
 
 "potato chip" = "patatine";
