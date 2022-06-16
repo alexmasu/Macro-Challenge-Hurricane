@@ -12,10 +12,10 @@
 "Disponibile" = "Available";
 
 "hamburger" = "hamburger";
-"it looks tasty, I feel like i'm the clowns' king" = "it looks tasty, I feel like i'm the clowns' king";
+"hamburger description" = "it looks tasty, I feel like i'm the clowns' king";
 
 "pizza" = "pizza";
-"Simple, traditional without pineapple. Erne ta po magnà a pizza..." = "Simple, traditional without pineapple. Erne ta po magnà a pizza...";
+"pizza description" = "Simple, traditional without pineapple. Erne ta po magnà a pizza...";
 
 
 "potato chip" = "potato chips";

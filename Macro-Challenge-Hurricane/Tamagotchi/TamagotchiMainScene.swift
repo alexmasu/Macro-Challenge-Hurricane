@@ -1433,6 +1433,7 @@ extension TamagotchiMainScene {
                             hideLightswitch()
                             
                             activeRoom =  1
+                            gameLogic.curr_room = 1
                         }
                         else {
                             
@@ -1447,6 +1448,8 @@ extension TamagotchiMainScene {
                             hideLightswitch()
                             
                             activeRoom =  1
+                            
+                            gameLogic.curr_room = 1
                         }
                         
                         
@@ -1461,6 +1464,8 @@ extension TamagotchiMainScene {
                         showDoccino()
                         
                         activeRoom = 2
+                        
+                        gameLogic.curr_room = 2
                         
                         
                     }
@@ -1487,6 +1492,8 @@ extension TamagotchiMainScene {
                         
                         activeRoom =  1
                         
+                        gameLogic.curr_room = 1
+                        
                         
                     }
                     
@@ -1498,6 +1505,8 @@ extension TamagotchiMainScene {
                         showDoccino()
                         
                         activeRoom = 2
+                        
+                        gameLogic.curr_room = 2
                         
                         
                     }
@@ -1534,6 +1543,7 @@ extension TamagotchiMainScene {
                         hideMinigames()
                         
                         activeRoom = 0
+                        gameLogic.curr_room = 0
                     }
                     
                     else if activeRoom == 2 {
@@ -1548,6 +1558,7 @@ extension TamagotchiMainScene {
                         hideLightswitch()
                         
                         activeRoom = 1
+                        gameLogic.curr_room = 1
                         
                     }
                     
@@ -1574,6 +1585,7 @@ extension TamagotchiMainScene {
                         hideMinigames()
                         
                         activeRoom = 0
+                        gameLogic.curr_room = 0
                     }
                     
                     else if activeRoom == 2 {
@@ -1588,6 +1600,7 @@ extension TamagotchiMainScene {
                         hideLightswitch()
                         
                         activeRoom = 1
+                        gameLogic.curr_room = 1
                         
                     }
                     

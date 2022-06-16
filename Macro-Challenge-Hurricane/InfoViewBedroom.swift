@@ -50,19 +50,19 @@ struct InfoViewBedroom: View {
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 150, height: 200)
-                        .position(x: 60, y: 0)
+                        .position(x: 360, y: 160)
                         .blur(radius: 30)
                         .opacity(1)
                         .overlay{
-                            Text("Swipe L")
+                            Text("Swipe R")
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 20, y: 0)
+                                .position(x: 400, y: 160)
                             Text("Center")
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 70, y: 0)
+                                .position(x: 360, y: 160)
                         }
                 }
                 
@@ -71,7 +71,7 @@ struct InfoViewBedroom: View {
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 200, height: 140, alignment: .bottomTrailing)
-                        .position(x: 60, y: 160)
+                        .position(x: 60, y: 190)
                         .blur(radius: 30)
                         .opacity(0.6)
                         .overlay{
@@ -79,7 +79,7 @@ struct InfoViewBedroom: View {
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 60, y: 160)
+                                .position(x: 60, y: 230)
                             Spacer()
                         }
                     Ellipse()
@@ -93,13 +93,13 @@ struct InfoViewBedroom: View {
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 70, y: 120)
+                                .position(x: 70, y: 210)
                             Spacer()
                         }
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 200, height: 140)
-                        .position(x: 90, y: 160)
+                        .position(x: 90, y: 210)
                         .blur(radius: 30)
                         .opacity(0.6)
                         .overlay{
@@ -107,7 +107,7 @@ struct InfoViewBedroom: View {
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 75, y: 160)
+                                .position(x: 75, y: 230)
                             Spacer()
                         }
                 }

@@ -44,12 +44,20 @@ struct TamagotchiView: View {
     }
     
     @ViewBuilder private var loadingOverlay : some View {
-        if gameLogic.show_info {
-            InfoView()
+        if gameLogic.curr_room == 1 {
+            if gameLogic.show_info {
+                InfoView()
+            }
+        } else if gameLogic.curr_room == 0 {
+            if gameLogic.show_info {
+                InfoViewBedroom()
+            }
+        } else if gameLogic.curr_room == 2 {
+            if gameLogic.show_info {
+                InfoViewBathroom()
+            }
         }
-    }
 
-    
 }
 
 
@@ -77,4 +85,5 @@ struct SheetView: View {
     
     
     
+}
 }
