@@ -12,6 +12,7 @@ struct InfoViewBathroom: View {
     
     @StateObject var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic()
     
+    
     var body: some View {
         ZStack{
             VStack{
@@ -30,13 +31,12 @@ struct InfoViewBathroom: View {
                                 .position(x: 70, y: 60)
                             Spacer()
                         }
-                    
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 200, height: 140)
                         .position(x: 160, y: 60)
                         .blur(radius: 30)
-                        .opacity(0.6)
+                        .opacity(0.8)
                         .overlay{
                             Text("Twitch")
                                 .font(Font.custom("Mabook", size: 15))
@@ -45,13 +45,32 @@ struct InfoViewBathroom: View {
                                 .position(x: 160, y: 60)
                             Spacer()
                         }
-                    
                 }
                 HStack{
                     Ellipse()
                         .fill(Color.white)
+                        .frame(width: 150, height: 200)
+                        .position(x: 360, y: 220)
+                        .blur(radius: 30)
+                        .opacity(1)
+                        .overlay{
+                            Text("Swipe R")
+                                .foregroundColor(Color.black)
+                                .fontWeight(.bold)
+                                .position(x: 400, y: 220)
+                            Text("Center")
+                                .font(Font.custom("Mabook", size: 15))
+                                .foregroundColor(Color.black)
+                                .fontWeight(.bold)
+                                .position(x: 360, y: 220)
+                        }
+                }
+                HStack{
+                    //                    VStack{
+                    Ellipse()
+                        .fill(Color.white)
                         .frame(width: 200, height: 140, alignment: .bottomTrailing)
-                        .position(x: 70, y: 390)
+                        .position(x: 60, y: 160)
                         .blur(radius: 30)
                         .opacity(0.6)
                         .overlay{
@@ -59,27 +78,29 @@ struct InfoViewBathroom: View {
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 60, y: 380)
+                                .position(x: 60, y: 160)
                             Spacer()
                         }
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 200, height: 140, alignment: .bottomTrailing)
-                        .position(x: 60, y: 340)
+                        .position(x: 70, y: 120)
                         .blur(radius: 30)
-                        .opacity(0.6)
+                        .opacity(0.7)
                         .overlay{
                             Text("Clean")
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 60, y: 340)
+//                                .position(x: 60, y: 340)
+                                .position(x: 70, y: 120)
                             Spacer()
+                        }
                         }
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 200, height: 140)
-                        .position(x: 80, y: 380)
+                        .position(x: 90, y: 160)
                         .blur(radius: 30)
                         .opacity(0.6)
                         .overlay{
@@ -87,15 +108,14 @@ struct InfoViewBathroom: View {
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 80, y: 380)
+                                .position(x: 75, y: 160)
                             Spacer()
                         }
-                }
+//                }
             }
         }
     }
 }
-
 
 
 
