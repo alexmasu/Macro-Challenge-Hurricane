@@ -65,7 +65,7 @@ class Mochi: NSObject, NSCoding{
             maxEnergy = 100
             maxHappiness = 100
             health = 60
-            energy = 50
+            energy = 30
             happiness = 85
             ageType = 2
             hunger = 22

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4812FC96285BD8E30014FB0F /* Yawn.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4812FC92285BD8E30014FB0F /* Yawn.wav */; };
+		4812FC97285BD8E30014FB0F /* No.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4812FC93285BD8E30014FB0F /* No.wav */; };
+		4812FC98285BD8E30014FB0F /* Yes.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4812FC94285BD8E30014FB0F /* Yes.wav */; };
+		4812FC99285BD8E30014FB0F /* Sleep.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4812FC95285BD8E30014FB0F /* Sleep.wav */; };
 		4898F4A72859CDD1002E4F26 /* I Nani I Nani I Nani.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47A2859CDD1002E4F26 /* I Nani I Nani I Nani.wav */; };
 		4898F4A82859CDD1002E4F26 /* A Fess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47B2859CDD1002E4F26 /* A Fess.wav */; };
 		4898F4A92859CDD1002E4F26 /* Però Dammi il Tempo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4898F47C2859CDD1002E4F26 /* Però Dammi il Tempo.wav */; };
@@ -119,6 +123,10 @@
 
 /* Begin PBXFileReference section */
 		4810EA412853560500351F47 /* InventoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryView.swift; sourceTree = "<group>"; };
+		4812FC92285BD8E30014FB0F /* Yawn.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Yawn.wav; sourceTree = "<group>"; };
+		4812FC93285BD8E30014FB0F /* No.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = No.wav; sourceTree = "<group>"; };
+		4812FC94285BD8E30014FB0F /* Yes.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Yes.wav; sourceTree = "<group>"; };
+		4812FC95285BD8E30014FB0F /* Sleep.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Sleep.wav; sourceTree = "<group>"; };
 		4898F47A2859CDD1002E4F26 /* I Nani I Nani I Nani.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "I Nani I Nani I Nani.wav"; sourceTree = "<group>"; };
 		4898F47B2859CDD1002E4F26 /* A Fess.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "A Fess.wav"; sourceTree = "<group>"; };
 		4898F47C2859CDD1002E4F26 /* Però Dammi il Tempo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Però Dammi il Tempo.wav"; sourceTree = "<group>"; };
@@ -275,6 +283,10 @@
 				4898F4942859CDD1002E4F26 /* Oh Elden Ring.wav */,
 				4898F4952859CDD1002E4F26 /* Un Pollo.wav */,
 				4898F4962859CDD1002E4F26 /* Bucchi.wav */,
+				4812FC93285BD8E30014FB0F /* No.wav */,
+				4812FC95285BD8E30014FB0F /* Sleep.wav */,
+				4812FC92285BD8E30014FB0F /* Yawn.wav */,
+				4812FC94285BD8E30014FB0F /* Yes.wav */,
 				4898F4972859CDD1002E4F26 /* Harambe.wav */,
 				4898F4982859CDD1002E4F26 /* A Capocchj c'a Pann.wav */,
 				4898F4992859CDD1002E4F26 /* Muda Muda Muda.wav */,
@@ -524,9 +536,13 @@
 				4898F4BB2859CDD1002E4F26 /* Lezzo.wav in Resources */,
 				4898F4C22859CDD1002E4F26 /* Un Pollo.wav in Resources */,
 				4898F4CC2859CDD1002E4F26 /* TRAKKIA.wav in Resources */,
+				4812FC96285BD8E30014FB0F /* Yawn.wav in Resources */,
 				4898F4C52859CDD1002E4F26 /* A Capocchj c'a Pann.wav in Resources */,
 				4898F4AE2859CDD1002E4F26 /* Miao.wav in Resources */,
+				4812FC98285BD8E30014FB0F /* Yes.wav in Resources */,
 				4898F4C02859CDD1002E4F26 /* Merz.wav in Resources */,
+				4812FC99285BD8E30014FB0F /* Sleep.wav in Resources */,
+				4812FC97285BD8E30014FB0F /* No.wav in Resources */,
 				4898F4CA2859CDD1002E4F26 /* Praise The Sun.wav in Resources */,
 				4898F4AC2859CDD1002E4F26 /* Ventidue.wav in Resources */,
 				4898F4D12859CDD1002E4F26 /* Moan1.wav in Resources */,
