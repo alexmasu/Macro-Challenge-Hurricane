@@ -534,8 +534,8 @@ extension TamagotchiMainScene {
         addChild(customization)
         
         let info = SKSpriteNode(imageNamed: "info.png")
-        info.setScale(0.6)
-        info.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.13, y: frame.maxY - UIScreen.main.bounds.height * 0.15)
+        info.setScale(0.65)
+        info.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.13, y: frame.maxY - UIScreen.main.bounds.height * 0.17)
         info.name = "info"
         addChild(info)
         
