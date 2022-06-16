@@ -142,14 +142,14 @@ class TamagotchiMainScene : SKScene {
         
         if prev_sec == 0 {
             prev_sec = currentTime
-            print("inif")
+//            print("inif")
         }
         else {
 //            print("\(prev_sec)")
             if currentTime - prev_sec > 1 {
                 
                 soundtime -= 1
-                print("\(soundtime)")
+//                print("\(soundtime)")
                 prev_sec = currentTime
             }
 
