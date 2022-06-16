@@ -9,12 +9,12 @@ import Foundation
 
 // MARK: - Broadcaster
 struct Broadcaster: Codable {
-    let data: [BroadcasterDatum]
+    let data: [BroadcasterDatum]?
 }
 
 // MARK: - Broadcaster Datum
 struct BroadcasterDatum: Codable {
-    let broadcasterID, broadcasterName, broadcasterLogin: String
-    let isGift: Bool
-    let tier: String
+    let broadcaster_id, broadcaster_name, broadcaster_login: String?
+    let is_gift: Bool?
+    let tier: String?
 }

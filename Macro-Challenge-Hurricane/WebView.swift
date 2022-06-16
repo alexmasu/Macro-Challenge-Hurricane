@@ -100,7 +100,7 @@ struct WebView : UIViewRepresentable {
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "client_id", value: "gr00lzfowgva96iyhapl47cswwghmg"),
             URLQueryItem(name: "redirect_uri", value: "https://twitch-service-apple-academy.herokuapp.com/oauth-callback"),
-            URLQueryItem(name: "scope", value: "channel:manage:polls+channel:read:polls")
+            URLQueryItem(name: "scope", value: "user:read:email+user:read:subscriptions")
         ]
         
         var urlComponents = URLComponents()

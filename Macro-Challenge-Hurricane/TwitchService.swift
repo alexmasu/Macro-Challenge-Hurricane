@@ -7,6 +7,8 @@
 
 import Foundation
 import RealHTTP
+import SwiftUI
+import SpriteKit
 
 
 class TwitchService {
@@ -14,7 +16,7 @@ class TwitchService {
     /*
      https://dev.twitch.tv/docs/authentication/validate-tokens#how-to-validate-a-token
      */
-    func validToken(tokenToValidate: String) async {
+    func validToken(tokenToValidate: String) async -> Bool {
         
         do{
             
@@ -34,8 +36,12 @@ class TwitchService {
             DataManager.standard.setUser_id(user_id: response?.user_id ?? "NULL")
             DataManager.standard.setLogin(login: response?.login ?? "NULL")
             DataManager.standard.setClient_id(client_id: response?.client_id ?? "NULL")
+            
+            return false
         } catch {
+            print("Cannot validate token")
             print(error.localizedDescription)
+            return true
         }
     }
     
@@ -76,6 +82,7 @@ class TwitchService {
             print(response?.data.first?.profile_image_url as Any)
             
         } catch {
+            print("Cannot get User Info")
             print(error.localizedDescription)
         }
     }
@@ -109,16 +116,17 @@ class TwitchService {
             req.addQueryParameter(name: "first", value: "20")
             
             
-            //            let response = try await req.fetch(Channel.self)
+            let response = try await req.fetch(Channel.self)
             
             //            if let data = response.data {
             //                let json = String(data: data, encoding: .utf8)
             //                print("Failure Response: \(json)")
             //            }
             
-            //            print(response as Any)
+            print(response as Any)
             
         } catch {
+            print("Cannot find Channel")
             print(error.localizedDescription)
         }
         
@@ -131,15 +139,17 @@ class TwitchService {
      
      Checks if a specific user (user_id) is subscribed to a specific channel (broadcaster_id).
      
+     id paolo = 29750090
+     
      */
-    func checkUserSubscription(token: String,client_id: String,user_id: String) async {
+    func checkUserSubscription(token: String,client_id: String,user_id: String) async -> Bool {
         do {
             
             let req = HTTPRequest {
                 // Setup default params
                 $0.url = URL(string: "https://api.twitch.tv/helix/subscriptions/user")!
                 $0.method = .get
-                $0.timeout = 15
+                $0.timeout = 30
             }
             
             req.headers[.authorization] = "Bearer \(token)"
@@ -152,9 +162,14 @@ class TwitchService {
             
             let response = try await req.fetch(Broadcaster.self)
             
-        } catch  {
-            print("\(user_id) has no subscriptions to 136011430")
+            print(response as Any)
+            
+            return false
+            
+        } catch {
+            print("\(user_id) has no subscriptions to Paolo Cannone")
             print(error.localizedDescription)
+            return true
         }
     }
     

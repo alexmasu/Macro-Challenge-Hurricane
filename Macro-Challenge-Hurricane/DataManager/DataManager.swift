@@ -332,4 +332,19 @@ class DataManager: NSObject {
             print(error)
         }
     }
+    
+    // MARK: - Saved Last Twitch Login
+    @Storage(key: "lastTwitchLogin", defaultValue: Date.distantPast)
+    var lastTwitchLogin: Date
+    
+    // MARK: - Setter Last Twitch Login
+    func setlastTwitchLogin(lastTwitchLogin: Date) {
+        self.lastTwitchLogin = lastTwitchLogin
+    }
+    
+    // MARK: - Getter Last Twitch Login
+    func getlastTwitchLogin() -> Date {
+        return self.lastTwitchLogin
+    }
+    
 }

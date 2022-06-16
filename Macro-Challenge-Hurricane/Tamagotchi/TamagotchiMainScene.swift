@@ -11,6 +11,8 @@ import SwiftUI
 
 class TamagotchiMainScene : SKScene {
     
+    let twitchService = TwitchService()
+    
     var gameLogic: StreamMochiGameLogic = StreamMochiGameLogic.shared
     
     var switchpress = SKSpriteNode(imageNamed: "lampadina.png")
@@ -105,7 +107,7 @@ class TamagotchiMainScene : SKScene {
     var idlemochi : [SKTexture] = []
     var idle_sounds : [String] = ["Nya Nya", "Miao", "Uwu Uwu", "Ora Ora Ora", "Muda Muda Muda", "Harambe", "Praise The Sun", "Merz", "King"]
     var soundtime = Int.random(in: 30...120)
-//    var soundtime = 5
+    //    var soundtime = 5
     var prev_sec : Double = 0
     
     var wasInitialized: Bool = false
@@ -134,6 +136,7 @@ class TamagotchiMainScene : SKScene {
         setupScene()
         addSwipeGestureRecognizers()
         poopGenerator(poop_number: Macro_Challenge_HurricaneApp.mochi.nPoop)
+//        loginAlert()
     }
     
     
@@ -145,20 +148,20 @@ class TamagotchiMainScene : SKScene {
             print("inif")
         }
         else {
-//            print("\(prev_sec)")
+            //            print("\(prev_sec)")
             if currentTime - prev_sec > 1 {
                 
                 soundtime -= 1
                 print("\(soundtime)")
                 prev_sec = currentTime
             }
-
+            
         }
         
         if soundtime == 0 {
             SKTAudio.sharedInstance().playSoundEffect(idle_sounds[Int.random(in: 0...8)])
             soundtime = Int.random(in: 30...120)
-//            soundtime = 10
+            //            soundtime = 10
         }
     }
     
@@ -319,6 +322,10 @@ class TamagotchiMainScene : SKScene {
                 if (node.name == "info") {
                     self.curr = node
                 }
+                
+                if (node.name == "twitchAlertMessageOK") {
+                    self.curr = node
+                }
             }
             
         }
@@ -476,6 +483,14 @@ class TamagotchiMainScene : SKScene {
                     gameLogic.show_info = false
                 }
                 
+            }
+            
+            if (node.name == "twitchAlertMessageOK") {
+                node.removeFromParent()
+                scene?.childNode(withName: "alertTwitch")?.removeFromParent()
+                scene?.childNode(withName: "twitchAlertMessage")?.removeFromParent()
+                
+                scene?.childNode(withName: "OKbox")?.removeFromParent()
             }
             
         }
@@ -1392,6 +1407,128 @@ extension TamagotchiMainScene {
             }
         }
     }
+    
+        
+    func isSameMonth(date1: Date, date2: Date) -> Bool {
+        let diff = Calendar.current.dateComponents([.month], from: date1, to: date2)
+        if diff.day == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+//    func loginAlert() {
+//        if Macro_Challenge_HurricaneApp.alertNotYetShown {
+//            Macro_Challenge_HurricaneApp.alertNotYetShown = false
+//
+//            if DataManager.standard.getToken() != "NULL" {
+//                Task(priority: .background) {
+//                    let status = await twitchService.validToken(tokenToValidate:DataManager.standard.getToken())
+//
+//                    // Se token non valido
+//                    if status {
+//                        let box = CGSize(width : UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.width * 0.8)
+//                        let alertBox = SKShapeNode(rectOf: box)
+//                        alertBox.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+//                        alertBox.name = "alertTwitch"
+//                        alertBox.fillColor = .gray
+//                        addChild(alertBox)
+//
+//                        let myLabel = SKLabelNode(fontNamed: "Mabook")
+//                        myLabel.name = "twitchAlertMessage"
+//                        myLabel.text = "Twitch Login Expired".localized()
+//                        myLabel.fontSize = 30
+//                        myLabel.position = CGPoint(x: alertBox.position.x, y: alertBox.position.y)
+//                        addChild(myLabel)
+//
+//
+//                        let alertOK = CGSize(width : UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+//                        let alertBoxOK = SKShapeNode(rectOf: alertOK)
+//
+//                        alertBoxOK.position = CGPoint(x: alertBox.frame.midX, y: alertBox.frame.midY*0.8)
+//                        alertBoxOK.name = "OKbox"
+//                        alertBoxOK.fillColor = .purple
+//                        alertBoxOK.setScale(0.5)
+//                        addChild(alertBoxOK)
+//
+//                        let myLabel2 = SKLabelNode(fontNamed: "Mabook")
+//                        myLabel2.name = "twitchAlertMessageOK"
+//                        myLabel2.text = "OK"
+//                        myLabel2.fontSize = 30
+//                        myLabel2.position = CGPoint(x: alertBox.frame.midX, y: alertBox.frame.midY*0.8)
+//                        myLabel2.preferredMaxLayoutWidth = CGFloat(self.size.width * 0.80)
+//                        myLabel2.yScale = 0.8
+//                        myLabel2.xScale = 0.8
+//                        myLabel2.numberOfLines = 5
+//                        addChild(myLabel2)
+//                    }
+//                    else {
+//
+//                        let status_2 = await twitchService.checkUserSubscription(token: DataManager.standard.getToken(), client_id: DataManager.standard.client_id, user_id:DataManager.standard.getUser_id())
+//
+//                        // Se non subbato
+//                        if status_2 {
+//                            let box = CGSize(width : UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.width * 0.8)
+//                            let alertBox = SKShapeNode(rectOf: box)
+//                            alertBox.position = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+//                            alertBox.name = "alertTwitch"
+//                            alertBox.fillColor = .gray
+//                            addChild(alertBox)
+//
+//                            let myLabel = SKLabelNode(fontNamed: "Mabook")
+//                            myLabel.name = "twitchAlertMessage"
+//                            myLabel.text = "Not Subbed to Paolo Cannone".localized()
+//                            myLabel.fontSize = 30
+//                            myLabel.position = CGPoint(x: alertBox.position.x, y: alertBox.position.y)
+//                            myLabel.preferredMaxLayoutWidth = CGFloat(self.size.width * 0.80)
+//                            myLabel.yScale = 0.8
+//                            myLabel.xScale = 0.8
+//                            myLabel.numberOfLines = 5
+//
+//                            addChild(myLabel)
+//
+//
+//                            let alertOK = CGSize(width : UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.width * 0.3)
+//                            let alertBoxOK = SKShapeNode(rectOf: alertOK)
+//
+//                            alertBoxOK.position = CGPoint(x: alertBox.frame.midX, y: alertBox.frame.midY*0.8)
+//                            alertBoxOK.name = "OKbox"
+//                            alertBoxOK.fillColor = .purple
+//                            alertBoxOK.setScale(0.5)
+//                            addChild(alertBoxOK)
+//
+//                            let myLabel2 = SKLabelNode(fontNamed: "Mabook")
+//                            myLabel2.name = "twitchAlertMessageOK"
+//                            myLabel2.text = "OK"
+//                            myLabel2.fontSize = 30
+//                            myLabel2.position = CGPoint(x: alertBox.frame.midX, y: alertBox.frame.midY*0.8)
+//                            myLabel2.preferredMaxLayoutWidth = CGFloat(self.size.width * 0.80)
+//                            myLabel2.yScale = 0.8
+//                            myLabel2.xScale = 0.8
+//                            myLabel2.numberOfLines = 5
+//                            addChild(myLabel2)
+//
+//                        } else {
+//                            if isSameMonth(date1: DataManager.standard.getlastTwitchLogin(), date2: Date.now) {
+//                                print("Mese subbato")
+//                                DataManager.standard.setlastTwitchLogin(lastTwitchLogin: Date.now)
+//                            } else{
+//                                print("Aggiungo punti")
+//                                DataManager.standard.setlastTwitchLogin(lastTwitchLogin: Date.now)
+//                            }
+//                        }
+//
+//                    }
+//
+//                }
+//
+//            }
+//
+//
+//        }
+//
+//    }
     
     
 }
