@@ -49,6 +49,9 @@ class InventoryUseScene : SKScene {
     var energyRectangle = CGRect()
     var healthRectangle = CGRect()
     var happyRectangle = CGRect()
+    
+    
+    
 
     override func didMove(to view: SKView) {
         setupInventoryUseScene()
@@ -561,6 +564,7 @@ extension InventoryUseScene {
             happyBarShapeNode.fillColor = verdeAcqua
             happyBarShapeNode.strokeColor = verdeAcqua
         }
+        
         else if happyV / CGFloat(mochi.maxHappiness) > 0.24 {
             happyBarShapeNode.fillColor = arancione
             happyBarShapeNode.strokeColor = arancione

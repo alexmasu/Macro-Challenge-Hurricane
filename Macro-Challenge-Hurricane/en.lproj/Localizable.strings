@@ -8,14 +8,15 @@
 
 // Consumable.swift
 "Use" = "use";
-
+"buy" = "buy";
+"comingSoon" = "new items for customization coming soon";
 "Disponibile" = "Available";
 
 "hamburger" = "hamburger";
-"it looks tasty, I feel like i'm the clowns' king" = "it looks tasty, I feel like i'm the clowns' king";
+"hamburger description" = "it looks tasty, I feel like i'm the clowns' king";
 
 "pizza" = "pizza";
-"Simple, traditional without pineapple. Erne ta po magnà a pizza..." = "Simple, traditional without pineapple. Erne ta po magnà a pizza...";
+"pizza description" = "Simple, traditional without pineapple. Erne ta po magnà a pizza...";
 
 
 "potato chip" = "potato chips";
@@ -60,8 +61,20 @@
 
 "Done" = "Done";
 
+"Center" = "Studio";
+
+"Swipe R" = "->";
+
+"Right" = " Bathroom";
+
+"Swipe L" = "<-";
+
+"Left" = " Bedroom";
+
 "Mini Games" = "Mini Games";
 
 "Mini Games coming soon" = "Games will be present in the final version, we give you +10 happiness for your understanding";
 
-"Light Switch" = "Sleep";
+"LightSwitch" = "Rest";
+
+"Ometto" = "Show Stats";

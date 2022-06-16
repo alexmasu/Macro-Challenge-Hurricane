@@ -145,14 +145,14 @@ class TamagotchiMainScene : SKScene {
         
         if prev_sec == 0 {
             prev_sec = currentTime
-            print("inif")
+//            print("inif")
         }
         else {
             //            print("\(prev_sec)")
             if currentTime - prev_sec > 1 {
                 
                 soundtime -= 1
-                print("\(soundtime)")
+//                print("\(soundtime)")
                 prev_sec = currentTime
             }
             
@@ -349,7 +349,7 @@ class TamagotchiMainScene : SKScene {
             
             // Far lavare l'ometto.
             
-            if (node.name == "ometto") && activeRoom != 2 {
+            if (node.name == "ometto") {
                 if omettoOn == false {
                     spawnStatsButtons()
                     updateStatBars()
@@ -362,12 +362,12 @@ class TamagotchiMainScene : SKScene {
                     omettoOn = false
                 }
             }
-            
-            else if (node.name == "ometto") && activeRoom == 2 {
-                
-                bathroom.removeChildren(in: [water1,water2,water3,water4,water5])
-                spawnSoap()
-            }
+//
+//            if (node.name == "ometto") && activeRoom == 2 {
+//
+//                bathroom.removeChildren(in: [water1,water2,water3,water4,water5])
+//                spawnSoap()
+//            }
             
             if (node.name == "doccino") {
                 removeSoap()
@@ -549,8 +549,8 @@ extension TamagotchiMainScene {
         addChild(customization)
         
         let info = SKSpriteNode(imageNamed: "info.png")
-        info.setScale(0.6)
-        info.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.13, y: frame.maxY - UIScreen.main.bounds.height * 0.15)
+        info.setScale(0.65)
+        info.position = CGPoint(x: frame.minX + UIScreen.main.bounds.width * 0.13, y: frame.maxY - UIScreen.main.bounds.height * 0.17)
         info.name = "info"
         addChild(info)
         
@@ -1176,7 +1176,8 @@ extension TamagotchiMainScene {
         square.position = CGPoint(x: frame.midX, y: frame.midY - UIScreen.main.bounds.height * 0.21)
         square.name = "ometto"
         addChild(square)
-        
+        gameLogic.square_pos_x = square.position.x
+        gameLogic.square_pos_y = square.position.y
         square.addChild(face)
         
     }
@@ -1570,6 +1571,7 @@ extension TamagotchiMainScene {
                             hideLightswitch()
                             
                             activeRoom =  1
+                            gameLogic.curr_room = 1
                         }
                         else {
                             
@@ -1584,6 +1586,8 @@ extension TamagotchiMainScene {
                             hideLightswitch()
                             
                             activeRoom =  1
+                            
+                            gameLogic.curr_room = 1
                         }
                         
                         
@@ -1598,6 +1602,8 @@ extension TamagotchiMainScene {
                         showDoccino()
                         
                         activeRoom = 2
+                        
+                        gameLogic.curr_room = 2
                         
                         
                     }
@@ -1624,6 +1630,8 @@ extension TamagotchiMainScene {
                         
                         activeRoom =  1
                         
+                        gameLogic.curr_room = 1
+                        
                         
                     }
                     
@@ -1635,6 +1643,8 @@ extension TamagotchiMainScene {
                         showDoccino()
                         
                         activeRoom = 2
+                        
+                        gameLogic.curr_room = 2
                         
                         
                     }
@@ -1671,6 +1681,7 @@ extension TamagotchiMainScene {
                         hideMinigames()
                         
                         activeRoom = 0
+                        gameLogic.curr_room = 0
                     }
                     
                     else if activeRoom == 2 {
@@ -1685,6 +1696,7 @@ extension TamagotchiMainScene {
                         hideLightswitch()
                         
                         activeRoom = 1
+                        gameLogic.curr_room = 1
                         
                     }
                     
@@ -1711,6 +1723,7 @@ extension TamagotchiMainScene {
                         hideMinigames()
                         
                         activeRoom = 0
+                        gameLogic.curr_room = 0
                     }
                     
                     else if activeRoom == 2 {
@@ -1725,6 +1738,7 @@ extension TamagotchiMainScene {
                         hideLightswitch()
                         
                         activeRoom = 1
+                        gameLogic.curr_room = 1
                         
                     }
                     

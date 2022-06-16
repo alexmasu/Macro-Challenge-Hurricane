@@ -94,7 +94,6 @@
 		95B190132859C36D000EAC9E /* InventoryUseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B190122859C36D000EAC9E /* InventoryUseScene.swift */; };
 		960F20142859EC9900E2CDBF /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F20132859EC9900E2CDBF /* InfoView.swift */; };
 		96228F33283F8ED3008EF30D /* CGFloat_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96228F32283F8ED3008EF30D /* CGFloat_Ext.swift */; };
-		963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 963D5A9A2834EA59008ECEC7 /* Lottie */; };
 		963D5AB82834EE31008ECEC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 963D5ABA2834EE31008ECEC7 /* Localizable.strings */; };
 		963D5AC22834F301008ECEC7 /* blender.json in Resources */ = {isa = PBXBuildFile; fileRef = 963D5AC12834F301008ECEC7 /* blender.json */; };
 		963D5ACA2834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963D5AC72834F5E8008ECEC7 /* Macro_Challenge_HurricaneApp.swift */; };
@@ -238,7 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FDAF9D5285092CD004276E0 /* RealHTTP in Frameworks */,
-				963D5A9B2834EA59008ECEC7 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +473,6 @@
 			);
 			name = "Macro-Challenge-Hurricane";
 			packageProductDependencies = (
-				963D5A9A2834EA59008ECEC7 /* Lottie */,
 				7FDAF9D4285092CD004276E0 /* RealHTTP */,
 			);
 			productName = "Macro-Challenge-Hurricane";
@@ -508,7 +505,6 @@
 			);
 			mainGroup = 7F621EFD282E46C2007FE06B;
 			packageReferences = (
-				963D5A992834EA59008ECEC7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				7FDAF9D3285092CD004276E0 /* XCRemoteSwiftPackageReference "RealHTTP" */,
 			);
 			productRefGroup = 7F621F07282E46C2007FE06B /* Products */;
@@ -874,14 +870,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		963D5A992834EA59008ECEC7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -889,11 +877,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7FDAF9D3285092CD004276E0 /* XCRemoteSwiftPackageReference "RealHTTP" */;
 			productName = RealHTTP;
-		};
-		963D5A9A2834EA59008ECEC7 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 963D5A992834EA59008ECEC7 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

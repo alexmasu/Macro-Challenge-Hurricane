@@ -8,14 +8,15 @@
 
 // Consumable.swift
 "Use" = "usa";
-
+"buy" = "compra";
+"comingSoon" = "nuovi oggetti per la personalizzazione in arrivo";
 "Disponibile" = "disponibile";
 
 "hamburger" = "hamburger";
 "hamburger description" = "sembra gustoso, mi sento come se fossi il re dei clown";
 
 "pizza" = "pizza";
-"pizza description" = "Semplice, tradizionale senza ananas. Erne ta po magna' a pizza...";
+"pizza description" = "Semplice, tradizionale senza ananas. Erne' ta po magna' a pizza...";
 
 
 "potato chip" = "patatine";
@@ -51,7 +52,7 @@
 
 "Twitch" = "Twitch";
 
-"Clean" = "Lava";
+"Clean" = "Pulisci";
 
 "Monitor" = "Vai Live";
 
@@ -59,8 +60,20 @@
 
 "Done" = "Fatto";
 
+"Center" = "Studio";
+
+"Swipe R" = "->";
+
+"Right" = " Bagno";
+
+"Swipe L" = "<-";
+
+"Left" = " Cameretta";
+
 "Mini Games" = "Mini Giochi";
 
-"Mini Games coming soon" = "I mini giochi saranno presenti nella versione finale , ti diamo +10 felicita per la comprensione."; = "I mini giochi saranno presenti nella versione finale , ti diamo +10 felicita per la comprensione";
+"Mini Games coming soon" = "I mini giochi saranno presenti nella versione finale , ti diamo +10 felicita per la comprensione.";
 
-"Light Switch" = "Dormi";
+"LightSwitch" = "Riposa";
+
+"Ometto" = "Mostra statistiche";
