@@ -51,7 +51,7 @@
 
 "Twitch" = "Twitch";
 
-"Clean" = "Lava";
+"Clean" = "Pulisci";
 
 "Monitor" = "Vai Live";
 
@@ -74,3 +74,5 @@
 "Mini Games coming soon" = "I mini giochi saranno presenti nella versione finale , ti diamo +10 felicita per la comprensione.";
 
 "LightSwitch" = "Riposa";
+
+"Ometto" = "Mostra statistiche";

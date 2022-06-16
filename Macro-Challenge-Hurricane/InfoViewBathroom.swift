@@ -50,19 +50,19 @@ struct InfoViewBathroom: View {
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 150, height: 200)
-                        .position(x: 60, y: 150)
+                        .position(x: 60, y: 0)
                         .blur(radius: 30)
                         .opacity(1)
                         .overlay{
                             Text("Swipe L")
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 20, y: 150)
+                                .position(x: 20, y: 0)
                             Text("Center")
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 70, y: 150)
+                                .position(x: 70, y: 0)
                         }
                 }
                 HStack{
@@ -84,7 +84,7 @@ struct InfoViewBathroom: View {
                     Ellipse()
                         .fill(Color.white)
                         .frame(width: 150, height: 200)
-                        .position(x: 60, y: 190)
+                        .position(x: 90, y: 190)
                         .blur(radius: 30)
                         .opacity(0.8)
                         .overlay{
@@ -92,7 +92,7 @@ struct InfoViewBathroom: View {
                                 .font(Font.custom("Mabook", size: 15))
                                 .foregroundColor(Color.black)
                                 .fontWeight(.bold)
-                                .position(x: 60, y: 190)
+                                .position(x: 90, y: 190)
                             Spacer()
                         }
                     Ellipse()
