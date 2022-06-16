@@ -10,8 +10,8 @@ import SpriteKit
 import SwiftUI
 
 class ShopBuyScene : SKScene {
-    
-    
+    var curr : SKNode?
+    var displayCountObject = SKLabelNode(fontNamed: "Kefa")
     var buyCount = 1
     let food = SKSpriteNode(imageNamed: "food.png")
     var boxSize = CGSize()
@@ -21,42 +21,6 @@ class ShopBuyScene : SKScene {
     let blurNode = SKShapeNode()
     let effectNode = SKEffectNode()
     let box = CGSize(width : UIScreen.main.bounds.width * 0.25, height: UIScreen.main.bounds.width * 0.25)
-    
-    var refPosition = CGPoint(x: UIScreen.main.bounds.maxX*0.15, y: UIScreen.main.bounds.maxY*0.80)
-    var settingContainer = SKShapeNode()
-    var nodes = [SKNode()]
-    var label = SKSpriteNode()
-    var startstream = false
-    var checkSwipe = false
-    var lightswitch = false
-    var mute = false
-    var settingsOn = false
-    var omettoOn = false
-    var leftedge = false
-    var rightedge = false
-    var soapApplied : Int = 0
-    var activeRoom = 1
-    private var curr : SKNode?
-    private var swipeStart : CGPoint?
-    private var swipeEnd : CGPoint?
-    
-    var arcHunger = UIBezierPath()
-    var arcThirst = UIBezierPath()
-    var arcClean = UIBezierPath()
-    var arcEnergy = UIBezierPath()
-    var arcHappy = UIBezierPath()
-    var arcHealth = UIBezierPath()
-    
-    var arcHungerBar = SKShapeNode()
-    var arcThirstBar = SKShapeNode()
-    var arcCleanBar = SKShapeNode()
-    var arcEnergyBar = SKShapeNode()
-    var arcHappyBar = SKShapeNode()
-    var arcHealthBar = SKShapeNode()
-    
-    let verdeAcqua = UIColor(named: "verdeAcqua")!
-    let arancione = UIColor(named:"arancione")!
-    let rosso = UIColor(named: "rosso")!
     
     
     let initialPos = CGPoint(x: UIScreen.main.bounds.width * 0.17, y: UIScreen.main.bounds.height * 0.716)
@@ -109,9 +73,38 @@ class ShopBuyScene : SKScene {
                     let transition = SKTransition.fade(withDuration: 0.5)
                     self.view?.presentScene(shopScene, transition: transition)
                 }
+                if node.name == "plusCircle"{
+                    buyCount = buyCount + 1
+                    
+                    updateCount()
+                    
+                }
+                if node.name == "minusCircle"{
+                    buyCount = max (buyCount - 1, 1)
+                    updateCount()
+                }
+                if node.name == "buyButton" {
+                    var i = 0
+                    while i<buyCount{
+                        print("\(Macro_Challenge_HurricaneApp.inventory.buy(currencies: Macro_Challenge_HurricaneApp.currencies, selected: item.id))")
+                        i = i + 1
+                    }
+                    let shopScene = ShopScene(size: (view?.frame.size)!)
+                    //                    tamagotchiMainScene.size = (view?.frame.size)!
+                    let transition = SKTransition.fade(withDuration: 0.5)
+                    self.view?.presentScene(shopScene, transition: transition)
+                    
+                }
+                
             }
         }
     }
+    func updateCount(){
+        
+        displayCountObject.text = "\(buyCount)"
+      
+    }
+
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -202,7 +195,7 @@ extension ShopBuyScene {
         
         let coin = SKSpriteNode(imageNamed: "Coin.png")
         coin.setScale(0.05)
-        coin.position = CGPoint(x: UIScreen.main.bounds.maxX*0.171, y: UIScreen.main.bounds.maxY*0.9308)
+        coin.position = CGPoint(x: UIScreen.main.bounds.maxX*0.18, y: UIScreen.main.bounds.maxY*0.9308)
         coin.zPosition = 2
         addChild(coin)
     }
@@ -226,7 +219,7 @@ extension ShopBuyScene {
         let followerLabel = SKLabelNode(fontNamed: "Kefa")
         followerLabel.text = "\(Macro_Challenge_HurricaneApp.currencies.followers)"
         followerLabel.fontSize = 20
-        followerLabel.position = CGPoint(x: UIScreen.main.bounds.maxX*0.81, y: UIScreen.main.bounds.maxY*0.92)
+        followerLabel.position = CGPoint(x: UIScreen.main.bounds.maxX*0.8, y: UIScreen.main.bounds.maxY*0.92)
         followerLabel.zPosition = 2
         addChild(followerLabel)
         
@@ -317,6 +310,8 @@ extension ShopBuyScene {
         displayCount.fontSize = 40
         addChild(displayCount)
         
+        displayCountObject = displayCount
+        
         let roundedBuy = SKShapeNode(rect: CGRect(origin: CGPoint(x: UIScreen.main.bounds.width * 0.1 , y: UIScreen.main.bounds.height * 0.1) , size: CGSize(width: 0.8 * UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * 0.1)), cornerRadius: 10)
         roundedBuy.fillColor = UIColor.lightGray
         roundedBuy.zPosition = 10
@@ -340,7 +335,7 @@ extension ShopBuyScene {
         plusCircle.zPosition = 600
         plusCircle.name = "plusCircle"
         addChild(plusCircle)
-        plusCircle.alpha = 0
+        plusCircle.alpha = 0.00001
         
         let plus = SKLabelNode(fontNamed: "Kefa")
         plus.position = CGPoint(x: UIScreen.main.bounds.maxX * 0.73, y:UIScreen.main.bounds.maxY * 0.24)
@@ -354,7 +349,7 @@ extension ShopBuyScene {
         minusCircle.zPosition = 600
         minusCircle.name = "minusCircle"
         addChild(minusCircle)
-        minusCircle.alpha = 0
+        minusCircle.alpha = 0.00001
         
         let minus = SKLabelNode(fontNamed: "Kefa")
         minus.position = CGPoint(x: UIScreen.main.bounds.maxX * 0.27, y:UIScreen.main.bounds.maxY * 0.243 )

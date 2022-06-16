@@ -73,6 +73,7 @@ class ShopScene : SKScene {
     
     override func didMove(to view: SKView) {
         setupShopScene()
+        print("\(Macro_Challenge_HurricaneApp.currencies.money)")
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -347,7 +348,7 @@ extension ShopScene {
         
         let coin = SKSpriteNode(imageNamed: "Coin.png")
         coin.setScale(0.05)
-        coin.position = CGPoint(x: UIScreen.main.bounds.maxX*0.171, y: UIScreen.main.bounds.maxY*0.9308)
+        coin.position = CGPoint(x: UIScreen.main.bounds.maxX*0.18, y: UIScreen.main.bounds.maxY*0.9308)
         coin.zPosition = 2
         addChild(coin)
     }
@@ -371,7 +372,7 @@ extension ShopScene {
         let followerLabel = SKLabelNode(fontNamed: "Kefa")
         followerLabel.text = "\(Macro_Challenge_HurricaneApp.currencies.followers)"
         followerLabel.fontSize = 20
-        followerLabel.position = CGPoint(x: UIScreen.main.bounds.maxX*0.81, y: UIScreen.main.bounds.maxY*0.92)
+        followerLabel.position = CGPoint(x: UIScreen.main.bounds.maxX*0.8, y: UIScreen.main.bounds.maxY*0.92)
         followerLabel.zPosition = 2
         addChild(followerLabel)
         

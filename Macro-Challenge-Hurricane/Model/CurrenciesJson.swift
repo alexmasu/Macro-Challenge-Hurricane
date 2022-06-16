@@ -10,4 +10,5 @@ struct CurrenciesJson: Codable{
     var money :Int = 0
     var bite: Int = 0
     var followers : Int = 0
+    var new : Bool = false
 }

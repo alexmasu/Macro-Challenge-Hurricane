@@ -23,15 +23,16 @@ class Currencies: NSObject, NSCoding{
     }
     override init(){
         let readingCurrencies = DataManager.standard.getCurrencies()
-        if readingCurrencies != nil{
+        if (readingCurrencies?.new) != nil{
+            
             money = readingCurrencies!.money
             bite = readingCurrencies!.bite
             followers = readingCurrencies!.bite
         }
         else {
-            money = 0
+            money = 23
             bite = 0
-            followers = 0
+            followers = 52
         }
         
         

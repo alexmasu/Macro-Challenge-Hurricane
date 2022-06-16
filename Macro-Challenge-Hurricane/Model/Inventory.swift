@@ -44,7 +44,7 @@ class Inventory : NSObject, NSCoding{
     func buy(currencies: Currencies, selected : Int) -> Int{
         if selected <= consumableV.count{
             let consumable = consumableV[selected]
-            if consumable.requirement < currencies.followers{
+            if consumable.requirement > currencies.followers{
                 return -1
             }
             if (currencies.money < consumable.price){
@@ -54,7 +54,7 @@ class Inventory : NSObject, NSCoding{
                 currencies.money = currencies.money - consumable.price
                 i[consumable.id] = i[consumable.id] + 1
                 currencies.save()
-                self.save()
+                Macro_Challenge_HurricaneApp.mochi.save()
                 return 0
             }
         }
